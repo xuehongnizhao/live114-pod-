@@ -446,7 +446,6 @@
     GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"团购详情" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"团购详情"];
     firVC.group_id = info.group_id;
     firVC.info = info;
     [self.navigationController pushViewController:firVC animated:YES];
@@ -477,14 +476,9 @@
     while ([cell.contentView.subviews lastObject]!= nil) {
         [[cell.contentView.subviews lastObject]removeFromSuperview];
     }
-    
-    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 0, 200, 10)];
-    //    view.backgroundColor = [UIColor grayColor];
-    //    cell.selectedBackgroundView = view;
-    
+
     groupInfo *info = [groupArray objectAtIndex:indexPath.row];
     [cell confirgureCell:info];
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -502,7 +496,6 @@
     firVC.identifer = area_id;
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"搜索附近团购" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"搜索附近的团购"];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
@@ -512,7 +505,7 @@
     GroupSearchViewController *firVC = [[GroupSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"搜索团购" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"搜索团购"];
+    
     firVC.u_lat = baidu_lat;
     firVC.u_lng = baidu_lng;
     [self.navigationController pushViewController:firVC animated:YES];
@@ -533,14 +526,6 @@
     [self getDataFromNet];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

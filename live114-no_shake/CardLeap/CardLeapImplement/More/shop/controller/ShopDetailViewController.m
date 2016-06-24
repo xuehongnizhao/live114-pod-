@@ -642,49 +642,36 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger height = 0;
+    NSInteger count = 0;
     NSArray *shopActionarray = [detailInfo.shop_action componentsSeparatedByString:@","];
     switch (section) {
         case 0:
-            height = 1;
+            count = 1;
             break;
         case 1:
-            height = 5;
+            count = 5;
             break;
         case 2:
             if (detailInfo == nil) {
                 shopActionarray = [self.info.shop_action componentsSeparatedByString:@","];
                 shopActionarray = [self clearArray:shopActionarray];
-                height = [shopActionarray count];
+                count = [shopActionarray count];
             }else{
                 shopActionarray = [self clearArray:shopActionarray];
-                height = [shopActionarray count];
+                count = [shopActionarray count];
             }
             break;
-            //        case 3:
-            //            if (detailInfo != nil) {
-            //                NSInteger count = [detailInfo.review_index count];
-            //                if (count==5) {
-            //                    height = 7;
-            //                }else{
-            //                    height = count+1;
-            //                }
-            //            }else{
-            //                height = 0;
-            //            }
-            //            break;
+
         default:
             break;
     }
-    return height;
+    return count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 1.0f;
 }
-
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -696,9 +683,6 @@
     if (self.info == nil && detailInfo == nil) {
         return 0;
     }
-    //    if (self.info!=nil&&detailInfo==nil&&adInfo!=nil) {
-    //        return 4;
-    //    }
     
     return 3;
 }
@@ -764,13 +748,5 @@
     return resultArray;
 }
 
-/*
- #pragma mark - Navigation
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -31,15 +31,7 @@
 
 @implementation ShopDetailTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
 #pragma mark----------配置商家cell显示
 
 -(void)configureCell :(NSInteger)index sectino:(NSInteger)section info:(shopDetailInfo*)shopInfo
@@ -65,29 +57,7 @@
         [_shopName autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
         _shopName.text = shopInfo.shop_name;
         _shopName.font=[UIFont systemFontOfSize:20];
-#pragma mark --- 11.25 删除商家描述，商家名称改为2行文本
-        //        //商家描述
-        //        [self.contentView addSubview:self.shopDesc];
-        //        [_shopDesc autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_shopImage withOffset:8.0f];
-        //        [_shopDesc autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shopName withOffset:7.0f];
-        //        [_shopDesc autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-        //        [_shopDesc autoSetDimension:ALDimensionHeight toSize:20.0f];
-        //        _shopDesc.text = shopInfo.shop_brief;
-        //评价星星
-#pragma mark --- 2016.4 删除星星视图
-        //        [self.contentView addSubview:self.scoreView];
-        //        [_scoreView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_shopImage withOffset:8.0f];
-        //        [_scoreView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shopName withOffset:6.0f];
-        //        [_scoreView autoSetDimension:ALDimensionWidth toSize:100.0f];
-        //        [_scoreView autoSetDimension:ALDimensionHeight toSize:40.0f];
-        //        [self setScore:_scoreView :shopInfo.socre];
-        //评价数量
-        //        [self.contentView addSubview:self.review_num];
-        //        [_review_num autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_scoreView withOffset:3.0f];
-        //        [_review_num autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-        //        [_review_num autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shopName withOffset:5.0f];
-        //        [_review_num autoSetDimension:ALDimensionHeight toSize:20.0f];
-        //        _review_num.text = [NSString stringWithFormat:@"%@人评价",shopInfo.num];
+
     }else if (section == 1){
         
         [self.contentView addSubview:self.iconImage];
@@ -194,70 +164,7 @@
         [_numLable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_messagelable withOffset:15.0f];
         _numLable.text = numText;
     }
-    /*
-     //    }else{
-     //        if (index == 0) {
-     //            UILabel *sectionLalbe = [[UILabel alloc] initForAutoLayout];
-     //            [self.contentView addSubview:sectionLalbe];
-     //            [sectionLalbe autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:13.0f];
-     //            [sectionLalbe autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-     //            [sectionLalbe autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
-     //            [sectionLalbe autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20.0f];
-     //            sectionLalbe.font = [UIFont systemFontOfSize:14.0f];
-     //            sectionLalbe.text = @"评价";
-     //            sectionLalbe.textColor = UIColorFromRGB(singleTitle);
-     //        }else if(index == 6){
-     //            UILabel *checkEstimateLable = [[UILabel alloc] initForAutoLayout];
-     //            [self.contentView addSubview:checkEstimateLable];
-     //            checkEstimateLable.textColor = UIColorFromRGB(singleTitle);
-     //            checkEstimateLable.font = [UIFont systemFontOfSize:14.0f];
-     //            [checkEstimateLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
-     //            [checkEstimateLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-     //            [checkEstimateLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-     //            [checkEstimateLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-     //            checkEstimateLable.textAlignment = NSTextAlignmentCenter;
-     //            checkEstimateLable.text = [NSString stringWithFormat:@"查看全部评价(%@)",shopInfo.num];
-     //        }else{
-     //            [self setAccessoryType:UITableViewCellAccessoryNone];
-     //            //用户名
-     //            [self.contentView addSubview:self.userNameLable];
-     //            [_userNameLable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-     //            [_userNameLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-     //            [_userNameLable autoSetDimension:ALDimensionWidth toSize:200];
-     //            [_userNameLable autoSetDimension:ALDimensionHeight toSize:15.0];
-     //            _userNameLable.text = [[shopInfo.review_index objectAtIndex:index-1] objectForKey:@"user_nickname"];
-     //            //评价fen数
-     //            [self.contentView addSubview:self.score];
-     //            [_score autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:4.0];
-     //            [_score autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:3.0f];
-     //            [_score autoSetDimension:ALDimensionWidth toSize:100];
-     //            [_score autoSetDimension:ALDimensionHeight toSize:20.0];
-     ////            [self setScore:_score :[[shopInfo.review_index objectAtIndex:index-1] objectForKey:@"score"]];
-     //            //评价
-     //            [self.contentView addSubview:self.scoreText];
-     //            [_scoreText autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:15.0];
-     //            [_scoreText autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-     //            [_scoreText autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_userNameLable withOffset:2.0f];
-     //            _scoreText.text = [[shopInfo.review_index objectAtIndex:index-1] objectForKey:@"rev_text"];
-     //            //评价时间
-     //            [self.contentView addSubview:self.timeLable];
-     //            [_timeLable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_scoreText withOffset:3.0f];
-     //            [_timeLable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-     //            [_timeLable autoSetDimension:ALDimensionWidth toSize:100.0f];
-     //            [_timeLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
-     //            _timeLable.text = [Base64Tool fuckNULL:[[shopInfo.review_index objectAtIndex:index-1] objectForKey:@"add_time"]];
-     //            //评价类型
-     //            [self.contentView addSubview:self.typeLable];
-     //            [_typeLable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_timeLable withOffset:30.0f];
-     //            [_typeLable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_scoreText withOffset:5.0f];
-     //            [_typeLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
-     //            [_typeLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:15.0f];
-     //            _typeLable.text = [Base64Tool fuckNULL:[[shopInfo.review_index objectAtIndex:index-1] objectForKey:@"rev_type"]];
-     //        }
-     */
-    //    }
-}
-#pragma mark-----------单机手势
+  }
 -(void)SingleTap :(UITapGestureRecognizer*)gesture
 {
     NSLog(@"点击去相册列表");
