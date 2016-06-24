@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ShopDetailWebViewController : BaseViewController
+@interface ShopDetailWebViewController : ZQFunctionWebController
 /** 商家详情 跳转的URL */
 @property (nonatomic ,strong) NSString * shopDetailWebURL;
 @end

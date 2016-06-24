@@ -12,7 +12,7 @@
 -(void)completeAction;
 @end
 
-@interface payAlipayWebViewController : BaseViewController
+@interface payAlipayWebViewController : ZQFunctionWebController
 @property (strong,nonatomic)id<completeDelegate> delegate;
 @property (strong,nonatomic)NSString *pay_url;
 @property (strong,nonatomic)NSString *pass_code;

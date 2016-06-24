@@ -323,7 +323,7 @@
         }
         
         if (indexPath.row == 1) {
-            [self checkVersion];
+//            [self checkVersion];
         }
     }
     

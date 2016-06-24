@@ -210,7 +210,7 @@ linHangyeCommendViewDelegate>
 - (void)delayMethod { //隐藏广告
     self.fullScreenImage.hidden = YES;
     // 检查APP更新
-    [self checkVersion];
+//    [self checkVersion];
 }
 //点击全屏广告
 - (void) gotoFullScreen {

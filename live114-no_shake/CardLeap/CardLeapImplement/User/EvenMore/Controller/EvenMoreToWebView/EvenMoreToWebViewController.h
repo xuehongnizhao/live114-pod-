@@ -11,7 +11,7 @@
 
 @class EvenMoreIsToJump;
 
-@interface EvenMoreToWebViewController : BaseViewController
+@interface EvenMoreToWebViewController : ZQFunctionWebController
 
 /** 判断跳转加载 webView 的url */
 @property (strong, nonatomic) EvenMoreIsToJump *evenMoreJomp;
