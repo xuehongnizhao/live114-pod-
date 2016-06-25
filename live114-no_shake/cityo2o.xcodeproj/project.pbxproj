@@ -1282,7 +1282,6 @@
 		0458F6301A399751006A30A3 /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		0458F6311A399751006A30A3 /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		0458F6321A399751006A30A3 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
-		0458F6331A399751006A30A3 /* MJExtension使用说明文档.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "MJExtension使用说明文档.rtfd"; sourceTree = "<group>"; };
 		0458F6341A399751006A30A3 /* MJIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJIvar.h; sourceTree = "<group>"; };
 		0458F6351A399751006A30A3 /* MJIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJIvar.m; sourceTree = "<group>"; };
 		0458F6361A399751006A30A3 /* MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMember.h; sourceTree = "<group>"; };
@@ -3698,7 +3697,6 @@
 				0458F6301A399751006A30A3 /* MJArgument.h */,
 				0458F6311A399751006A30A3 /* MJArgument.m */,
 				0458F6321A399751006A30A3 /* MJExtension.h */,
-				0458F6331A399751006A30A3 /* MJExtension使用说明文档.rtfd */,
 				0458F6341A399751006A30A3 /* MJIvar.h */,
 				0458F6351A399751006A30A3 /* MJIvar.m */,
 				0458F6361A399751006A30A3 /* MJMember.h */,
