@@ -249,7 +249,6 @@
 		0474CCD01A43B74100230A5E /* LinLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474CCCF1A43B74100230A5E /* LinLoadingView.m */; };
 		0474CCD41A43F38100230A5E /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474CCD31A43F38100230A5E /* ColorButton.m */; };
 		0474CCDA1A44043F00230A5E /* messageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474CCD91A44043F00230A5E /* messageInfo.m */; };
-		047C0E9E1A3545FF003B40E7 /* HomeNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047C0E9D1A3545FF003B40E7 /* HomeNavigationView.m */; };
 		047E0C691A37DAE000304FF1 /* ROllLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E0C681A37DAE000304FF1 /* ROllLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		047E0C7D1A37DBC500304FF1 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E0C6C1A37DBC500304FF1 /* CalendarDayCell.m */; };
 		047E0C7E1A37DBC500304FF1 /* CalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E0C6E1A37DBC500304FF1 /* CalendarDayModel.m */; };
@@ -1362,8 +1361,6 @@
 		0474CCD31A43F38100230A5E /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorButton.m; sourceTree = "<group>"; };
 		0474CCD81A44043F00230A5E /* messageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageInfo.h; sourceTree = "<group>"; };
 		0474CCD91A44043F00230A5E /* messageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageInfo.m; sourceTree = "<group>"; };
-		047C0E9C1A3545FF003B40E7 /* HomeNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationView.h; sourceTree = "<group>"; };
-		047C0E9D1A3545FF003B40E7 /* HomeNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationView.m; sourceTree = "<group>"; };
 		047E0C671A37DAE000304FF1 /* ROllLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROllLabel.h; sourceTree = "<group>"; };
 		047E0C681A37DAE000304FF1 /* ROllLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROllLabel.m; sourceTree = "<group>"; };
 		047E0C6B1A37DBC500304FF1 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
@@ -5034,8 +5031,6 @@
 				46D1D91E1A7F0861003570AE /* Message */,
 				0458F61E1A397ED6006A30A3 /* cell */,
 				047E0D3E1A382D0100304FF1 /* model */,
-				047C0E9C1A3545FF003B40E7 /* HomeNavigationView.h */,
-				047C0E9D1A3545FF003B40E7 /* HomeNavigationView.m */,
 				04480A561D1CB671004018CF /* HomeViewController.h */,
 				04480A571D1CB671004018CF /* HomeViewController.m */,
 				04519A3B1BAD029D004DF7F5 /* View */,
@@ -6244,7 +6239,6 @@
 				0474CCD01A43B74100230A5E /* LinLoadingView.m in Sources */,
 				042895121A3E6EBD00CC2407 /* PhotoView.m in Sources */,
 				0469B2FD1A4D33B20065B1B5 /* shopTakeoutTableViewCell.m in Sources */,
-				047C0E9E1A3545FF003B40E7 /* HomeNavigationView.m in Sources */,
 				042EC7E21AC93B720019F5B0 /* myOrderRoomCenterViewController.m in Sources */,
 				04AC9A8D1CD19FE0007940FA /* TAPageControl.m in Sources */,
 				0428951B1A3E6EBD00CC2407 /* AFURLRequestSerialization.m in Sources */,

@@ -29,8 +29,6 @@
 #import "OrderDetailViewController.h"
 #import "OrderSeatViewController.h"
 #import "orderRoomListViewController.h"
-//消息按钮界面
-#import "HomeNavigationView.h"
 
 #import "AppUpdatesController.h"    //APP更新链接
 #define AppVersion @"AppVersion"    //APP版本号
@@ -564,7 +562,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     [Base64Tool postSomethingToServe:connect_url andParams:dict isBase64:YES CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             if ([[param[@"obj"] objectForKey:@"index_message"] integerValue]==0) {
-                [[HomeNavigationView shareInstance]addHint];
             }
             if ([[param[@"obj"] objectForKey:@"com_num"] integerValue]>0) {
                 NSString *count = [NSString stringWithFormat:@"%@",[param[@"obj"] objectForKey:@"com_num"]];

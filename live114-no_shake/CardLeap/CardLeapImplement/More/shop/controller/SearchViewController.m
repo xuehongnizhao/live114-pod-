@@ -138,15 +138,8 @@
 #pragma mark 设置返回按钮和搜索按钮
 -(void)setBackButtonAndSearchButton
 {
-//    UIButton* leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-//    leftButton.frame=CGRectMake(0, 0, 44, 44);
-//    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateNormal];
-//    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateSelected];
-//    leftButton.imageEdgeInsets=UIEdgeInsetsMake(0, -30, 0, 0);
-//    [leftButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:leftButton];
-    
-    
+
+
     UIButton* rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame=CGRectMake(0, 0, 44*LinPercent, 30);
     rightButton.titleLabel.font=[UIFont systemFontOfSize:14];

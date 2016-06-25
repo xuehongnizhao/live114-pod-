@@ -66,6 +66,7 @@
 
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-1000, -1000)
                                                          forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 #pragma mark-------返回按钮方法
@@ -241,8 +242,6 @@
             
             [self updateSizingWithDelta:delta];
             
-            // This line needs tweaking
-            // [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y - delta) animated:YES];
         }];
     } else {
         // And back up
@@ -279,21 +278,6 @@
     frame.size.height += delta;
     self.scrollableView.layer.frame = frame;
 }
-//---------------------------------
 
-#pragma mark -
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

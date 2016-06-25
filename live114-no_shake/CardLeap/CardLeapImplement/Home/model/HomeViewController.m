@@ -7,7 +7,6 @@
 //
 #import <CoreLocation/CoreLocation.h>
 #import "HomeViewController.h"
-#import "HomeNavigationView.h"
 #import "UIScrollView+MJRefresh.h"
 #import "AdBannerView.h"
 #import "SLCoverFlowView.h"
@@ -70,7 +69,7 @@
 
 #import "AppUpdatesController.h" // 更新APP web页
 #define AppVersion @"AppVersion" //APP版本号
-
+#define SEARCHTAG 20160625
 @interface HomeViewController ()<UITextFieldDelegate,
 UITableViewDataSource,
 UITableViewDelegate,
@@ -79,7 +78,6 @@ AdBannerViewDelegate,
 littleCateDelegate,
 CommendViewDelegate,
 CLLocationManagerDelegate,
-GoSearchDelegate,
 HomeSelectedCityViewControllerDelegate,
 SkyServerCenterViewDelegate,
 linHangyeCommendViewDelegate>
@@ -112,7 +110,7 @@ linHangyeCommendViewDelegate>
     NSString *baidu_lat;
     NSString *baidu_lng;
     NSMutableArray *CarouseArray;//幻灯片 数组？
-    HomeNavigationView *navigationView;
+
 }
 @property (strong,nonatomic)UIView *shopListView;//商家列表view
 @property (strong,nonatomic)CommendView *faceView;//滑动页 分类多页按钮
@@ -123,7 +121,7 @@ linHangyeCommendViewDelegate>
 @property (strong,nonatomic)IndustryZoneView   * industryView;//行业View
 @property (nonatomic, strong) UIView * commodityDisplayView;//商品展示View
 @property (nonatomic, strong) UIView * billboardsView;
-
+@property (strong, nonatomic) UIView *navigationView;
 @property (strong ,nonatomic) UIImageView * advertisementImgView;//
 //首页全屏广告持续时间
 @property (nonatomic, strong) NSTimer     * timer;
@@ -136,18 +134,18 @@ linHangyeCommendViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置引导页
-    self.showAdvertising = YES;
+    self.navigationController.navigationBarHidden=YES;
     if (![[NSUserDefaults standardUserDefaults] boolForKey:everLaunch]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:everLaunch];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [UZGuideViewController show];
-        self.showAdvertising = NO;
+        
     }
+    
     // Do any additional setup after loading the view.
     [self initData];
     //获取当前网络状况
     [self getTheWebCon];
-    [self setNavigationBar];
     
     //做数据处理
     [self setUI];
@@ -155,11 +153,6 @@ linHangyeCommendViewDelegate>
     [self getDataFromNet];//获取网络数据
 }
 
-
-//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UnLexiangHint:) name:NOTIFICATION_RIGHT_NEW_MESSAGE object:nil];
-/*
- [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ROOT_NEW_MESSAGE object:msg];
- */
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -174,60 +167,19 @@ linHangyeCommendViewDelegate>
         [self.navigationController pushViewController:hvc animated:YES];
     }
     
-    if (self.showAdvertising) {
-        if (!self.fullScreenImage) {
-            self.fullScreenImage = [[UIImageView alloc] initWithFrame:self.view.window.bounds];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-            
-            button.frame = CGRectMake(SCREEN_WIDTH - 80, 40, 60, 30);
-            
-            button.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.8];
-            
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
-            [button setTitle:@"跳 过" forState:UIControlStateNormal];
-            
-            button.layer.cornerRadius   =   5;
-            
-            [button addTarget:self action:@selector(removeFullScreen) forControlEvents:UIControlEventTouchUpInside];
-            
-            [self.fullScreenImage addSubview:button];
-            
-            UITapGestureRecognizer * gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoFullScreen)];
-            [self.fullScreenImage addGestureRecognizer:gesture];
-            self.fullScreenImage.userInteractionEnabled = YES;
-            
-            [self getfullScreenFromNet];//本地可能存储 从网络获取后 刷新页面
-        }
-    }else{
-        self.showAdvertising = YES;
-    }
+
 }
 
-- (void) removeFullScreen {
-    [self delayMethod];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-}
-- (void)delayMethod { //隐藏广告
-    self.fullScreenImage.hidden = YES;
-    // 检查APP更新
-//    [self checkVersion];
-}
-//点击全屏广告
-- (void) gotoFullScreen {
-    self.fullScreenImage.hidden = YES;
-    ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
-    firVC.url = fullScreenDict[@"a_url"];
-    firVC.title = @"详情";
-    [self.navigationController pushViewController:firVC animated:YES];
-}
 -(void)viewWillAppear:(BOOL)animated
 {
+      self.navigationController.navigationBarHidden=YES;
     [super viewWillAppear:animated];
     [self setHiddenTabbar:NO];
-    [[HomeNavigationView shareInstance] setlogoButtonEnabel];
 }
-
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+     self.navigationController.navigationBarHidden=NO;
+}
 #pragma mark-----------收到通知
 - (void)UnLexiangHint:(NSNotification*)notification
 {
@@ -690,7 +642,7 @@ linHangyeCommendViewDelegate>
             NSURL *url = [NSURL URLWithString:fullScreenDict[@"a_pic"]];
             [self.fullScreenImage sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 [self.view.window addSubview:self.fullScreenImage];
-                [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3.0f];
+//                [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3.0f];
                 //                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
             }];
             
@@ -895,7 +847,7 @@ linHangyeCommendViewDelegate>
     }
     // 社区服务 高度
     CGFloat faceViewHeight = 190*LinHeightPercent;//这里按屏幕比率设置高度  以4.0屏幕为例
-    CGFloat adbanderHeight = 150*LinHeightPercent;
+    CGFloat adbanderHeight = SCREEN_HEIGHT*26/100;
     CGFloat commenViewHeihgt = 120*LinHeightPercent;
     //服务中心高度
     CGFloat serverViewHeight = 170;
@@ -1060,10 +1012,12 @@ linHangyeCommendViewDelegate>
 #pragma mark------设置首页显示
 -(void)setUI
 {
+    
+
     [self.view addSubview:self.indexTableview];
     [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-    [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
+    [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeTop ];
     [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:44.0f];
     //如果ud里面有数据 则读取出去 设置界面 然后继续访问接口
     indexDic = userDefault(@"indexData");
@@ -1075,6 +1029,11 @@ linHangyeCommendViewDelegate>
             [self parseShopList:dict];
         }
     }
+    [self.view addSubview:self.navigationView];
+    [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [_navigationView autoSetDimension:ALDimensionHeight toSize:64];
 }
 
 #pragma mark------获取当前网络环境
@@ -1122,24 +1081,6 @@ linHangyeCommendViewDelegate>
         _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     }
     return _messageButton;
-}
-
-#pragma mark--------设置navigation首页显示
--(void)setNavigationBar
-{
-    navigationView = [HomeNavigationView shareInstance];
-    [navigationView setFrame:CGRectMake(0, 0, SCREEN_WIDTH, 25)];//191：21
-    navigationView.delegate = self;
-    self.navigationItem.titleView = navigationView;
-    NSString *cityName = userDefault(KCityNAME);
-    if (cityName!=nil) {
-        [navigationView setCityName:[NSString stringWithFormat:@"%@﹀",cityName]];
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    //Dispose of any resources that can be recreated.
 }
 
 #pragma mark--------tableview and delegate
@@ -1515,67 +1456,6 @@ linHangyeCommendViewDelegate>
     return _cateView;
 }
 
-//#pragma mark---------滚动分类view
-//-(SLCoverFlowView*)coverFlowView
-//{
-//    if (!_coverFlowView) {
-//        _coverFlowView = [[SLCoverFlowView alloc] initForAutoLayout];
-//        _coverFlowView.backgroundColor = [UIColor grayColor];
-//        _coverFlowView.delegate = self;
-//        _coverFlowView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-//        CGRect rect = [[UIScreen mainScreen] bounds];
-//        _coverFlowView.coverSize = CGSizeMake(rect.size.width, 150);
-//        _coverFlowView.coverSpace = 0.0;
-//        _coverFlowView.coverAngle = 0.0;
-//        _coverFlowView.coverScale = 1.0;
-//    }
-//    return _coverFlowView;
-//}
-//
-//#pragma mark--------分类页面代理 分类页数量和显示
-//- (NSInteger)numberOfCovers:(SLCoverFlowView *)coverFlowView {
-//    NSInteger count = [littleCateArray count]/8;
-//    if ([littleCateArray count]%8!=0) {
-//        count += 1;
-//    }
-//    return count;
-//}
-//
-//- (SLCoverView *)coverFlowView:(SLCoverFlowView *)coverFlowView coverViewAtIndex:(NSInteger)index {
-//    float width = coverFlowView.frame.size.width;
-//    float height = coverFlowView.frame.size.height;
-//    SLCoverView *view = [[SLCoverView alloc] initWithFrame:CGRectMake(0.0, 0.0, width, height)];
-//    //添加分类button
-//    CGRect rect = [[UIScreen mainScreen] bounds];
-//    float blankWidth = (rect.size.width - 20*2 - 35*4)/3.0;
-//    for (int i = 0+index*8; i<[littleCateArray count]; i++) {
-//        int n = i % 8;
-//        int x_pos = 120+n%4*blankWidth;
-//        int y_pos = 8 + n/4*60;
-//        littleCateButton *myButton = [[littleCateButton alloc] init];
-//        [myButton setFrame:CGRectMake(x_pos, y_pos, 35, 55)];
-//        //myButton.layer.borderWidth = 1;
-//        myButton.delegate = self;
-//        [myButton setUI:[littleCateArray objectAtIndex:i]];
-//        [view addSubview:myButton];
-//    }
-//    view.backgroundColor = [UIColor whiteColor];
-//    if (index == 0) {
-//        view.backgroundColor = [UIColor redColor];
-//    }else if(index == 1){
-//        view.backgroundColor = [UIColor blueColor];
-//    }else{
-//        view.backgroundColor = [UIColor purpleColor];
-//    }
-//    return view;
-//}
-
-#pragma clickButtonForlittle
--(void)clickAction:(NSInteger)index
-{
-    NSLog(@"点击了%ld",(long)index);
-}
-
 -(UIView*)shopListView
 {
     if (!_shopListView) {
@@ -1607,24 +1487,26 @@ linHangyeCommendViewDelegate>
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
--(void)goSeachShop:(NSInteger)index
+-(void)goSeachShop:(UIButton *)sender
 {
+    NSInteger index=sender.tag-SEARCHTAG;
+    
     if (index == 0) {
         NSLog(@"实现代理跳转到搜索页面的方法");
         SearchViewController *firVC = [[SearchViewController alloc] init];
         firVC.u_lat = baidu_lat;
         firVC.u_lng = baidu_lng;
         [firVC setHiddenTabbar:YES];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [self.navigationController pushViewController:firVC animated:NO];
     }else if(index == 1){
         NSLog(@"跳转我的消息页面");
         MessageViewController *firVC = [[MessageViewController alloc] init];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [self.navigationController pushViewController:firVC animated:NO];
     }else if(index == 2){
         NSLog(@"主页在这里跳转多城市");
         HomeSelectedCityViewController* hscvc=[[HomeSelectedCityViewController alloc]init];
         hscvc.delegate=self;
-        [self.navigationController pushViewController:hscvc animated:YES];
+        [self.navigationController pushViewController:hscvc animated:NO];
     }else{
         [UZCommonMethod callPhone:@"0451114" superView:self.view];
     }
@@ -1633,55 +1515,21 @@ linHangyeCommendViewDelegate>
 #pragma mark - HomeSelectedCityViewController Delegate
 -(void)homeSelectedCityViewController:(HomeSelectedCityViewController *)homeSelectedCityViewController currentCityName:(NSString *)cityName currentCityID:(NSString *)ciytID
 {
-    [navigationView setCityName:[NSString stringWithFormat:@"%@﹀",cityName]];
+  
     [[NSUserDefaults standardUserDefaults] setObject:ciytID forKey:KCityID];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //做刷新逻辑
     [self getDataFromNet];
 }
 
--(void)choseTheCity:(NSString *)cityName
-{
-    NSLog(@"1111");
-}
 
 -(void)choseTheCityModule:(CityModule *)module
 {
-    [navigationView setCityName:[NSString stringWithFormat:@"%@﹀",module.city_name]];
     [[NSUserDefaults standardUserDefaults] setObject:module.city_id forKey:KCityID];
     [[NSUserDefaults standardUserDefaults] setObject:module.city_name forKey:KCityNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //做刷新逻辑
     [self getDataFromNet];
-}
-
-/*
- #pragma mark - Navigation
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-#pragma mark - 检查更新APP
-#pragma mark-------检测更新
--(void)checkVersion
-{
-    NSString *cr_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSString *net_version = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_v"] ;
-    if ([self NeedUpdates:net_version CrVersion:cr_version] == YES) {
-        NSString *is_update = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"is_update"] ;
-        NSString *hintStr = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_desc"] ;
-        if ([is_update intValue] == 1) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"强制版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:nil, nil];
-            alert.tag = 1;
-            [alert show];
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:@"暂时不要了", nil];
-            alert.tag = 1;
-            [alert show];
-        }
-    }
 }
 
 - (NSDictionary * ) NSStringtoDictionary:(NSString *)string{
@@ -1731,5 +1579,38 @@ linHangyeCommendViewDelegate>
 }
 - (SLCoverView *)coverFlowView:(SLCoverFlowView *)coverFlowView coverViewAtIndex:(NSInteger)index{
     return nil;
+}
+- (UIView *)navigationView{
+    if (!_navigationView) {
+        _navigationView=[[UIView alloc]initForAutoLayout];
+        _navigationView.backgroundColor=Color(227, 74, 81, 0);
+        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(50, 30, SCREEN_WIDTH-100, 20)];
+        [buttonCenter addTarget:self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
+        buttonCenter.tag=SEARCHTAG;
+        buttonCenter.backgroundColor=[UIColor blueColor];
+        [_navigationView addSubview:buttonCenter];
+        UIButton *buttonLeft=[[UIButton alloc]initWithFrame:CGRectMake(0, 20, 30, 20)];
+        [buttonLeft addTarget: self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
+        buttonLeft.tag=SEARCHTAG+2;
+        buttonLeft.backgroundColor=[UIColor grayColor];
+        [_navigationView addSubview:buttonLeft];
+        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30, 20, 30, 30)];
+        buttonRight.backgroundColor=[UIColor greenColor];
+        [_navigationView addSubview:buttonRight];
+        
+    }
+    return _navigationView;
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        if (scrollView.contentOffset.y<0) {
+            self.navigationView.hidden=YES;
+        
+        }else self.navigationView.hidden=NO;
+
+        self.navigationView.backgroundColor=Color(227, 74, 81, scrollView.contentOffset.y*1.5/(SCREEN_HEIGHT*26/100));
+
+
+    }
 }
 @end
