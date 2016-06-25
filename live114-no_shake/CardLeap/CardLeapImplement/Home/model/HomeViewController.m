@@ -196,6 +196,7 @@ linHangyeCommendViewDelegate>
             UITapGestureRecognizer * gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoFullScreen)];
             [self.fullScreenImage addGestureRecognizer:gesture];
             self.fullScreenImage.userInteractionEnabled = YES;
+            
             [self getfullScreenFromNet];//本地可能存储 从网络获取后 刷新页面
         }
     }else{

@@ -20,7 +20,6 @@
 		041641EF1A6612C8006C19B7 /* roomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 041641EE1A6612C8006C19B7 /* roomInfo.m */; };
 		041641F21A661A63006C19B7 /* orderRoomDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 041641F11A661A63006C19B7 /* orderRoomDetailTableViewCell.m */; };
 		041641F51A66626B006C19B7 /* orderRoomSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041641F41A66626B006C19B7 /* orderRoomSubmitViewController.m */; };
-		042892601A3E6D3D00CC2407 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428925F1A3E6D3D00CC2407 /* SwitchViewController.m */; };
 		0428941B1A3E6EBD00CC2407 /* LinFriendCircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042892671A3E6EBC00CC2407 /* LinFriendCircleCell.m */; };
 		0428941C1A3E6EBD00CC2407 /* LinFriendCircleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042892691A3E6EBC00CC2407 /* LinFriendCircleDetailCell.m */; };
 		0428941D1A3E6EBD00CC2407 /* LinFriendCircleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428926B1A3E6EBC00CC2407 /* LinFriendCircleController.m */; };
@@ -519,7 +518,6 @@
 		33DB1C441A1ED965002E463E /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C3D1A1ED965002E463E /* ZAttributedString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		33DB1C451A1ED965002E463E /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C401A1ED965002E463E /* ZFont.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		33DB1C531A1EEDC7002E463E /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C521A1EEDC7002E463E /* ContactViewController.m */; };
-		33DB1C591A1EEDD8002E463E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C581A1EEDD8002E463E /* UserViewController.m */; };
 		33DB1C6F1A1F0828002E463E /* DSNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C6E1A1F0828002E463E /* DSNavigationBar.m */; };
 		33DB1C741A1F158B002E463E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C731A1F158B002E463E /* Group.m */; };
 		33DB1C771A1F158B002E463E /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C761A1F158B002E463E /* Friend.m */; };
@@ -616,8 +614,6 @@
 		041641F11A661A63006C19B7 /* orderRoomDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderRoomDetailTableViewCell.m; sourceTree = "<group>"; };
 		041641F31A66626B006C19B7 /* orderRoomSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderRoomSubmitViewController.h; sourceTree = "<group>"; };
 		041641F41A66626B006C19B7 /* orderRoomSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderRoomSubmitViewController.m; sourceTree = "<group>"; };
-		0428925E1A3E6D3D00CC2407 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
-		0428925F1A3E6D3D00CC2407 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		042892661A3E6EBC00CC2407 /* LinFriendCircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinFriendCircleCell.h; sourceTree = "<group>"; };
 		042892671A3E6EBC00CC2407 /* LinFriendCircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinFriendCircleCell.m; sourceTree = "<group>"; };
 		042892681A3E6EBC00CC2407 /* LinFriendCircleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinFriendCircleDetailCell.h; sourceTree = "<group>"; };
@@ -1969,8 +1965,6 @@
 		33DB1C4A1A1EE76B002E463E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		33DB1C511A1EEDC7002E463E /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		33DB1C521A1EEDC7002E463E /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		33DB1C571A1EEDD8002E463E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		33DB1C581A1EEDD8002E463E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		33DB1C6D1A1F0828002E463E /* DSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSNavigationBar.h; sourceTree = "<group>"; };
 		33DB1C6E1A1F0828002E463E /* DSNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSNavigationBar.m; sourceTree = "<group>"; };
@@ -5080,10 +5074,6 @@
 				46AA978D1A78717B0023F0ED /* EvenMore */,
 				043468C41A5F5F6400609AB1 /* cell */,
 				04554C271A3AC02500B13AC8 /* model */,
-				33DB1C571A1EEDD8002E463E /* UserViewController.h */,
-				33DB1C581A1EEDD8002E463E /* UserViewController.m */,
-				0428925E1A3E6D3D00CC2407 /* SwitchViewController.h */,
-				0428925F1A3E6D3D00CC2407 /* SwitchViewController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -6058,7 +6048,6 @@
 				042894DA1A3E6EBD00CC2407 /* GrayPageControl.m in Sources */,
 				042895821A3E716A00CC2407 /* SSCheckBoxView.m in Sources */,
 				0460FF7F1A47B53700A35EBA /* MXPullDownMenu.m in Sources */,
-				042892601A3E6D3D00CC2407 /* SwitchViewController.m in Sources */,
 				04480ABA1D1CBAA1004018CF /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				042894C11A3E6EBD00CC2407 /* MarkupParser.m in Sources */,
 				047E39311A36D2980001DD16 /* MJRefreshConst.m in Sources */,
@@ -6221,7 +6210,6 @@
 				0428951A1A3E6EBD00CC2407 /* AFSecurityPolicy.m in Sources */,
 				04598B971A53DB1F003FEE25 /* XHRealTimeBlur.m in Sources */,
 				04E961761ADE4BFB00E883F4 /* ExchangeRecordViewController.m in Sources */,
-				33DB1C591A1EEDD8002E463E /* UserViewController.m in Sources */,
 				041641E31A660510006C19B7 /* orderRoomInfo.m in Sources */,
 				469AC1AF1A709E9700DBD0C7 /* CitySelectViewConstroller.m in Sources */,
 				041641E61A660636006C19B7 /* orderRoomTableViewCell.m in Sources */,
