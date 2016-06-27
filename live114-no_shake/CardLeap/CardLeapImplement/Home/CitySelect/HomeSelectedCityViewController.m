@@ -271,7 +271,6 @@
         
         NSArray *allShowName = [nameDic objectForKey:sectionString];
         NSString* cityName=[allShowName objectAtIndex:indexPath.row];
-        [self.delegate choseTheCity:cityName];
         
         for (CityModule* module in moduleArray)
         {

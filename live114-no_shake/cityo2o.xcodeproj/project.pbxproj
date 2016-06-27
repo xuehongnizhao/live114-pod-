@@ -379,6 +379,7 @@
 		04EAFD791A7759B700A93435 /* GroupSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EAFD781A7759B700A93435 /* GroupSubmitViewController.m */; };
 		04EAFD7C1A775F2700A93435 /* groupSubmitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EAFD7B1A775F2700A93435 /* groupSubmitTableViewCell.m */; };
 		04EAFD7F1A77AE4A00A93435 /* GroupPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EAFD7E1A77AE4A00A93435 /* GroupPayViewController.m */; };
+		04EDDA321D210E0000708F31 /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EDDA311D210E0000708F31 /* UUProgressHUD.m */; };
 		04EED8E31A6E231C00E548BC /* myOrderCenterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8E21A6E231C00E548BC /* myOrderCenterInfo.m */; };
 		04EED8E61A6E268D00E548BC /* myOrderCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8E51A6E268D00E548BC /* myOrderCenterTableViewCell.m */; };
 		04EED8EC1A6E5FF700E548BC /* myOrderSeatCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8EB1A6E5FF700E548BC /* myOrderSeatCenterTableViewCell.m */; };
@@ -1663,6 +1664,8 @@
 		04EAFD7B1A775F2700A93435 /* groupSubmitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupSubmitTableViewCell.m; sourceTree = "<group>"; };
 		04EAFD7D1A77AE4A00A93435 /* GroupPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPayViewController.h; sourceTree = "<group>"; };
 		04EAFD7E1A77AE4A00A93435 /* GroupPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPayViewController.m; sourceTree = "<group>"; };
+		04EDDA301D210E0000708F31 /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
+		04EDDA311D210E0000708F31 /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
 		04EED8E11A6E231C00E548BC /* myOrderCenterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myOrderCenterInfo.h; sourceTree = "<group>"; };
 		04EED8E21A6E231C00E548BC /* myOrderCenterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myOrderCenterInfo.m; sourceTree = "<group>"; };
 		04EED8E41A6E268D00E548BC /* myOrderCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myOrderCenterTableViewCell.h; sourceTree = "<group>"; };
@@ -4603,6 +4606,15 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		04EDDA2F1D210DCA00708F31 /* UUProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04EDDA301D210E0000708F31 /* UUProgressHUD.h */,
+				04EDDA311D210E0000708F31 /* UUProgressHUD.m */,
+			);
+			path = UUProgressHUD;
+			sourceTree = "<group>";
+		};
 		04EFF3A31ADD071E00493C29 /* PointAndGift */ = {
 			isa = PBXGroup;
 			children = (
@@ -5055,6 +5067,7 @@
 		333BDA541A1DCA1D009BAB8E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				04EDDA2F1D210DCA00708F31 /* UUProgressHUD */,
 				04FD16F21D1CCD7A000EB184 /* XMNPhotoPickerFramework */,
 				04480ADD1D1CBB31004018CF /* SDWebImage */,
 				04480AC71D1CBAB8004018CF /* Reachability */,
@@ -6041,6 +6054,7 @@
 				33DB1C451A1ED965002E463E /* ZFont.m in Sources */,
 				0458F6441A399751006A30A3 /* MJArgument.m in Sources */,
 				0428952E1A3E6EBD00CC2407 /* MLDataCache.m in Sources */,
+				04EDDA321D210E0000708F31 /* UUProgressHUD.m in Sources */,
 				04F3CD301A6F833000D0B63E /* myOrderRoomStatusTableViewCell.m in Sources */,
 				04A0C4A51A76126300EF2939 /* GroupDetailViewController.m in Sources */,
 				0428954D1A3E711B00CC2407 /* SelectionCell.m in Sources */,

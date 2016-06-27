@@ -108,7 +108,7 @@ linHangyeCommendViewDelegate>
     NSString *baidu_lat;
     NSString *baidu_lng;
     NSMutableArray *CarouseArray;//幻灯片 数组？
-
+    NSString *cityName;
 }
 @property (strong,nonatomic)UIView *shopListView;//商家列表view
 @property (strong,nonatomic)CommendView *faceView;//滑动页 分类多页按钮
@@ -121,7 +121,7 @@ linHangyeCommendViewDelegate>
 @property (nonatomic, strong) UIView * billboardsView;
 @property (strong, nonatomic) UIView *navigationView;
 @property (strong, nonatomic) UIButton *cancelButton;
-@property (strong, nonatomic) UIView *adView;//广告试图
+@property (strong, nonatomic) UIImageView *adView;//广告试图
 
 @end
 
@@ -130,66 +130,52 @@ linHangyeCommendViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置引导页
+    [self setSayHello];
     self.navigationController.navigationBarHidden=YES;
-
     [self initData];
     //获取当前网络状况
     [self getTheWebCon];
-    [self setSayHello];
+
     //做数据处理
-//    [self setUI];
+    [self setUI];
     [self openLocation];
     [self getDataFromNet];//获取网络数据
 
 }
 
 - (void)setSayHello{
-    
+    [self performSelector:@selector(removeADView) withObject:nil afterDelay:10];
+    [self setSayHelloUI];
     [self getfullScreenFromNet];
 }
 - (void)setSayHelloUI{
-    UIImageView *view=[[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view addSubview:view];
-    
-    if (!userDefault(everLaunch)) {
-        view.image=[UIImage imageNamed:@"one"];
-        UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 175, 35)];
-        [enterButton setTitle:@"开始体验"
-                     forState:UIControlStateNormal];
-        [enterButton setTitleColor:[UIColor whiteColor]
-                          forState:UIControlStateNormal];
-        [enterButton setTitleColor:[UIColor whiteColor]
-                          forState:UIControlStateHighlighted];
-        [enterButton setBackgroundColor:[UIColor whiteColor]];
-        [enterButton setTitleColor:UIColorFromRGB(0xa8a8aa) forState:UIControlStateNormal];
-        enterButton.layer.masksToBounds = YES;
-        enterButton.layer.cornerRadius=4.0;
-        if (IPHONE5) {
-            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
-        }else if(IPHONE6){
-            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
-        }else if(IPHONE4){
-            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
-        }else {
-            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
-        }
-        [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03.png"]
-                               forState:UIControlStateNormal];
-        [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03-sel.png"]
-                               forState:UIControlStateHighlighted];
-        [enterButton addTarget:self action:@selector(removeADView)
-              forControlEvents:UIControlEventTouchUpInside];
-        [view addSubview:enterButton];
-    }else{
-        view.image=[self loadImage:adImageName ofType:@"png" inDirectory:[self documentFolder]];
-        [view addSubview:self.cancelButton];
-        [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
-        [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
-        [_cancelButton autoSetDimensionsToSize:CGSizeMake(60, 30)];
-    }
+    [[self mainWindow] addSubview:self.adView];
+    [_adView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [_adView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [_adView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [_adView autoPinEdgeToSuperviewEdge:ALEdgeTop];
 }
 - (void)removeADView{
-    
+    [self.adView removeFromSuperview];
+}
+- (void)goDetailAD{
+    [self removeADView];
+    ZQFunctionWebController *firVC=[[ZQFunctionWebController alloc]init];
+    NSDictionary *dic=userDefault(adImageDic);
+    firVC.url=dic[@"a_url"];
+    [self.navigationController pushViewController:firVC animated:NO];
+}
+- (UIWindow *)mainWindow
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app.delegate respondsToSelector:@selector(window)])
+    {
+        return [app.delegate window];
+    }
+    else
+    {
+        return [app keyWindow];
+    }
 }
 #pragma mark - 获取全屏广告数据
 /**
@@ -346,7 +332,6 @@ linHangyeCommendViewDelegate>
        didFailWithError:(NSError *)error {
     NSLog(@"定位失败");
 }
-
 #pragma mark------初始化数据
 - (void)initData
 {
@@ -1593,17 +1578,25 @@ linHangyeCommendViewDelegate>
     if (!_navigationView) {
         _navigationView=[[UIView alloc]initForAutoLayout];
         _navigationView.backgroundColor=Color(227, 74, 81, 0);
-        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(50, 30, SCREEN_WIDTH-100, 20)];
+        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(60, 30, SCREEN_WIDTH-120, 30)];
         [buttonCenter addTarget:self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
         buttonCenter.tag=SEARCHTAG;
-        buttonCenter.backgroundColor=[UIColor blueColor];
+        buttonCenter.layer.cornerRadius=20;
+        buttonCenter.layer.borderWidth=1;
+        buttonCenter.layer.borderColor=Color(50, 50, 50, 0.3).CGColor;
+        buttonCenter.backgroundColor=[UIColor colorWithWhite:100 alpha:.5];
         [_navigationView addSubview:buttonCenter];
-        UIButton *buttonLeft=[[UIButton alloc]initWithFrame:CGRectMake(0, 20, 30, 20)];
+        UIButton *buttonLeft=[[UIButton alloc]initWithFrame:CGRectMake(0, 30, 40, 30)];
         [buttonLeft addTarget: self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
         buttonLeft.tag=SEARCHTAG+2;
-        buttonLeft.backgroundColor=[UIColor grayColor];
+        [buttonLeft setTitle:@"你好" forState:UIControlStateNormal];
+        UIImage *image=[UIImage imageNamed:@"adreess_sel"];
+        [buttonLeft setImage:image forState:UIControlStateNormal];
+        [buttonLeft setTitleEdgeInsets:UIEdgeInsetsMake( 0.0,-image.size.width, 0.0,0.0)];
+        [buttonLeft setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, buttonCenter.titleLabel.bounds.size.width)];
+
         [_navigationView addSubview:buttonLeft];
-        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30, 20, 30, 30)];
+        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30, 30, 30, 30)];
         buttonRight.backgroundColor=[UIColor greenColor];
         [_navigationView addSubview:buttonRight];
         
@@ -1642,5 +1635,52 @@ linHangyeCommendViewDelegate>
     return _cancelButton;
 }
 
+- (UIImageView *)adView{
+    if (!_adView) {
+        _adView=[[UIImageView alloc]initForAutoLayout];
+        _adView.userInteractionEnabled=YES;
+        if (!userDefault(everLaunch)) {
+            _adView.image=[UIImage imageNamed:@"one"];
+            UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 175, 35)];
+            [enterButton setTitle:@"开始体验"
+                         forState:UIControlStateNormal];
+            [enterButton setTitleColor:[UIColor whiteColor]
+                              forState:UIControlStateNormal];
+            [enterButton setTitleColor:[UIColor whiteColor]
+                              forState:UIControlStateHighlighted];
+            [enterButton setBackgroundColor:[UIColor whiteColor]];
+            [enterButton setTitleColor:UIColorFromRGB(0xa8a8aa) forState:UIControlStateNormal];
+            enterButton.layer.masksToBounds = YES;
+            enterButton.layer.cornerRadius=4.0;
+            if (IPHONE5) {
+                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
+            }else if(IPHONE6){
+                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
+            }else if(IPHONE4){
+                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
+            }else {
+                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
+            }
+            [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03.png"]
+                                   forState:UIControlStateNormal];
+            [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03-sel.png"]
+                                   forState:UIControlStateHighlighted];
+            [enterButton addTarget:self action:@selector(removeADView)
+                  forControlEvents:UIControlEventTouchUpInside];
+            [_adView addSubview:enterButton];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:everLaunch];
+        }else{
+            _adView.image=[self loadImage:adImageName ofType:@"png" inDirectory:[self documentFolder]];
+            [_adView addSubview:self.cancelButton];
+            [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
+            [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
+            [_cancelButton autoSetDimensionsToSize:CGSizeMake(60, 30)];
+            UITapGestureRecognizer *ges=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goDetailAD)];
+            [_adView addGestureRecognizer:ges];
+            
+        }
 
+    }
+    return _adView;
+}
 @end
