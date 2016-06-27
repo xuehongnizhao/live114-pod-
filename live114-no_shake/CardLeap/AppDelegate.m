@@ -579,31 +579,16 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 #pragma mark-------设置主页
 -(void)setIndex
 {
-    /**
-     暂时由于显示问题  不要设置动画显示
-     */
-    //    [UIView beginAnimations:nil context:nil];
-    //    //设定动画持续时间
-    //    [UIView setAnimationDuration:0.5];
-    //    //动画的内容
-    //    [_image setFrame:CGRectMake(320, 0, _image.frame.size.width, _image.frame.size.height)];
-    //    [_image setAlpha:0];
-    //    //动画结束
-    //    [UIView commitAnimations];
-    //    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(removeUserSelectView) userInfo:nil repeats:NO];
+
     [self removeUserSelectView];
 }
 
 -(void)removeUserSelectView
 {
-    //----读取json文件---在这里测试---不一定就放在这里了-----
-    //[[JsonModel shareInstance] readJsonFromTxt:@"JsonFiel"];
     [_image removeFromSuperview];
     TabBarViewController *firVc = [[TabBarViewController alloc] init];
     self.window.rootViewController = firVc;
-    //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:firVc];
     self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
 }
 
 #pragma mark-------检测更新

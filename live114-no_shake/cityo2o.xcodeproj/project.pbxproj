@@ -351,7 +351,6 @@
 		04D523A11A651AE7001882CB /* mySeatSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D523A01A651AE7001882CB /* mySeatSuccessViewController.m */; };
 		04D5BF251A809EB500C0D6B4 /* GroupReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D5BF241A809EB500C0D6B4 /* GroupReviewViewController.m */; };
 		04DBA1C41AB165E40074F9AB /* UpdateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBA1C31AB165E40074F9AB /* UpdateGroupViewController.m */; };
-		04DD39B01A834E6F008AB82F /* UZGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD39AF1A834E6F008AB82F /* UZGuideViewController.m */; };
 		04DD3B2B1BABF8DA0091619D /* commodityDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD3B2A1BABF8DA0091619D /* commodityDisplayModel.m */; };
 		04E0F9531BCCF4870063C7E5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E0F9521BCCF4870063C7E5 /* libc++.tbd */; };
 		04E0F9551BCCF4900063C7E5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E0F9541BCCF4900063C7E5 /* libiconv.tbd */; };
@@ -361,7 +360,6 @@
 		04E0F95D1BCCF4B40063C7E5 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E0F95C1BCCF4B40063C7E5 /* libicucore.tbd */; };
 		04E284B61C0451E800381D28 /* orderSeatDetailViewControllerByCC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E284B51C0451E800381D28 /* orderSeatDetailViewControllerByCC.m */; };
 		04E284BC1C04541300381D28 /* orderSeatDetailTableViewCellByCC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E284BB1C04541300381D28 /* orderSeatDetailTableViewCellByCC.m */; };
-		04E3AD0D1AA6B5D100DE9271 /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3AD0C1AA6B5D100DE9271 /* UUProgressHUD.m */; };
 		04E599131A89FBF1000746FC /* orderSeatSuccessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E599121A89FBF1000746FC /* orderSeatSuccessInfo.m */; };
 		04E599161A89FD76000746FC /* orderSeatSuccessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E599151A89FD76000746FC /* orderSeatSuccessTableViewCell.m */; };
 		04E599191A89FF2F000746FC /* orderRoomSuccessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E599181A89FF2F000746FC /* orderRoomSuccessInfo.m */; };
@@ -1614,9 +1612,6 @@
 		04D5BF241A809EB500C0D6B4 /* GroupReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupReviewViewController.m; sourceTree = "<group>"; };
 		04DBA1C21AB165E40074F9AB /* UpdateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateGroupViewController.h; sourceTree = "<group>"; };
 		04DBA1C31AB165E40074F9AB /* UpdateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateGroupViewController.m; sourceTree = "<group>"; };
-		04DD39AD1A834E6F008AB82F /* ImageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageName.h; sourceTree = "<group>"; };
-		04DD39AE1A834E6F008AB82F /* UZGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGuideViewController.h; sourceTree = "<group>"; };
-		04DD39AF1A834E6F008AB82F /* UZGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGuideViewController.m; sourceTree = "<group>"; };
 		04DD3B291BABF8DA0091619D /* commodityDisplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commodityDisplayModel.h; sourceTree = "<group>"; };
 		04DD3B2A1BABF8DA0091619D /* commodityDisplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commodityDisplayModel.m; sourceTree = "<group>"; };
 		04E0F9521BCCF4870063C7E5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -1629,9 +1624,6 @@
 		04E284B51C0451E800381D28 /* orderSeatDetailViewControllerByCC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderSeatDetailViewControllerByCC.m; sourceTree = "<group>"; };
 		04E284BA1C04541300381D28 /* orderSeatDetailTableViewCellByCC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderSeatDetailTableViewCellByCC.h; path = CardLeap/CardLeapImplement/More/orderSeat/controller/orderSeatDetailTableViewCellByCC.h; sourceTree = SOURCE_ROOT; };
 		04E284BB1C04541300381D28 /* orderSeatDetailTableViewCellByCC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderSeatDetailTableViewCellByCC.m; path = CardLeap/CardLeapImplement/More/orderSeat/controller/orderSeatDetailTableViewCellByCC.m; sourceTree = SOURCE_ROOT; };
-		04E3AD0B1AA6B5D100DE9271 /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
-		04E3AD0C1AA6B5D100DE9271 /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
-		04E3AD0E1AA6B95400DE9271 /* Chat_record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat_record_circle.png; sourceTree = "<group>"; };
 		04E599111A89FBF1000746FC /* orderSeatSuccessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderSeatSuccessInfo.h; sourceTree = SOURCE_ROOT; };
 		04E599121A89FBF1000746FC /* orderSeatSuccessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderSeatSuccessInfo.m; sourceTree = SOURCE_ROOT; };
 		04E599141A89FD76000746FC /* orderSeatSuccessTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderSeatSuccessTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -4539,19 +4531,6 @@
 			path = updateGroup;
 			sourceTree = "<group>";
 		};
-		04DD39AC1A834E6F008AB82F /* UZGuideview */ = {
-			isa = PBXGroup;
-			children = (
-				04E3AD0E1AA6B95400DE9271 /* Chat_record_circle.png */,
-				04E3AD0B1AA6B5D100DE9271 /* UUProgressHUD.h */,
-				04E3AD0C1AA6B5D100DE9271 /* UUProgressHUD.m */,
-				04DD39AD1A834E6F008AB82F /* ImageName.h */,
-				04DD39AE1A834E6F008AB82F /* UZGuideViewController.h */,
-				04DD39AF1A834E6F008AB82F /* UZGuideViewController.m */,
-			);
-			path = UZGuideview;
-			sourceTree = "<group>";
-		};
 		04E81DB81AB7C18700072695 /* JsonTxt */ = {
 			isa = PBXGroup;
 			children = (
@@ -5096,7 +5075,6 @@
 				04E81DB81AB7C18700072695 /* JsonTxt */,
 				04F1026C1A84AF9F009D084C /* encode */,
 				04F101621A848D69009D084C /* alipay */,
-				04DD39AC1A834E6F008AB82F /* UZGuideview */,
 				04D523911A64EEC8001882CB /* nvdate */,
 				04D02A421A5BAD1100A6188D /* ratingView */,
 				04598B941A53DB1F003FEE25 /* XHRealTimeBlur */,
@@ -6002,7 +5980,6 @@
 				042895061A3E6EBD00CC2407 /* AssetHelper.m in Sources */,
 				042895BE1A3E739100CC2407 /* AMBlurView.m in Sources */,
 				042895201A3E6EBD00CC2407 /* UIButton+AFNetworking.m in Sources */,
-				04E3AD0D1AA6B5D100DE9271 /* UUProgressHUD.m in Sources */,
 				04D02A481A5BAD3200A6188D /* UserReviewViewController.m in Sources */,
 				04480A661D1CB715004018CF /* SVProgressHUD.m in Sources */,
 				045F0EBB1A5D01220040A914 /* couponInfo.m in Sources */,
@@ -6155,7 +6132,6 @@
 				04EED8EF1A6E600F00E548BC /* myOrderSeatCenterInfo.m in Sources */,
 				042EC7DE1AC93B720019F5B0 /* myGroupListViewController.m in Sources */,
 				04FD171F1D1CCD7A000EB184 /* XMNPhotoPickerController.m in Sources */,
-				04DD39B01A834E6F008AB82F /* UZGuideViewController.m in Sources */,
 				469AC1B41A709E9700DBD0C7 /* CityUpdateTwoCateViewController.m in Sources */,
 				04480B041D1CBB31004018CF /* UIImage+GIF.m in Sources */,
 				043EF88B1BAD767600589C6B /* ccDisplayButtonView.m in Sources */,

@@ -36,7 +36,6 @@
 #import "OrderSeatViewController.h"
 #import "orderRoomListViewController.h"
 #import "GroupListViewController.h"
-#import "UZGuideViewController.h"
 #import "ShopDetailViewController.h"
 #import "ShopListViewController.h"
 #import "SearchViewController.h"
@@ -101,7 +100,6 @@ linHangyeCommendViewDelegate>
     NSMutableArray *descBillboardsArray;//中部广告描述数组
     NSMutableArray *industryArray;//中介model数组
     NSMutableArray *shopArray;//商家推荐数组
-    NSMutableDictionary *fullScreenDict;//全屏广告字典
     NSString *moreDisplayUrl;//商品展示 更多按钮连接的URL
     int page;//首页分页
     //-----使用开启定位------------
@@ -122,11 +120,9 @@ linHangyeCommendViewDelegate>
 @property (nonatomic, strong) UIView * commodityDisplayView;//商品展示View
 @property (nonatomic, strong) UIView * billboardsView;
 @property (strong, nonatomic) UIView *navigationView;
-@property (strong ,nonatomic) UIImageView * advertisementImgView;//
-//首页全屏广告持续时间
-@property (nonatomic, strong) NSTimer     * timer;
-@property (nonatomic, strong) UIImageView * fullScreenImage; //全屏imageView
-@property (nonatomic)         BOOL      showAdvertising;    //是否展示全屏广告
+@property (strong, nonatomic) UIButton *cancelButton;
+@property (strong, nonatomic) UIView *adView;//广告试图
+
 @end
 
 @implementation HomeViewController
@@ -135,26 +131,121 @@ linHangyeCommendViewDelegate>
     [super viewDidLoad];
     //设置引导页
     self.navigationController.navigationBarHidden=YES;
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:everLaunch]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:everLaunch];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [UZGuideViewController show];
-        
-    }
-    
-    // Do any additional setup after loading the view.
+
     [self initData];
     //获取当前网络状况
     [self getTheWebCon];
-    
+    [self setSayHello];
     //做数据处理
-    [self setUI];
+//    [self setUI];
     [self openLocation];
     [self getDataFromNet];//获取网络数据
+
 }
 
+- (void)setSayHello{
+    
+    [self getfullScreenFromNet];
+}
+- (void)setSayHelloUI{
+    UIImageView *view=[[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:view];
+    
+    if (!userDefault(everLaunch)) {
+        view.image=[UIImage imageNamed:@"one"];
+        UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 175, 35)];
+        [enterButton setTitle:@"开始体验"
+                     forState:UIControlStateNormal];
+        [enterButton setTitleColor:[UIColor whiteColor]
+                          forState:UIControlStateNormal];
+        [enterButton setTitleColor:[UIColor whiteColor]
+                          forState:UIControlStateHighlighted];
+        [enterButton setBackgroundColor:[UIColor whiteColor]];
+        [enterButton setTitleColor:UIColorFromRGB(0xa8a8aa) forState:UIControlStateNormal];
+        enterButton.layer.masksToBounds = YES;
+        enterButton.layer.cornerRadius=4.0;
+        if (IPHONE5) {
+            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
+        }else if(IPHONE6){
+            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
+        }else if(IPHONE4){
+            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
+        }else {
+            [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
+        }
+        [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03.png"]
+                               forState:UIControlStateNormal];
+        [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03-sel.png"]
+                               forState:UIControlStateHighlighted];
+        [enterButton addTarget:self action:@selector(removeADView)
+              forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:enterButton];
+    }else{
+        view.image=[self loadImage:adImageName ofType:@"png" inDirectory:[self documentFolder]];
+        [view addSubview:self.cancelButton];
+        [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
+        [_cancelButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
+        [_cancelButton autoSetDimensionsToSize:CGSizeMake(60, 30)];
+    }
+}
+- (void)removeADView{
+    
+}
+#pragma mark - 获取全屏广告数据
+/**
+ * 获取全屏广告数据
+ */
+- (void) getfullScreenFromNet
+{
+    NSDictionary* dict=@{
+                         @"app_key":connect_url(@"advertisement"),
+                         };
+    
+    [Base64Tool postSomethingToServe:connect_url(@"advertisement") andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
+        if ([param[@"code"] integerValue]==200)
+        {
+            NSDictionary *urlDic = param[@"obj"];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:urlDic forKey:adImageDic];
+            
+            UIImage *image= [self getImageFromURL:urlDic[@"a_pic"]];
+            
+            [self saveImage:image withFileName:adImageName ofType:@"png" inDirectory:[self documentFolder]];
+            
+        }
+    } andErrorBlock:^(NSError *error) {
+    }];
+    
+}
+- (NSString *)documentFolder {
+    return [NSHomeDirectory()stringByAppendingPathComponent:@"Documents"];
+}
+-(UIImage *) loadImage:(NSString *)fileName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath {
+    UIImage * result = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.%@", directoryPath, fileName, extension]];
+    
+    return result;
+}
+-(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath {
+    if ([[extension lowercaseString] isEqualToString:@"png"]) {
+        [UIImagePNGRepresentation(image) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"png"]] options:NSAtomicWrite error:nil];
+    } else if ([[extension lowercaseString] isEqualToString:@"jpg"] || [[extension lowercaseString] isEqualToString:@"jpeg"]) {
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"jpg"]] options:NSAtomicWrite error:nil];
+    } else {
+        //ALog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
+        NSLog(@"文件后缀不认识");
+    }
+}
 
--(void)viewDidAppear:(BOOL)animated
+-(UIImage *) getImageFromURL:(NSString *)fileURL {
+    NSLog(@"执行图片下载函数");
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    
+    return result;
+}
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     //设置进入城市选择
@@ -170,7 +261,7 @@ linHangyeCommendViewDelegate>
 
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
       self.navigationController.navigationBarHidden=YES;
     [super viewWillAppear:animated];
@@ -180,38 +271,8 @@ linHangyeCommendViewDelegate>
     [super viewWillDisappear:animated];
      self.navigationController.navigationBarHidden=NO;
 }
-#pragma mark-----------收到通知
-- (void)UnLexiangHint:(NSNotification*)notification
-{
-    NSLog(@"NOTIFICATION_RIGHT_NEW_MESSAGE");
-    [self addRightHint];
-}
-
-/**
- 这个添加提醒暂时不用
- 现在navigation里面的button按钮
- 全部在HomeNavigationView里面添加
- */
-#pragma mark------添加右侧信息提醒
--(void)addRightHint
-{
-    [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"RIGHTHINT"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    hintImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
-    [hintImage setBackgroundColor:[UIColor redColor]];
-    [[self messageButton] addSubview:hintImage];
-}
-
-#pragma mark-------移除提醒添加
--(void)removeHint
-{
-    if ([userDefault(@"RIGHTHINT") isEqualToString:@"YES"]) {
-        [hintImage removeFromSuperview];
-    }
-}
-
 #pragma mark------定位功能
--(void)openLocation
+- (void)openLocation
 {
     m_sqlite = [[CSqlite alloc]init];
     [m_sqlite openSqlite];
@@ -232,7 +293,7 @@ linHangyeCommendViewDelegate>
 
 #define x_pi (3.14159265358979324 * 3000.0 / 180.0)
 #pragma mark------转换坐标
--(CLLocationCoordinate2D)zzTransGPS:(CLLocationCoordinate2D)yGps
+- (CLLocationCoordinate2D)zzTransGPS:(CLLocationCoordinate2D)yGps
 {
     int TenLat=0;
     int TenLog=0;
@@ -287,7 +348,7 @@ linHangyeCommendViewDelegate>
 }
 
 #pragma mark------初始化数据
--(void)initData
+- (void)initData
 {
     slideArray      = [[NSMutableArray alloc] init];
     cateArray       = [[NSMutableArray alloc] init];
@@ -298,7 +359,6 @@ linHangyeCommendViewDelegate>
     descBillboardsArray = [[NSMutableArray alloc] init];
     shopArray       = [[NSMutableArray alloc] init];
     CarouseArray    = [[NSMutableArray alloc] init];
-    fullScreenDict  = [[NSMutableDictionary alloc] init];
     page = 1;
 }
 
@@ -306,7 +366,7 @@ linHangyeCommendViewDelegate>
  首页数据先从ud里面读取 然后再读取网络
  获取成功之后则重新加载 需要刷新数据
  */
--(void)freshData
+- (void)freshData
 {
     slideArray      = [[NSMutableArray alloc] init];
     cateArray       = [[NSMutableArray alloc] init];
@@ -316,13 +376,12 @@ linHangyeCommendViewDelegate>
     billboardsArray = [[NSMutableArray alloc] init];
     descBillboardsArray = [[NSMutableArray alloc] init];
     CarouseArray    = [[NSMutableArray alloc] init];
-    fullScreenDict  = [[NSMutableDictionary alloc] init];
     page = 1;
 }
 
 #pragma mark - 获取首页服务中心分类
 
--(void)getServerCateFromNetwork
+- (void)getServerCateFromNetwork
 {
     NSDictionary* dict=@{
                          @"app_key":connect_url(index_cate),
@@ -346,7 +405,7 @@ linHangyeCommendViewDelegate>
     }];
 }
 #pragma mark --- 2016.4 设置生活服务区图标大小和分布
--(UIView*)createServerViewWithModuleArray:(NSArray*) moduleArray
+- (UIView*)createServerViewWithModuleArray:(NSArray*) moduleArray
 {
     UIView* serverView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
     serverView.backgroundColor=[UIColor whiteColor];
@@ -370,7 +429,7 @@ linHangyeCommendViewDelegate>
 }
 
 
--(void)serverCenterClickButtonToPushViewController:(linServicemodel *)module
+- (void)serverCenterClickButtonToPushViewController:(linServicemodel *)module
 {
     if ([module.index_type integerValue]==0)
     {
@@ -625,32 +684,6 @@ linHangyeCommendViewDelegate>
         [UZCommonMethod callPhone:module.i_tel superView:self.view];
     }
 }
-#pragma mark - 获取全屏广告数据
-/**
- * 获取全屏广告数据
- */
-- (void) getfullScreenFromNet
-{
-    NSDictionary* dict=@{
-                         @"app_key":connect_url(@"advertisement"),
-                         };
-    
-    [Base64Tool postSomethingToServe:connect_url(@"advertisement") andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
-        if ([param[@"code"] integerValue]==200)
-        {
-            fullScreenDict = param[@"obj"];
-            NSURL *url = [NSURL URLWithString:fullScreenDict[@"a_pic"]];
-            [self.fullScreenImage sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                [self.view.window addSubview:self.fullScreenImage];
-//                [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3.0f];
-                //                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-            }];
-            
-        }
-    } andErrorBlock:^(NSError *error) {
-    }];
-    
-}
 
 #pragma mark------获取网络数据
 -(void)getDataFromNet
@@ -675,9 +708,10 @@ linHangyeCommendViewDelegate>
         [self parseData:indexDic];
         //读取列表
         [self getShopListFromNet];
-    } andErrorBlock:^(NSError *error) {
+          } andErrorBlock:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络不给力"];
     }];
+    
 }
 
 #pragma mark------获取网络列表
@@ -1058,31 +1092,6 @@ linHangyeCommendViewDelegate>
             break;
     }
 }
-
-#pragma mark---------私信页面
--(void)go2MyMessage :(UIButton*)btn
-{
-    [self removeHint];
-    NSLog(@"跳转我的消息页面");
-    MessageViewController *firVC = [[MessageViewController alloc] init];
-    [self.navigationController pushViewController:firVC animated:YES];
-}
-
-#pragma mark--------setLeftButton and RightButton
--(UIButton*)messageButton
-{
-    if (!_messageButton) {
-        _messageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_news_no"]];
-        [image setFrame:CGRectMake(0, 0, 10, 10)];
-        [_messageButton addSubview:image];
-        [_messageButton addTarget:self action:@selector(go2MyMessage:) forControlEvents:UIControlEventTouchUpInside];
-        _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-    }
-    return _messageButton;
-}
-
 #pragma mark--------tableview and delegate
 -(UITableView*)indexTableview
 {
@@ -1495,7 +1504,7 @@ linHangyeCommendViewDelegate>
         NSLog(@"实现代理跳转到搜索页面的方法");
         SearchViewController *firVC = [[SearchViewController alloc] init];
         firVC.u_lat = baidu_lat;
-        firVC.u_lng = baidu_lng;
+        firVC.u_lng = baidu_lng; 
         [firVC setHiddenTabbar:YES];
         [self.navigationController pushViewController:firVC animated:NO];
     }else if(index == 1){
@@ -1607,10 +1616,31 @@ linHangyeCommendViewDelegate>
             self.navigationView.hidden=YES;
         
         }else self.navigationView.hidden=NO;
+        if (scrollView.contentOffset.y*1.5/(SCREEN_HEIGHT*26/100)>0.9) {
+            self.navigationView.backgroundColor=Color(227, 74, 81, 0.9);
+        }else self.navigationView.backgroundColor=Color(227, 74, 81, scrollView.contentOffset.y*1.5/(SCREEN_HEIGHT*26/100));
 
-        self.navigationView.backgroundColor=Color(227, 74, 81, scrollView.contentOffset.y*1.5/(SCREEN_HEIGHT*26/100));
 
 
     }
 }
+- (UIButton *)cancelButton{
+    if (!_cancelButton) {
+        _cancelButton =[[UIButton alloc]initForAutoLayout];
+        
+        _cancelButton.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.8];
+        
+        [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [_cancelButton setTitle:@"跳 过" forState:UIControlStateNormal];
+        
+        _cancelButton.layer.cornerRadius   =   5;
+        
+        [_cancelButton addTarget:self action:@selector(removeADView) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _cancelButton;
+}
+
+
 @end
