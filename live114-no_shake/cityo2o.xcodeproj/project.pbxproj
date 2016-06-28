@@ -380,6 +380,7 @@
 		04EAFD7C1A775F2700A93435 /* groupSubmitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EAFD7B1A775F2700A93435 /* groupSubmitTableViewCell.m */; };
 		04EAFD7F1A77AE4A00A93435 /* GroupPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EAFD7E1A77AE4A00A93435 /* GroupPayViewController.m */; };
 		04EDDA321D210E0000708F31 /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EDDA311D210E0000708F31 /* UUProgressHUD.m */; };
+		04EDDA381D21FBA100708F31 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EDDA371D21FBA100708F31 /* x.png */; };
 		04EED8E31A6E231C00E548BC /* myOrderCenterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8E21A6E231C00E548BC /* myOrderCenterInfo.m */; };
 		04EED8E61A6E268D00E548BC /* myOrderCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8E51A6E268D00E548BC /* myOrderCenterTableViewCell.m */; };
 		04EED8EC1A6E5FF700E548BC /* myOrderSeatCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EED8EB1A6E5FF700E548BC /* myOrderSeatCenterTableViewCell.m */; };
@@ -1666,6 +1667,7 @@
 		04EAFD7E1A77AE4A00A93435 /* GroupPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPayViewController.m; sourceTree = "<group>"; };
 		04EDDA301D210E0000708F31 /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
 		04EDDA311D210E0000708F31 /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
+		04EDDA371D21FBA100708F31 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		04EED8E11A6E231C00E548BC /* myOrderCenterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myOrderCenterInfo.h; sourceTree = "<group>"; };
 		04EED8E21A6E231C00E548BC /* myOrderCenterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myOrderCenterInfo.m; sourceTree = "<group>"; };
 		04EED8E41A6E268D00E548BC /* myOrderCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myOrderCenterTableViewCell.h; sourceTree = "<group>"; };
@@ -4955,6 +4957,7 @@
 		333BDA1E1A1D7EFF009BAB8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04EDDA371D21FBA100708F31 /* x.png */,
 				04480A4F1D1CB4F7004018CF /* shake_sound.m4a */,
 				047E0D3C1A381A9B00304FF1 /* PushConfig.plist */,
 				33DB1C801A1F2F33002E463E /* Abberancy.ttf */,
@@ -5855,6 +5858,7 @@
 				04FD16E41D1CC3F3000EB184 /* UMSCommentDetailController.xib in Resources */,
 				04FD16E31D1CC3EF000EB184 /* SelectionCell.xib in Resources */,
 				04FD172A1D1CCD7A000EB184 /* XMNBottomBar.xib in Resources */,
+				04EDDA381D21FBA100708F31 /* x.png in Resources */,
 				04FD16E21D1CC3EB000EB184 /* linHangyeCommendView.xib in Resources */,
 				04FD16DD1D1CC3D8000EB184 /* SJSCTableViewCell.xib in Resources */,
 				04FD16DC1D1CC3D3000EB184 /* SearchViewController.xib in Resources */,

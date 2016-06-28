@@ -108,7 +108,7 @@ linHangyeCommendViewDelegate>
     NSString *baidu_lat;
     NSString *baidu_lng;
     NSMutableArray *CarouseArray;//幻灯片 数组？
-    NSString *cityName;
+    NSString *_cityName;
 }
 @property (strong,nonatomic)UIView *shopListView;//商家列表view
 @property (strong,nonatomic)CommendView *faceView;//滑动页 分类多页按钮
@@ -122,6 +122,7 @@ linHangyeCommendViewDelegate>
 @property (strong, nonatomic) UIView *navigationView;
 @property (strong, nonatomic) UIButton *cancelButton;
 @property (strong, nonatomic) UIImageView *adView;//广告试图
+@property (strong, nonatomic) UIButton *cityButton;
 
 @end
 
@@ -135,7 +136,6 @@ linHangyeCommendViewDelegate>
     [self initData];
     //获取当前网络状况
     [self getTheWebCon];
-
     //做数据处理
     [self setUI];
     [self openLocation];
@@ -144,7 +144,7 @@ linHangyeCommendViewDelegate>
 }
 
 - (void)setSayHello{
-    [self performSelector:@selector(removeADView) withObject:nil afterDelay:10];
+    [self performSelector:@selector(removeADView) withObject:nil afterDelay:3];
     [self setSayHelloUI];
     [self getfullScreenFromNet];
 }
@@ -1243,7 +1243,7 @@ linHangyeCommendViewDelegate>
     if ([billboardsArray count]>0) {
         [bannerView setPictureUrls:billboardsArray andTitles:descBillboardsArray];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"在这写中部广告栏的点击逻辑处理 :%ld",index);
+            
             NSString *url = [descBillboardsArray objectAtIndex:index];
             ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
             [firVC setHiddenTabbar:YES];
@@ -1509,7 +1509,7 @@ linHangyeCommendViewDelegate>
 #pragma mark - HomeSelectedCityViewController Delegate
 -(void)homeSelectedCityViewController:(HomeSelectedCityViewController *)homeSelectedCityViewController currentCityName:(NSString *)cityName currentCityID:(NSString *)ciytID
 {
-  
+    [self changeCityName:cityName];
     [[NSUserDefaults standardUserDefaults] setObject:ciytID forKey:KCityID];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //做刷新逻辑
@@ -1523,9 +1523,12 @@ linHangyeCommendViewDelegate>
     [[NSUserDefaults standardUserDefaults] setObject:module.city_name forKey:KCityNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //做刷新逻辑
+    [self changeCityName:module.city_name];
     [self getDataFromNet];
 }
-
+- (void)changeCityName:(NSString *)cityName{
+    [self.cityButton setTitle:cityName forState:UIControlStateNormal];
+}
 - (NSDictionary * ) NSStringtoDictionary:(NSString *)string{
     
     NSArray *array = [string componentsSeparatedByString:@"."];
@@ -1578,26 +1581,23 @@ linHangyeCommendViewDelegate>
     if (!_navigationView) {
         _navigationView=[[UIView alloc]initForAutoLayout];
         _navigationView.backgroundColor=Color(227, 74, 81, 0);
-        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(60, 30, SCREEN_WIDTH-120, 30)];
+        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(75, 25, SCREEN_WIDTH-135, 30)];
         [buttonCenter addTarget:self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
         buttonCenter.tag=SEARCHTAG;
-        buttonCenter.layer.cornerRadius=20;
-        buttonCenter.layer.borderWidth=1;
-        buttonCenter.layer.borderColor=Color(50, 50, 50, 0.3).CGColor;
+        buttonCenter.layer.cornerRadius=15;
+        [buttonCenter setImage:[UIImage imageNamed:@"searchGoods"] forState:UIControlStateNormal];
+        [buttonCenter setTitle:@"请输入搜索商品关键字" forState:UIControlStateNormal];
+        [buttonCenter setTitleEdgeInsets:UIEdgeInsetsMake( 0.0,-5, 0.0,0.0)];
+        [buttonCenter setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, 10)];
+        buttonCenter.titleLabel.font=[UIFont systemFontOfSize:14];
         buttonCenter.backgroundColor=[UIColor colorWithWhite:100 alpha:.5];
         [_navigationView addSubview:buttonCenter];
-        UIButton *buttonLeft=[[UIButton alloc]initWithFrame:CGRectMake(0, 30, 40, 30)];
-        [buttonLeft addTarget: self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
-        buttonLeft.tag=SEARCHTAG+2;
-        [buttonLeft setTitle:@"你好" forState:UIControlStateNormal];
-        UIImage *image=[UIImage imageNamed:@"adreess_sel"];
-        [buttonLeft setImage:image forState:UIControlStateNormal];
-        [buttonLeft setTitleEdgeInsets:UIEdgeInsetsMake( 0.0,-image.size.width, 0.0,0.0)];
-        [buttonLeft setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, buttonCenter.titleLabel.bounds.size.width)];
-
-        [_navigationView addSubview:buttonLeft];
-        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30, 30, 30, 30)];
-        buttonRight.backgroundColor=[UIColor greenColor];
+        [_navigationView addSubview:self.cityButton];
+        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-50, 20, 40, 40)];
+        buttonRight.titleLabel.numberOfLines=2;
+        buttonRight.titleLabel.font=[UIFont systemFontOfSize:14];
+        [buttonRight setTitle:@"  签到\n+积分" forState:UIControlStateNormal];
+        
         [_navigationView addSubview:buttonRight];
         
     }
@@ -1617,6 +1617,22 @@ linHangyeCommendViewDelegate>
 
     }
 }
+- (UIButton *)cityButton{
+    if (!_cityButton) {
+        _cityButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 25, 100, 30)];
+        [_cityButton addTarget: self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
+        _cityButton.tag=SEARCHTAG+2;
+        _cityName=userDefault(KCityNAME);
+        UIImage *image=[UIImage imageNamed:@"cityDown"];
+        [_cityButton setImage:image forState:UIControlStateNormal];
+        [_cityButton setTitle:_cityName forState:UIControlStateNormal];
+        [_cityButton setTitleEdgeInsets:UIEdgeInsetsMake( 0.0,-67, 0.0,0.0)];
+        [_cityButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -60)];
+        _cityButton.titleLabel.font=[UIFont systemFontOfSize:14];
+    }
+    return _cityButton;
+}
+
 - (UIButton *)cancelButton{
     if (!_cancelButton) {
         _cancelButton =[[UIButton alloc]initForAutoLayout];
@@ -1683,4 +1699,5 @@ linHangyeCommendViewDelegate>
     }
     return _adView;
 }
+
 @end
