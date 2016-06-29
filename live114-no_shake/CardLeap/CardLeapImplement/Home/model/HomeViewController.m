@@ -869,7 +869,7 @@ linHangyeCommendViewDelegate>
     CGFloat adbanderHeight = SCREEN_HEIGHT*26/100;
     CGFloat commenViewHeihgt = 120*LinHeightPercent;
     //服务中心高度
-    CGFloat serverViewHeight = 170;
+    CGFloat serverViewHeight = 170*LinHeightPercent;
     //商品展示高度
     CGFloat commodityDisplayViewHeight = 150;
     //中部广告栏
@@ -1032,7 +1032,6 @@ linHangyeCommendViewDelegate>
 -(void)setUI
 {
     
-
     [self.view addSubview:self.indexTableview];
     [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_indexTableview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
@@ -1052,7 +1051,8 @@ linHangyeCommendViewDelegate>
     [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [_navigationView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [_navigationView autoSetDimension:ALDimensionHeight toSize:64];
+    [_navigationView autoSetDimension:ALDimensionHeight toSize:44];
+    [UIApplication sharedApplication].statusBarHidden=YES;
 }
 
 #pragma mark------获取当前网络环境
@@ -1157,7 +1157,6 @@ linHangyeCommendViewDelegate>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger count = [shopArray count];
-    NSLog(@"the num of shopArray is %ld",count);
     return count;
 }
 #pragma mark---------刷新
@@ -1197,7 +1196,6 @@ linHangyeCommendViewDelegate>
     if ([urlArray count]>0) {
         [bannerView setPictureUrls:urlArray andTitles:urlArry];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"Has taped imageView at index :%ld",index);
             CarouselInfo *info = [CarouseArray objectAtIndex:index];
             [self parseInfo:info];
         };
@@ -1222,7 +1220,6 @@ linHangyeCommendViewDelegate>
     if ([urlArray count]>0) {
         [bannerView setPictureUrls:urlArray andTitles:descArray];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"Has taped imageView at index :%ld",index);
             CarouselInfo *info = [CarouseArray objectAtIndex:index];
             [self parseInfo:info];
         };
@@ -1471,9 +1468,8 @@ linHangyeCommendViewDelegate>
 
 -(void)clikButtonToPushViewController:(littleCateModel *)module
 {
-    NSLog(@"点击的按钮为%@----%@",module.cat_name,module.cat_id);
+
     ShopListViewController *firVC = [[ShopListViewController alloc] init];
-    //    [firVC setHiddenTabbar:YES];
     firVC.is_hidden = @"0";
     [firVC setNavBarTitle:@"商家" withFont:14.0f];
     firVC.shop_id = module.cat_id;
@@ -1581,19 +1577,19 @@ linHangyeCommendViewDelegate>
     if (!_navigationView) {
         _navigationView=[[UIView alloc]initForAutoLayout];
         _navigationView.backgroundColor=Color(227, 74, 81, 0);
-        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(75, 25, SCREEN_WIDTH-135, 30)];
+        UIButton *buttonCenter=[[UIButton alloc]initWithFrame:CGRectMake(75, 7, SCREEN_WIDTH-135, 30)];
         [buttonCenter addTarget:self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
         buttonCenter.tag=SEARCHTAG;
         buttonCenter.layer.cornerRadius=15;
         [buttonCenter setImage:[UIImage imageNamed:@"searchGoods"] forState:UIControlStateNormal];
-        [buttonCenter setTitle:@"请输入搜索商品关键字" forState:UIControlStateNormal];
+        [buttonCenter setTitle:@"请输入相关产品关键字" forState:UIControlStateNormal];
         [buttonCenter setTitleEdgeInsets:UIEdgeInsetsMake( 0.0,-5, 0.0,0.0)];
         [buttonCenter setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, 10)];
         buttonCenter.titleLabel.font=[UIFont systemFontOfSize:14];
         buttonCenter.backgroundColor=[UIColor colorWithWhite:100 alpha:.5];
         [_navigationView addSubview:buttonCenter];
         [_navigationView addSubview:self.cityButton];
-        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-50, 20, 40, 40)];
+        UIButton *buttonRight=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-50, 2, 40, 40)];
         buttonRight.titleLabel.numberOfLines=2;
         buttonRight.titleLabel.font=[UIFont systemFontOfSize:14];
         [buttonRight setTitle:@"  签到\n+积分" forState:UIControlStateNormal];
@@ -1619,7 +1615,7 @@ linHangyeCommendViewDelegate>
 }
 - (UIButton *)cityButton{
     if (!_cityButton) {
-        _cityButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 25, 100, 30)];
+        _cityButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 7, 100, 30)];
         [_cityButton addTarget: self action:@selector(goSeachShop:) forControlEvents:UIControlEventTouchUpInside];
         _cityButton.tag=SEARCHTAG+2;
         _cityName=userDefault(KCityNAME);

@@ -611,7 +611,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     }
 }
 
-#pragma mark-------alertDelegate
+#pragma mark-------alertDelegatex
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 1) {

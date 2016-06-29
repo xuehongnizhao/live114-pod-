@@ -11,7 +11,7 @@
 #import "UIButton+WebCache.h"
 #import "linHangyeButtonView.h"
 
-#define ViewHeight  220*LinHeightPercent
+#define ViewHeight  SCREEN_HEIGHT*40/100
 #define LeftSpacing 2  //左右间距
 #define SubViewWidth (SCREEN_WIDTH -8)/4.0  //视图高度 (ViewHeight-30-6)/2.0
 #define SubViewHeight (ViewHeight-30-6)/2.0  //视图高度
