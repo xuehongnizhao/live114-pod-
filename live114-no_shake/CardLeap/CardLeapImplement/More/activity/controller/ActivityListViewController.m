@@ -307,6 +307,7 @@
     [firVC setNavBarTitle:@"活动详情" withFont:14.0f];
 //    [firVC.navigationItem setTitle:@"活动详情"];
     firVC.url = info.message_url;
+    NSLog(@"%@",info.message_url);
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

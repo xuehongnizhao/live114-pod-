@@ -156,7 +156,8 @@
             roomInfo *goods_info = [detailInfo.goods_list objectAtIndex:row-1];
             orderRoomSubmitViewController *firVC = [[orderRoomSubmitViewController alloc] init];
             [firVC setHiddenTabbar:YES];
-            [firVC setNavBarTitle:@"提交订单" withFont:14.0f];
+            firVC.title=@"提交订单";
+//            [firVC setNavBarTitle:@"提交订单" withFont:14.0f];
             //        [firVC.navigationItem setTitle:@"提交订单"];
             firVC.info = detailInfo;
             firVC.goods_info = goods_info;

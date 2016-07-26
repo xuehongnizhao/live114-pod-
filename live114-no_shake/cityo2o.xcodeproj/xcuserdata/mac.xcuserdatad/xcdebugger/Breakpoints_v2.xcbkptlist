@@ -19,12 +19,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OrderSeatViewController.m"
-            timestampString = "491184726.328291"
+            filePath = "CardLeap/CardLeapImplement/More/activity/controller/ActivityListViewController.m"
+            timestampString = "491210550.295549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>

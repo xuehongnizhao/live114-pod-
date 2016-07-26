@@ -554,6 +554,7 @@
 //        [firVC.navigationItem setTitle:info.shop_name];
         firVC.info = info;
         firVC.shop_id = info.shop_id;
+        NSLog(@"%@",info.shop_id);
         [self.navigationController pushViewController:firVC animated:YES];
     }else{
         

@@ -16,7 +16,7 @@
 #import "UMSocial.h"
 #import "MapViewController.h"
 
-@interface orderSeatDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,UMSocialUIDelegate,clickImageActionDelegate,orderSeatCellWebViewHeight>
+@interface orderSeatDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,UMSocialUIDelegate,orderSeatCellWebViewHeight>
 {
     orderSeatDetailInfo *detailInfo;
     CGFloat webHeight;

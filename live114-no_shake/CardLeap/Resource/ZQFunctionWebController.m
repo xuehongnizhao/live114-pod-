@@ -19,6 +19,11 @@
 #import "ShopGroupViewController.h"
 #import "ShopDetailViewController.h"
 #import "ShopListInfo.h"
+#import "CouponDetailViewController.h"
+#import "couponInfo.h"
+#import "ShopTakeOutViewController.h"
+#import "orderSeatDetailViewController.h"
+#import "orderRoomDetailViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #define NaviItemTag 2016
 @interface ZQFunctionWebController()<UIWebViewDelegate,UMSocialUIDelegate>
@@ -49,16 +54,67 @@
     [self setUpLoadVoiceWebBridgeEnd];
     [self setShakeVoiceWebBridge];
     [self setGroupViewShow];
-    [self setShopDetailViewShow]; 
+    [self setShopDetailViewShow];
+    [self setCouPonViewShow];
+    [self setShopActivityShow];
+    [self setShopTakeOutShow];
+    [self setOrderSeatShow];
+    [self setOrderRoomShow];
     [self initRecorder];
+
     
 }
+- (void)setOrderRoomShow{
+    [self.bridge registerHandler:@"hd_shopOrderRoomShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"%@",data);
+        orderRoomDetailViewController *firVC=[[orderRoomDetailViewController alloc]init];
+        firVC.shop_id=[data objectForKey:@"shop_id"];
+        firVC.title=[data objectForKey:@"shop_name"];
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+}
+- (void)setOrderSeatShow{
+    [self.bridge registerHandler:@"hd_shopOrderSeatShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"%@",data);
+        orderSeatDetailViewController *firVC=[[orderSeatDetailViewController alloc]init];
+        firVC.shop_id=[data objectForKey:@"shop_id"];
+        firVC.title=[data objectForKey:@"shop_name"];
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+}
+- (void)setShopTakeOutShow{
+    [self.bridge registerHandler:@"hd_shopTakeOutShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        ShopTakeOutViewController *firVC=[[ShopTakeOutViewController alloc]init];
+        firVC.shop_id=[data objectForKey:@"shop_id"];
+        firVC.title=[data objectForKey:@"shop_name"];
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+    
+}
+- (void)setShopActivityShow{
+    [self.bridge registerHandler:@"hd_shopActivityShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        ZQFunctionWebController *firVC=[[ZQFunctionWebController alloc]init];
+        firVC.url=[data objectForKey:@"message_url"];
+        firVC.title=[data objectForKey:@"activity_name"];
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+    
+}
+- (void)setCouPonViewShow{
+    [self.bridge registerHandler:@"hd_shopSpikeShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        CouponDetailViewController *firVC=[[CouponDetailViewController alloc]init];
+        couponInfo *info=[[couponInfo alloc]initWithDictionary:data];
+        firVC.info=info;
+        firVC.message_url=info.message_url;
+        firVC.title=info.spike_name;
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
 
+}
 - (void)setShopDetailViewShow{
     [self.bridge registerHandler:@"hd_shopDetailsShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         
         ShopDetailViewController *firVC=[[ShopDetailViewController alloc]init];
-        NSLog(@"%@",data);
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.my_lat=[data objectForKey:@"mu_lat"];
         firVC.my_lng=[data objectForKey:@"my_lng"];
@@ -71,9 +127,7 @@
 - (void)setGroupViewShow{
     
     [self.bridge registerHandler:@"hd_shopGroupShow" handler:^(id data, WVJBResponseCallback responseCallback) {
-        
         ShopGroupViewController *firVC=[[ShopGroupViewController alloc]init];
-        NSLog(@"%@",data);
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
         [self.navigationController pushViewController:firVC animated:YES];
