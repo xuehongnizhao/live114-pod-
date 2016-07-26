@@ -59,12 +59,11 @@
         
         ShopDetailViewController *firVC=[[ShopDetailViewController alloc]init];
         NSLog(@"%@",data);
-        firVC.info=[[ShopListInfo alloc]init];
-        firVC.shop_id=[[data objectForKey:@"shop_id"] stringValue];
+        firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.my_lat=[data objectForKey:@"mu_lat"];
         firVC.my_lng=[data objectForKey:@"my_lng"];
         firVC.message_url=[data objectForKey:@"message_url"];
-        
+        firVC.title=[data objectForKey:@"shop_name"];
         [self.navigationController pushViewController:firVC animated:YES];
     }];
 

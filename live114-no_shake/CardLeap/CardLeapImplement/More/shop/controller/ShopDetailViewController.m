@@ -117,6 +117,10 @@
             [SVProgressHUD dismiss];
             NSLog(@"%@",param);
             detailInfo = [[shopDetailInfo alloc] initWithDictionary:[param objectForKey:@"obj"]];
+            NSLog(@"%@", detailInfo.shop_name);
+             NSLog(@"%@",  detailInfo.shop_lat);
+             NSLog(@"%@", detailInfo.shop_lng);
+
             [self.shopDetailTableview reloadData];
             [self setButton];
         }else{
