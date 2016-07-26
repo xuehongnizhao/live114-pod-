@@ -16,6 +16,9 @@
 #import "LoginViewController.h"
 #import "UserModel.h"
 #import "MLAudioMeterObserver.h"
+#import "ShopGroupViewController.h"
+#import "ShopDetailViewController.h"
+#import "ShopListInfo.h"
 #import <AVFoundation/AVFoundation.h>
 #define NaviItemTag 2016
 @interface ZQFunctionWebController()<UIWebViewDelegate,UMSocialUIDelegate>
@@ -45,10 +48,39 @@
     [self setLogInWebBridge];
     [self setUpLoadVoiceWebBridgeEnd];
     [self setShakeVoiceWebBridge];
+    [self setGroupViewShow];
+    [self setShopDetailViewShow]; 
     [self initRecorder];
     
 }
 
+- (void)setShopDetailViewShow{
+    [self.bridge registerHandler:@"hd_shopDetailsShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        ShopDetailViewController *firVC=[[ShopDetailViewController alloc]init];
+        NSLog(@"%@",data);
+        firVC.info=[[ShopListInfo alloc]init];
+        firVC.shop_id=[[data objectForKey:@"shop_id"] stringValue];
+        firVC.my_lat=[data objectForKey:@"mu_lat"];
+        firVC.my_lng=[data objectForKey:@"my_lng"];
+        firVC.message_url=[data objectForKey:@"message_url"];
+        
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+
+}
+- (void)setGroupViewShow{
+    
+    [self.bridge registerHandler:@"hd_shopGroupShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        ShopGroupViewController *firVC=[[ShopGroupViewController alloc]init];
+        NSLog(@"%@",data);
+        firVC.shop_id=[data objectForKey:@"shop_id"];
+        firVC.title=[data objectForKey:@"shop_name"];
+        [self.navigationController pushViewController:firVC animated:YES];
+    }];
+
+}
 #pragma mark --- 2016.5 添加webBridge
 - (void)setShakeVoiceWebBridge{
     [self.bridge registerHandler:@"hd_playvoice" handler:^(id data, WVJBResponseCallback responseCallback) {

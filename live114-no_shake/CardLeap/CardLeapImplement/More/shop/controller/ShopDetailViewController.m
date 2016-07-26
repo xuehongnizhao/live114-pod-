@@ -109,6 +109,8 @@
                           @"app_key":url,
                           @"u_id":uid
                           };
+    
+    
     [Base64Tool postSomethingToServe:url andParams:dic isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
@@ -497,21 +499,6 @@
     return 5.0f;
     
 }
-/**
- 调用actiondelegate
- 选择之后调用到高德或者百度地图
- */
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [self goOtherMap:@"使用高德地图导航"];
-    }else if(buttonIndex == 1){
-        [self goOtherMap:@"使用百度地图导航"];
-    }
-}
-
 #pragma mark-------判断跳转到各个页面
 -(void)go2shopActon:(NSString*)action
 {
@@ -687,51 +674,6 @@
     return 3;
 }
 
-
--(void)goOtherMap:(NSString*)title
-{
-    BOOL hasBaiduMap = NO;
-    BOOL hasGaodeMap = NO;
-    
-    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:@"baidumap://map/"]]){
-        hasBaiduMap = YES;
-    }else{
-        
-    }
-    
-    
-    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:@"iosamap://"]]){
-        hasGaodeMap = YES;
-    }else{
-        
-    }
-    
-    CGFloat tmp_lat = [self.my_lat floatValue];
-    CGFloat tmp_lng = [self.my_lng floatValue];
-    CGFloat shop_lat = [self.info.shop_lat floatValue];
-    CGFloat shop_lnt = [self.info.shop_lng floatValue];
-    if ([@"使用百度地图导航" isEqualToString:title])
-    {
-        NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin=latlng:%f,%f|name:我的位置&destination=latlng:%f,%f|name:终点&mode=driving",tmp_lat, tmp_lng ,shop_lat,shop_lnt] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
-        
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
-        if (hasBaiduMap == NO) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未安装高德地图客户端" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }
-    else if ([@"使用高德地图导航" isEqualToString:title])
-    {
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&poiname=%@&lat=%f&lon=%f&dev=1&style=2",@"app name",
-                                @"IOSCity", @"终点", shop_lat, shop_lnt] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
-        if (hasGaodeMap == NO) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未安装百度地图客户端" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }
-}
 
 /**
  *  判断数组内是否含有vip rz字样 不做显示

@@ -259,45 +259,6 @@ const double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
     }
 }
 
-#pragma mark --处理地图annotation刷新和移动到指定区域
-////将地图放大到annotation的区域
-//- (void)moveToRegion
-//{
-//    
-//    double minLatitude  = 0;
-//    double maxLatitude  = 90;
-//    double minLongitude = -179;
-//    double maxLongitude = 180;
-//    
-//    if (self.shopAnnotations.count > 0) {
-//        
-//        // 以第一个为初始比较点
-//        ShopToAnnotation *annotation = [self.shopAnnotations lastObject];
-//        
-//        minLatitude  = annotation.coordinate.latitude;
-//        maxLatitude  = annotation.coordinate.latitude;
-//        minLongitude = annotation.coordinate.longitude;
-//        maxLongitude = annotation.coordinate.longitude;
-//        
-//        for (ShopToAnnotation *annotation in self.shopAnnotations) {
-//            if (annotation.coordinate.latitude  < minLatitude)  minLatitude  = annotation.coordinate.latitude;
-//            if (annotation.coordinate.latitude  > maxLatitude)  maxLatitude  = annotation.coordinate.latitude;
-//            if (annotation.coordinate.longitude < minLongitude) minLongitude = annotation.coordinate.longitude;
-//            if (annotation.coordinate.longitude > maxLongitude) maxLongitude = annotation.coordinate.longitude;
-//        }
-//    }
-//    
-//    double latitudeDelta   = (maxLatitude       - minLatitude);
-//    double longitudeDelta  = (maxLongitude      - minLongitude);
-//    double centerLatitude  = latitudeDelta  / 2 + minLatitude;
-//    double centerLongitude = longitudeDelta / 2 + minLongitude;
-//    
-//    CLLocationCoordinate2D coord = {.latitude = centerLatitude, .longitude = centerLongitude};
-//    MKCoordinateSpan        span = {.latitudeDelta = latitudeDelta + 0.012, .longitudeDelta = longitudeDelta + 0.012};
-//    MKCoordinateRegion    region = {coord, span};
-//    NSLog(@"region.center.latitude=%f, region.center.longitude=%f, span.latitudeDelta=%f, span.longitudeDelta=%f", region.center.latitude, region.center.longitude, span.latitudeDelta, span.longitudeDelta);
-//    [self.shopMapView setRegion:region];
-//}
 
 - (void)update
 {
@@ -529,22 +490,7 @@ const double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
 {
     self.navigationController.navigationBarHidden=NO;
 }
-#pragma mark -mapViewDelegate
 
-//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
-//    MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"mapTopPlacesVC"];
-//    if(!aView){
-//        aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"mapTopPlacesVC"];
-//        aView.canShowCallout = YES;
-//    }
-//    aView.annotation = annotation;
-//    return aView;
-//}
-//
-////处理点击annotationview
-//- (void)mapView:(MKMapView *)sender annotationView:(MKAnnotationView *)aView calloutAccessoryControlTapped:(UIControl *)control{
-//
-//}
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {

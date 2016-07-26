@@ -84,7 +84,6 @@
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     NSLog(@"商家详情web页加载失败：%@",error);
-    [SVProgressHUD showErrorWithStatus:@"加载失败"];
 }
 
 #pragma mark - 懒加载 
