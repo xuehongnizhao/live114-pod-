@@ -575,8 +575,6 @@
 		46D1D92C1A7F0861003570AE /* PublicAndPrivateMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D1D9261A7F0861003570AE /* PublicAndPrivateMessageFrame.m */; };
 		46D1D92D1A7F0861003570AE /* PublicAndPrivateMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D1D9291A7F0861003570AE /* PublicAndPrivateMessageTableViewCell.m */; };
 		46D1D9331A7F0C31003570AE /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D1D9321A7F0C31003570AE /* MessageViewController.m */; };
-		B4093F54E0D6735DFCC4BE6C /* libPods-CardLeapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FB2DDFBC1A70E7121A000A /* libPods-CardLeapTests.a */; };
-		E28A296B798F7749DF65DF1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA81C4B269CEF2757907039 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1877,7 +1875,6 @@
 		04FD17191D1CCD7A000EB184 /* XMNPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNPhotoManager.m; sourceTree = "<group>"; };
 		04FD171A1D1CCD7A000EB184 /* XMNPhotoPickerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNPhotoPickerDefines.h; sourceTree = "<group>"; };
 		04FD171B1D1CCD7A000EB184 /* XMNPhotoPickerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNPhotoPickerFramework.h; sourceTree = "<group>"; };
-		27FB2DDFBC1A70E7121A000A /* libPods-CardLeapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CardLeapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		333BDA1B1A1D7EFF009BAB8E /* cityo2o.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cityo2o.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333BDA1F1A1D7EFF009BAB8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		333BDA201A1D7EFF009BAB8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2083,7 +2080,6 @@
 		46D1D9291A7F0861003570AE /* PublicAndPrivateMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicAndPrivateMessageTableViewCell.m; sourceTree = "<group>"; };
 		46D1D9311A7F0C31003570AE /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		46D1D9321A7F0C31003570AE /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
-		6CA81C4B269CEF2757907039 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2128,7 +2124,6 @@
 				333BDAB71A1DCB4E009BAB8E /* SystemConfiguration.framework in Frameworks */,
 				042895271A3E6EBD00CC2407 /* libopencore-amrnb.a in Frameworks */,
 				042895281A3E6EBD00CC2407 /* libopencore-amrwb.a in Frameworks */,
-				E28A296B798F7749DF65DF1F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2136,7 +2131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4093F54E0D6735DFCC4BE6C /* libPods-CardLeapTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5764,8 +5758,6 @@
 				333BDABA1A1DCB5B009BAB8E /* CoreTelephony.framework */,
 				333BDAB81A1DCB54009BAB8E /* QuartzCore.framework */,
 				333BDAB61A1DCB4E009BAB8E /* SystemConfiguration.framework */,
-				6CA81C4B269CEF2757907039 /* libPods.a */,
-				27FB2DDFBC1A70E7121A000A /* libPods-CardLeapTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -5816,7 +5808,7 @@
 		333BDA131A1D7EFF009BAB8E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Sky;
 				TargetAttributes = {
 					333BDA1A1A1D7EFF009BAB8E = {
@@ -6490,6 +6482,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lei yu (K82F6M9A8A)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -6735,6 +6728,7 @@
 				);
 				INFOPLIST_FILE = CardLeapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youdro. live114";
 				PRODUCT_NAME = cityo2oTests;
 				PROVISIONING_PROFILE = "3e491c2e-ca5c-4fa7-a3ed-ea72ae937325";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cityo2o.app/cityo2o";
@@ -6753,6 +6747,7 @@
 				);
 				INFOPLIST_FILE = CardLeapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youdro. live114";
 				PRODUCT_NAME = cityo2oTests;
 				PROVISIONING_PROFILE = "3e491c2e-ca5c-4fa7-a3ed-ea72ae937325";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cityo2o.app/cityo2o";

@@ -61,7 +61,7 @@
 {
     _progress = progress;
     _progressView.progress = progress;
-    if (progress >= 1.0) {
+    if (progress > 1.0) {
         [_progressView removeFromSuperview];
     }
 }
