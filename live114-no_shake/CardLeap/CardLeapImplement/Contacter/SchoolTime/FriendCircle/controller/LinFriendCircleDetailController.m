@@ -380,10 +380,10 @@ static NSMutableDictionary* g_nsdicemojiDict = nil;
         is_send = YES;
         int length_str = (int)textView.text.length ;
         if (length_str > 0) {
-            BOOL needReload = NO;
+
             if ( ![textView.text isEqualToString:@""] ) {
                 
-                needReload = YES;
+                
                 
                 NSMutableArray *messageRange = [[NSMutableArray alloc] init];
                 [self getMessageRange:textView.text :messageRange];

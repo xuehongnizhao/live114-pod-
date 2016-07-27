@@ -199,7 +199,7 @@
      */
     if (tableView == _tableView) {
         select_one = indexPath.row;
-        NSString *currentRow = [selectRowAtTableview objectAtIndex:_currentSelectedMenudIndex];
+        NSString *currentRow;
         currentRow = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
         //重新加入数组
         NSMutableArray *tempArr = [[NSMutableArray alloc] init];
@@ -226,10 +226,7 @@
             
             NSArray *array = _array[_currentSelectedMenudIndex];
             cateInfo *info = array[indexPath.row];
-            NSString *selectText = info.cate_name;
-            
-//            CATextLayer *title = [[CATextLayer alloc] init];
-//            title.string = selectText;
+
             //菜单消失
             [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_tableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
                 _show = NO;

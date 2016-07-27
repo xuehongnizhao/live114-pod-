@@ -127,6 +127,7 @@
 - (void)setGroupViewShow{
     
     [self.bridge registerHandler:@"hd_shopGroupShow" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"%@",data);
         ShopGroupViewController *firVC=[[ShopGroupViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];

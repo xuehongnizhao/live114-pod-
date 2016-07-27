@@ -125,19 +125,19 @@
     if (self.inputTextField)
     {
         NSLog(@"点击表情");
-        NSMutableString *faceString = [[NSMutableString alloc]initWithString:self.inputTextField.text];
-//        [faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"%03d", i]]];
-        faceString =[_faceMap objectForKey:[NSString stringWithFormat:@"%03d",i]];
-        NSLog(@"faceString:%@",faceString);
+//         = [[NSMutableString alloc]initWithString:self.inputTextField.text];
+////        [faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"%03d", i]]];
+      NSString *faceString =[_faceMap objectForKey:[NSString stringWithFormat:@"%03d",i]];
+//        NSLog(@"faceString:%@",faceString);
                 self.inputTextField.text = faceString;
-        [faceString release];
+//        [faceString release];
         [delegate textFieldDidChange:self.inputTextField];
     }
 
     if (self.inputTextView)
     {
 
-        NSMutableString *faceString = [[NSMutableString alloc]initWithString:self.inputTextView.text];
+        NSString *faceString = self.inputTextView.text;
 //        [faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"%03d", i]]];
        // faceString =[_faceMap objectForKey:[NSString stringWithFormat:@"%03d",i]];
         NSLog(@"i=%d",i);
@@ -146,7 +146,7 @@
             
             if ([[_faceMap objectForKey:key] isEqualToString:[NSString stringWithFormat:@"Expression_%d@2x.png",i]])
             {
-                faceString=[NSMutableString stringWithFormat:@"%@",key];
+                faceString=[NSString stringWithFormat:@"%@",key];
             }
         }
        // faceString=[arr objectAtIndex:i];
@@ -154,7 +154,7 @@
 
         if ([self.send isEqualToString:@"1"])
         {
-            faceString = [NSString stringWithFormat:@"%@%@",self.inputTextView.text,faceString];
+            faceString = [NSMutableString stringWithFormat:@"%@%@",self.inputTextView.text,faceString];
             self.inputTextView.text = faceString;
             [delegate faceBoardTextViewDidChange:self.inputTextView andDelete:NO];
         }

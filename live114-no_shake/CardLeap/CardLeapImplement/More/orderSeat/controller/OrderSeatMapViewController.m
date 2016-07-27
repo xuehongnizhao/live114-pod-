@@ -473,9 +473,6 @@ static NSString *pageCount = @"10";
 {
     NSString *tmp_url  = connect_url(@"seat_map");
     NSString *city_id = [[NSUserDefaults standardUserDefaults]objectForKey:KCityID];
-    if (city_id == nil) {
-        city_id = @"0";
-    }
     
 #pragma mark --- 11.20日修改（订座位地图）
     if (self.category == nil) {
@@ -736,14 +733,9 @@ static NSString *pageCount = @"10";
     return _mapView;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    //    self.mapView.showsUserLocation = YES;
-    //    self.mapView.userTrackingMode = MKUserTrackingModeNone;
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     self.mapView = nil;
     [SVProgressHUD dismiss];
     self.mapView.showsUserLocation = NO;

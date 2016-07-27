@@ -33,6 +33,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [_remark_T becomeFirstResponder];
 }
 

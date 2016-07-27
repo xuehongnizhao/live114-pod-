@@ -37,11 +37,6 @@ void SkipToPCMAudioData(FILE* fpwave)
 	while(!bDataBlock)
 	{
 		fread(&chunk, 1, sizeof(XCHUNKHEADER), fpwave);
-		if ( !memcmp(chunk.chChunkID, "data", 4) )
-		{
-			bDataBlock = 1;
-			break;
-		}
 		// 因为这个不是data块,就跳过块数据
 		fseek(fpwave, chunk.nChunkSize, SEEK_CUR);
 	}
@@ -281,7 +276,7 @@ int ReadAMRFrameFirst(FILE* fpamr, unsigned char frameBuffer[], int* stdFrameSiz
 // 返回值: 0-出错; 1-正确
 int ReadAMRFrame(FILE* fpamr, unsigned char frameBuffer[], int stdFrameSize, unsigned char stdFrameHeader)
 {
-	int bytes = 0;
+	
 	unsigned char frameHeader; // 帧头
 	
 	memset(frameBuffer, 0, sizeof(frameBuffer));
@@ -290,14 +285,13 @@ int ReadAMRFrame(FILE* fpamr, unsigned char frameBuffer[], int stdFrameSize, uns
 	// 如果是坏帧(不是标准帧头)，则继续读下一个字节，直到读到标准帧头
 	while(1)
 	{
-		bytes = fread(&frameHeader, 1, sizeof(unsigned char), fpamr);
+		
 		if (feof(fpamr)) return 0;
 		if (frameHeader == stdFrameHeader) break;
 	}
 	
 	// 读该帧的语音数据(帧头已经读过)
 	frameBuffer[0] = frameHeader;
-	bytes = fread(&(frameBuffer[1]), 1, (stdFrameSize-1)*sizeof(unsigned char), fpamr);
 	if (feof(fpamr)) return 0;
 	
 	return 1;
