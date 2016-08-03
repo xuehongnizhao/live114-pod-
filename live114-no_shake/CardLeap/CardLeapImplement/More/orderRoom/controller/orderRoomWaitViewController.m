@@ -35,18 +35,11 @@
 #pragma mark-------set UI
 -(void)setUI
 {
-#warning 2015.12.21 查看订单进度按钮，去掉。（预定酒店和订座位）
-//    [self.view addSubview:self.checkButton];
-//    [_checkButton autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//    [_checkButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-//    [_checkButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
-//    [_checkButton autoSetDimension:ALDimensionHeight toSize:40.0f];
     
     [self.view addSubview:self.submitSuccessWeb];
     [_submitSuccessWeb autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
     [_submitSuccessWeb autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_submitSuccessWeb autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-//    [_submitSuccessWeb autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:_checkButton withOffset:-10.0f];
     [_submitSuccessWeb autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-10.0f];
     [_submitSuccessWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     
@@ -152,19 +145,9 @@
     [firVC.navigationItem setHidesBackButton:YES];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"预定成功" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"预定成功"];
     firVC.room_id = self.seat_id;
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -417,7 +417,6 @@
     if (show) {
         //判断有没有二级的子菜单 有就宽度调整 没有就不做调整
         CGFloat tableViewWidth ;
-        CGFloat secondHeight = 5 * tableView.rowHeight;
         if ([self isPopSecondMenu]==YES) {
             tableViewWidth = self.frame.size.width/2;
             _secondTableview.frame = CGRectMake(tableViewWidth, self.frame.origin.y + self.frame.size.height, tableViewWidth, 0);

@@ -108,12 +108,16 @@
             day_title.text = model.Chinese_calendar;
             imgview.hidden = NO;
             //判断是开始日期 还是结束日期
-            if(model.type == CellBeginDate)
-            {
-                day_title.text = @"开始日期";
-            }else if(model.type == CellEndDate)
-            {
-                day_title.text = @"结束日期";
+            switch (model.type) {
+                case CellBeginDate:
+                       day_title.text = @"开始日期";
+                    break;
+                case CellEndDate:
+                    day_title.text = @"结束日期";
+                    break;
+                    
+                default:
+                    break;
             }
             break;
         default:

@@ -1537,7 +1537,6 @@
 		33DB1C1F1A1ECAF6002E463E /* UZCommonMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZCommonMethod.m; sourceTree = "<group>"; };
 		33DB1C201A1ECAF6002E463E /* UZCommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZCommonTableViewController.h; sourceTree = "<group>"; };
 		33DB1C211A1ECAF6002E463E /* UZCommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZCommonTableViewController.m; sourceTree = "<group>"; };
-		33DB1C491A1EE76B002E463E /* Aller_Lt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Aller_Lt.ttf; sourceTree = "<group>"; };
 		33DB1C4A1A1EE76B002E463E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		33DB1C6D1A1F0828002E463E /* DSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSNavigationBar.h; sourceTree = "<group>"; };
@@ -1552,7 +1551,6 @@
 		33DB1C7C1A1F1957002E463E /* CardLeapDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardLeapDatabaseManager.h; path = Entity/CardLeapDatabaseManager.h; sourceTree = "<group>"; };
 		33DB1C7D1A1F1957002E463E /* CardLeapDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardLeapDatabaseManager.m; path = Entity/CardLeapDatabaseManager.m; sourceTree = "<group>"; };
 		33DB1C7F1A1F1981002E463E /* CardLeapDatabaseConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardLeapDatabaseConstants.h; sourceTree = "<group>"; };
-		33DB1C801A1F2F33002E463E /* Abberancy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Abberancy.ttf; sourceTree = "<group>"; };
 		46AA97901A78717B0023F0ED /* EvenMoreFeedbackInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvenMoreFeedbackInfoViewController.h; sourceTree = "<group>"; };
 		46AA97911A78717B0023F0ED /* EvenMoreFeedbackInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvenMoreFeedbackInfoViewController.m; sourceTree = "<group>"; };
 		46AA97921A78717B0023F0ED /* EvenMoreFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvenMoreFeedbackViewController.h; sourceTree = "<group>"; };
@@ -3684,8 +3682,6 @@
 			children = (
 				04480A4F1D1CB4F7004018CF /* shake_sound.m4a */,
 				047E0D3C1A381A9B00304FF1 /* PushConfig.plist */,
-				33DB1C801A1F2F33002E463E /* Abberancy.ttf */,
-				33DB1C491A1EE76B002E463E /* Aller_Lt.ttf */,
 				33DB1C4A1A1EE76B002E463E /* OpenSans-Light.ttf */,
 				333BDA1F1A1D7EFF009BAB8E /* Info.plist */,
 				333BDA201A1D7EFF009BAB8E /* main.m */,

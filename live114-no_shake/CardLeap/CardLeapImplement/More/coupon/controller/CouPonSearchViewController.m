@@ -293,22 +293,12 @@
         
         if (![_u_lat isEqualToString:@"0"] && ![_u_lng isEqualToString:@"0"])
         {
-            /**
-             NSDictionary *dict = @{
-             @"app_key":url,
-             @"page":[NSString stringWithFormat:@"%d",page],
-             @"cate_id":cate,
-             @"area":area,
-             @"lng":baidu_lng,
-             @"lat":baidu_lat,
-             @"order":order
-             };
-             */
+ 
             NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
             if (city_id == nil) {
                 city_id = @"0";
             }
-            [SVProgressHUD showWithStatus:@"搜索中..." maskType:SVProgressHUDMaskTypeBlack];
+            [SVProgressHUD showWithStatus:@"搜索中..."];
             NSString *url = SEARCH_SEAT_POST;
             NSDictionary* dict=@{
                                  @"app_key":url,
@@ -334,7 +324,6 @@
                         couponInfo *info = [[couponInfo alloc] initWithDictionary:dic];
                         [array addObject:info];
                     }
-                    //NSArray* themePostArr=[index_Recommend_info objectArrayWithKeyValuesArray:[param objectForKey:@"obj"]];
                     //封装数据
                     //精选主题页面添加
                     if (isMore)

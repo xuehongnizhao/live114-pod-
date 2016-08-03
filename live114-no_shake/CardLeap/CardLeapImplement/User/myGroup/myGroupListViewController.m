@@ -19,7 +19,7 @@
 
 @interface myGroupListViewController ()<UITableViewDataSource,UITableViewDelegate,
                                         cateButtonDelegate,myGroupCellDelegate,
-                                        GroupRefreshDelegate,completeDelegate>
+                                        GroupRefreshDelegate>
 {
     NSMutableArray *myGroupArray;//我的团购列表
     NSString *cate_id;//分类id

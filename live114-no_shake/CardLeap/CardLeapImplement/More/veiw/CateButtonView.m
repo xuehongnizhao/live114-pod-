@@ -89,7 +89,7 @@
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     NSInteger tag = sender.tag;
-    NSLog(@"点击了分类id %ld",tag);
+    NSLog(@"点击了分类id %ld",(long)tag);
     [self.delegate chooseCateID:tag];
 }
 @end

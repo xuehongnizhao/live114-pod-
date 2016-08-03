@@ -56,7 +56,6 @@
 @property (assign, nonatomic) BOOL islogin;                     /*!< 是否登录 */
 @property (strong, nonatomic) NSString *deviceID;
 -(void)getDataFromNet;
-//- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+
 @end
 

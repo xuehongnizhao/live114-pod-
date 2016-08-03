@@ -70,9 +70,6 @@ static NSString *pageCount = @"10";
 /*!< 地图中注释的数据 */
 @property (strong, nonatomic) NSArray *annotations;                 /*!< 地图中注释的数据 */
 
-// SUPPORT
-@property (assign, nonatomic) NSInteger page;
-
 @property (strong, nonatomic) UITapGestureRecognizer *tapGes;       /*!< 单击手势对象 */
 
 
@@ -175,10 +172,7 @@ static NSString *pageCount = @"10";
     [_thumbImageView sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
     self.shopNameLabel.text = [self getName:dic];
     self.distanceLabel.text = [NSString stringWithFormat:@"%@m",[self getDistance:dic]] ;
-    //NSInteger starNumber = [[self getScore:dic] integerValue] ;
-    //[self setStar:[self getScore:dic] ];
-    //CGRect frame = CGRectMake(0, 0, self.myLevel.frame.size.width, self.myLevel.frame.size.height);
-    //[self setupStartsWithFrame:frame rating:starNumber fractionalOrNot:YES andEnabled:NO];
+
 }
 //设置星星
 -(void)setStar :(NSString*)score
@@ -207,14 +201,13 @@ static NSString *pageCount = @"10";
         [self.myLevel addSubview:imageview];
     }
 }
-#warning  星星处理 mark
 //设置用户操作view中的数据值
 - (void)settingOperationView
 {
     NSInteger beginPage = (page-1) * [pageCount integerValue] + 1;
     NSInteger endPage = beginPage + 9;
     
-    self.descriptionLabel.text = [NSString stringWithFormat:@"第%ld-%ld家",(long)beginPage,endPage];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"第%ld-%ld家",(long)beginPage,(long)endPage];
     
     if (page <= 1) {
         [self.leftButton setEnabled:NO];
@@ -236,18 +229,12 @@ static NSString *pageCount = @"10";
     
     self.shopPanel.tag = shopID;
     orderSeatInfo *info = self.shops[shopID];
-    //self.thumbView.layer.borderColor = [Color(184, 184, 184, 1.0) CGColor];
     self.thumbView.layer.borderWidth = 0.3;
     NSString *imageURLStr = info.shop_pic;
     [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
     self.shopNameLabel.text = info.shop_name;
     self.distanceLabel.text = [NSString stringWithFormat:@"%@",info.distance];
-    NSLog(@"%@m",self.distanceLabel.text);
-    NSLog(@"%@",self.shopNameLabel.text);
-    //NSInteger score = [[self getScore:dic] integerValue] / 2;
     [self setStar:info.score ];
-    //    CGRect frame = CGRectMake(0, 0, self.myLevel.frame.size.width, self.myLevel.frame.size.height);
-    //    [self setupStartsWithFrame:frame rating:score fractionalOrNot:YES andEnabled:NO];
 }
 //隐藏商家信息pane
 - (void)hiddenShopPane:(NSInteger)shopID
@@ -271,18 +258,6 @@ static NSString *pageCount = @"10";
     float zoomLevel = 0.01;
     MKCoordinateRegion region = MKCoordinateRegionMake(self.myLocation.coordinate,
                                                        MKCoordinateSpanMake(zoomLevel, zoomLevel));
-    
-    //    //坐标的转换
-    //    double latitude = self.myLocation.coordinate.latitude ;
-    //    double longtitude = self.myLocation.coordinate.longitude;
-    //    double baiDuLat , baiDuLng;
-    //    double x = longtitude, y = latitude;
-    //    double z = sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi);
-    //    double theta = atan2(y, x) + 0.000003 * cos(x * x_pi);
-    //    baiDuLng = z * cos(theta) + 0.0065;
-    //    baiDuLat = z * sin(theta) + 0.006;
-    //CLLocationCoordinate2D *tempLocation ;
-    //    NSLog(@"我的经纬度是 ---------%f-----------%f",latitude,longtitude);
     region.center = self.myLocation.location.coordinate;
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:NO];
     [self removeTheCoverView];
@@ -323,15 +298,6 @@ static NSString *pageCount = @"10";
     return annotations;
 }
 
-#pragma mark Net work
-
-/**
- *	@brief	根据当前位置，请求到附近的商铺信息.请求成功后更新界面上的数据Ω
- */
-- (void)getLocationsFromNetwork :(double)lng :(double)lat
-{
-    //被废弃的方法
-}
 
 #pragma mark - Actions
 //点击pane跳转至商家商品列表界面
@@ -357,7 +323,6 @@ static NSString *pageCount = @"10";
 {
     if (page>1) {
         page --;
-        [self getLocationsFromNetwork:baidu_lng :baidu_lat];
     }
     [self settingOperationView];
 }
@@ -370,7 +335,6 @@ static NSString *pageCount = @"10";
     }else{
         page ++;
         [self settingOperationView];
-        [self getLocationsFromNetwork:baidu_lng :baidu_lat];
     }
 }
 
@@ -472,7 +436,6 @@ static NSString *pageCount = @"10";
 -(void)getShopList:(float)lat lng:(float)lng
 {
     NSString *tmp_url  = connect_url(@"seat_map");
-    NSString *city_id = [[NSUserDefaults standardUserDefaults]objectForKey:KCityID];
     
 #pragma mark --- 11.20日修改（订座位地图）
     if (self.category == nil) {
@@ -749,11 +712,6 @@ static NSString *pageCount = @"10";
     self.myLocation = nil;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 -(void)changePositions
 {
     if (IPHONE5 == NO) {
@@ -767,22 +725,5 @@ static NSString *pageCount = @"10";
     }
 }
 
--(void)viewDidLayoutSubviews
-{
-    //[self changePositions];
-}
-
-
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

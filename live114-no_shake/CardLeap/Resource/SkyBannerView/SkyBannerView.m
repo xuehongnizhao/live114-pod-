@@ -82,7 +82,7 @@
     [self performSelector:@selector(switchImageItems) withObject:nil afterDelay:ScrollIntervalTime];
     
     self.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-        NSLog(@"tapedImage at index :%ld",index);
+    
     };
 }
 

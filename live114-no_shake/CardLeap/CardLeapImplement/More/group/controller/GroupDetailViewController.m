@@ -60,7 +60,7 @@
                            @"app_key":url,
                            @"group_id":self.group_id
                            };
-    [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"数据加载..."];
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         [SVProgressHUD dismiss];
         if ([param[@"code"] integerValue]==200) {
@@ -218,7 +218,6 @@
                 
             }else{
                 height = 20.0f;
-#warning 12.10 优化计算cell高度 by CC
                 if (detailInfo == nil) {
                     NSString *shop_name = self.info.shop_name;
                     if (shop_name != nil && [shop_name isEqualToString:@""] == NO) {
@@ -309,7 +308,7 @@
     }
     cell.delegate = self;
     if (indexPath.section == 4 && indexPath.row != 0) {
-        [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showWithStatus:@"数据加载..."];
         // web页面加载，计算高度代理
         cell.webViewHeightDelegate = self;
     }
@@ -391,7 +390,6 @@
     [UMSocialData defaultData].extConfig.sinaData.shareText = sinaText;
 //    [UMSocialData defaultData].extConfig.sinaData.urlResource.url = detailInfo.share_url;
 }
-#warning 11.28 点击分享按钮就加积分
 - (void) UserSharePoint {
     if (ApplicationDelegate.islogin == YES) {
         NSString *url = connect_url(@"share_point");

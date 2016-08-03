@@ -72,13 +72,6 @@ int ReadPCMFrame(short speech[], FILE* fpwave, int nChannels, int nBitsPerSample
 			{
 				// 1 - 取两个声道之左声道
 				speech[y] =(short)((short)pcmFrame_8b2[x+0] << 7);
-				// 2 - 取两个声道之右声道
-				//speech[y] =(short)((short)pcmFrame_8b2[x+1] << 7);
-				// 3 - 取两个声道的平均值
-				//ush1 = (short)pcmFrame_8b2[x+0];
-				//ush2 = (short)pcmFrame_8b2[x+1];
-				//ush = (ush1 + ush2) >> 1;
-				//speech[y] = (short)((short)ush << 7);
 			}
 		}
 		else
@@ -256,7 +249,7 @@ int caclAMRFrameSize(unsigned char frameHeader)
 // 返回值: 0-出错; 1-正确
 int ReadAMRFrameFirst(FILE* fpamr, unsigned char frameBuffer[], int* stdFrameSize, unsigned char* stdFrameHeader)
 {
-	memset(frameBuffer, 0, sizeof(frameBuffer));
+	memset(frameBuffer, 0, sizeof(&frameBuffer));
 	
 	// 先读帧头
 	fread(stdFrameHeader, 1, sizeof(unsigned char), fpamr);
@@ -279,7 +272,7 @@ int ReadAMRFrame(FILE* fpamr, unsigned char frameBuffer[], int stdFrameSize, uns
 	
 	unsigned char frameHeader; // 帧头
 	
-	memset(frameBuffer, 0, sizeof(frameBuffer));
+	memset(frameBuffer, 0, sizeof(&frameBuffer));
 	
 	// 读帧头
 	// 如果是坏帧(不是标准帧头)，则继续读下一个字节，直到读到标准帧头
@@ -312,9 +305,6 @@ int DecodeAMRFileToWAVEFile(const char* pchAMRFileName, const char* pchWAVEFilen
 	
 	unsigned char amrFrame[MAX_AMR_FRAME_SIZE];
 	short pcmFrame[PCM_FRAME_SIZE];
-	
-//	NSString * path = [[NSBundle mainBundle] pathForResource:  @"test" ofType: @"amr"]; 
-//	fpamr = fopen([path cStringUsingEncoding:NSASCIIStringEncoding], "rb");
     fpamr = fopen(pchAMRFileName, "rb");
     
 	if ( fpamr==NULL ) return 0;
@@ -327,13 +317,6 @@ int DecodeAMRFileToWAVEFile(const char* pchAMRFileName, const char* pchWAVEFilen
 		return 0;
 	}
 	
-	// 创建并初始化WAVE文件
-//	NSArray *paths               = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//	NSString *documentPath       = [paths objectAtIndex:0];
-//	NSString *docFilePath        = [documentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%s", pchWAVEFilename]];
-//	NSLog(@"documentPath=%@", documentPath);
-//	
-//	fpwave = fopen([docFilePath cStringUsingEncoding:NSASCIIStringEncoding], "wb");
     fpwave = fopen(pchWAVEFilename,"wb");
     
 	WriteWAVEFileHeader(fpwave, nFrameCount);

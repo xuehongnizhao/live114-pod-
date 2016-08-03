@@ -149,7 +149,7 @@
 
 -(void)BtnClick:(UITapGestureRecognizer *)imageTap
 {
-    NSLog(@"imageTag==%ld", imageTap.view.tag );
+    NSLog(@"imageTag==%d", imageTap.view.tag );
     
     // 1.封装图片数据
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity: [myImageUrlArr count] ];
