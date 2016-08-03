@@ -13,7 +13,6 @@
 #import "ShopDishTableViewCell.h"
 #import "UIScrollView+MJRefresh.h"
 #import "dishCateInfo.h"
-#import "JSBadgeView.h"
 #import "ShopTakeOutDetailViewController.h"
 #import "ShopDishConfirmViewController.h"
 #import "DishDetailView.h"
@@ -627,12 +626,6 @@
             [lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
             [lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
             [lable autoSetDimension:ALDimensionWidth toSize:5.0f];
-            //添加数量
-            JSBadgeView *badgeView = [[JSBadgeView alloc] initWithParentView:lable alignment:JSBadgeViewAlignmentTopLeft];
-            badgeView.badgeText = [NSString stringWithFormat:@"%ld",(long)linInfo.count];
-            if (linInfo.count == 0) {
-                badgeView.hidden = YES;
-            }
         }else{
             NSString *cate_str = [[self.info.cate objectAtIndex:indexPath.row] objectForKey:@"cat_name"];
             cell.textLabel.text = cate_str;

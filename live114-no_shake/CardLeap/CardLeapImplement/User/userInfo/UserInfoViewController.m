@@ -15,7 +15,6 @@
 #import "myOrderRoomCenterViewController.h"
 #import "myOrderRoomCenterViewController.h"
 #import "myCollectionCenterViewController.h"
-#import "CityUserController.h"
 #import "UserUpdatePasswordViewController.h"
 #import "EvenMoreListViewController.h"
 #import "myGroupListViewController.h"
@@ -263,8 +262,6 @@
         [self.navigationController pushViewController:firVC animated:YES];
     }else if ([text isEqualToString:@"release"]){
         // 我的发布
-        CityUserController *cityUser = [[CityUserController alloc] init];
-        [self.navigationController pushViewController:cityUser animated:YES];
     }else if ([text isEqualToString:@"password"]){
         // 修改密码
         UserUpdatePasswordViewController *updatePasswore = [[UserUpdatePasswordViewController alloc] init];

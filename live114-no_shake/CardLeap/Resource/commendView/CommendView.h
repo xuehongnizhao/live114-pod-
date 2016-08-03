@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GrayPageControl.h"
 /**
  *  首页推荐页面
  */
@@ -19,7 +18,7 @@
 @interface CommendView : UIView
 @property (strong, nonatomic) NSArray *buttonArray;
 @property(nonatomic,assign)id<CommendViewDelegate> delegate;
-@property (strong, nonatomic) GrayPageControl *facePageControl;
+@property (strong, nonatomic) UIPageControl *facePageControl;
 @property (strong, nonatomic) UIScrollView *faceView;
 -(void)setButtonView :(NSArray*)array;
 @end

@@ -10,8 +10,6 @@
 #import "linServicemodel.h"
 #import "SkyServerButtonView.h"
 #import "MJExtension.h"
-#import "GrayPageControl.h"
-
 #import "ccDisplayModel.h"
 #import "ccDisplayButtonView.h"
 
@@ -41,7 +39,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
 
 @property (nonatomic, strong) NSArray            * moduleArray;
 
-@property (strong, nonatomic) GrayPageControl *facePageControl;
+@property (strong, nonatomic) UIPageControl *facePageControl;
 
 
 // 用一个bool值去标识是否已设置约束
@@ -112,7 +110,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     
     
     //添加PageControl
-    _facePageControl = [[GrayPageControl alloc]initForAutoLayout];
+    _facePageControl = [[UIPageControl alloc]initForAutoLayout];
     _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
@@ -176,7 +174,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     
     
     //添加PageControl
-    _facePageControl = [[GrayPageControl alloc]initForAutoLayout];
+    _facePageControl = [[UIPageControl alloc]initForAutoLayout];
     _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];

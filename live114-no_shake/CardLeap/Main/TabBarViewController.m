@@ -7,8 +7,6 @@
 //
 
 #import "TabBarViewController.h"
-#import "ContactViewController.h"
-#import "ExtraViewController.h"
 #import "HomeViewController.h"
 #import "MoreViewController.h"
 //tabbarcontroller
@@ -18,7 +16,6 @@
 #import "LoginViewController.h"
 #import "UserInfoViewController.h"
 #import "ShopListViewController.h"
-#import "LinFriendCircleController.h"
 
 @interface TabBarViewController ()<RDVTabBarControllerDelegate>
 {

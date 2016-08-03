@@ -10,7 +10,6 @@
 #import "linHangyeButtonView.h"
 #import "MJExtension.h"
 #import "linHangyeModel.h"
-#import "GrayPageControl.h"
 
 
 //一共有多少列
@@ -38,7 +37,7 @@
 
 @property(nonatomic, strong)NSArray                       * moduleArray;
 
-@property (strong, nonatomic) GrayPageControl *facePageControl;
+@property (strong, nonatomic) UIPageControl *facePageControl;
 
 
 // 用一个bool值去标识是否已设置约束
@@ -97,12 +96,11 @@
     
     //根据tagButton的数量应该有多少页
     NSInteger pages=self.cateArray.count%(ColumnOfTagButton*RowOfTagButton)==0?self.cateArray.count/(ColumnOfTagButton*RowOfTagButton):(self.cateArray.count-1)/(ColumnOfTagButton*RowOfTagButton)+1;
-    NSLog(@"pages:%ld",pages);
     [self.contentWidthConstraint autoRemove];
     self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.industryScrollView withMultiplier:pages];
     
     //添加PageControl
-    _facePageControl = [[GrayPageControl alloc]initForAutoLayout];
+    _facePageControl = [[UIPageControl alloc]initForAutoLayout];
 //    _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
