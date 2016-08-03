@@ -31,8 +31,6 @@
 #import "orderRoomListViewController.h"
 //消息按钮界面
 #import "HomeNavigationView.h"
-
-#import "AppUpdatesController.h"    //APP更新链接
 #define AppVersion @"AppVersion"    //APP版本号
 
 @interface AppDelegate ()<UIAlertViewDelegate>
@@ -599,47 +597,20 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 -(void)removeUserSelectView
 {
-    //----读取json文件---在这里测试---不一定就放在这里了-----
-    //[[JsonModel shareInstance] readJsonFromTxt:@"JsonFiel"];
+
     [_image removeFromSuperview];
     TabBarViewController *firVc = [[TabBarViewController alloc] init];
     self.window.rootViewController = firVc;
-    //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:firVc];
     self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
+    
 }
 
-#pragma mark-------检测更新
--(void)checkVersion
-{
-    NSString *cr_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSString *net_version = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_v"] ;
-    if ([net_version compare:cr_version]==1) {
-        NSString *is_update = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"is_update"] ;
-        NSString *hintStr = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_desc"] ;
-        if ([is_update intValue] == 1) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"强制版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:nil, nil];
-            alert.tag = 1;
-            [alert show];
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:@"暂时不要了", nil];
-            alert.tag = 1;
-            [alert show];
-        }
-    }
-}
 
 #pragma mark-------alertDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag == 1) {
         if (buttonIndex == 0) {
-            NSString *downLoadUrl = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_download"] ;
-            //            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:downLoadUrl]];
-            AppUpdatesController * appUpdates = [[AppUpdatesController alloc] init];
-            appUpdates.webURL = downLoadUrl;
-            [appUpdates setNavBarTitle:@"更新APP" withFont:15.0f];
-            [self.window.rootViewController.navigationController pushViewController:appUpdates animated:NO];
         }
     }else if(alertView.tag == 3){
         if (buttonIndex == 0) {

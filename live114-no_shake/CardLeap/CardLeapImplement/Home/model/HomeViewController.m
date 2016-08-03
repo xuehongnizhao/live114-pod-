@@ -67,8 +67,6 @@
 #import "SkyBannerView.h"
 //行业专区 View
 #import "IndustryZoneView.h"
-
-#import "AppUpdatesController.h" // 更新APP web页
 #define AppVersion @"AppVersion" //APP版本号
 
 @interface HomeViewController ()<UITextFieldDelegate,
@@ -1712,20 +1710,6 @@ linHangyeCommendViewDelegate>
 }
 
 
-#pragma mark-------alertDelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == 1) {
-        if (buttonIndex == 0) {
-            NSString *downLoadUrl = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_download"] ;
-            //            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:downLoadUrl]];
-            AppUpdatesController * appUpdates = [[AppUpdatesController alloc] init];
-            appUpdates.webURL = downLoadUrl;
-            [appUpdates setNavBarTitle:@"更新APP" withFont:15.0f];
-            [self.navigationController pushViewController:appUpdates animated:NO];
-        }
-    }
-}
 - (NSInteger)numberOfCovers:(SLCoverFlowView *)coverFlowView{
     return 0;
 }

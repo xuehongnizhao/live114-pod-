@@ -268,7 +268,6 @@
 		04A0C4A51A76126300EF2939 /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0C4A41A76126300EF2939 /* GroupDetailViewController.m */; };
 		04A0C4A81A76158600EF2939 /* groupDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0C4A71A76158600EF2939 /* groupDetailInfo.m */; };
 		04A0C4AB1A7616F200EF2939 /* groupDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0C4AA1A7616F200EF2939 /* groupDetailTableViewCell.m */; };
-		04A3B6DE1C06E8F700398325 /* AppUpdatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A3B6DD1C06E8F700398325 /* AppUpdatesController.m */; };
 		04AC9A8A1CD19FE0007940FA /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC9A7D1CD19FE0007940FA /* TAAbstractDotView.m */; };
 		04AC9A8B1CD19FE0007940FA /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC9A7F1CD19FE0007940FA /* TAAnimatedDotView.m */; };
 		04AC9A8C1CD19FE0007940FA /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AC9A811CD19FE0007940FA /* TADotView.m */; };
@@ -1134,8 +1133,6 @@
 		04A0C4A71A76158600EF2939 /* groupDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupDetailInfo.m; sourceTree = "<group>"; };
 		04A0C4A91A7616F200EF2939 /* groupDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupDetailTableViewCell.h; sourceTree = "<group>"; };
 		04A0C4AA1A7616F200EF2939 /* groupDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupDetailTableViewCell.m; sourceTree = "<group>"; };
-		04A3B6DC1C06E8F700398325 /* AppUpdatesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUpdatesController.h; sourceTree = "<group>"; };
-		04A3B6DD1C06E8F700398325 /* AppUpdatesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUpdatesController.m; sourceTree = "<group>"; };
 		04AC9A7C1CD19FE0007940FA /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
 		04AC9A7D1CD19FE0007940FA /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
 		04AC9A7E1CD19FE0007940FA /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
@@ -3928,8 +3925,6 @@
 		333BDA501A1DCA1D009BAB8E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				04A3B6DC1C06E8F700398325 /* AppUpdatesController.h */,
-				04A3B6DD1C06E8F700398325 /* AppUpdatesController.m */,
 				33C1B3541ADCADF900A717FE /* CitySelect */,
 				46D1D9311A7F0C31003570AE /* MessageViewController.h */,
 				46D1D9321A7F0C31003570AE /* MessageViewController.m */,
@@ -4827,7 +4822,6 @@
 				04D5239E1A650C4D001882CB /* checkStatusView.m in Sources */,
 				04480AB61D1CBAA1004018CF /* NSData+MKBase64.m in Sources */,
 				04EED8E31A6E231C00E548BC /* myOrderCenterInfo.m in Sources */,
-				04A3B6DE1C06E8F700398325 /* AppUpdatesController.m in Sources */,
 				04394B831A5E353E00CF0B31 /* SpikeCodeTableViewCell.m in Sources */,
 				04B621541A9F0F6700490ED3 /* CouPonSearchViewController.m in Sources */,
 				04F3CD1E1A6F45F000D0B63E /* orderSeatReviewViewController.m in Sources */,
