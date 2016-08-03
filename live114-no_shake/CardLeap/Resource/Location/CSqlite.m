@@ -39,9 +39,6 @@
         
     }
     
-//    if (sqlite3_open([[[[NSBundle mainBundle] pathForResource:@"qxd" ofType:@"db"] retain] fileSystemRepresentation], &database)==SQLITE_OK) { 
-//        NSLog(@"open sqlite db ok."); 
-//    }
 }
 
 -(void)closeSqlite

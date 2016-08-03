@@ -305,20 +305,13 @@
                                    @"session_key":[UserModel shareInstance].session_key,
                                    @"grab_id":grab_id
                                    };
-            [[LinLoadingView shareInstances:self.view] startAnimation];  //开始转动
             [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
                 if ([param[@"code"] integerValue]==200) {
-                    [[LinLoadingView shareInstances:self.view] stopWithAnimation:[param objectForKey:@"message"]];  //停止转动
-                    //[SVProgressHUD dismiss];
                     page = 1;
                     [self getDataFromNet];
                 }else{
-                    [[LinLoadingView shareInstances:self.view] stopWithAnimation:param[@"message"]];  //停止转动
-                    //[SVProgressHUD showErrorWithStatus:param[@"message"]];
                 }
             } andErrorBlock:^(NSError *error) {
-                [[LinLoadingView shareInstances:self.view] stopWithAnimation:@"网络不给力"];  //停止转动
-                //[SVProgressHUD showErrorWithStatus:@"网络异常"];
             }];
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"小编提示" message:@"您还没有选择要删除的优惠券" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:@"取消", nil];
@@ -328,14 +321,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

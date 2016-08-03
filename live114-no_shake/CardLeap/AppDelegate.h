@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "BaseEngine.h"
-#import "AppStoreEngine.h"
 #define UmengAppkey @"55ec0f2fe0f55a3af4000622"
 //获取相应的url
 //#define connect_url(key) [[[[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"api"]objectForKey:key] substringFromIndex:28]
@@ -53,7 +52,6 @@
 @property (nonatomic        ) float          systemVersion;/*!< 表示当前应用的操作系统版本号 */
 @property (strong, nonatomic) NSString       *applicationVersion;/*!< 应用版本号 */
 @property (strong, nonatomic) BaseEngine     *baseEngine;/*!< 网络层引擎的实例对象 */
-@property (strong, nonatomic) AppStoreEngine *appStoreEngine;/*!< 网络层、针对APPStore */
 @property (strong,nonatomic ) NSDictionary   * baseDict;
 @property (assign, nonatomic) BOOL islogin;                     /*!< 是否登录 */
 @property (strong, nonatomic) NSString *deviceID;

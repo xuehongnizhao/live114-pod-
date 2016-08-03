@@ -52,14 +52,12 @@
                            @"shop_id":shopOrGroupID,
                            @"rev_type":type,
                            };
-    [[LinLoadingView shareInstances:self.view] startAnimation];  //开始转动
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             if (page == 1) {
                 [reviewArray removeAllObjects];
             }
-            [[LinLoadingView shareInstances:self.view] stopWithAnimation:[param objectForKey:@"message"]];
             NSArray *arr = [param objectForKey:@"obj"];
             if (arr.count == 0) {
                 [SVProgressHUD showErrorWithStatus:@"暂无评价"];
@@ -71,14 +69,12 @@
             }
             [self.reviewTableview reloadData];
         }else{
-            [[LinLoadingView shareInstances:self.view] stopWithAnimation:[param objectForKey:@"message"]];
         }
         [self.reviewTableview footerEndRefreshing];
         [self.reviewTableview headerEndRefreshing];
     } andErrorBlock:^(NSError *error) {
         [self.reviewTableview footerEndRefreshing];
         [self.reviewTableview headerEndRefreshing];
-        [[LinLoadingView shareInstances:self.view] stopWithAnimation:@"网络异常"];
     }];
 }
 
@@ -205,25 +201,16 @@
 #pragma mark----------上拉 下拉 方法
 -(void)headerBeginRefreshing
 {
-    NSLog(@"开始下拉刷新");
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"开始上拉加载更多");
     page ++;
     [self getDataFromNet];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

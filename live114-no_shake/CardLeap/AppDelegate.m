@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//加载ttf字体
-#import "FontManager.h"
 //navbar
 #import "DSNavigationBar.h"
 //tabBar
@@ -22,7 +20,6 @@
 #import "UMSocialQQHandler.h"
 #import <AlipaySDK/AlipaySDK.h>
 //推送接收跳转页面
-#import "MessageViewController.h"
 #import "ZQFunctionWebController.h"
 #import "mySeatSuccessViewController.h"
 #import "myRoomSuccessViewController.h"
@@ -86,9 +83,7 @@
     //修改HUD背景颜色和字体颜色
     [SVProgressHUD setMinimumDismissTimeInterval:2.f];
     [SVProgressHUD setDefaultMaskType:1];
-    //加载字体
-    [[FontManager sharedManager] loadFont:@"Aller_Lt"];
-    [[FontManager sharedManager] loadFont:@"OpenSans-Light"];
+
     //crush 回调函数
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     //自定义设置欢迎页面

@@ -103,7 +103,6 @@
                            @"app_key":tmp_url,
                            @"u_id":[UserModel shareInstance].u_id
                            };
-    [self startAnimationTitle];
     [Base64Tool postSomethingToServe:tmp_url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             NSArray *myArray = param[@"obj"];
@@ -115,7 +114,6 @@
         }else{
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
-        [self stopAnimationTitle];
     } andErrorBlock:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络异常"];
     }];
@@ -138,14 +136,5 @@
     }
     return _recordTableview;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

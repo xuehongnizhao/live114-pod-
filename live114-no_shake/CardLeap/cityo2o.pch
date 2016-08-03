@@ -22,8 +22,6 @@
     #import "JsonModel.h"
     #import "Debug.h"
     #import "UserModel.h"
-    #import "LinLoadingView.h"
     #import "BaseViewController.h"
-    #import "UIViewController+XHLoadingNavigationItemTitle.h"
     #import "ZQFunctionWebController.h"
 #endif

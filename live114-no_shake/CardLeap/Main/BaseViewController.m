@@ -8,7 +8,6 @@
 
 
 #import "BaseViewController.h"
-#import "FontLabel.h"
 
 @interface BaseViewController ()
 @property(nonatomic,strong)UIImageView* backgroundImageview;
@@ -95,7 +94,8 @@
 #pragma mark setNavBarTitleWithFont
 -(void)setNavBarTitle:(NSString *)navTitle withFont:(CGFloat)navFont
 {
-    FontLabel* titleLabel = [[FontLabel alloc] initWithFrame:CGRectMake(0, 0 , 100, 44) fontName:@"OpenSans-Light" pointSize:navFont];
+    UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0 , 100, 44)];                       
+    titleLabel.font=[UIFont fontWithName:@"OpenSans-Light" size:navFont];
     titleLabel.backgroundColor = [UIColor clearColor];  //设置Label背景透明
     titleLabel.textColor = [UIColor whiteColor];  //设置文本颜色
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -121,7 +121,6 @@
         _backgroundImageview=[[UIImageView alloc]initForAutoLayout];
         _backgroundImageview.userInteractionEnabled=YES;
         _backgroundImageview.backgroundColor = [UIColor whiteColor];
-        //_backgroundImageview.image=[UIImage imageNamed:@"Background"];
         _backgroundImageview.alpha = 1.0f;
     }
     return _backgroundImageview;
@@ -140,13 +139,10 @@
     [self.panGesture setDelegate:self];
     [self.scrollableView addGestureRecognizer:self.panGesture];
     
-    /* The navbar fadeout is achieved using an overlay view with the same barTintColor.
-     this might be improved by adjusting the alpha component of every navbar child */
     CGRect frame = self.navigationController.navigationBar.frame;
     frame.origin = CGPointZero;
     self.overlay = [[UIView alloc] initWithFrame:frame];
     if (!self.navigationController.navigationBar.barTintColor) {
-        NSLog(@"[%s]: %@", __func__, @"Warning: no bar tint color set");
     }
     [self.overlay setBackgroundColor:self.navigationController.navigationBar.barTintColor];
     [self.overlay setUserInteractionEnabled:NO];

@@ -9,7 +9,6 @@
 #import "IndustryZoneView.h"
 #import "linHangyeModel.h"
 #import "UIButton+WebCache.h"
-#import "linHangyeButtonView.h"
 
 #define ViewHeight  220*LinHeightPercent
 #define LeftSpacing 2  //左右间距

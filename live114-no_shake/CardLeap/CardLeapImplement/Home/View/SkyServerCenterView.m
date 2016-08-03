@@ -10,6 +10,7 @@
 #import "linServicemodel.h"
 #import "SkyServerButtonView.h"
 #import "MJExtension.h"
+
 #import "ccDisplayModel.h"
 #import "ccDisplayButtonView.h"
 
@@ -111,7 +112,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     
     //添加PageControl
     _facePageControl = [[UIPageControl alloc]initForAutoLayout];
-    _facePageControl.hidesForSinglePage=YES;
+    //    _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
@@ -175,7 +176,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     
     //添加PageControl
     _facePageControl = [[UIPageControl alloc]initForAutoLayout];
-    _facePageControl.hidesForSinglePage=YES;
+        _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
@@ -191,7 +192,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
 
 -(void)displayButtonviewClick:(UIButton*) sender
 {
-    linServicemodel* module=[self.moduleArray objectAtIndex:sender.tag];
+    ccDisplayModel* module=[self.moduleArray objectAtIndex:sender.tag];
     [self.delegate disPlayCenterClickButtonToPushViewController:module];
 }
 

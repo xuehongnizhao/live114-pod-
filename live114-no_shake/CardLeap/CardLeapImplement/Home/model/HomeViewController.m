@@ -10,8 +10,6 @@
 #import "HomeNavigationView.h"
 #import "UIScrollView+MJRefresh.h"
 #import "AdBannerView.h"
-#import "SLCoverFlowView.h"
-#import "SLCoverView.h"
 //解析类
 #import "cateModel.h"
 #import "littleCateModel.h"
@@ -28,7 +26,6 @@
 #import "CSqlite.h"
 #import "CarouselInfo.h"
 //messge
-#import "MessageViewController.h"
 #import "ShopTakeoutListViewController.h"
 #import "UserReviewViewController.h"
 #import "LocationListViewController.h"
@@ -56,8 +53,6 @@
 //服务分类模型和行业分类模型
 #import "linHangyeModel.h"
 #import "linServicemodel.h"
-#import "linHangyeButtonView.h"
-#import "linHangyeCommendView.h"
 #import "SkyServerCenterView.h"
 #import "MJExtension.h"
 #import "ccDisplayModel.h"
@@ -72,15 +67,13 @@
 @interface HomeViewController ()<UITextFieldDelegate,
 UITableViewDataSource,
 UITableViewDelegate,
-SLCoverFlowViewDataSource,
 AdBannerViewDelegate,
 littleCateDelegate,
 CommendViewDelegate,
 CLLocationManagerDelegate,
 GoSearchDelegate,
 HomeSelectedCityViewControllerDelegate,
-SkyServerCenterViewDelegate,
-linHangyeCommendViewDelegate>
+SkyServerCenterViewDelegate>
 {
     UIButton *_messageButton;//暂时被废弃
     UIButton *_appNameButton;//暂时被废弃
@@ -631,28 +624,6 @@ linHangyeCommendViewDelegate>
     }];
 }
 
-//-----------弃用方法----------------
--(UIView*)crateIndustryViewFromNetwork:(NSArray*) moduleArray
-{
-    UIView* industryView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250)];
-    industryView.backgroundColor=[UIColor whiteColor];
-    
-    //添加标题label
-    UILabel* serverLabel=[[UILabel alloc]initWithFrame:CGRectMake(8, 0, SCREEN_WIDTH, 30)];
-    serverLabel.text=@"如意专区";
-    
-    [industryView addSubview:serverLabel];
-    
-    linHangyeCommendView* centerView=[linHangyeCommendView initViewWithXib];
-    centerView.frame=CGRectMake(0, 30, SCREEN_WIDTH, 220);
-    centerView.delegate=self;
-    [centerView setIndustryButtonViewWithModuleArray:moduleArray];
-    
-    [industryView addSubview:centerView];
-    
-    return industryView;
-}
-
 //点击“行业专区”调用
 -(void)linHangyeclikButtonToPushViewController:(linHangyeModel *)module
 {
@@ -1098,14 +1069,6 @@ linHangyeCommendViewDelegate>
     }
 }
 
-#pragma mark---------私信页面
--(void)go2MyMessage :(UIButton*)btn
-{
-    [self removeHint];
-    NSLog(@"跳转我的消息页面");
-    MessageViewController *firVC = [[MessageViewController alloc] init];
-    [self.navigationController pushViewController:firVC animated:YES];
-}
 
 #pragma mark--------setLeftButton and RightButton
 -(UIButton*)messageButton
@@ -1513,60 +1476,6 @@ linHangyeCommendViewDelegate>
     return _cateView;
 }
 
-//#pragma mark---------滚动分类view
-//-(SLCoverFlowView*)coverFlowView
-//{
-//    if (!_coverFlowView) {
-//        _coverFlowView = [[SLCoverFlowView alloc] initForAutoLayout];
-//        _coverFlowView.backgroundColor = [UIColor grayColor];
-//        _coverFlowView.delegate = self;
-//        _coverFlowView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-//        CGRect rect = [[UIScreen mainScreen] bounds];
-//        _coverFlowView.coverSize = CGSizeMake(rect.size.width, 150);
-//        _coverFlowView.coverSpace = 0.0;
-//        _coverFlowView.coverAngle = 0.0;
-//        _coverFlowView.coverScale = 1.0;
-//    }
-//    return _coverFlowView;
-//}
-//
-//#pragma mark--------分类页面代理 分类页数量和显示
-//- (NSInteger)numberOfCovers:(SLCoverFlowView *)coverFlowView {
-//    NSInteger count = [littleCateArray count]/8;
-//    if ([littleCateArray count]%8!=0) {
-//        count += 1;
-//    }
-//    return count;
-//}
-//
-//- (SLCoverView *)coverFlowView:(SLCoverFlowView *)coverFlowView coverViewAtIndex:(NSInteger)index {
-//    float width = coverFlowView.frame.size.width;
-//    float height = coverFlowView.frame.size.height;
-//    SLCoverView *view = [[SLCoverView alloc] initWithFrame:CGRectMake(0.0, 0.0, width, height)];
-//    //添加分类button
-//    CGRect rect = [[UIScreen mainScreen] bounds];
-//    float blankWidth = (rect.size.width - 20*2 - 35*4)/3.0;
-//    for (int i = 0+index*8; i<[littleCateArray count]; i++) {
-//        int n = i % 8;
-//        int x_pos = 120+n%4*blankWidth;
-//        int y_pos = 8 + n/4*60;
-//        littleCateButton *myButton = [[littleCateButton alloc] init];
-//        [myButton setFrame:CGRectMake(x_pos, y_pos, 35, 55)];
-//        //myButton.layer.borderWidth = 1;
-//        myButton.delegate = self;
-//        [myButton setUI:[littleCateArray objectAtIndex:i]];
-//        [view addSubview:myButton];
-//    }
-//    view.backgroundColor = [UIColor whiteColor];
-//    if (index == 0) {
-//        view.backgroundColor = [UIColor redColor];
-//    }else if(index == 1){
-//        view.backgroundColor = [UIColor blueColor];
-//    }else{
-//        view.backgroundColor = [UIColor purpleColor];
-//    }
-//    return view;
-//}
 
 #pragma clickButtonForlittle
 -(void)clickAction:(NSInteger)index
@@ -1615,9 +1524,7 @@ linHangyeCommendViewDelegate>
         [firVC setHiddenTabbar:YES];
         [self.navigationController pushViewController:firVC animated:YES];
     }else if(index == 1){
-        NSLog(@"跳转我的消息页面");
-        MessageViewController *firVC = [[MessageViewController alloc] init];
-        [self.navigationController pushViewController:firVC animated:YES];
+
     }else if(index == 2){
         NSLog(@"主页在这里跳转多城市");
         HomeSelectedCityViewController* hscvc=[[HomeSelectedCityViewController alloc]init];
@@ -1710,10 +1617,4 @@ linHangyeCommendViewDelegate>
 }
 
 
-- (NSInteger)numberOfCovers:(SLCoverFlowView *)coverFlowView{
-    return 0;
-}
-- (SLCoverView *)coverFlowView:(SLCoverFlowView *)coverFlowView coverViewAtIndex:(NSInteger)index{
-    return nil;
-}
 @end
