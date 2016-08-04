@@ -23,8 +23,8 @@
 @end
 
 @interface groupDetailTableViewCell : UITableViewCell
-@property (strong,nonatomic)id<purchaseDelegate> delegate;
-@property (nonatomic, strong) id<orderGroupCellWebViewHeight> webViewHeightDelegate;
+@property (assign,nonatomic)id<purchaseDelegate> delegate;
+@property (nonatomic, assign) id<orderGroupCellWebViewHeight> webViewHeightDelegate;
 -(void)confirgureCell :(groupInfo*)info row:(NSInteger)row section:(NSInteger)section;
 -(void)confirgureDetailCell :(groupDetailInfo*)info row:(NSInteger)row section:(NSInteger)section;
 @end

@@ -14,7 +14,7 @@
 #import "ReviewListViewController.h"
 #import "UMSocial.h"
 
-@interface GroupDetailViewController ()<UITableViewDataSource,UITableViewDelegate,purchaseDelegate,UMSocialUIDelegate,UIAlertViewDelegate>
+@interface GroupDetailViewController ()<UITableViewDataSource,UITableViewDelegate,purchaseDelegate,UMSocialUIDelegate,UIAlertViewDelegate,orderGroupCellWebViewHeight>
 {
     groupDetailInfo *detailInfo;
     CGFloat webHeight;
@@ -94,7 +94,9 @@
         self.groupDetailTableview.scrollEnabled = YES;
     }
 }
-
+-(void) webViewFailLoadWithError:(NSError *)error{
+    
+}
 #pragma mark-------get UI
 -(UIButton *)shareButton
 {
@@ -116,7 +118,6 @@
         _groupDetailTableview.delegate = self;
         _groupDetailTableview.dataSource = self;
         _groupDetailTableview.separatorInset = UIEdgeInsetsZero;
-        _groupDetailTableview.scrollEnabled = NO;
         [UZCommonMethod hiddleExtendCellFromTableview:_groupDetailTableview];
     }
     return _groupDetailTableview;
@@ -278,6 +279,7 @@
     if(cell==nil)
     {
         cell = [[groupDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: simpleTableIdentifier];
+        cell.webViewHeightDelegate=self;
     }
     while ([cell.contentView.subviews lastObject]!= nil) {
         [[cell.contentView.subviews lastObject]removeFromSuperview];
@@ -472,13 +474,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

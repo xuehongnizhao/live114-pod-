@@ -27,15 +27,6 @@
 
 @implementation orderSeatDetailTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 #pragma mark-----读取接口
 -(void)confirgureCell:(orderSeatDetailInfo*)info  section:(NSInteger)section row:(NSInteger)row
@@ -143,7 +134,7 @@
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeRight];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-            NSURL *url            = [NSURL URLWithString:info.message_url];
+            NSURL *url = [NSURL URLWithString:info.message_url];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [_messageWebView loadRequest:request];
             _messageWebView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -366,7 +357,6 @@
 {
     if (!_messageWebView) {
         _messageWebView = [[UIWebView alloc] initForAutoLayout];
-//        _messageWebView.scalesPageToFit = NO;
         _messageWebView.delegate = self;
         _messageWebView.scrollView.scrollEnabled = NO;
     }

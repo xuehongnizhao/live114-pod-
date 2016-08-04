@@ -37,20 +37,6 @@
 
 @implementation groupDetailTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-//-(AdBannerView*)_adBannerView
-//{
-//    
-//}
 
 //---列表传入detail message---
 -(void)confirgureCell :(groupInfo*)info row:(NSInteger)row section:(NSInteger)section
@@ -91,10 +77,8 @@
             _groupPrice.text = [NSString stringWithFormat:@"￥%@",info.now_price];
             
             [self.contentView addSubview:self.oldPrice];
-//            [_oldPrice autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
             [_oldPrice autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_groupPrice];
             [_oldPrice autoSetDimension:ALDimensionHeight toSize:15.0f];
-            //[_oldPrice autoSetDimension:ALDimensionWidth toSize:60.0f];
             [_oldPrice autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_groupPrice withOffset:5.0f];
             _oldPrice.text = [NSString stringWithFormat:@"￥%@",info.before_price];
             
@@ -120,25 +104,6 @@
         [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
         [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:30.0f];
         _shop_name_lable.text = info.group_name;
-#pragma mark --- 11.25 删除商家描述，商家名称改为2行文本
-//        UITextView *shop_desc = [[UITextView alloc] initForAutoLayout];
-//        //shop_desc.textAlignment = NSTextAlignmentCenter;
-//        shop_desc.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//        shop_desc.scrollEnabled = NO;
-//        shop_desc.editable = NO;
-//        shop_desc.textColor = UIColorFromRGB(addressTitle);
-//        //shop_desc.textColor = [UIColor lightGrayColor];
-//        shop_desc.font = [UIFont systemFontOfSize:13.0f];
-//        shop_desc.text = info.group_brief;
-//        [self.contentView addSubview:shop_desc];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6.0f];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-//        //shop_desc.layer.borderWidth = 1;
-//        [shop_desc autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shop_name_lable withOffset:3.0f];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:30.0f];
-//        CGFloat height = [shop_desc systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-//        NSLog(@"%f",height);
-
 
         UIImageView *iconImage = [[UIImageView alloc] initForAutoLayout];
         iconImage.image = [UIImage imageNamed:@"group_people"];
@@ -254,17 +219,11 @@
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
         }else if (row == 1){
-//            [self.contentView addSubview:self.shop_detail_lable];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0f];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-//            _shop_detail_lable.text = info.group_brief;
             [self.contentView addSubview:self.detailWeb];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
             [_detailWeb  autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-            //[_detailWeb loadHTMLString:info.group_desc baseURL:nil];
 
             [_detailWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:info.message_url]]];
             _detailWeb.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -311,7 +270,6 @@
             _groupPrice.text = [NSString stringWithFormat:@"￥%@",info.now_price];
             
             [self.contentView addSubview:self.oldPrice];
-            //[_oldPrice autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
             [_oldPrice autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_groupPrice];
             [_oldPrice autoSetDimension:ALDimensionHeight toSize:15.0f];
             //[_oldPrice autoSetDimension:ALDimensionWidth toSize:60.0f];
@@ -340,25 +298,6 @@
         [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
         [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:30.0f];
         _shop_name_lable.text = info.group_name;
-#pragma mark --- 11.25 删除商家描述，商家名称改为2行文本
-//        // 描述
-//        UITextView *shop_desc = [[UITextView alloc] initForAutoLayout];
-//        //shop_desc.textAlignment = NSTextAlignmentCenter;
-//        shop_desc.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//        shop_desc.scrollEnabled = NO;
-//        shop_desc.editable = NO;
-//        shop_desc.textColor = UIColorFromRGB(addressTitle);
-//        //shop_desc.textColor = [UIColor lightGrayColor];
-//        shop_desc.font = [UIFont systemFontOfSize:13.0f];
-//        shop_desc.text = info.group_brief;
-//        [self.contentView addSubview:shop_desc];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6.0f];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-//        //shop_desc.layer.borderWidth = 1;
-//        [shop_desc autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shop_name_lable withOffset:3.0f];
-//        [shop_desc autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:30.0f];
-//        CGFloat height = [shop_desc systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-//        NSLog(@"%f",height);
         
         UIImageView *iconImage = [[UIImageView alloc] initForAutoLayout];
         iconImage.image = [UIImage imageNamed:@"group_people"];
@@ -479,17 +418,12 @@
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
             [_detailWeb  autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-            //[_detailWeb loadHTMLString:info.group_desc baseURL:nil];
+
             [_detailWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:info.message_url]]];
             _detailWeb.layer.borderColor = [UIColor whiteColor].CGColor;
             _detailWeb.layer.borderWidth = 1;
         }
     }
-}
-
-#pragma mark ----- UIWebView代理
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -500,6 +434,7 @@
             NSLog(@"加载完成，获取高度%f",webHeight);
             [self.webViewHeightDelegate webViewDidLoad:webHeight];
         } else {
+            
             [SVProgressHUD showErrorWithStatus:@"团购-详情web页，找不到webViewDidFinishLoad:方法"];
         }
     }else{
@@ -527,7 +462,6 @@
         _groupPrice = [[UILabel alloc] initForAutoLayout];
         _groupPrice.font = [UIFont systemFontOfSize:17.0f];
         _groupPrice.textColor = UIColorFromRGB(0xf4353d);
-        //_groupPrice.layer.borderWidth = 1;
     }
     return _groupPrice;
 }
@@ -711,7 +645,6 @@
 {
     if (!_detailWeb) {
         _detailWeb = [[UIWebView alloc] initForAutoLayout];
-        //_detailWeb.userInteractionEnabled = NO;
         _detailWeb.delegate = self;
         _detailWeb.scrollView.scrollEnabled = NO;
     }

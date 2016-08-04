@@ -22,8 +22,8 @@
 @end
 
 @interface orderSeatDetailTableViewCell : UITableViewCell
-@property (strong,nonatomic)id<clickImageActionDelegate> delegate;
-@property (nonatomic, strong) id<orderSeatCellWebViewHeight> webViewHeightDelegate;
+@property (assign,nonatomic)id<clickImageActionDelegate> delegate;
+@property (nonatomic, assign) id<orderSeatCellWebViewHeight> webViewHeightDelegate;
 -(void)confirgureCell:(orderSeatDetailInfo*)info section:(NSInteger)section row:(NSInteger)row;
 -(void)confirgureDetailCell:(orderSeatInfo*)info section:(NSInteger)section row:(NSInteger)row;
 @end
