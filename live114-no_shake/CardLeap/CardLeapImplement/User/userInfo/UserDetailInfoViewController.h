@@ -8,7 +8,6 @@
 //  查看资料
 
 #import <UIKit/UIKit.h>
-#define EDITENABLE @"NO"
 
 @interface UserDetailInfoViewController : BaseViewController
 

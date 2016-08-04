@@ -191,7 +191,6 @@
     [self.recordButton addTarget:self action:@selector(down) forControlEvents:UIControlEventTouchDown];
     //停止录音
     [self.recordButton addTarget:self action:@selector(upInside) forControlEvents:UIControlEventTouchUpInside];
-    [self.recordButton addTarget:self action:@selector(recorder:) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionDidChangeInterruptionType:)
                                                  name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
     

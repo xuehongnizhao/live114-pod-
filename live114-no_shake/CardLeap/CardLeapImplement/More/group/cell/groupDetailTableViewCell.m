@@ -474,11 +474,6 @@
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
         }else if (row == 1){
-//            [self.contentView addSubview:self.shop_detail_lable];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0f];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_detail_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-//            _shop_detail_lable.text = info.group_brief;
             [self.contentView addSubview:self.detailWeb];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
             [_detailWeb autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
@@ -495,8 +490,6 @@
 #pragma mark ----- UIWebView代理
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-#pragma mark --- 2015.12.29 加载web时显示“数据加载...”字样
-    [SVProgressHUD showWithStatus:@"数据加载..."];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {

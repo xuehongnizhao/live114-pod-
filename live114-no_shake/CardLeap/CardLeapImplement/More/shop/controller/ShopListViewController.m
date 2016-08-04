@@ -55,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [SVProgressHUD showWithStatus:@"正在加载，请稍等" maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"正在加载，请稍等"];
     [self setUI];
     [self initData];
 }
@@ -67,11 +67,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    //    if (![self.is_hidden isEqualToString:@"0"]) {
-    //        [self setHiddenTabbar:YES];
-    //    }else{
+
     [self setHiddenTabbar:NO];
-    //    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{

@@ -144,11 +144,6 @@
             currentKey = [[_dataDict allKeys] objectAtIndex:indexPath.row-1];
         }
         cell.textLabel.text = currentKey;
-        
-        NSArray *currentArray=[_dataDict objectForKey:currentKey];
-        if ([currentArray count]>=0) {
-            //cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[currentArray count]];
-        }
         cell.backgroundColor = [UIColor colorWithRed:246/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         //[tableView setSeparatorColor:[UIColor clearColor]];

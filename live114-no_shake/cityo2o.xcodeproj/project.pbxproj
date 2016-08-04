@@ -3306,18 +3306,9 @@
 		04EA1C611A81EFE600957DA9 /* shop */ = {
 			isa = PBXGroup;
 			children = (
-				04EA1C621A81EFE600957DA9 /* cell */,
 				04EA1C631A81EFE600957DA9 /* controller */,
-				04EA1C641A81EFE600957DA9 /* model */,
 			);
 			path = shop;
-			sourceTree = "<group>";
-		};
-		04EA1C621A81EFE600957DA9 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = cell;
 			sourceTree = "<group>";
 		};
 		04EA1C631A81EFE600957DA9 /* controller */ = {
@@ -3344,13 +3335,6 @@
 				04C16B4D1C44E25D00BF07A9 /* ShopDetailWebViewController.m */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		04EA1C641A81EFE600957DA9 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		04EFF3A31ADD071E00493C29 /* PointAndGift */ = {
@@ -4775,28 +4759,9 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Connection,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Core,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Extend/GooglePlusSDK,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Extend/Pinterest.embeddedframework,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/UI,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Connection",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Core",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Extend/GooglePlusSDK",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Extend/Pinterest.embeddedframework",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/UI",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/CardLeap/Resource/alipay",
-					"$(PROJECT_DIR)/CardLeap/Resource/src",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CardLeap/cityo2o.pch";
@@ -4820,25 +4785,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Instagram",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/LaiWang",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Line",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Sina",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Tumblr",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/UMSocial_ScreenShot_Sdk",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/UMSocial_Shake_Sdk",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/YiXin",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/lib",
 					"$(PROJECT_DIR)/CardLeap/CardLeapImplement/Contacter/SchoolTime/SendInfo2/VoiceView/AmrRecorderAndPlay/MLAudioRecorder/amr_en_de/lib",
-					"$(PROJECT_DIR)/CardLeap/Resource/ZBarSDK",
 					"$(PROJECT_DIR)/CardLeap/Resource/alipay",
-					"$(PROJECT_DIR)/CardLeap/Resource/encode/ZBarSDK",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_4.2.5",
 					"$(PROJECT_DIR)/CardLeap/Resource/SMp3Encode/Lame",
 				);
@@ -4860,28 +4817,9 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Connection,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Core,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Extend/GooglePlusSDK,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/Extend/Pinterest.embeddedframework,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					2/UI,
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Connection",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Core",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Extend/GooglePlusSDK",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/Extend/Pinterest.embeddedframework",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/ShareSDK/UI",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/CardLeap/Resource/alipay",
-					"$(PROJECT_DIR)/CardLeap/Resource/src",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CardLeap/cityo2o.pch";
@@ -4905,25 +4843,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Instagram",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/LaiWang",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Line",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Sina",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Tumblr",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/UMSocial_ScreenShot_Sdk",
-					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/UMSocial_Shake_Sdk",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_Extra_Frameworks/YiXin",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/lib",
 					"$(PROJECT_DIR)/CardLeap/CardLeapImplement/Contacter/SchoolTime/SendInfo2/VoiceView/AmrRecorderAndPlay/MLAudioRecorder/amr_en_de/lib",
-					"$(PROJECT_DIR)/CardLeap/Resource/ZBarSDK",
 					"$(PROJECT_DIR)/CardLeap/Resource/alipay",
-					"$(PROJECT_DIR)/CardLeap/Resource/encode/ZBarSDK",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/CardLeap/Resource/Library/UMSocial_Sdk_4.2.5",
 					"$(PROJECT_DIR)/CardLeap/Resource/SMp3Encode/Lame",
 				);

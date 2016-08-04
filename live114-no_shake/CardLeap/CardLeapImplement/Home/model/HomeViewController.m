@@ -147,11 +147,6 @@ SkyServerCenterViewDelegate>
 }
 
 
-//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UnLexiangHint:) name:NOTIFICATION_RIGHT_NEW_MESSAGE object:nil];
-/*
- [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_ROOT_NEW_MESSAGE object:msg];
- */
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -607,11 +602,8 @@ SkyServerCenterViewDelegate>
             
             NSArray* moduleArray=[linHangyeModel objectArrayWithKeyValuesArray:param[@"obj"]];
             industryArray = [moduleArray copy];
-            //            linHangyeModel *model = (linHangyeModel *)[industryArray objectAtIndex:0];
             if (moduleArray.count!=0)
             {
-                //                self.industryView=[self crateIndustryViewFromNetwork:moduleArray];
-                //                [self.industryView createIndustryView:moduleArray];
                 self.industryView.moduleArray   =   moduleArray;
                 self.industryView.delegate      =   self;
                 //存储到UD当中
@@ -841,11 +833,6 @@ SkyServerCenterViewDelegate>
     //    //重新显示列表
     [self setupAdBannerView:urlArray andLabelName:descArray];
     if ([cateArray count]>0) {
-        /**
-         测试使用 减少button数量 计算高度问题
-         [cateArray removeObjectAtIndex:0];
-         [cateArray removeObjectAtIndex:0];
-         */
         [self setCateButton:cateArray];
     }
     //获取首页服务分类
@@ -1006,7 +993,6 @@ SkyServerCenterViewDelegate>
     [_shopListView addSubview:shopName];
     shopName.text = @"推荐商家";
     shopName.textColor = UIColorFromRGB(indexTitle);
-    //    shopName.font = [UIFont systemFontOfSize:15.0f];
     [shopName autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_shopListView];
     [shopName autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8.0f];
     //分割线-4
@@ -1079,7 +1065,7 @@ SkyServerCenterViewDelegate>
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_news_no"]];
         [image setFrame:CGRectMake(0, 0, 10, 10)];
         [_messageButton addSubview:image];
-        [_messageButton addTarget:self action:@selector(go2MyMessage:) forControlEvents:UIControlEventTouchUpInside];
+        [_messageButton addTarget:self action:@selector(goToMyMessage:) forControlEvents:UIControlEventTouchUpInside];
         _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     }
     return _messageButton;
@@ -1183,7 +1169,6 @@ SkyServerCenterViewDelegate>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger count = [shopArray count];
-    NSLog(@"the num of shopArray is %ld",count);
     return count;
 }
 #pragma mark---------刷新
@@ -1223,7 +1208,6 @@ SkyServerCenterViewDelegate>
     if ([urlArray count]>0) {
         [bannerView setPictureUrls:urlArray andTitles:urlArry];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"Has taped imageView at index :%ld",index);
             CarouselInfo *info = [CarouseArray objectAtIndex:index];
             [self parseInfo:info];
         };
@@ -1239,16 +1223,11 @@ SkyServerCenterViewDelegate>
 {
     UIView *tmpView = [[UIView alloc] initWithFrame:CGRectMake(0 , y, SCREEN_WIDTH, height)];
     [view addSubview:tmpView];
-    //移除上一个视图的iamgeview
-    //    while ([[[self myScrollView] subviews] lastObject] != nil) {
-    //        [(UIView*)[[[self myScrollView] subviews] lastObject]  removeFromSuperview];  //删除并进行重新分配
-    //    }
     SkyBannerView* bannerView = [[SkyBannerView alloc] init];
     bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     if ([urlArray count]>0) {
         [bannerView setPictureUrls:urlArray andTitles:descArray];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"Has taped imageView at index :%ld",index);
             CarouselInfo *info = [CarouseArray objectAtIndex:index];
             [self parseInfo:info];
         };
@@ -1269,7 +1248,6 @@ SkyServerCenterViewDelegate>
     if ([billboardsArray count]>0) {
         [bannerView setPictureUrls:billboardsArray andTitles:descBillboardsArray];
         bannerView.tapHandler=^(SkyBannerView* bannerView,NSInteger index){
-            NSLog(@"在这写中部广告栏的点击逻辑处理 :%ld",index);
             NSString *url = [descBillboardsArray objectAtIndex:index];
             ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
             [firVC setHiddenTabbar:YES];

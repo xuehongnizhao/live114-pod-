@@ -31,14 +31,12 @@ static NSString *pageCount = @"10";
 @interface ORAShopMapsViewController ()<MKMapViewDelegate>
 {
     NSMutableArray *shopArray;
-    int page;
     double baidu_lat;
     double baidu_lng;
     BOOL is_hiden;
 }
 //UI
 @property (strong, nonatomic) MKMapView *mapView;
-//@property (weak, nonatomic) IBOutlet MKMapView   *mapView;
 @property (strong, nonatomic) UIView *coverView;
 @property (strong, nonatomic) UIView *shopPanel;
 @property (strong, nonatomic) UIView *thumbView;
@@ -46,15 +44,7 @@ static NSString *pageCount = @"10";
 @property (strong, nonatomic) UILabel *shopNameLabel;
 @property (strong, nonatomic) UIImageView *pointsImageView;
 @property (strong, nonatomic) UILabel *distanceLabel;
-
-//@property (weak, nonatomic) IBOutlet UIView      *shopPanel;        /*!< 弹出的详情面板*/
-//@property (weak, nonatomic) IBOutlet UIView      *thumbView;        /*!< 面板中，缩略图背景 */
-//@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;   /*!< 面板中，缩略图 */
-//@property (weak, nonatomic) IBOutlet UILabel     *shopNameLabel;    /*!< 面板中，商家名称 */
-//@property (weak, nonatomic) IBOutlet UIImageView *pointsImageView;  /*!< 面板中，积分图 */
-//@property (weak, nonatomic) IBOutlet UILabel     *distanceLabel;    /*!< 面板中，距离 */
 @property (strong, nonatomic) UIButton *myLocationButton;
-//@property (weak, nonatomic) IBOutlet UIButton    *myLocationButton;
 //以下为地图中的操作面板
 @property (strong, nonatomic) UIView *operationView;
 @property (strong, nonatomic) UIButton *leftButton;
@@ -62,12 +52,7 @@ static NSString *pageCount = @"10";
 @property (strong, nonatomic) UILabel *descriptionLabel;
 
 @property (strong, nonatomic) UIView *myLevel;
-//@property (weak, nonatomic) IBOutlet UIView      *operationView;
-//@property (weak, nonatomic) IBOutlet UIButton    *leftButton;
-//@property (weak, nonatomic) IBOutlet UIButton    *rightButton;
-//@property (weak, nonatomic) IBOutlet UILabel     *descriptionLabel;
-//@property (weak, nonatomic) IBOutlet UIView *level;
-//@property (weak, nonatomic) IBOutlet UIView *myLevel;
+
 
 // DATA
 //用于存放从网络中获取的商家信息
@@ -214,12 +199,12 @@ static NSString *pageCount = @"10";
 //设置用户操作view中的数据值
 - (void)settingOperationView
 {
-    NSInteger beginPage = (page-1) * [pageCount integerValue] + 1;
+    NSInteger beginPage = (_page-1) * [pageCount integerValue] + 1;
     NSInteger endPage = beginPage + 9;
     
-    self.descriptionLabel.text = [NSString stringWithFormat:@"第%ld-%ld家",beginPage,endPage];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"第%ld-%ld家",(long)beginPage,(long)endPage];
     
-    if (page <= 1) {
+    if (_page <= 1) {
         [self.leftButton setEnabled:NO];
     }else{
         [self.leftButton setEnabled:YES];
@@ -359,8 +344,8 @@ static NSString *pageCount = @"10";
 //地图商家翻页---前一页
 - (IBAction)prevPageAction:(UIButton *)sender
 {
-    if (page>1) {
-        page --;
+    if (_page>1) {
+        _page --;
         [self getLocationsFromNetwork:baidu_lng :baidu_lat];
     }
     [self settingOperationView];
@@ -372,7 +357,7 @@ static NSString *pageCount = @"10";
     if (self.annotations.count < [pageCount integerValue]) {
         [self.rightButton setEnabled:NO];
     }else{
-        page ++;
+        _page ++;
         [self settingOperationView];
         [self getLocationsFromNetwork:baidu_lng :baidu_lat];
     }
@@ -521,7 +506,7 @@ static NSString *pageCount = @"10";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    page = 1;
+    _page = 1;
     baidu_lat = 0.0;
     baidu_lng = 0.0;
     is_hiden = YES;

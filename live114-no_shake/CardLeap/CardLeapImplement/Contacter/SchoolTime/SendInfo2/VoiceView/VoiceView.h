@@ -25,12 +25,5 @@
 @property(nonatomic)BOOL isShow;
 @property(nonatomic,weak)id<VoiceViewDelegate> delegate;
 
-/**
- *  frame 的隐藏和出现将在内部完成
- *
- *  @param isShow 是否显示自身
- *  @param frame  是否显示并传入自己将在显示/不显示的frame
- */
--(void)setIsShow:(BOOL)isShow AndFrame:(CGRect)frame;
 
 @end

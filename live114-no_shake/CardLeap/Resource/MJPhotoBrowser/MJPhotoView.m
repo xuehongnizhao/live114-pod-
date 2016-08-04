@@ -74,8 +74,8 @@
         if (![_photo.url.absoluteString hasSuffix:@"gif"]) {
             __weak MJPhotoView *photoView = self;
             __weak MJPhoto *photo = _photo;
-            [_imageView setImageWithURL:_photo.url placeholderImage:_photo.placeholder options:SDWebImageRetryFailed|SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                photo.image = image;
+            [_imageView sd_setImageWithURL:_photo.url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                     photo.image = image;
                 // 调整frame参数
                 [photoView adjustFrame];
             }];
@@ -101,22 +101,9 @@
         [self addSubview:_photoLoadingView];
         
         __weak MJPhotoView *photoView = self;
-        __weak MJPhotoLoadingView *loading = _photoLoadingView;
         
-//        [_imageView setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSUInteger receivedSize, long long expectedSize) {
-//            if (receivedSize > kMinProgress) {
-//                loading.progress = (float)receivedSize/expectedSize;
-//            }
-//        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-//            [photoView photoDidFinishLoadWithImage:image];
-//        }];
-        //暂定的开始加载的方法
-        [_imageView setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            if (receivedSize > kMinProgress) {
-                loading.progress = (float)receivedSize/expectedSize;
-            }
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            [photoView photoDidFinishLoadWithImage:image];
+        [_imageView sd_setImageWithURL:_photo.url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+             [photoView photoDidFinishLoadWithImage:image];
         }];
     }
 }
@@ -165,9 +152,6 @@
     
 	CGFloat maxScale = 4.0;
     
-//	if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
-//		maxScale = maxScale / [[UIScreen mainScreen] scale];
-//	}
     
 	self.maximumZoomScale = maxScale;
 	self.minimumZoomScale = minScale;
@@ -187,17 +171,6 @@
     }
     
 
-    
-//    // y值
-//    if (imageFrame.size.height < boundsHeight) {
-//        
-//        imageFrame.origin.y = floorf( (boundsHeight - imageFrame.size.height ) / 2.0) * minScale;
-//        
-////        imageFrame.origin.y = floorf( (boundsHeight - imageFrame.size.height ) / 2.0) * minScale;
-//        
-//	} else {
-//        imageFrame.origin.y = 0;
-//	}
     
     if (_photo.firstShow) { // 第一次显示的图片
         _photo.firstShow = NO; // 已经显示过了
@@ -301,6 +274,6 @@
 - (void)dealloc
 {
     // 取消请求
-    [_imageView setImageWithURL:[NSURL URLWithString:@"file:///abc"]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"file:///abc"]];
 }
 @end

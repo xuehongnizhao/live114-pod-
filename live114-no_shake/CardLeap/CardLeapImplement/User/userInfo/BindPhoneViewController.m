@@ -142,9 +142,6 @@
         rect.origin.x = rect.origin.x + 3;
         passImage.frame = rect;
         _passWord.leftView = passImage;
-//        if (userDefault(@"PASSWORD")!=nil) {
-//            _userName.text=userDefault(@"PASSWORD");
-//        }
     }
     return _passWord;
 }

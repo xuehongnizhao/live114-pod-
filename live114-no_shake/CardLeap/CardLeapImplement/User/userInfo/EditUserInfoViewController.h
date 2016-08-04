@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#define EDITENABLE @"YES"
 @interface EditUserInfoViewController : BaseViewController
 
 @end

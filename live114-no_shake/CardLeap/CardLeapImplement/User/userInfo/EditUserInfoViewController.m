@@ -74,7 +74,7 @@
     if (!_user_name_T) {
         _user_name_T = [[UITextField alloc] initForAutoLayout];
         _user_name_T.delegate = self;
-        _user_name_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_name_T.userInteractionEnabled = YES;
         _user_name_T.leftViewMode = UITextFieldViewModeAlways;
         //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
         _user_name_T.textColor = UIColorFromRGB(0x6d6f72);
@@ -135,10 +135,9 @@
     if (!_user_address_T) {
         _user_address_T = [[UITextField alloc] initForAutoLayout];
         _user_address_T.delegate = self;
-        _user_address_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_address_T.userInteractionEnabled = YES;
         _user_address_T.leftViewMode = UITextFieldViewModeAlways;
         _user_address_T.tintColor = UIColorFromRGB(tintColors);
-        //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
         _user_address_T.textColor = UIColorFromRGB(0x6d6f72);
         _user_address_T.font = [UIFont systemFontOfSize:14.0f];
         UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 4, 60, 30)];

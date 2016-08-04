@@ -138,32 +138,11 @@
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8.0f];
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
         }else{
-            //---user name-------
-//            [self.contentView addSubview:self.shop_name_lable];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_name_lable autoSetDimension:ALDimensionHeight toSize:20.0f];
-//            _shop_name_lable.text = info.shop_name;
-//            //--shop desc-----
-//            [self.contentView addSubview:self.shop_desc_lable];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_desc_lable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shop_name_lable withOffset:5.0f];
-//            _shop_desc_lable.text = info.shop_desc;
-#warning 11.24 订座商家详情简介修改
-//            [self.contentView addSubview:self.shop_desc_lable];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
-//            _shop_desc_lable.text = info.shop_desc;
             [self.contentView addSubview:self.messageWebView];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeTop];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeRight];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-            [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
             NSURL *url            = [NSURL URLWithString:info.message_url];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [_messageWebView loadRequest:request];
@@ -269,32 +248,11 @@
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8.0f];
             [tmpLable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
         }else{
-//            //---user name-------
-//            [self.contentView addSubview:self.shop_name_lable];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_name_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_name_lable autoSetDimension:ALDimensionHeight toSize:20.0f];
-//            _shop_name_lable.text = info.shop_name;
-//            //--shop desc-----
-//            [self.contentView addSubview:self.shop_desc_lable];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_desc_lable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shop_name_lable withOffset:5.0f];
-//            _shop_desc_lable.text = info.shop_desc;
-#warning 11.24 订座商家详情简介修改
-//            [self.contentView addSubview:self.shop_desc_lable];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
-//            [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];
-//            _shop_desc_lable.text = info.shop_desc;
             [self.contentView addSubview:self.messageWebView];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeTop];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeRight];
             [_messageWebView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-            [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
             NSURL *url            = [NSURL URLWithString:info.message_url];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [_messageWebView loadRequest:request];
@@ -304,25 +262,11 @@
     }
 }
 
-#pragma mark ----- UIWebView代理
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-#warning 2015.12.29 加载web时显示“数据加载...”字样
-    [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
-}
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     if (self.webViewHeightDelegate != nil) {
         if ([self.webViewHeightDelegate respondsToSelector:@selector(webViewDidLoad:)]) {
             CGFloat webHeight;
-//            CGRect frame = webView.frame;
-//            frame.size.width = SCREEN_WIDTH;
-//            frame.size.height = 1;
-//            webView.frame = frame;
-//            frame.size.height = webView.scrollView.contentSize.height;
-//            NSLog(@"frame = %@", [NSValue valueWithCGRect:frame]);
-//            webView.frame = frame;
-//            webHeight = frame.size.height;
             webHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
             NSLog(@"加载完成，获取高度%f",webHeight);
             [self.webViewHeightDelegate webViewDidLoad:webHeight];

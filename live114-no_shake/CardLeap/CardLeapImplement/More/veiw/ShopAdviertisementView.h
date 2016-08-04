@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SDCycleScrollView.h"
 #import "SJCollectionView.h"
-#import "SJCollectionView.h"
 @interface ShopAdviertisementView : UIView
 @property (copy, nonatomic) NSArray *SJHDP;
 @property (copy, nonatomic) NSArray *SJHD;

@@ -155,7 +155,7 @@
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"coupon_search_no"]];
         [image setFrame:CGRectMake(5, 5, 25, 25)];
         [_messageButton addSubview:image];
-        [_messageButton addTarget:self action:@selector(go2MyMessage:) forControlEvents:UIControlEventTouchUpInside];
+        [_messageButton addTarget:self action:@selector(goToMyMessage:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _messageButton;
 }
@@ -176,9 +176,9 @@
     self.logoButton.userInteractionEnabled = YES;
 }
 
--(void)go2MyMessage :(UIButton*)btn
+-(void)goToMyMessage:(UIButton*)btn
 {
-//    [self removeHint];
+
     NSLog(@"跳转我的消息页面");
     [self.delegate goSeachShop:0];
 }

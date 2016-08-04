@@ -23,12 +23,6 @@
 
 
 @interface VoiceRecorderBase : NSObject
-{
-   @protected
-    NSInteger               maxRecordTime;  //最大录音时间
-    NSString                *recordFileName;//录音文件名
-    NSString                *recordFilePath;//录音文件路径
-}
 
 @property (assign, nonatomic)           id<VoiceRecorderBaseDelegate> vrbDelegate;
 

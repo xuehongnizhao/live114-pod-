@@ -60,14 +60,12 @@
                            @"app_key":url,
                            @"group_id":self.group_id
                            };
-    [SVProgressHUD showWithStatus:@"数据加载..."];
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         [SVProgressHUD dismiss];
         if ([param[@"code"] integerValue]==200) {
             NSDictionary *detailDic = param[@"obj"];
             detailInfo = [[groupDetailInfo alloc] initWithDictionary:detailDic];
             [self.groupDetailTableview reloadData];
-//            [self getHeightForWeb:detailInfo.message_url];
         }else{
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
@@ -101,13 +99,6 @@
         [self.groupDetailTableview reloadData];
         self.groupDetailTableview.scrollEnabled = YES;
     }
-}
-
--(void) webViewFailLoadWithError:(NSError *)error
-{
-    NSLog(@"web页加载失败:error:%@",error);
-    //    [SVProgressHUD dismiss];
-    [SVProgressHUD showErrorWithStatus:@"数据加载失败"];
 }
 
 #pragma mark-------get UI
@@ -308,11 +299,10 @@
     }
     cell.delegate = self;
     if (indexPath.section == 4 && indexPath.row != 0) {
-        [SVProgressHUD showWithStatus:@"数据加载..."];
         // web页面加载，计算高度代理
         cell.webViewHeightDelegate = self;
     }
-    //[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

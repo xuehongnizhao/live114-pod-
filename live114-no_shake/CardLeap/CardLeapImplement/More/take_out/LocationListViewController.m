@@ -73,8 +73,7 @@
     TenLat = (int)(yGps.latitude*10);
     TenLog = (int)(yGps.longitude*10);
     NSString *sql = [[NSString alloc]initWithFormat:@"select offLat,offLog from gpsT where lat=%d and log = %d",TenLat,TenLog];
-    NSLog(sql);
-    sqlite3_stmt* stmtL = [m_sqlite NSRunSql:sql];
+    sqlite3_stmt *stmtL = [m_sqlite NSRunSql:sql];
     int offLat=0;
     int offLog=0;
     while (sqlite3_step(stmtL)==SQLITE_ROW)
@@ -121,7 +120,6 @@
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemark,NSError *error)
      {
          CLPlacemark *mark=[placemark objectAtIndex:0];
-         NSString *title = [NSString stringWithFormat:@"%@",mark.name];//获取subtitle的信息;
          NSString *subTitle = [NSString stringWithFormat:@"%@%@%@",mark.subLocality,mark.thoroughfare,mark.subThoroughfare];
          NSString *myLocation = [NSString stringWithFormat:@"%@",subTitle];
          NSDictionary *locationDic = @{

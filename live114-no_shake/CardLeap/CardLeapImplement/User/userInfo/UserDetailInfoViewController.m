@@ -26,14 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     [self setUI];
     [self getDataFromNet];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,10 +75,9 @@
 {
     if (!_user_name_T) {
         _user_name_T = [[UITextField alloc] initForAutoLayout];
-        _user_name_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_name_T.userInteractionEnabled = NO;
         _user_name_T.leftViewMode = UITextFieldViewModeAlways;
         _user_name_T.enabled = NO;
-        //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
         _user_name_T.textColor = [UIColor lightGrayColor];
         _user_name_T.font = [UIFont systemFontOfSize:14.0f];
         UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 4, 60, 30)];
@@ -94,7 +93,7 @@
 {
     if (!_user_sex_T) {
         _user_sex_T = [[UITextField alloc] initForAutoLayout];
-        _user_sex_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_sex_T.userInteractionEnabled = NO;
         _user_sex_T.leftViewMode = UITextFieldViewModeAlways;
         _user_sex_T.enabled = NO;
         //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
@@ -113,10 +112,9 @@
 {
     if (!_user_phone_T) {
         _user_phone_T = [[UITextField alloc] initForAutoLayout];
-        _user_phone_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_phone_T.userInteractionEnabled = NO;
         _user_phone_T.leftViewMode = UITextFieldViewModeAlways;
         _user_phone_T.enabled = NO;
-        //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
         _user_phone_T.textColor = [UIColor lightGrayColor];
         _user_phone_T.font = [UIFont systemFontOfSize:14.0f];
         UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 4, 60, 30)];
@@ -133,10 +131,9 @@
 {
     if (!_user_address_T) {
         _user_address_T = [[UITextField alloc] initForAutoLayout];
-        _user_address_T.userInteractionEnabled = [EDITENABLE boolValue];
+        _user_address_T.userInteractionEnabled = NO;
         _user_address_T.leftViewMode = UITextFieldViewModeAlways;
         _user_address_T.enabled = NO;
-        //_connect_phone_T.borderStyle=UITextBorderStyleRoundedRect;
         _user_address_T.textColor = [UIColor lightGrayColor];
         _user_address_T.font = [UIFont systemFontOfSize:14.0f];
         UILabel *leftLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 4, 60, 30)];
@@ -175,7 +172,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSLog(@"干嘛的-----");
-    //NSInteger row = indexPath.row;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,7 +197,6 @@
     NSInteger row = indexPath.row;
     if (section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        //[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         UILabel *titleLable = [[UILabel alloc] initForAutoLayout];
         [cell.contentView addSubview:titleLable];
         titleLable.textColor = UIColorFromRGB(0x484848);
@@ -311,13 +306,5 @@
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -48,10 +48,4 @@
 
     [self setNeedsDisplay];     
 }
-
-- (void)dealloc
-{
-    self.baseColor = nil;
-}
-
 @end

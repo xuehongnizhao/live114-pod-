@@ -56,7 +56,6 @@
                          @"app_key":url,
                          @"shop_id":self.shop_id
                          };
-//    [SVProgressHUD showWithStatus:@"数据加载..." maskType:SVProgressHUDMaskTypeBlack];
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             detailInfo = [[orderSeatDetailInfo alloc] initWithDictionary:param[@"obj"]];
@@ -168,13 +167,6 @@
         [self.orderSeatDetailTableview reloadData];
         self.orderSeatDetailTableview.scrollEnabled = YES;
     }
-}
-
--(void) webViewFailLoadWithError:(NSError *)error
-{
-    NSLog(@"web页加载失败:error:%@",error);
-//    [SVProgressHUD dismiss];
-    [SVProgressHUD showErrorWithStatus:@"数据加载失败"];
 }
 
 #pragma mark---------tableview delegate

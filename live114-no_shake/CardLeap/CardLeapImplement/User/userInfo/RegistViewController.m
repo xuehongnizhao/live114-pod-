@@ -23,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setUI];
 }
 #pragma mark-----------设置布局
@@ -220,10 +219,6 @@
         return NO;
         
     }
-    //    //1[0-9]{10}
-    //
-    //    //^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$
-    //    //    NSString *regex = @"[0-9]{11}";
     NSString *regex = @"^(1)\\d{10}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     BOOL isMatch = [pred evaluateWithObject:str];
@@ -233,13 +228,6 @@
         [alert show];
         return NO;
     }
-    //    if([passWord.text isEqualToString:@""])
-    //    {
-    //        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码不能为空" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-    //
-    //        [alert show];
-    //        return NO;
-    //    }
     return YES;
 }
 #pragma mark-------registAction
@@ -259,7 +247,6 @@
             NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
             if ([code isEqualToString:@"200"]) {
                 [SVProgressHUD dismiss];
-                //[self login]; //暂时搁置注册完成自动登录
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
                 [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
@@ -331,11 +318,6 @@
             baidu_id = [NSString stringWithFormat:@"%@%@",baidu_id,[UserModel shareInstance].u_id];
             [self setAlian:baidu_id];
             [self.navigationController popViewControllerAnimated:YES];
-            //-------------
-            //            UserInfoViewController *firVC = [[UserInfoViewController alloc] init];
-            //            [firVC setNavBarTitle:@"个人中心" withFont:14.0f];
-            //            [firVC.navigationItem setTitle:[UserModel shareInstance].user_nickname];
-            //            [self.navigationController popViewControllerAnimated:YES];
         }
     } andErrorBlock:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络不给力"];
@@ -356,25 +338,5 @@
     NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
 }
 
-
-//----------------------------------------
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
