@@ -14,7 +14,7 @@
 #import "ReviewListViewController.h"
 #import "UMSocial.h"
 
-@interface GroupDetailViewController ()<UITableViewDataSource,UITableViewDelegate,purchaseDelegate,UMSocialUIDelegate,UIAlertViewDelegate,orderGroupCellWebViewHeight>
+@interface GroupDetailViewController ()<UITableViewDataSource,UITableViewDelegate,purchaseDelegate,UMSocialUIDelegate,UIAlertViewDelegate>
 {
     groupDetailInfo *detailInfo;
     CGFloat webHeight;
@@ -28,15 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initData];
     [self setUI];
     [self getDataFromNet];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -132,10 +126,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
     NSInteger section = indexPath.section;
     if (section == 2 ) {
-            NSLog(@"跳转到评价列表");
         if (detailInfo !=nil) {
             ReviewListViewController *firVC = [[ReviewListViewController alloc] init];
             firVC.shop_id = detailInfo.shop_id;
@@ -337,7 +329,6 @@
     if (detailInfo != nil && self.info != nil) {
         return 5;
     }
-    
     if (detailInfo == nil && self.info == nil) {
         return 0;
     }

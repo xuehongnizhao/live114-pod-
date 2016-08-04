@@ -46,11 +46,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setHiddenTabbar:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if (ApplicationDelegate.islogin == NO) {
         LoginViewController *firVC = [[LoginViewController alloc] init];
         [firVC setNavBarTitle:@"登录" withFont:14.0f];

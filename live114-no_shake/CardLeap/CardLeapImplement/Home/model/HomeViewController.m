@@ -75,14 +75,8 @@ GoSearchDelegate,
 HomeSelectedCityViewControllerDelegate,
 SkyServerCenterViewDelegate>
 {
-    UIButton *_messageButton;//暂时被废弃
-    UIButton *_appNameButton;//暂时被废弃
-    
     
     AdBannerView *_adBannerView;//轮播
-    
-    //    UIView *_shopListView;
-    UIImageView *hintImage;
     //获取的首页数据
     NSMutableDictionary *indexDic;
     NSMutableArray *slideArray;//幻灯片数组
@@ -214,35 +208,6 @@ SkyServerCenterViewDelegate>
     [[HomeNavigationView shareInstance] setlogoButtonEnabel];
 }
 
-#pragma mark-----------收到通知
-- (void)UnLexiangHint:(NSNotification*)notification
-{
-    NSLog(@"NOTIFICATION_RIGHT_NEW_MESSAGE");
-    [self addRightHint];
-}
-
-/**
- 这个添加提醒暂时不用
- 现在navigation里面的button按钮
- 全部在HomeNavigationView里面添加
- */
-#pragma mark------添加右侧信息提醒
--(void)addRightHint
-{
-    [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"RIGHTHINT"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    hintImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
-    [hintImage setBackgroundColor:[UIColor redColor]];
-    [[self messageButton] addSubview:hintImage];
-}
-
-#pragma mark-------移除提醒添加
--(void)removeHint
-{
-    if ([userDefault(@"RIGHTHINT") isEqualToString:@"YES"]) {
-        [hintImage removeFromSuperview];
-    }
-}
 
 #pragma mark------定位功能
 -(void)openLocation
@@ -273,7 +238,6 @@ SkyServerCenterViewDelegate>
     TenLat = (int)(yGps.latitude*10);
     TenLog = (int)(yGps.longitude*10);
     NSString *sql = [[NSString alloc]initWithFormat:@"select offLat,offLog from gpsT where lat=%d and log = %d",TenLat,TenLog];
-    // NSLog(sql);
     sqlite3_stmt* stmtL = [m_sqlite NSRunSql:sql];
     int offLat=0;
     int offLog=0;
@@ -392,11 +356,8 @@ SkyServerCenterViewDelegate>
     //设置分多少行多少列展示
     SkyServerCenterView* centerView=[SkyServerCenterView initViewWithXib:5 andRow:2];
     centerView.frame=CGRectMake(0, 30, SCREEN_WIDTH, 150);
-    // centerView.layer.borderWidth=1.f;
     centerView.delegate=self;
     [centerView setButtonViewWithModuleArray:moduleArray];
-    //    centerView.ColumnOfTagButton = 4;
-    //    centerView.RowOfTagButton = 1;
     
     [serverView addSubview:centerView];
     
@@ -501,12 +462,10 @@ SkyServerCenterViewDelegate>
     
     SkyServerCenterView* centerView=[SkyServerCenterView initViewWithXib:4 andRow:1];
     centerView.frame=CGRectMake(0, 30, SCREEN_WIDTH, 120);
-    // centerView.layer.borderWidth=1.f;
     centerView.delegate=self;
     [centerView setDisplayButtonViewWithModuleArray:moduleArray];
     centerView.ColumnOfTagButton = 4;
     centerView.RowOfTagButton = 1;
-    
     [serverView addSubview:centerView];
     
     return serverView;
@@ -542,8 +501,6 @@ SkyServerCenterViewDelegate>
                 [descBillboardsArray addObject:dict[@"a_url"]];
             }
             self.billboardsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, LinHeightPercent*145)];
-            //            self.billboardsView.layer.borderColor = [UIColor blueColor].CGColor;
-            //            self.billboardsView.layer.borderWidth = 1;
             //存储到UD当中
             [[NSUserDefaults standardUserDefaults] setObject:param forKey:@"BillboardsInfo"];
             [self setIndexTableviewHeaderView];
@@ -566,8 +523,7 @@ SkyServerCenterViewDelegate>
             NSDictionary* dict=[[NSUserDefaults standardUserDefaults] objectForKey:@"IndustryInfo"];
             NSArray* moduleArray=[linServicemodel objectArrayWithKeyValuesArray:dict[@"obj"]];
             self.industryView.moduleArray   =   moduleArray;
-            self.industryView.delegate      =   self;
-            //            self.industryView=[self crateIndustryViewFromNetwork:moduleArray];
+
         }
         if ([[NSUserDefaults standardUserDefaults] objectForKey:@"CommodityDisplayInfo"]) {
             NSDictionary* param = [[NSUserDefaults standardUserDefaults] objectForKey:@"CommodityDisplayInfo"];
@@ -605,7 +561,6 @@ SkyServerCenterViewDelegate>
             if (moduleArray.count!=0)
             {
                 self.industryView.moduleArray   =   moduleArray;
-                self.industryView.delegate      =   self;
                 //存储到UD当中
                 [[NSUserDefaults standardUserDefaults] setObject:param forKey:@"IndustryInfo"];
                 [self getServerCateFromNetwork];
@@ -652,7 +607,6 @@ SkyServerCenterViewDelegate>
             [self.fullScreenImage sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 [self.view.window addSubview:self.fullScreenImage];
                 [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3.0f];
-                //                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
             }];
             
         }
@@ -711,7 +665,6 @@ SkyServerCenterViewDelegate>
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
             [self parseShopList:dict];
-            //[[self indexTableview] reloadData];
             [self.indexTableview headerEndRefreshing];
             [self.indexTableview footerEndRefreshing];
         }else{
@@ -877,13 +830,13 @@ SkyServerCenterViewDelegate>
     [self addBanderView:adbanderHeight pView:myView ViewY:0];
 
     
-    //添加服务中心view
+    //添加生活服务view
     CGRect frame=self.serverView.frame;
     frame.origin.y=adbanderHeight;
     self.serverView.frame=frame;
     [myView addSubview:self.serverView];
     
-    //添加行业专区View
+    //添加如意专区View
     
     CGRect industryFrame=self.industryView.frame;
     industryFrame.origin.y=adbanderHeight+serverViewHeight+5;
@@ -897,7 +850,7 @@ SkyServerCenterViewDelegate>
     self.commodityDisplayView.frame = commodityDisplayFrame;
     [myView addSubview:self.commodityDisplayView];
     
-    //添加中部广告栏
+    //添加精品推荐
     CGRect billboardsFrame  =   self.billboardsView.frame;
     billboardsFrame.origin.y    =   adbanderHeight+serverViewHeight +industryViewHeight + commodityDisplayViewHeight +5 +5 +5;
     billboardsFrame.size.height =   billboardsViewHeight;
@@ -1056,21 +1009,6 @@ SkyServerCenterViewDelegate>
 }
 
 
-#pragma mark--------setLeftButton and RightButton
--(UIButton*)messageButton
-{
-    if (!_messageButton) {
-        _messageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_news_no"]];
-        [image setFrame:CGRectMake(0, 0, 10, 10)];
-        [_messageButton addSubview:image];
-        [_messageButton addTarget:self action:@selector(goToMyMessage:) forControlEvents:UIControlEventTouchUpInside];
-        _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-    }
-    return _messageButton;
-}
-
 #pragma mark--------设置navigation首页显示
 -(void)setNavigationBar
 {
@@ -1082,11 +1020,6 @@ SkyServerCenterViewDelegate>
     if (cityName!=nil) {
         [navigationView setCityName:[NSString stringWithFormat:@"%@﹀",cityName]];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    //Dispose of any resources that can be recreated.
 }
 
 #pragma mark--------tableview and delegate
@@ -1192,6 +1125,7 @@ SkyServerCenterViewDelegate>
         _myScrollView = [[UIScrollView alloc] initForAutoLayout];
         _myScrollView.backgroundColor = [UIColor whiteColor];
         _myScrollView.scrollEnabled = NO;
+        
     }
     return _myScrollView;
 }

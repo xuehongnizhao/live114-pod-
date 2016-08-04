@@ -42,6 +42,7 @@ return; \
 
 @property (nonatomic, strong) dispatch_queue_t writeFileQueue;
 @property (nonatomic, strong) dispatch_semaphore_t semError; //一个信号量，用来保证队列中写文件错误事件处理只调用一次
+
 @property (nonatomic, assign) BOOL isRecording;
 
 @end
@@ -67,11 +68,6 @@ return; \
 - (void)dealloc
 {
     NSAssert(!self.isRecording, @"MLAudioRecorder dealloc之前必须停止录音");
-    
-    //由于上面做了需要在外部调用stopRecording的限制，下面这块不需要了。
-    //    if (self.isRecording){
-    //        [self stopRecording];
-    //    }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     DLOG(@"MLAudioRecorder dealloc");

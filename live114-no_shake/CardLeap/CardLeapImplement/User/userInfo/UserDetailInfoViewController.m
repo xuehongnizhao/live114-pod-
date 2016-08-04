@@ -28,7 +28,6 @@
     [super viewDidLoad];
     
     [self setUI];
-    [self getDataFromNet];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,13 +37,10 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.userInfoDetailTableview reloadData];
 }
 
-#pragma mark--------get data
--(void)getDataFromNet
-{
-}
 
 #pragma mark--------get UI
 -(UITableView *)userInfoDetailTableview
@@ -302,7 +298,6 @@
     EditUserInfoViewController *firVC = [[EditUserInfoViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"修改信息" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"修改信息"];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

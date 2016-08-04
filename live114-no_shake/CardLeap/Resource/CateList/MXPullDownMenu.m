@@ -34,7 +34,7 @@
     NSArray *_array;
     NSMutableArray *selectRowAtTableview;
     
-    int select_one;
+    NSInteger select_one;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -100,17 +100,6 @@
         _tableView.tintColor = [UIColor redColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        //_tableView.layer.borderWidth = 0.5;
-        //--------添加分割线------------
-//        UIImageView *lineImage = [[UIImageView alloc] initForAutoLayout];
-//        [_tableView addSubview:lineImage];
-//        [lineImage autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-//        [lineImage autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-//        [lineImage autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.5];
-//        [lineImage autoSetDimension:ALDimensionWidth toSize:0.5f];
-//        lineImage.backgroundColor = UIColorFromRGB(0xdfdfdf);
-        //----------------------------
-        //创建二级下拉菜单
         _secondTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, self.frame.origin.y + self.frame.size.height, 160, 0)];
         _secondTableview.backgroundColor = UIColorFromRGB(0xf2f2f2);
         _secondTableview.rowHeight = 36;

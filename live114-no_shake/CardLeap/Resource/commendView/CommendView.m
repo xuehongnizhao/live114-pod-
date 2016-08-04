@@ -29,20 +29,6 @@
 @end
 
 @implementation CommendView
-@synthesize buttonArray = _buttonArray;
-@synthesize facePageControl = _facePageControl;
-@synthesize faceView = _faceView;
-
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if (self=[super initWithFrame:frame])
-    {
-        ;
-        //[self setButtonView];
-    }
-    return self;
-}
-
 #pragma mark setButtonView
 -(void)setButtonView :(NSArray*)array
 {
@@ -75,19 +61,22 @@
         _faceView.scrollEnabled = NO;
     }
     //----------------------------
-    //添加PageControl
+    //添加社区服务PageControl
+    
     _facePageControl = [[UIPageControl alloc]initForAutoLayout];
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:166.0f*LinHeightPercent];
-    //CGRectMake(110, 170, 100, 20)
     [_facePageControl addTarget:self
                         action:@selector(pageChange:)
               forControlEvents:UIControlEventValueChanged];
     _facePageControl.numberOfPages = count;
     _facePageControl.currentPage = 0;
+    _facePageControl.pageIndicatorTintColor=Color(220, 220, 220, 1);
+    _facePageControl.currentPageIndicatorTintColor=Color(240, 87, 87, 1);
+    
     //----------------------------
     //计算适配之后的空隙宽度
     CGFloat blank = (width - FACE_ICON_WIDTH*LinPercent*4-30)/3.0;
@@ -126,7 +115,6 @@
 #pragma mark buttonViewClick
 -(void)buttonviewClick:(UIButton*) sender
 {
-    NSLog(@"按钮被点击");
     littleCateModel* module=[_buttonArray objectAtIndex:sender.tag];
     [self.delegate clikButtonToPushViewController:module];
 }

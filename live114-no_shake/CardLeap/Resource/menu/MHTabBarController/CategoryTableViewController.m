@@ -38,7 +38,6 @@
     selectKey = 0;
     _dataDict= [[NSMutableDictionary alloc] init];
     _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, LeftWidth, TableViewHeight)];
-//    _leftTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [_leftTableView setBackgroundColor:[UIColor colorWithRed:246/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]];
     _leftTableView.separatorInset =  UIEdgeInsetsZero;
     [_leftTableView setAccessibilityViewIsModal:YES];
@@ -52,7 +51,6 @@
     _rightTableView.layer.shadowOpacity = 0.2;
     _rightTableView.bounces = YES;
     [_rightTableView setBackgroundColor:[UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1.0]];
-//    _rightTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
     [self.view addSubview:_rightTableView];
@@ -74,12 +72,8 @@
             [_leftTableView selectRowAtIndexPath:first
                                    animated:YES
                              scrollPosition:UITableViewScrollPositionTop];
-            
-            //first = [NSIndexPath indexPathForRow:index+1 inSection:0];
             selectKey = [_leftTableView cellForRowAtIndexPath:first].textLabel.text;
-            NSLog(@"%@",selectKey);
             if ([[_dataDict objectForKey:selectKey] count]==0) {
-                // NSLog(@"haha");
                 self.selectedText = selectKey;
             }
             [_rightTableView reloadData];
@@ -146,14 +140,11 @@
         cell.textLabel.text = currentKey;
         cell.backgroundColor = [UIColor colorWithRed:246/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        //[tableView setSeparatorColor:[UIColor clearColor]];
-        //[self setLeftCellStyle:cell];
     }
     else if (tableView == _rightTableView)
     {
         NSArray *valueArray =[_dataDict objectForKey:selectKey];
         cell.textLabel.text = [valueArray objectAtIndex:indexPath.row];
-        [self setRightCellStyle:cell];
         cell.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1.0];
     }
     cell.textLabel.font = MENU_TEXT_FONT;
@@ -163,14 +154,11 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"index------ %d",indexPath.row);
     if(tableView==_leftTableView)
     {
         selectKey = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-        NSLog(@"----------------");
-        NSLog(@"selectkey:%@",selectKey);
+
         if ([[_dataDict objectForKey:selectKey] count]==0) {
-           // NSLog(@"haha");
             self.selectedText = selectKey;
         }
         [_rightTableView reloadData];
@@ -178,37 +166,10 @@
     if(tableView==_rightTableView)
     {
         self.selectedText = [[_dataDict objectForKey:selectKey] objectAtIndex:indexPath.row];
-          NSLog(@"%@",self.selectedText);
-//        self.selectedText
-//        NSLog(@"%@",self.parentViewController);
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateParams" object:self.parentViewController];
     }
     [_leftTableView deselectRowAtIndexPath:indexPath animated:YES];
     [_rightTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-- (void) setLeftCellStyle:(UITableViewCell *) cell
-{
-//    UIView *selectionColor = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 2)];
-//    selectionColor.backgroundColor = [UIColor whiteColor];
-//    cell.selectedBackgroundView = selectionColor;
-//    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
-//    [selectionColor release];
-    
-}
-- (void) setRightCellStyle:(UITableViewCell *) cell
-{
-//    UIView *selectionColor = [[UIView alloc] init];
-//    selectionColor.backgroundColor = [UIColor clearColor];
-//    cell.selectedBackgroundView = selectionColor;
-//    [selectionColor release];
-//    UIImageView *line = [[[UIImageView alloc] initWithFrame:CGRectMake(10, 44, 310, 0.5)] autorelease];
-//    line.backgroundColor = [UIColor purpleColor];
-//    [cell addSubview:line];
-//    [cell bringSubviewToFront:line];
-    
-   // cell.textLabel.highlightedTextColor = TOPIC_COLOR;
-}
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -219,7 +180,6 @@
     }else
     {
         _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, LeftWidth+RightWidth, TableViewHeight) style:UITableViewStylePlain];
-        //    _leftTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
          _leftTableView.delegate = self;
         _leftTableView.dataSource = self;
         [self.view addSubview:_leftTableView];

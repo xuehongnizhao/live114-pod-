@@ -29,19 +29,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     ShopListViewController *firVC = [[ShopListViewController alloc] init];
     [firVC setNavBarTitle:@"商家" withFont:14.0f];
     firVC.is_hidden = @"0";
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

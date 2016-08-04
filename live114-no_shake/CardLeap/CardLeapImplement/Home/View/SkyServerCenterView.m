@@ -110,9 +110,9 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.buttonSrollView withMultiplier:pages];
     
     
-    //添加PageControl
+    //添加生活服务PageControl
     _facePageControl = [[UIPageControl alloc]initForAutoLayout];
-    //    _facePageControl.hidesForSinglePage=YES;
+    _facePageControl.hidesForSinglePage=YES;
     [self addSubview:_facePageControl];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_facePageControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
@@ -120,7 +120,8 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     [_facePageControl autoSetDimension:ALDimensionHeight toSize:20.f];
     _facePageControl.numberOfPages = pages;
     _facePageControl.currentPage = 0;
-    
+    _facePageControl.pageIndicatorTintColor=Color(220, 220, 220, 1);
+    _facePageControl.currentPageIndicatorTintColor=Color(240, 87, 87, 1);
     //更新页面
     [self setAutolayout:@"server"];
     
@@ -236,11 +237,6 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     }];
 }
 
-
-#pragma mark - CC 新方法结束
-
-
-
 #pragma mark - Autolayout
 -(void)setAutolayout:(NSString *)string
 {
@@ -303,11 +299,6 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
             previousView = view;
         }];
         
-        //----------addline--------------
-        if([string isEqualToString:@"server"]){
-#pragma mark --- 2016.4 设置生活服务图标的分割线
-            //            [self addLineImage];
-        }
         if ([string isEqualToString:@"display"]) {
             [self addLineImageDisplay] ;
         }
@@ -322,115 +313,7 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
         
     }
 }
-#pragma mark --- 2016.4 弃用
--(void)addLineImage
-{
-    [self.cateArray enumerateObjectsUsingBlock:^(UIView* view, NSUInteger idx, BOOL *stop) {
-        if (idx%4 == 0 && idx/12==0) {//第一页第一行第一个第二个
-            UIImageView *line = [[UIImageView alloc] initForAutoLayout];
-            [line setBackgroundColor:[UIColor lightGrayColor]];
-            [view addSubview:line];
-            [line autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-            [line autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-            [line autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
-            [line autoSetDimension:ALDimensionWidth toSize:0.5f];
-        }
-        //-----第一行----------
-        if (idx/4%3==0) {
-            UIImageView *line_top = [[UIImageView alloc] initForAutoLayout];
-            [line_top setBackgroundColor:[UIColor lightGrayColor]];
-            [view addSubview:line_top];
-            
-            //--------autolayout---------
-            [line_top autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
-            [line_top autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-            [line_top autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-            [line_top autoSetDimension:ALDimensionHeight toSize:0.5f];
-        }
-        
-        if (idx%4 == 2) {
-            UIImageView *line_right = [[UIImageView alloc] initForAutoLayout];
-            [line_right setBackgroundColor:UIColorFromRGB(0xcccccc)];
-            [view addSubview:line_right];
-            
-            
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-            [line_right autoSetDimension:ALDimensionWidth toSize:0.5f];
-        }else {
-            UIImageView *line_right = [[UIImageView alloc] initForAutoLayout];
-            [line_right setBackgroundColor:[UIColor lightGrayColor]];
-            [view addSubview:line_right];
-            
-            
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-            [line_right autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-            [line_right autoSetDimension:ALDimensionWidth toSize:0.5f];
-        }
-        
-        
-        UIImageView *line_bottom = [[UIImageView alloc] initForAutoLayout];
-        [line_bottom setBackgroundColor:[UIColor lightGrayColor]];
-        [view addSubview:line_bottom];
-        
-        [line_bottom autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
-        [line_bottom autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-        [line_bottom autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
-        [line_bottom autoSetDimension:ALDimensionHeight toSize:0.5f];
-    }];
-}
 
-
-
-#pragma mark - Helpul Method
--(void)createLineDirection:(kButtonViewDirection) lineDirection  withView:(UIView*) view
-{
-    //    kButtonViewDirectionTop = 1,
-    //    kButtonViewDirectionTopLeft = 2,
-    //    kButtonViewDirectionLeft = 3,
-    //    kButtonViewDirectionBottomLeft = 4,
-    //    kButtonViewDirectionBottom = 5,
-    //    kButtonViewDirectionBottomRight = 6,
-    //    kButtonViewDirectionRight = 7,
-    //    kButtonViewDirectionTopRight = 8,
-    if (lineDirection==1)
-    {
-        CAShapeLayer* shapLayer=[CAShapeLayer layer];
-        [view.layer addSublayer:shapLayer];
-        shapLayer.borderColor=[UIColor lightGrayColor].CGColor;
-        
-    }
-    else if (lineDirection==2)
-    {
-        
-    }
-    else if (lineDirection==3)
-    {
-        
-    }
-    else if (lineDirection==4)
-    {
-        
-    }
-    else if (lineDirection==5)
-    {
-        
-    }
-    else if (lineDirection==6)
-    {
-        
-    }
-    else if (lineDirection==7)
-    {
-        
-    }
-    else if (lineDirection==8)
-    {
-        
-    }
-}
 
 #pragma mark - buttonViewClick
 -(void)buttonviewClick:(UIButton*) sender
@@ -450,12 +333,5 @@ typedef NS_ENUM(NSUInteger, kButtonViewDirection) {
     return _cateArray;
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end

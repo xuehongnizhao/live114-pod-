@@ -722,14 +722,9 @@ static NSString *pageCount = @"10";
     return _mapView;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    //    self.mapView.showsUserLocation = YES;
-    //    self.mapView.userTrackingMode = MKUserTrackingModeNone;
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     self.mapView = nil;
     [SVProgressHUD dismiss];
     self.mapView.showsUserLocation = NO;
@@ -741,11 +736,6 @@ static NSString *pageCount = @"10";
     self.shops = nil;
     self.annotations = nil;
     self.myLocation = nil;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 -(void)changePositions

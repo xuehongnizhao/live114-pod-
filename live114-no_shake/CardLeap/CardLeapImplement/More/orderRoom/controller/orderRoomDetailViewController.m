@@ -229,7 +229,7 @@
 {
     int count = 2;
     if (section == 2 && detailInfo != nil) {
-        count = [detailInfo.goods_list count]+1;
+        count = (int)[detailInfo.goods_list count]+1;
     }
     
     return count;

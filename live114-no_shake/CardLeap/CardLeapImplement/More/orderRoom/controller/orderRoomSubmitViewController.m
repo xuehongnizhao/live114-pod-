@@ -219,7 +219,7 @@
 {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    CGFloat height;
+    CGFloat height=0.0;
     switch (section) {
         case 0:
             height = 80.0;
@@ -498,7 +498,7 @@
                                            @"hotel_tel":self.connect_tel_T.text,
                                            @"order_price":self.goods_info.goods_price
                                            };
-                    [SVProgressHUD showWithStatus:@"正在提交订单" maskType:SVProgressHUDMaskTypeBlack];
+                    [SVProgressHUD showWithStatus:@"正在提交订单"];
                     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
                         if ([param[@"code"] integerValue]==200) {
                             [SVProgressHUD dismiss];

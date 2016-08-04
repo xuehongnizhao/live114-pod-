@@ -13,7 +13,6 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *indicator;
 @property (nonatomic ,strong) UILabel *nameLabel;
-@property (nonatomic, strong) UIPageControl *pageControl;
 @property (strong, nonatomic) NSTimer *timer;
 @property float indicatorWidth;
 
@@ -140,7 +139,6 @@
         self.indicator.frame = CGRectMake(0, frame.size.height-IndicatorHeight, self.indicatorWidth, IndicatorHeight);
         
         [self addSubview:self.scrollView];
-//        [self addSubview:self.nameLabel];
         [self addSubview:self.indicator];
         
     
@@ -175,8 +173,6 @@
         
         [self performSelector:@selector(switchImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
         
-        //设置NSTimer
-        //_timer = [NSTimer scheduledTimerWithTimeInterval:SWITCH_FOCUS_PICTURE_INTERVAL target:self selector:@selector(switchImageItems) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -192,18 +188,6 @@
     }
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-    }
-    return self;
-}
-
-- (void)reloadData
-{
-}
 
 
 @end

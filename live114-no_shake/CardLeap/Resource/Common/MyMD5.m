@@ -16,8 +16,7 @@
     NSLog(@"inputText:%@",inPutText);
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-   // NSLog(@"restule:%s",result);
+    CC_MD5(cStr, (int)strlen(cStr), result);
     NSMutableString* str=[NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
     for (int i=0; i<CC_MD5_DIGEST_LENGTH; i++)
     {
@@ -32,7 +31,7 @@
    // NSLog(@"---sstr:%@  andlength:%d",sstr,sstr.length);
     const char* cStr=[sstr UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
+    CC_MD5(cStr, (int)strlen(cStr), result);
     NSMutableString* mstr=[NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
     for (int i=0; i<CC_MD5_DIGEST_LENGTH; i++)
     {

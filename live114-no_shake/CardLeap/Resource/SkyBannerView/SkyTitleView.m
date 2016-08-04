@@ -20,19 +20,14 @@
 
 @implementation SkyTitleView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 -(void)setCurrentPage:(NSInteger)currentPage andTitle:(NSString *)title
 {
     if (_pageControl.numberOfPages==0) return;
     
     [_pageControl setCurrentPage:currentPage];
+    _pageControl.pageIndicatorTintColor=Color(220, 220, 220,.3);
+    _pageControl.currentPageIndicatorTintColor=Color(250, 250,250, 1);
     [_titleLabel setText:@""];
 }
 

@@ -46,12 +46,14 @@
     _shop_lat = [NSString stringWithFormat:@"%@",dic[@"shop_lat"]];
     _shop_lng = [NSString stringWithFormat:@"%@",dic[@"shop_lng"]];
     _pic_list = dic[@"pic_list"];
-    _goods_list = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayGoodList=[NSMutableArray array];
     NSArray *arr = dic[@"goods_list"];
     for (NSDictionary *dic in arr) {
         roomInfo *info = [[roomInfo alloc] initWithDictionary:dic];
-        [_goods_list addObject:info];
+        [arrayGoodList addObject:info];
     }
-    return self;
+
+    _goods_list = arrayGoodList;
+        return self;
 }
 @end

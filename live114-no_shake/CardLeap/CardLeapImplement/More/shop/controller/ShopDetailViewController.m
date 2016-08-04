@@ -58,6 +58,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setHiddenTabbar:YES];
 }
 
@@ -310,7 +311,6 @@
 //收藏方法
 -(void)collectAciont :(UIButton*)sender
 {
-    NSLog(@"点击收藏----登录才能收藏");
     if (ApplicationDelegate.islogin == NO) {
         LoginViewController *firVC = [[LoginViewController alloc] init];
         firVC.identifier = @"0";
@@ -561,7 +561,7 @@
 {
     NSInteger section = indexPath.section;
     NSInteger colum = indexPath.row;
-    CGFloat height ;
+    CGFloat height = 0.0;
     switch (section) {
         case 0:
             height = 93.0f;

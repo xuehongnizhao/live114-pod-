@@ -10,22 +10,6 @@
 #import "dishCateInfo.h"
 
 @implementation shopTakeCateInfo
-@synthesize review_num = _review_num;
-@synthesize shop_address = _shop_address;
-@synthesize shop_take_desc = _shop_take_desc;
-@synthesize ship_price = _ship_price;
-@synthesize num = _num;
-@synthesize shop_id = _shop_id;
-@synthesize begin_price = _begin_price;
-@synthesize shop_pic = _shop_pic;
-@synthesize shop_name = _shop_name;
-@synthesize cate = _cate;
-@synthesize accept_time = _accept_time;
-@synthesize shipping = _shipping;
-@synthesize timely = _timely;
-@synthesize is_ship = _is_ship;
-@synthesize score = _score;
-@synthesize share_url = _share_url;
 
 -(id)initWithDictionary :(NSDictionary*)dict
 {
@@ -47,12 +31,14 @@
     _is_ship = [NSString stringWithFormat:@"%@",dict[@"is_ship"]];
     _score = [NSString stringWithFormat:@"%@",dict[@"score"]];
     _share_url = [NSString stringWithFormat:@"%@",dict[@"share_url"]];
-    _cate = [[NSMutableArray alloc] init];
+    NSMutableArray *arrayCate=[NSMutableArray array];
+    
     NSArray *array = dict[@"cate"];
     for (NSDictionary *dic in array) {
         dishCateInfo *info = [[dishCateInfo alloc] initWithDictionary:dic];
-        [_cate addObject:info];
+        [arrayCate addObject:info];
     }
+    _cate = arrayCate;
     return self;
 }
 

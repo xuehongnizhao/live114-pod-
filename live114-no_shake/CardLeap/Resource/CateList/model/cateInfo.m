@@ -25,14 +25,16 @@
         _cate_name = [NSString stringWithFormat:@"%@",dic[@"area_name"]];
         _cate_id = [NSString stringWithFormat:@"%@",dic[@"area_id"]];
     }
-    _son = [[NSMutableArray alloc] init] ;
-    //cate id
+    NSMutableArray *arraySon=[NSMutableArray array];
     NSArray *sonArray = dic[@"son"];
     for (NSDictionary *dict in sonArray) {
         cateSonInfo *info = [[cateSonInfo alloc] initWithDictionary:dict];
-        [_son addObject:info];
+        [arraySon addObject:info];
     }
-    return self;
+
+    _son = arraySon;
+    //cate id
+       return self;
 }
 
 @end

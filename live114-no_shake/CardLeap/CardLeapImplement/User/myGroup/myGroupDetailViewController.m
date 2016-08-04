@@ -281,7 +281,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int count;
+    int count = 0;
     switch (section) {
         case 0:
             if ([self.info.status integerValue]==0) {

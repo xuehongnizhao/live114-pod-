@@ -307,7 +307,7 @@
 {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    CGFloat height;
+    CGFloat height=0.0;
     switch (section) {
         case 0:
             height = 40.0;

@@ -169,7 +169,7 @@
         placeLable.hidden = NO;
     }
     if (textView == _remark_T) {
-        int count = _remark_T.text.length;
+        int count = (int)_remark_T.text.length;
         if (count>200) {
             _hintLable.text = [NSString stringWithFormat:@"%d/200",count];
             [_remark_T resignFirstResponder];

@@ -67,12 +67,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
 
     [self setHiddenTabbar:NO];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    
 }
 
 #pragma mark------get data from net

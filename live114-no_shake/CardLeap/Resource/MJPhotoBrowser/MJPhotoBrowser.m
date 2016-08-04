@@ -87,10 +87,7 @@
 
 -(void)DeleteThisImage:(NSInteger)ThisImageIndex
 {
-    
-    
-    NSLog(@"ThisImageIndex---%d", ThisImageIndex );
-    NSLog(@"_currentPhotoIndex---%d", _currentPhotoIndex );
+
     
     if ( ThisImageIndex == 0 ) {
         _currentPhotoIndex = 1;
@@ -196,9 +193,9 @@
 	int firstIndex = (int)floorf((CGRectGetMinX(visibleBounds)+kPadding*2) / CGRectGetWidth(visibleBounds));
 	int lastIndex  = (int)floorf((CGRectGetMaxX(visibleBounds)-kPadding*2-1) / CGRectGetWidth(visibleBounds));
     if (firstIndex < 0) firstIndex = 0;
-    if (firstIndex >= _photos.count) firstIndex = _photos.count - 1;
+    if (firstIndex >= _photos.count) firstIndex = (int)_photos.count - 1;
     if (lastIndex < 0) lastIndex = 0;
-    if (lastIndex >= _photos.count) lastIndex = _photos.count - 1;
+    if (lastIndex >= _photos.count) lastIndex = (int)_photos.count - 1;
 	
 	// 回收不再显示的ImageView
     NSInteger photoViewIndex;
@@ -217,7 +214,7 @@
 	
 	for (NSUInteger index = firstIndex; index <= lastIndex; index++) {
 		if (![self isShowingPhotoViewAtIndex:index]) {
-			[self showPhotoViewAtIndex:index];
+			[self showPhotoViewAtIndex:(int)index];
 		}
 	}
 }

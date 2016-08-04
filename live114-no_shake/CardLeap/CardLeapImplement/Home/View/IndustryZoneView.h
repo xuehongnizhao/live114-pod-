@@ -17,5 +17,5 @@
 @interface IndustryZoneView : UIView
 //数据模型数组
 @property (nonatomic, strong) NSArray *moduleArray;
-@property(nonatomic,assign)id<linHangyeCommendViewDelegate> delegate;
+@property(nonatomic,weak)id<linHangyeCommendViewDelegate> delegate;
 @end

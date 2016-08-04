@@ -58,6 +58,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self getDataFromNet];
 }
 
@@ -242,7 +243,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    CGFloat height;
+    CGFloat height =0.0;
     switch (section) {
         case 0:
             height = 70.0;

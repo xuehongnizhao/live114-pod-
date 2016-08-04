@@ -95,7 +95,7 @@
     NSUInteger partialDaysCount = weeklyOrdinality - 1;//获取上月在这个月的日历上显示的天数
     NSDateComponents *components = [dayInThePreviousMonth YMDComponents];//获取年月日对象
     
-    for (int i = daysCount - partialDaysCount + 1; i < daysCount + 1; ++i) {
+    for (int i = (int)daysCount - (int)partialDaysCount + 1; i < daysCount + 1; ++i) {
         
         CalendarDayModel *calendarDay = [CalendarDayModel calendarDayWithYear:components.year month:components.month day:i];
         calendarDay.style = CellDayTypeEmpty;//不显示
@@ -280,7 +280,7 @@
 -(void)LunarForSolarYear:(CalendarDayModel *)calendarDay{
     
     
-    NSString *solarYear = [self LunarForSolarYear:calendarDay.year Month:calendarDay.month Day:calendarDay.day];
+    NSString *solarYear = [self LunarForSolarYear:(int)calendarDay.year Month:(int)calendarDay.month Day:(int)calendarDay.day];
     
     NSArray *solarYear_arr= [solarYear componentsSeparatedByString:@"-"];
   
@@ -423,7 +423,6 @@
             break;
         m = m + 1;
     }
-    wCurYear = 1921 + m;
     wCurMonth = k - n + 1;
     wCurDay = nTheDate;
     if (k == 12)

@@ -453,7 +453,6 @@
 		33DB1C281A1ECAF6002E463E /* MyMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C151A1ECAF6002E463E /* MyMD5.m */; };
 		33DB1C291A1ECAF6002E463E /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C171A1ECAF6002E463E /* NSString+JSON.m */; };
 		33DB1C2A1A1ECAF6002E463E /* TextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C191A1ECAF6002E463E /* TextInputViewController.m */; };
-		33DB1C2B1A1ECAF6002E463E /* UITableViewController+ViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C1B1A1ECAF6002E463E /* UITableViewController+ViewLayout.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		33DB1C2C1A1ECAF6002E463E /* UIViewController+ViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C1D1A1ECAF6002E463E /* UIViewController+ViewLayout.m */; };
 		33DB1C2D1A1ECAF6002E463E /* UZCommonMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C1F1A1ECAF6002E463E /* UZCommonMethod.m */; };
 		33DB1C2E1A1ECAF6002E463E /* UZCommonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB1C211A1ECAF6002E463E /* UZCommonTableViewController.m */; };
@@ -1529,8 +1528,6 @@
 		33DB1C171A1ECAF6002E463E /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		33DB1C181A1ECAF6002E463E /* TextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputViewController.h; sourceTree = "<group>"; };
 		33DB1C191A1ECAF6002E463E /* TextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInputViewController.m; sourceTree = "<group>"; };
-		33DB1C1A1A1ECAF6002E463E /* UITableViewController+ViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+ViewLayout.h"; sourceTree = "<group>"; };
-		33DB1C1B1A1ECAF6002E463E /* UITableViewController+ViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+ViewLayout.m"; sourceTree = "<group>"; };
 		33DB1C1C1A1ECAF6002E463E /* UIViewController+ViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewLayout.h"; sourceTree = "<group>"; };
 		33DB1C1D1A1ECAF6002E463E /* UIViewController+ViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ViewLayout.m"; sourceTree = "<group>"; };
 		33DB1C1E1A1ECAF6002E463E /* UZCommonMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZCommonMethod.h; sourceTree = "<group>"; };
@@ -3884,8 +3881,6 @@
 				33DB1C171A1ECAF6002E463E /* NSString+JSON.m */,
 				33DB1C181A1ECAF6002E463E /* TextInputViewController.h */,
 				33DB1C191A1ECAF6002E463E /* TextInputViewController.m */,
-				33DB1C1A1A1ECAF6002E463E /* UITableViewController+ViewLayout.h */,
-				33DB1C1B1A1ECAF6002E463E /* UITableViewController+ViewLayout.m */,
 				33DB1C1C1A1ECAF6002E463E /* UIViewController+ViewLayout.h */,
 				33DB1C1D1A1ECAF6002E463E /* UIViewController+ViewLayout.m */,
 				33DB1C1E1A1ECAF6002E463E /* UZCommonMethod.h */,
@@ -4573,7 +4568,6 @@
 				04EFF3BD1ADD071E00493C29 /* myPointGiftInfo.m in Sources */,
 				04E5991C1A8A001A000746FC /* orderRoomSuccessTableViewCell.m in Sources */,
 				33C1B35F1ADCADFA00A717FE /* CityModule.m in Sources */,
-				33DB1C2B1A1ECAF6002E463E /* UITableViewController+ViewLayout.m in Sources */,
 				04FD17291D1CCD7A000EB184 /* XMNBottomBar.m in Sources */,
 				042EC7E01AC93B720019F5B0 /* myGroupSpikeCodeViewController.m in Sources */,
 				04480B001D1CBB31004018CF /* SDWebImageDownloaderOperation.m in Sources */,
