@@ -779,10 +779,10 @@
 		04480A001D1CB4B2004018CF /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		04480A011D1CB4B2004018CF /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		04480A021D1CB4B2004018CF /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		04480A4C1D1CB4E0004018CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		04480A4D1D1CB4E0004018CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04480A4C1D1CB4E0004018CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CardLeap/AppDelegate.h; sourceTree = "<group>"; };
+		04480A4D1D1CB4E0004018CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CardLeap/AppDelegate.m; sourceTree = "<group>"; };
 		04480A4F1D1CB4F7004018CF /* shake_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake_sound.m4a; sourceTree = "<group>"; };
-		04480A511D1CB518004018CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		04480A511D1CB518004018CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CardLeap/Images.xcassets; sourceTree = "<group>"; };
 		04480A531D1CB565004018CF /* ZQFunctionWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFunctionWebController.h; sourceTree = "<group>"; };
 		04480A541D1CB565004018CF /* ZQFunctionWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFunctionWebController.m; sourceTree = "<group>"; };
 		04480A561D1CB671004018CF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = model/HomeViewController.h; sourceTree = "<group>"; };
@@ -801,7 +801,7 @@
 		04480A6C1D1CB7A6004018CF /* SJCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJCollectionView.m; sourceTree = "<group>"; };
 		04480A6D1D1CB7A6004018CF /* SJSCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJSCTableViewCell.h; sourceTree = "<group>"; };
 		04480A6E1D1CB7A6004018CF /* SJSCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJSCTableViewCell.m; sourceTree = "<group>"; };
-		04480A711D1CB87E004018CF /* defaultName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defaultName.h; sourceTree = "<group>"; };
+		04480A711D1CB87E004018CF /* defaultName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaultName.h; path = CardLeap/Main/defaultName.h; sourceTree = "<group>"; };
 		04480AA71D1CBAA1004018CF /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
 		04480AA81D1CBAA1004018CF /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
 		04480AA91D1CBAA1004018CF /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
@@ -925,11 +925,11 @@
 		04598B921A53D65A003FEE25 /* DishDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishDetailView.m; sourceTree = "<group>"; };
 		04598B951A53DB1F003FEE25 /* XHRealTimeBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRealTimeBlur.h; sourceTree = "<group>"; };
 		04598B961A53DB1F003FEE25 /* XHRealTimeBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRealTimeBlur.m; sourceTree = "<group>"; };
-		045EF0E71C72F49100234780 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		045EF0E81C72F49100234780 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		045EF0EA1C72F49100234780 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
-		045EF0EB1C72F49100234780 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		045EF0EC1C72F49100234780 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		045EF0E71C72F49100234780 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = CardLeap/Main/BaseViewController.h; sourceTree = "<group>"; };
+		045EF0E81C72F49100234780 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = CardLeap/Main/BaseViewController.m; sourceTree = "<group>"; };
+		045EF0EA1C72F49100234780 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = macro.h; path = CardLeap/Main/macro.h; sourceTree = "<group>"; };
+		045EF0EB1C72F49100234780 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarViewController.h; path = CardLeap/Main/TabBarViewController.h; sourceTree = "<group>"; };
+		045EF0EC1C72F49100234780 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarViewController.m; path = CardLeap/Main/TabBarViewController.m; sourceTree = "<group>"; };
 		045F0EA91A5CC9520040A914 /* reviewDishInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewDishInfo.h; sourceTree = "<group>"; };
 		045F0EAA1A5CC9520040A914 /* reviewDishInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewDishInfo.m; sourceTree = "<group>"; };
 		045F0EAC1A5CE0AD0040A914 /* locatinoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = locatinoInfo.h; sourceTree = "<group>"; };
@@ -1535,7 +1535,7 @@
 		33DB1C201A1ECAF6002E463E /* UZCommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZCommonTableViewController.h; sourceTree = "<group>"; };
 		33DB1C211A1ECAF6002E463E /* UZCommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZCommonTableViewController.m; sourceTree = "<group>"; };
 		33DB1C4A1A1EE76B002E463E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = CardLeap/LaunchScreen.xib; sourceTree = "<group>"; };
 		33DB1C6D1A1F0828002E463E /* DSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSNavigationBar.h; sourceTree = "<group>"; };
 		33DB1C6E1A1F0828002E463E /* DSNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSNavigationBar.m; sourceTree = "<group>"; };
 		33DB1C721A1F158B002E463E /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -2490,19 +2490,6 @@
 				04598B961A53DB1F003FEE25 /* XHRealTimeBlur.m */,
 			);
 			path = XHRealTimeBlur;
-			sourceTree = "<group>";
-		};
-		045EF0E61C72F43300234780 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				045EF0E71C72F49100234780 /* BaseViewController.h */,
-				045EF0E81C72F49100234780 /* BaseViewController.m */,
-				04480A711D1CB87E004018CF /* defaultName.h */,
-				045EF0EA1C72F49100234780 /* macro.h */,
-				045EF0EB1C72F49100234780 /* TabBarViewController.h */,
-				045EF0EC1C72F49100234780 /* TabBarViewController.m */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		045F0EAF1A5CFF6C0040A914 /* coupon */ = {
@@ -3627,7 +3614,21 @@
 		333BDA121A1D7EFF009BAB8E = {
 			isa = PBXGroup;
 			children = (
-				333BDA1D1A1D7EFF009BAB8E /* CardLeap */,
+				333BDA501A1DCA1D009BAB8E /* Home */,
+				333BDA521A1DCA1D009BAB8E /* More */,
+				333BDA531A1DCA1D009BAB8E /* User */,
+				045EF0E71C72F49100234780 /* BaseViewController.h */,
+				045EF0E81C72F49100234780 /* BaseViewController.m */,
+				04480A711D1CB87E004018CF /* defaultName.h */,
+				045EF0EA1C72F49100234780 /* macro.h */,
+				045EF0EB1C72F49100234780 /* TabBarViewController.h */,
+				045EF0EC1C72F49100234780 /* TabBarViewController.m */,
+				333BDA541A1DCA1D009BAB8E /* Resource */,
+				33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */,
+				04480A4C1D1CB4E0004018CF /* AppDelegate.h */,
+				04480A4D1D1CB4E0004018CF /* AppDelegate.m */,
+				04480A511D1CB518004018CF /* Images.xcassets */,
+				333BDA1E1A1D7EFF009BAB8E /* Supporting Files */,
 				333BDA3A1A1D7EFF009BAB8E /* CardLeapTests */,
 				333BDA1C1A1D7EFF009BAB8E /* Products */,
 				990E4560AAD115C78D820A91 /* Frameworks */,
@@ -3643,21 +3644,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		333BDA1D1A1D7EFF009BAB8E /* CardLeap */ = {
-			isa = PBXGroup;
-			children = (
-				045EF0E61C72F43300234780 /* Main */,
-				333BDA4D1A1DCA1D009BAB8E /* CardLeapImplement */,
-				333BDA541A1DCA1D009BAB8E /* Resource */,
-				33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */,
-				04480A4C1D1CB4E0004018CF /* AppDelegate.h */,
-				04480A4D1D1CB4E0004018CF /* AppDelegate.m */,
-				04480A511D1CB518004018CF /* Images.xcassets */,
-				333BDA1E1A1D7EFF009BAB8E /* Supporting Files */,
-			);
-			path = CardLeap;
-			sourceTree = "<group>";
-		};
 		333BDA1E1A1D7EFF009BAB8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -3670,6 +3656,7 @@
 				04AC9AB31CD1A88A007940FA /* configuration.plist */,
 			);
 			name = "Supporting Files";
+			path = CardLeap;
 			sourceTree = "<group>";
 		};
 		333BDA3A1A1D7EFF009BAB8E /* CardLeapTests */ = {
@@ -3689,16 +3676,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		333BDA4D1A1DCA1D009BAB8E /* CardLeapImplement */ = {
-			isa = PBXGroup;
-			children = (
-				333BDA501A1DCA1D009BAB8E /* Home */,
-				333BDA521A1DCA1D009BAB8E /* More */,
-				333BDA531A1DCA1D009BAB8E /* User */,
-			);
-			path = CardLeapImplement;
-			sourceTree = "<group>";
-		};
 		333BDA501A1DCA1D009BAB8E /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -3711,7 +3688,8 @@
 				04480A571D1CB671004018CF /* HomeViewController.m */,
 				04519A3B1BAD029D004DF7F5 /* View */,
 			);
-			path = Home;
+			name = Home;
+			path = CardLeap/CardLeapImplement/Home;
 			sourceTree = "<group>";
 		};
 		333BDA521A1DCA1D009BAB8E /* More */ = {
@@ -3729,7 +3707,8 @@
 				0460FF801A47E72B00A35EBA /* cell */,
 				04457C4E1A4A893C00E186FA /* veiw */,
 			);
-			path = More;
+			name = More;
+			path = CardLeap/CardLeapImplement/More;
 			sourceTree = "<group>";
 		};
 		333BDA531A1DCA1D009BAB8E /* User */ = {
@@ -3747,7 +3726,8 @@
 				043468C41A5F5F6400609AB1 /* cell */,
 				04554C271A3AC02500B13AC8 /* model */,
 			);
-			path = User;
+			name = User;
+			path = CardLeap/CardLeapImplement/User;
 			sourceTree = "<group>";
 		};
 		333BDA541A1DCA1D009BAB8E /* Resource */ = {
@@ -3790,7 +3770,8 @@
 				33DB1C061A1ECAF6002E463E /* Common */,
 				333BDA551A1DCA4C009BAB8E /* Library */,
 			);
-			path = Resource;
+			name = Resource;
+			path = CardLeap/Resource;
 			sourceTree = "<group>";
 		};
 		333BDA551A1DCA4C009BAB8E /* Library */ = {
