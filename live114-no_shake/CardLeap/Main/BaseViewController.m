@@ -9,7 +9,7 @@
 
 #import "BaseViewController.h"
 
-@interface BaseViewController ()
+@interface BaseViewController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)UIImageView* backgroundImageview;
 @property (nonatomic, weak)	UIView* scrollableView;
 @property (assign, nonatomic) float lastContentOffset;
@@ -24,10 +24,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    //设置bar的风格，控制字体颜色
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    //设置tabbar的风格，控制字体颜色
     self.automaticallyAdjustsScrollViewInsets = NO;
-    // Do any additional setup after loading the view.
     self.edgesForExtendedLayout=UIRectEdgeNone;
     //添加背景图片
     [self.view addSubview:self.backgroundImageview];
@@ -35,7 +33,6 @@
     [_backgroundImageview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0.0f];
     [_backgroundImageview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0.0f];
     [_backgroundImageview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0.0f];
-    //[self settingBackButtonImage:@"navbar_return_no" andSelectedImage:@"navbar_return_sel"];
 }
 
 #pragma mark---------设置返回按钮

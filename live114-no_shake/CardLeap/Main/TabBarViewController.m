@@ -177,11 +177,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark---------首页tabbar提示
 -(void)addHomeHint
 {
@@ -220,7 +215,6 @@
 -(UIImageView*)homeImage
 {
     if (!_homeImage) {
-        //CGRect rect = [[UIScreen mainScreen] bounds];
         int x_pos =  10;
         _homeImage = [[UIImageView alloc] initWithFrame:CGRectMake(x_pos, 5, 5, 5)];
         [_homeImage setBackgroundColor:[UIColor redColor]];
@@ -238,14 +232,5 @@
     }
     return _circleImage;
 }
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

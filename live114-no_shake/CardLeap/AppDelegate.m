@@ -620,7 +620,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                     message.url = self.url;
                     [firVC setTabBarHidden:YES animated:YES];
                     [message setNavBarTitle:@"公告详情" withFont:14.0f];
-                    //                    [message.navigationItem setTitle:@"公告详情"];
                     [currentViewCtrl.navigationController pushViewController:message animated:YES];
                 }
             }
@@ -637,9 +636,6 @@ void UncaughtExceptionHandler(NSException *exception) {
     NSString *model = [[UIDevice currentDevice] model]  ;
     NSString *str = [NSString stringWithFormat:@"exception type : %@ \n crash reason : %@ \n call stack info : %@\n the systemName is %@ \n the systemVersion is %@ \n the model is %@",name,reason,arr,sys_type,sys_version,model];
     NSLog(@"%@",str);
-    //    [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"crush_reason"];
-    //    [[NSUserDefaults standardUserDefaults] synchronize];
-    //[NSThread sleepForTimeInterval:3];
 }
 
 -(void)sendCrushMessage
