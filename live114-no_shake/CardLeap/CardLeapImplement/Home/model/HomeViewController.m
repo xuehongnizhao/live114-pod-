@@ -73,7 +73,8 @@ CommendViewDelegate,
 CLLocationManagerDelegate,
 GoSearchDelegate,
 HomeSelectedCityViewControllerDelegate,
-SkyServerCenterViewDelegate>
+SkyServerCenterViewDelegate,
+linHangyeCommendViewDelegate>
 {
     
     AdBannerView *_adBannerView;//轮播
@@ -1389,12 +1390,6 @@ SkyServerCenterViewDelegate>
 }
 
 
-#pragma clickButtonForlittle
--(void)clickAction:(NSInteger)index
-{
-    NSLog(@"点击了%ld",(long)index);
-}
-
 -(UIView*)shopListView
 {
     if (!_shopListView) {
@@ -1457,11 +1452,6 @@ SkyServerCenterViewDelegate>
     [self getDataFromNet];
 }
 
--(void)choseTheCity:(NSString *)cityName
-{
-    NSLog(@"1111");
-}
-
 -(void)choseTheCityModule:(CityModule *)module
 {
     [navigationView setCityName:[NSString stringWithFormat:@"%@﹀",module.city_name]];
@@ -1470,62 +1460,6 @@ SkyServerCenterViewDelegate>
     [[NSUserDefaults standardUserDefaults] synchronize];
     //做刷新逻辑
     [self getDataFromNet];
-}
-
-/*
- #pragma mark - Navigation
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-#pragma mark - 检查更新APP
-#pragma mark-------检测更新
--(void)checkVersion
-{
-    NSString *cr_version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSString *net_version = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_v"] ;
-    if ([self NeedUpdates:net_version CrVersion:cr_version] == YES) {
-        NSString *is_update = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"is_update"] ;
-        NSString *hintStr = [[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"ios_desc"] ;
-        if ([is_update intValue] == 1) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"强制版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:nil, nil];
-            alert.tag = 1;
-            [alert show];
-        }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新" message:hintStr delegate:self cancelButtonTitle:@"去更新" otherButtonTitles:@"暂时不要了", nil];
-            alert.tag = 1;
-            [alert show];
-        }
-    }
-}
-
-- (NSDictionary * ) NSStringtoDictionary:(NSString *)string{
-    
-    NSArray *array = [string componentsSeparatedByString:@"."];
-    if (array.count != 3) {
-        [SVProgressHUD showErrorWithStatus:@"版本号格式有误！！！"];
-        return [NSDictionary new];
-    }
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:array forKeys:@[@"1",@"2",@"3"]];
-    return dict;
-}
-// 将版本号1、2、3位 分别比较。确定是否需要更新。 是：YES 不需要：NO
-- (BOOL) NeedUpdates:(NSString *)netVersion CrVersion:(NSString *)crVersion
-{
-    NSDictionary * netDict = [self NSStringtoDictionary:netVersion];
-    NSDictionary * crDict = [self NSStringtoDictionary:crVersion];
-    if ([[netDict objectForKey:@"1"] integerValue]>[[crDict objectForKey:@"1"] integerValue]) {
-        return YES;
-    }
-    if ([[netDict objectForKey:@"2"] integerValue]>[[crDict objectForKey:@"2"] integerValue]) {
-        return YES;
-    }
-    if ([[netDict objectForKey:@"3"] integerValue]>[[crDict objectForKey:@"3"] integerValue]) {
-        return YES;
-    }
-    return NO;
 }
 
 

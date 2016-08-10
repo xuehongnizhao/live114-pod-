@@ -45,17 +45,10 @@
 @implementation ShopDetailViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setUI];
     [self getDataFromNet];
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -81,7 +74,6 @@
 {
     if (detailInfo!=nil) {
         NSString *collect = detailInfo.collection;
-        //UIButton *btn = self.collectButton;
         if ([collect isEqualToString:@"0"]) {
             [self.collectButton setImage:[UIImage imageNamed:@"shop_sc_no"] forState:UIControlStateNormal];
             [_collectButton setImage:[UIImage imageNamed:@"shop_sc_sel"] forState:UIControlStateHighlighted];
@@ -613,7 +605,7 @@
     if (detailInfo != nil) {
         [cell configureCell:row sectino:section info:detailInfo];
     }else{
-        [cell configureCellForMin:row sectino:section info:self.info];
+//        [cell configureCellForMin:row sectino:section info:self.info];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

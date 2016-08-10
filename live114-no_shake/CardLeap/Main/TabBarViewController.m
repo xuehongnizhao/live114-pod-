@@ -108,7 +108,6 @@
     {
         [self removeCircleHint];
         if (isReply == YES) {
-            //[[NSNotificationCenter defaultCenter] postNotificationName:@"ISNEWREPLY" object:count];
         }
     }
 }

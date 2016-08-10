@@ -210,7 +210,6 @@
     }
     
     if ([gesture state] == UIGestureRecognizerStateEnded) {
-        // Reset the nav bar if the scroll is partial
         self.lastContentOffset = 0;
         [self checkForPartialScroll];
     }
@@ -228,14 +227,11 @@
             CGFloat delta = frame.origin.y - 20;
             frame.origin.y = MIN(20, frame.origin.y - delta);
             self.navigationController.navigationBar.frame = frame;
-            
             self.isExpanded = YES;
             self.isCollapsed = NO;
             
             [self updateSizingWithDelta:delta];
             
-            // This line needs tweaking
-            // [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y - delta) animated:YES];
         }];
     } else {
         // And back up
@@ -272,21 +268,10 @@
     frame.size.height += delta;
     self.scrollableView.layer.frame = frame;
 }
-//---------------------------------
 
-#pragma mark -
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
 }
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

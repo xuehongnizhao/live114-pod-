@@ -60,11 +60,6 @@
     [self initData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -208,7 +203,6 @@
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             [SVProgressHUD dismiss];
-            NSLog(@"%@",param);
             //-----------------解析------------------
             NSDictionary *dic = (NSDictionary*)param;
             [self parseShopList:dic];
@@ -385,7 +379,6 @@
 #pragma mark---------上拉 下拉 刷新方法
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
     [SVProgressHUD showWithStatus:@"正在加载"];
     _page = @"1";
     [self getDataFromNet];
@@ -393,7 +386,6 @@
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载");
     [SVProgressHUD showWithStatus:@"正在加载"];
     int page = [_page intValue]+1;
     _page = [NSString stringWithFormat:@"%d",page];
@@ -443,20 +435,17 @@
 #pragma mark------------跳转到地图界面
 -(void)mapAction :(UIButton*)sender
 {
-    NSLog(@"跳转到地图");
     UIStoryboard *mapStoryBoard = [UIStoryboard storyboardWithName:@"MapStoryboard" bundle:nil];
     ORAShopMapsViewController *firVC = [mapStoryBoard instantiateViewControllerWithIdentifier:@"mapView"];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"地图" withFont:14.0f];
     firVC.shopListDic = _pramasDict;
-    //    [firVC.navigationItem setTitle:@"商家分布地图"];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
 #pragma mark-------跳转到搜索界面
 -(void)searchAction :(UIButton*)sender
 {
-    NSLog(@"跳转到搜索");
     SearchViewController *firVC = [[SearchViewController alloc] init];
     firVC.u_lat = baidu_late;
     firVC.u_lng = baidu_lng;
@@ -509,13 +498,11 @@
         //设置标题
         [menu setCateTitle:self.cate_name];
     }
-#pragma mark --- 11.26 社区服务分类4个字变2个字(未解决)
 }
 
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
             _cat_id = text;
@@ -537,7 +524,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"进入商家详情");
     ShopDetailViewController *firVC = [[ShopDetailViewController alloc] init];
     [firVC setNavBarTitle:@"商家详情" withFont:14.0f];
     ShopListInfo *info = [_shopArray objectAtIndex:indexPath.row];

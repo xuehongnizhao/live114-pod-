@@ -1482,7 +1482,7 @@
 		333BDACE1A1DCBBA009BAB8E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		333BDAD01A1DCBC0009BAB8E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		333BDAD21A1DCBC6009BAB8E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		333BDAFF1A1DD07A009BAB8E /* cityo2o.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cityo2o.pch; sourceTree = "<group>"; };
+		333BDAFF1A1DD07A009BAB8E /* cityo2o.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cityo2o.pch; path = CardLeap/cityo2o.pch; sourceTree = "<group>"; };
 		333BDB021A1DDE2E009BAB8E /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
 		333BDB031A1DDE2E009BAB8E /* arrow_down1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down1.png; sourceTree = "<group>"; };
 		333BDB041A1DDE2E009BAB8E /* arrow_down1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down1@2x.png"; sourceTree = "<group>"; };
@@ -3617,16 +3617,17 @@
 				333BDA501A1DCA1D009BAB8E /* Home */,
 				333BDA521A1DCA1D009BAB8E /* More */,
 				333BDA531A1DCA1D009BAB8E /* User */,
+				333BDA541A1DCA1D009BAB8E /* Resource */,
 				045EF0E71C72F49100234780 /* BaseViewController.h */,
 				045EF0E81C72F49100234780 /* BaseViewController.m */,
 				04480A711D1CB87E004018CF /* defaultName.h */,
 				045EF0EA1C72F49100234780 /* macro.h */,
 				045EF0EB1C72F49100234780 /* TabBarViewController.h */,
 				045EF0EC1C72F49100234780 /* TabBarViewController.m */,
-				333BDA541A1DCA1D009BAB8E /* Resource */,
 				33DB1C651A1EFEE8002E463E /* LaunchScreen.xib */,
 				04480A4C1D1CB4E0004018CF /* AppDelegate.h */,
 				04480A4D1D1CB4E0004018CF /* AppDelegate.m */,
+				333BDAFF1A1DD07A009BAB8E /* cityo2o.pch */,
 				04480A511D1CB518004018CF /* Images.xcassets */,
 				333BDA1E1A1D7EFF009BAB8E /* Supporting Files */,
 				333BDA3A1A1D7EFF009BAB8E /* CardLeapTests */,
@@ -3652,7 +3653,6 @@
 				33DB1C4A1A1EE76B002E463E /* OpenSans-Light.ttf */,
 				333BDA1F1A1D7EFF009BAB8E /* Info.plist */,
 				333BDA201A1D7EFF009BAB8E /* main.m */,
-				333BDAFF1A1DD07A009BAB8E /* cityo2o.pch */,
 				04AC9AB31CD1A88A007940FA /* configuration.plist */,
 			);
 			name = "Supporting Files";
