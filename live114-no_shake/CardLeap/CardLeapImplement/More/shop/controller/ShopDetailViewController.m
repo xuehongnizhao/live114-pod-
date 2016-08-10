@@ -521,15 +521,11 @@
         firVC.shop_id = detailInfo.shop_id;
         [self.navigationController pushViewController:firVC animated:YES];
     }else if ([action isEqualToString:@"takeout"]){
-        //msgText = @"外  卖";
-        //        if ([detailInfo.takeout_num integerValue]>0) {
         ShopTakeOutViewController *firVC = [[ShopTakeOutViewController alloc] init];
         [firVC setNavBarTitle:detailInfo.shop_name withFont:14.0f];
         firVC.shop_id = self.shop_id;
         [self.navigationController pushViewController:firVC animated:YES];
-        //        }
     }else if ([action isEqualToString:@"spike"]){
-        //msgText = @"优惠券";
         if ([detailInfo.spike_num integerValue]>0) {
             ShopSpikeViewController *firVC = [[ShopSpikeViewController alloc] init];
             [firVC setHiddenTabbar:YES];
@@ -538,7 +534,6 @@
             [self.navigationController pushViewController:firVC animated:YES];
         }
     }else if ([action isEqualToString:@"activity"]){
-        //msgText = @"活  动";
         if ([detailInfo.event_num integerValue]>0) {
             ShopActivityViewController *firVC = [[ShopActivityViewController alloc] init];
             [firVC setHiddenTabbar:YES];
@@ -604,8 +599,6 @@
     NSInteger row = indexPath.row;
     if (detailInfo != nil) {
         [cell configureCell:row sectino:section info:detailInfo];
-    }else{
-//        [cell configureCellForMin:row sectino:section info:self.info];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
