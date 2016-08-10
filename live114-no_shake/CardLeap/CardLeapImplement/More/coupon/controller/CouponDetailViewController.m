@@ -11,7 +11,7 @@
 #import "LoginViewController.h"
 #import "UMSocial.h"
 
-@interface CouponDetailViewController ()<UIWebViewDelegate>
+@interface CouponDetailViewController ()<UIWebViewDelegate,UMSocialUIDelegate>
 @property (strong, nonatomic) UIView *operationView;
 @property (strong, nonatomic) UIWebView *spikeDetailWeb;
 @property (strong, nonatomic) UIButton *downloadButton;

@@ -9,7 +9,7 @@
 #import "EditUserInfoViewController.h"
 
 @interface EditUserInfoViewController ()<UITableViewDataSource,UITableViewDelegate,
-                                        UIActionSheetDelegate,UIImagePickerControllerDelegate,
+                                        UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,
                                         UITextFieldDelegate>
 {
     UIImage *user_image_local;

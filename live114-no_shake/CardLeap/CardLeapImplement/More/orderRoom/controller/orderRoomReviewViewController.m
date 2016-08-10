@@ -9,7 +9,7 @@
 #import "orderRoomReviewViewController.h"
 #import "TQStarRatingView.h"
 
-@interface orderRoomReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate>
+@interface orderRoomReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate,orderRoomRefreshDelegate>
 {
     NSString *user_score;
     UILabel *placeHolder;

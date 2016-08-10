@@ -28,7 +28,7 @@ CGSizeEqualToSize(CGSizeMake(640, 1136),                                    \
 
 static NSString *pageCount = @"10";
 
-@interface orderRoomMapViewController (){
+@interface orderRoomMapViewController ()<MKMapViewDelegate>{
     NSMutableArray *shopArray;
     double baidu_lat;
     double baidu_lng;

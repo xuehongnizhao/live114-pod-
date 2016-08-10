@@ -15,7 +15,7 @@
 #import "CouponDetailViewController.h"
 #import "CouPonSearchViewController.h"
 
-@interface CouponListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,MXPullDownMenuDelegate,UICollectionViewDelegateFlowLayout>
+@interface CouponListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,MXPullDownMenuDelegate,UICollectionViewDelegateFlowLayout,CLLocationManagerDelegate>
 {
     int page;
     NSString *cate;

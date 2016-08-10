@@ -27,11 +27,6 @@
     [self setUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)initData
 {
     user_score = @"5.0";
@@ -127,9 +122,7 @@
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             [SVProgressHUD dismiss];
-#pragma mark --- 2015.12.15 评价后跳转的页面可能要改,标记一下
-            //                [self.delegate refreshAction];
-            //                [self.navigationController popViewControllerAnimated:YES];
+
             for (UIViewController *object in self.navigationController.viewControllers) {
                 if ([object isKindOfClass:NSClassFromString(@"myOrderSeatCenterViewController")]== YES) {
                     self.delegate = object;

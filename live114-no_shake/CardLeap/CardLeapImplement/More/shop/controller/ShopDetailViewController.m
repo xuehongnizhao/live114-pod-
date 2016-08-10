@@ -260,7 +260,6 @@
                                };
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
-                //                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
             }
         } andErrorBlock:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:@"网络异常"];
@@ -272,9 +271,6 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
-    //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
         [SVProgressHUD showSuccessWithStatus:@"分享成功"];
@@ -607,11 +603,9 @@
 #pragma mark----------------点击图片进入相册
 -(void)clickAction
 {
-    NSLog(@"跳相册了");
     ShowAllImageViewController *firVC = [[ShowAllImageViewController alloc] init];
     firVC.iamgeArray = detailInfo.shop_pic_list;
     [firVC setNavBarTitle:@"商家相册" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"商家相册"];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
