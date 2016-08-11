@@ -507,7 +507,6 @@
                             orderRoomWaitViewController *firVC = [[orderRoomWaitViewController alloc] init];
                             [firVC setHiddenTabbar:YES];
                             [firVC setNavBarTitle:@"下单成功" withFont:14.0f];
-                            //                            [firVC.navigationItem setTitle:@"下单成功"];
                             firVC.url=url;
                             firVC.seat_id = hotel_id;
                             [self.navigationController pushViewController:firVC animated:YES];
@@ -572,16 +571,5 @@
     return _messageWebView;
 }
 
-#pragma mark--------other delegate
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

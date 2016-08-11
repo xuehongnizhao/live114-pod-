@@ -182,7 +182,6 @@
         
         [self updateSizingWithDelta:delta];
         
-        // Keeps the view's scroll position steady until the navbar is gone
         if ([self.scrollableView isKindOfClass:[UIScrollView class]]) {
             [(UIScrollView*)self.scrollableView setContentOffset:CGPointMake(((UIScrollView*)self.scrollableView).contentOffset.x, ((UIScrollView*)self.scrollableView).contentOffset.y - delta)];
         }

@@ -173,8 +173,7 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    //    NSLog(@"%d -- %d-----and text:%@", column, row ,text);
-    //    NSString *str = [_listIdDict objectForKey:text];
+
     NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
@@ -192,7 +191,6 @@
     page = 1;
     [self getDataFromNet];
 }
-
 
 -(void)getDataFromNet
 {
@@ -305,7 +303,6 @@
     ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"活动详情" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"活动详情"];
     firVC.url = info.message_url;
     NSLog(@"%@",info.message_url);
     [self.navigationController pushViewController:firVC animated:YES];
@@ -335,7 +332,6 @@
     }
     activityInfo *info = [activityArray objectAtIndex:indexPath.row];
     [cell confirgureCell:info];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -344,13 +340,5 @@
     return [activityArray count];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -21,40 +21,18 @@
 
 @implementation GroupCheckCodeTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void)confirgureCell:(NSDictionary*)dic section:(NSInteger)section row:(NSInteger)row
 {
     if (section == 0) {
-#pragma mark --- 12.1 删除图标
-//        [self.contentView addSubview:self.iconImage];
-//        [_iconImage autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0f];
-//        [_iconImage autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:10.0f];
-//        [_iconImage autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:50.0f];
-//        [_iconImage autoSetDimension:ALDimensionWidth toSize:40.0f];
-        //        _iconImage.layer.masksToBounds = YES;
-        //        _iconImage.layer.cornerRadius = 20.0f;
-//        _iconImage.image = [UIImage imageNamed:@"yhq_icon"];
         
         [self.contentView addSubview:self.shop_desc_lable];
-        //_shop_desc_lable.layer.borderWidth = 1;
         [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:5.0f];
         [_shop_desc_lable autoSetDimension:ALDimensionHeight toSize:20.0f];
-//        [_shop_desc_lable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_iconImage withOffset:5.0f];
         [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:5.0f];
         [_shop_desc_lable autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
         _shop_desc_lable.text = dic[@"spike_desc"];
         
         [self.contentView addSubview:self.invalue_date_lable];
-//        [_invalue_date_lable autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_iconImage withOffset:5.0f];
         [_invalue_date_lable autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:5.0f];
         [_invalue_date_lable autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_shop_desc_lable withOffset:5.0f];
         [_invalue_date_lable autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5.0f];

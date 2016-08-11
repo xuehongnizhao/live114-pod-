@@ -141,7 +141,6 @@
         orderRoomDetailViewController *firVC = [[orderRoomDetailViewController alloc] init];
         [firVC setHiddenTabbar:YES];
         [firVC setNavBarTitle:messageInfo.shop_name withFont:14.0f];
-//        [firVC.navigationItem setTitle:messageInfo.shop_name];
         firVC.shop_id = messageInfo.shop_id;
         [self.navigationController pushViewController:firVC animated:YES];
     }

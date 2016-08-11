@@ -114,7 +114,7 @@
             firVC.shop_id = detailInfo.shop_id;
             firVC.index = @"3";
             [firVC setNavBarTitle:@"评价" withFont:14.0f];
-//            [firVC.navigationItem setTitle:@"评价"];
+
             [self.navigationController pushViewController:firVC animated:YES];
         }
     }else if (section == 1){
@@ -215,13 +215,9 @@
     }
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    if (detailInfo == nil) {
-        [cell confirgureDetailCell:self.info section:section row:row];
-    }else{
+    if (detailInfo != nil) {
         [cell confirgureCell:detailInfo section:section row:row];
     }
-    //[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

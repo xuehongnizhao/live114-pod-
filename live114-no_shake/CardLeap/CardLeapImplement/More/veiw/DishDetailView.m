@@ -48,20 +48,6 @@
 }
 
 
-#pragma mark webviewDelegate
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    NSLog(@"开始加载");
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    
-}
-
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-}
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -142,16 +128,5 @@
 }
 
 
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
