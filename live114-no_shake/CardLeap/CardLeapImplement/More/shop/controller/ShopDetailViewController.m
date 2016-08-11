@@ -119,7 +119,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
     NSString *url1 = connect_url(@"business_extend");
     NSString *uid1 = @"0";
@@ -148,7 +148,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
     
 }
@@ -262,7 +262,7 @@
             if ([param[@"code"] integerValue]==200) {
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }else{
         [SVProgressHUD showErrorWithStatus:@"您尚未登录，无法给您增加积分"];
@@ -285,7 +285,7 @@
                     [SVProgressHUD showSuccessWithStatus:@"分享成功"];
                 }
             } andErrorBlock:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络异常"];
+          
             }];
         }else{
             [SVProgressHUD showErrorWithStatus:@"您尚未登录，无法给您增加积分"];
@@ -337,7 +337,7 @@
                 [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }
 }

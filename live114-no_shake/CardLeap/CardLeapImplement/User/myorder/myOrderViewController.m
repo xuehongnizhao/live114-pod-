@@ -142,7 +142,7 @@
         [self.myOrderTableview headerEndRefreshing];
         [self.myOrderTableview footerEndRefreshing];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 

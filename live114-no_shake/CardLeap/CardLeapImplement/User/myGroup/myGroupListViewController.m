@@ -124,7 +124,7 @@
         [self.myGroupTableview headerEndRefreshing];
         [self.myGroupTableview footerEndRefreshing];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
         [self.myGroupTableview headerEndRefreshing];
         [self.myGroupTableview footerEndRefreshing];
     }];

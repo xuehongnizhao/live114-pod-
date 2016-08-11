@@ -9,7 +9,7 @@
 #import "orderRoomReviewViewController.h"
 #import "TQStarRatingView.h"
 
-@interface orderRoomReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate,orderRoomRefreshDelegate>
+@interface orderRoomReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate>
 {
     NSString *user_score;
     UILabel *placeHolder;
@@ -26,11 +26,6 @@
     // Do any additional setup after loading the view.
     [self initData];
     [self setUI];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)initData
@@ -130,8 +125,6 @@
                 [SVProgressHUD dismiss];
                 for (UIViewController *viewController in self.navigationController.viewControllers) {
                     if ([viewController isKindOfClass:NSClassFromString(@"myOrderRoomCenterViewController")] == YES) {
-                        self.delegate = viewController;
-                        [self.delegate orderRoomRefreshAction];
                         [self.navigationController popToViewController:viewController animated:YES];
                     }
                 }
@@ -139,7 +132,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
 //    }
 }
@@ -157,14 +150,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

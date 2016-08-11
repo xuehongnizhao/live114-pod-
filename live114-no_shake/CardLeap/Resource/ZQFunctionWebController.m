@@ -173,7 +173,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 - (void)setLogInWebBridge{
@@ -217,7 +217,7 @@
                         [SVProgressHUD showErrorWithStatus:param[@"message"]];
                     }
                 } andErrorBlock:^(NSError *error) {
-                    [SVProgressHUD showErrorWithStatus:@"网络异常"];
+              
                 }];
                 
             }
@@ -410,7 +410,7 @@
     Reachability *r = [Reachability reachabilityWithHostname:@"www.baidu.com"];
     switch ([r currentReachabilityStatus]) {
         case NotReachable:{
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }
             break;
         default:{

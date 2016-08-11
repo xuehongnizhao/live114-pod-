@@ -184,7 +184,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        
     }];
 }
 
@@ -227,7 +227,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -363,7 +363,7 @@
         [self.groupListTableview headerEndRefreshing];
         [self.groupListTableview footerEndRefreshing];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 

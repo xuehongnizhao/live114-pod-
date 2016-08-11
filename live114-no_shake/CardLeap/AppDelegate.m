@@ -475,7 +475,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 #pragma mark------自动登录
@@ -568,7 +568,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -650,7 +650,7 @@ void UncaughtExceptionHandler(NSException *exception) {
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             NSLog(@"返回");
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"crush_reason"];
         [[NSUserDefaults standardUserDefaults] synchronize];

@@ -362,7 +362,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }
 }
@@ -405,7 +405,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"小助手" message:@"信息不完整" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];

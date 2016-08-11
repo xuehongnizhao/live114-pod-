@@ -8,8 +8,6 @@
 
 #import "TabBarViewController.h"
 #import "HomeViewController.h"
-#import "MoreViewController.h"
-//tabbarcontroller
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
 #import "DSNavigationBar.h"

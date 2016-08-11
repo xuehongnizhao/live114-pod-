@@ -73,7 +73,6 @@
 		042895C01A3E739100CC2407 /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042895BD1A3E739100CC2407 /* MYIntroductionPanel.m */; };
 		042895C31A3E90E200CC2407 /* LoginMethodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042895C21A3E90E200CC2407 /* LoginMethodButtonView.m */; };
 		042DBACB1A6356FB00DCC6D2 /* AcitvityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042DBACA1A6356FB00DCC6D2 /* AcitvityTableViewCell.m */; };
-		042EC7A41AC939CA0019F5B0 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042EC79A1AC939CA0019F5B0 /* MoreViewController.m */; };
 		042EC7A51AC939CA0019F5B0 /* ReviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042EC79C1AC939CA0019F5B0 /* ReviewListViewController.m */; };
 		042EC7A61AC939CA0019F5B0 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042EC79E1AC939CA0019F5B0 /* SearchViewController.m */; };
 		042EC7A81AC939CA0019F5B0 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042EC7A11AC939CA0019F5B0 /* ShopDetailViewController.m */; };
@@ -668,8 +667,6 @@
 		042895C21A3E90E200CC2407 /* LoginMethodButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMethodButtonView.m; sourceTree = "<group>"; };
 		042DBAC91A6356FB00DCC6D2 /* AcitvityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcitvityTableViewCell.h; sourceTree = "<group>"; };
 		042DBACA1A6356FB00DCC6D2 /* AcitvityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcitvityTableViewCell.m; sourceTree = "<group>"; };
-		042EC7991AC939CA0019F5B0 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
-		042EC79A1AC939CA0019F5B0 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		042EC79B1AC939CA0019F5B0 /* ReviewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewListViewController.h; sourceTree = "<group>"; };
 		042EC79C1AC939CA0019F5B0 /* ReviewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewListViewController.m; sourceTree = "<group>"; };
 		042EC79D1AC939CA0019F5B0 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -3298,8 +3295,6 @@
 		04EA1C631A81EFE600957DA9 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				042EC7991AC939CA0019F5B0 /* MoreViewController.h */,
-				042EC79A1AC939CA0019F5B0 /* MoreViewController.m */,
 				042EC79B1AC939CA0019F5B0 /* ReviewListViewController.h */,
 				042EC79C1AC939CA0019F5B0 /* ReviewListViewController.m */,
 				042EC79D1AC939CA0019F5B0 /* SearchViewController.h */,
@@ -4450,7 +4445,6 @@
 				042EC7EE1AC93B720019F5B0 /* RegistViewController.m in Sources */,
 				04C4D5E81A63C47D00CD4FA6 /* orderSeatDetailInfo.m in Sources */,
 				042895171A3E6EBD00CC2407 /* AFHTTPSessionManager.m in Sources */,
-				042EC7A41AC939CA0019F5B0 /* MoreViewController.m in Sources */,
 				04F3CD2D1A6F781500D0B63E /* myOrderSeatStatusTableViewCell.m in Sources */,
 				04C4D5DF1A639DEC00CD4FA6 /* orderSeatInfo.m in Sources */,
 				0428952A1A3E6EBD00CC2407 /* CafRecordWriter.m in Sources */,

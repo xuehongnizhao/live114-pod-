@@ -74,7 +74,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }else{
         NSString *url = connect_url(@"hotel_status");
@@ -96,7 +96,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }
 }

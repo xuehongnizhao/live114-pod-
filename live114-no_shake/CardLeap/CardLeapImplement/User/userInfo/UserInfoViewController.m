@@ -81,7 +81,7 @@
             [self.userInfoTableview reloadData];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
     NSString *url1 = connect_url(@"mp_user_firm");
     NSDictionary *dict1 = @{
@@ -94,7 +94,7 @@
             _myBusinessURL=[[param objectForKey:@"obj"]objectForKey:@"user_business"];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
     
 }

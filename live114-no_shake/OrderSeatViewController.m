@@ -250,7 +250,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -293,7 +293,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -415,7 +415,7 @@
         [self.orderSeatTableview headerEndRefreshing];
         [self.orderSeatTableview footerEndRefreshing];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 #pragma mark---------init data

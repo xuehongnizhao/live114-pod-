@@ -59,7 +59,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -104,7 +104,6 @@
     CouponDetailViewController *firVC = [[CouponDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:info.spike_name withFont:14.0f];
-//    [firVC.navigationItem setTitle:info.spike_name];
     firVC.info = info;
     firVC.message_url = info.message_url;
     [self.navigationController pushViewController:firVC animated:YES];
@@ -139,14 +138,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

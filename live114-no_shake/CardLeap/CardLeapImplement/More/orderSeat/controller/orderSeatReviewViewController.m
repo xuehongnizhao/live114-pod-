@@ -9,7 +9,7 @@
 #import "orderSeatReviewViewController.h"
 #import "TQStarRatingView.h"
 
-@interface orderSeatReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate,refreshDelegate>
+@interface orderSeatReviewViewController ()<StarRatingViewDelegate,UITextViewDelegate>
 {
     NSString *user_score;
     UILabel *placeHolder;
@@ -125,8 +125,6 @@
 
             for (UIViewController *object in self.navigationController.viewControllers) {
                 if ([object isKindOfClass:NSClassFromString(@"myOrderSeatCenterViewController")]== YES) {
-                    self.delegate = object;
-                    [self.delegate refreshAction];
                     [self.navigationController popToViewController:object animated:YES];
                 }
             }
@@ -134,7 +132,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
     //    }
 }
@@ -150,18 +148,5 @@
     }
     return YES;
 }
--(void)refreshAction{
-    
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

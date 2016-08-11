@@ -83,7 +83,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
         [_myGiftTableview headerEndRefreshing];
         [_myGiftTableview footerEndRefreshing];
     }];

@@ -53,11 +53,12 @@
 @implementation ShopListViewController
 
 - (void)viewDidLoad {
+ 
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [SVProgressHUD showWithStatus:@"正在加载，请稍等"];
     [self setUI];
+    
     [self initData];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -90,7 +91,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -133,7 +134,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -181,6 +182,7 @@
 
 -(void)getDataFromNet
 {
+    [SVProgressHUD showWithStatus:@"商家正狂奔向你"];
     NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
     if (city_id == nil) {
         city_id = @"0";
@@ -210,7 +212,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        
         [self.shopTableview headerEndRefreshing];
         [self.shopTableview footerEndRefreshing];
     }];
@@ -567,24 +569,5 @@
     return [_shopArray count];
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 0.5;
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 2.0f;
-//}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

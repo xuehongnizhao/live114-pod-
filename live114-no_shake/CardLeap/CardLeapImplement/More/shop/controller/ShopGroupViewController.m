@@ -29,10 +29,6 @@
     [self getData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark-----init data
 -(void)initData
@@ -61,7 +57,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -102,9 +98,7 @@
     GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"团购详情" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"团购详情"];
     firVC.group_id = info.group_id;
-    //firVC.info = info;
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

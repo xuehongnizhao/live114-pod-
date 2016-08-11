@@ -54,7 +54,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -227,7 +227,7 @@
 //                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }else{
         [SVProgressHUD showErrorWithStatus:@"您尚未登录，无法给您增加积分"];
@@ -253,7 +253,7 @@
                     [SVProgressHUD showSuccessWithStatus:@"分享成功"];
                 }
             } andErrorBlock:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络异常"];
+          
             }];
         }else{
             [SVProgressHUD showErrorWithStatus:@"您尚未登录，无法给您增加积分"];

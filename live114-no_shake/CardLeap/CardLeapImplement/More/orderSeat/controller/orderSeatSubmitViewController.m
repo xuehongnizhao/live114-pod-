@@ -515,7 +515,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
     }else{
         [SVProgressHUD showErrorWithStatus:@"请输入预定信息"];

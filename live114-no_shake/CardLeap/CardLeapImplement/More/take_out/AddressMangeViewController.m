@@ -226,7 +226,7 @@
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 
@@ -250,7 +250,7 @@
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+      
         }];
         [self.addressArray removeObject:info];
         [self.addressTableview reloadData];
@@ -286,7 +286,7 @@
         }
         [self.addressTableview reloadData];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+  
     }];
 }
 /*
