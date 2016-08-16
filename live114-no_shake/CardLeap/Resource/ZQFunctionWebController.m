@@ -31,7 +31,7 @@
     NSString *_uuid;
     WVJBResponseCallback _responseCallBack;
 }
-@property (strong,nonatomic)UIWebView *detailWeb;
+@property (strong, nonatomic) UIWebView *detailWeb;
 @property (strong, nonatomic) WebViewJavascriptBridge *bridge;
 @property (strong, nonatomic) AmrRecordWriter *amrWriter;
 @property (strong, nonatomic) MLAudioRecorder *recorder;
@@ -363,7 +363,6 @@
             [UMSocialData defaultData].extConfig.qzoneData.url = self.url;
             
             [UMSocialData defaultData].extConfig.sinaData.shareText = self.title;
-            //            [UMSocialData defaultData].extConfig.sinaData.url= self.url;
             
         }
             break;

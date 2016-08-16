@@ -257,10 +257,7 @@
     if (tableView == _tableView) {
         return [_array[_currentSelectedMenudIndex] count];
     }else{
-//        NSDictionary *dic = _array[_currentSelectedMenudIndex];
-//        NSString *currentRow = [selectRowAtTableview objectAtIndex:_currentSelectedMenudIndex];
-//        NSString *key = [[_array[_currentSelectedMenudIndex] allKeys] objectAtIndex:[currentRow intValue]];
-//        NSArray *value = [dic objectForKey:key];
+
         NSArray *array = _array[_currentSelectedMenudIndex];
         NSString *currentRow = [selectRowAtTableview objectAtIndex:_currentSelectedMenudIndex];
         cateInfo *info = [array objectAtIndex:[currentRow intValue]];
@@ -279,15 +276,12 @@
             cell.textLabel.font = [UIFont systemFontOfSize:13.0];
         }
         [cell.textLabel setTextColor:[UIColor grayColor]];
-        //[cell setAccessoryType:UITableViewCellAccessoryNone];
         NSArray *array = _array[_currentSelectedMenudIndex];
         cateInfo *info = [array objectAtIndex:indexPath.row];
         cell.textLabel.text = info.cate_name;
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         if (cell.textLabel.text == [(CATextLayer *)[_titles objectAtIndex:_currentSelectedMenudIndex] string]) {
-            //[cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-            //[cell.textLabel setTextColor:[tableView tintColor]];
-            //select_one = indexPath.row;
+
         }
         
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -305,7 +299,6 @@
         }
         [cell setBackgroundColor:UIColorFromRGB(0xf2f2f2)];
         [cell.textLabel setTextColor:[UIColor grayColor]];
-        //[cell setAccessoryType:UITableViewCellAccessoryNone];
         NSArray *array = _array[_currentSelectedMenudIndex];
         NSString *currentRow = [selectRowAtTableview objectAtIndex:_currentSelectedMenudIndex];
         cateInfo *info = [array objectAtIndex:[currentRow intValue]];
@@ -313,8 +306,6 @@
         cateSonInfo *secondInfo = [secondArray objectAtIndex:indexPath.row];
         cell.textLabel.text = secondInfo.cate_son_name;
         if (cell.textLabel.text == [(CATextLayer *)[_titles objectAtIndex:_currentSelectedMenudIndex] string]) {
-            //[cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-            //[cell.textLabel setTextColor:[tableView tintColor]];
             NSIndexPath *first = [NSIndexPath
                                   indexPathForRow:indexPath.row inSection:0];
             [tableView selectRowAtIndexPath:first

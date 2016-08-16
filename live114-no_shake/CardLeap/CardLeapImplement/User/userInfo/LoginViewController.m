@@ -273,7 +273,7 @@
                 [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+            
         }];
     }else{
         [SVProgressHUD showErrorWithStatus:@"请正确填写用户名和密码"];
@@ -394,7 +394,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络不给力，请稍后重试"];
+        
     }];
 }
 

@@ -421,7 +421,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     } andErrorBlock:^(NSError *error) {
         
         if ([JSONOfNetWork getDictionaryFromPlist]) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力"];
             [self getURLFilter];
             [self setIndex];
         }else{
@@ -508,7 +507,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                     [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
                 }
             } andErrorBlock:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络不给力"];
             }];
         }
     }

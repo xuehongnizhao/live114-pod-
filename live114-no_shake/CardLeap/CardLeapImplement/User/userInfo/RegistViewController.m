@@ -204,7 +204,7 @@
             }
             
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力,稍后重试"];
+            
         }];
     }
     
@@ -252,7 +252,7 @@
                 [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+            
         }];
     }
 }
@@ -320,7 +320,7 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+        
     }];
 }
 

@@ -640,7 +640,7 @@ linHangyeCommendViewDelegate>
         //读取列表
         [self getShopListFromNet];
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+        
     }];
 }
 
@@ -676,7 +676,7 @@ linHangyeCommendViewDelegate>
     } andErrorBlock:^(NSError *error) {
         [self.indexTableview headerEndRefreshing];
         [self.indexTableview footerEndRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+        
     }];
 }
 

@@ -565,7 +565,7 @@
             submit_conde = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
             sender.userInteractionEnabled = NO;
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力,稍后重试"];
+            
         }];
     }
 }

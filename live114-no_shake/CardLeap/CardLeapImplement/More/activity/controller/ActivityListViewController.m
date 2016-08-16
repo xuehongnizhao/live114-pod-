@@ -298,13 +298,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
     activityInfo *info = [activityArray objectAtIndex:indexPath.row];
     ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"活动详情" withFont:14.0f];
     firVC.url = info.message_url;
-    NSLog(@"%@",info.message_url);
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

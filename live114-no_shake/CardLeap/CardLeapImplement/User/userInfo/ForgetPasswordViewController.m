@@ -215,7 +215,7 @@
                 sender.userInteractionEnabled = YES;
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力,稍后重试"];
+            
         }];
     }
     

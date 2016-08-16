@@ -223,7 +223,6 @@
                                };
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
-//                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
             }
         } andErrorBlock:^(NSError *error) {
       

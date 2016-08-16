@@ -140,9 +140,6 @@
     if (!_searchView) {
         _searchView = [[UIImageView alloc] initForAutoLayout];
         [_searchView setImage:[UIImage imageNamed:@"home_logo"]];
-//        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchShop:)];
-//        _searchView.userInteractionEnabled = YES;
-//        [_searchView addGestureRecognizer:gesture];
     }
     return _searchView;
 }

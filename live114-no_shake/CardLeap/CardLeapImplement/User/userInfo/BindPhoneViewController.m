@@ -204,7 +204,7 @@
                 [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
             }
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力"];
+            
         }];
     }
 
@@ -234,7 +234,7 @@
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
     } andErrorBlock:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络不给力，请稍后重试"];
+        
     }];
 
 }
@@ -327,7 +327,7 @@
             NSLog(@"get message:%@",[dic  objectForKey:@"message"]);
             _checkCode = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
         } andErrorBlock:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络不给力,稍后重试"];
+            
         }];
     }
     
