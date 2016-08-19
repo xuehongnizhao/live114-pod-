@@ -16,7 +16,7 @@
 //获取NSUserDefault中的数据
 #define userDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
 
-
+    
 #pragma mark --- 2016.1.5 修改服务器地址为本地
 //#define baseUrl @"manager.114lives.com"
 #define baseUrl @"192.168.1.141/life114"

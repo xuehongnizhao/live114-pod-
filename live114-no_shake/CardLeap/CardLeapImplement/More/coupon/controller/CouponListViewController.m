@@ -54,11 +54,6 @@
     //[self getDataListFromNet];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark------定位功能
 -(void)openLocation
 {
@@ -271,8 +266,7 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    //    NSLog(@"%d -- %d-----and text:%@", column, row ,text);
-    //    NSString *str = [_listIdDict objectForKey:text];
+
     NSLog(@"点击了%@",text);
     switch (column) {
         case 0:

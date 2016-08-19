@@ -803,12 +803,13 @@ linHangyeCommendViewDelegate>
     while ([myView.subviews lastObject]!=nil) {
         [[myView.subviews lastObject] removeFromSuperview];
     }
-    // 社区服务 高度
-    CGFloat faceViewHeight = 190*LinHeightPercent;//这里按屏幕比率设置高度  以4.0屏幕为例
+
     CGFloat adbanderHeight = 150*LinHeightPercent;
     CGFloat commenViewHeihgt = 120*LinHeightPercent;
     //服务中心高度
     CGFloat serverViewHeight = 170;
+    // 社区服务 高度
+    CGFloat faceViewHeight = 190*LinHeightPercent;//这里按屏幕比率设置高度  以4.0屏幕为例
     //商品展示高度
     CGFloat commodityDisplayViewHeight = 150;
     //中部广告栏
@@ -844,6 +845,7 @@ linHangyeCommendViewDelegate>
     industryFrame.size.height = industryViewHeight;
     self.industryView.frame=industryFrame;
     [myView addSubview:self.industryView];
+    
     //添加商品展示区//commodityDisplayViewHeight
     CGRect commodityDisplayFrame    = self.commodityDisplayView.frame;
     commodityDisplayFrame.origin.y  = adbanderHeight+serverViewHeight+industryViewHeight+5+5;
@@ -1082,7 +1084,9 @@ linHangyeCommendViewDelegate>
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //  NSLog(@"点击了商家");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+      NSLog(@"点击了商家");
     shopInfo *info = [shopArray objectAtIndex:indexPath.row];
     ShopDetailViewController *firVC = [[ShopDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -1092,7 +1096,7 @@ linHangyeCommendViewDelegate>
     firVC.message_url = info.message_url;
     [firVC.navigationItem setTitle:@"如e商家"];
     [self.navigationController pushViewController:firVC animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1108,13 +1112,11 @@ linHangyeCommendViewDelegate>
 #pragma mark---------刷新
 -(void)headerBeginRefreshing
 {
-    //NSLog(@"下拉刷新");
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    //NSLog(@"上拉加载");
     page ++;
     [self getShopListFromNet];
 }
@@ -1315,7 +1317,6 @@ linHangyeCommendViewDelegate>
 #pragma mark-------adBannerViewDelegate
 -(void)adBannerView:(AdBannerView *)adBannerView itemIndex:(int)index
 {
-    // NSLog(@"被点击的图片是第%d长",index);
     CarouselInfo *info = [CarouseArray objectAtIndex:index];
     [self parseInfo:info];
 }
@@ -1409,6 +1410,7 @@ linHangyeCommendViewDelegate>
     return _faceView;
 }
 
+//社区服务点击
 -(void)clikButtonToPushViewController:(littleCateModel *)module
 {
     NSLog(@"点击的按钮为%@----%@",module.cat_name,module.cat_id);

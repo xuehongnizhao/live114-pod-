@@ -189,7 +189,6 @@
                     firVC.info = self.info;
                     firVC.spike_code = spike_code;
                     [firVC setNavBarTitle:self.info.spike_name withFont:14.0f];
-//                    [firVC.navigationItem setTitle:self.info.spike_name];
                     [self.navigationController pushViewController:firVC animated:YES];
                 }else{
                     [SVProgressHUD showErrorWithStatus:param[@"message"]];

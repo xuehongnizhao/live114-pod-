@@ -140,13 +140,6 @@
 #pragma mark 设置返回按钮和搜索按钮
 -(void)setBackButtonAndSearchButton
 {
-//    UIButton* leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-//    leftButton.frame=CGRectMake(0, 0, 44, 44);
-//    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateNormal];
-//    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateSelected];
-//    leftButton.imageEdgeInsets=UIEdgeInsetsMake(0, -30, 0, 0);
-//    [leftButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
     
     UIButton* rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -493,19 +486,5 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -71,7 +71,7 @@
     
     [self getCity];
     moduleArray=[[NSMutableArray alloc]init];
-    // Do any additional setup after loading the view, typically from a nib.
+    
     self.m_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     self.m_tableView.delegate   = self;
     self.m_tableView.dataSource = self;
@@ -95,18 +95,9 @@
         [self.navigationItem setHidesBackButton:YES];
     }
 
-    //[self getCity];
+    
 }
 
-
-
--(void)viewDidLayoutSubviews
-{
-    //    if (IS_HEIGHT_GTE_568==0) {
-    //        CGRect rect = _m_tableView.frame;
-    //        rect
-    //    }
-}
 
 -(void)setUI
 {
@@ -259,6 +250,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     if (tableView==self.searchController.searchResultsTableView)
     {
         CityModule* module=[self.filterArray objectAtIndex:indexPath.row];

@@ -412,14 +412,12 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             if ([JSONOfNetWork createPlist:param]){
-                NSLog(@"写入完成了，该干什么就干什么吧");
                 [self performSelectorOnMainThread:@selector(getURLFilter) withObject:nil waitUntilDone:YES];
                 [self setIndex];//暂时不做
-                //                [self checkVersion];
             }
         }
     } andErrorBlock:^(NSError *error) {
-        
+        //当没有网络的时候 刷新网络加载
         if ([JSONOfNetWork getDictionaryFromPlist]) {
             [self getURLFilter];
             [self setIndex];
