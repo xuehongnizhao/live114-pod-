@@ -72,11 +72,11 @@
 }
 
 - (void)setShopFilterViewShow{
-    [self.bridge registerHandler:@"shopZQQ" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [self.bridge registerHandler:@"List" handler:^(id data, WVJBResponseCallback responseCallback) {
         ShopListViewController *firVC = [[ShopListViewController alloc] init];
         firVC.is_hidden = @"0";
-        firVC.shop_id=[data objectForKey:@"LB"];
-        firVC.cate_name =[data objectForKey:@"LBM"];
+        firVC.shop_id=[data objectForKey:@"ListId"];
+        firVC.cate_name =[data objectForKey:@"ListName"];
         [self.navigationController pushViewController:firVC animated:YES];
     }];
 }
