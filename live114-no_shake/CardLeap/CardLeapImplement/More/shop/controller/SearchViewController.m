@@ -230,7 +230,6 @@
                         ShopListInfo *info = [[ShopListInfo alloc] initWithDictionary:dic];
                         [array addObject:info];
                     }
-                    //NSArray* themePostArr=[index_Recommend_info objectArrayWithKeyValuesArray:[param objectForKey:@"obj"]];
                     //封装数据
                     //精选主题页面添加
                     if (isMore)
@@ -310,7 +309,6 @@
             }
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.textAlignment=NSTextAlignmentCenter;
-            //cell.textLabel.layer.borderWidth = 1;
             cell.textLabel.textColor=[UIColor colorWithRed:114/255.0 green:114/255.0 blue:114/255.0 alpha:1];
             return cell;
         }
@@ -395,7 +393,6 @@
         NSLog(@"跳转到商家详情");
         ShopDetailViewController *firVC = [[ShopDetailViewController alloc] init];
         [firVC setNavBarTitle:@"商家详情" withFont:14.0f];
-//        [firVC.navigationItem setTitle:@"商家详情"];
         ShopListInfo *info = [postDataSourceArray objectAtIndex:indexPath.row];
         firVC.info = info;
         firVC.shop_id = info.shop_id;
@@ -426,14 +423,7 @@
     }
     
 }
-/**
- *  重新设置sectionView 更改相应属性
- *
- *  @param tableView 所对应tableView
- *  @param section   每个section
- *
- *  @return 返回所需View
- */
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (isShowHistory)

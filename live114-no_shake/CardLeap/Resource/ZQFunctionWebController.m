@@ -54,7 +54,6 @@
     
     
 }
-
 - (void)setWebBirdge{
     [self setUpLoadImageWebBridge];
     [self setUpLoadVoiceWebBridge];
@@ -72,62 +71,71 @@
 }
 
 - (void)setShopFilterViewShow{
-    [self.bridge registerHandler:@"List" handler:^(id data, WVJBResponseCallback responseCallback) {
+    __weak typeof(self)weakSelf = self;
+    [self.bridge registerHandler:@"tableList" handler:^(id data, WVJBResponseCallback responseCallback) {
         ShopListViewController *firVC = [[ShopListViewController alloc] init];
         firVC.is_hidden = @"0";
         firVC.shop_id=[data objectForKey:@"ListId"];
         firVC.cate_name =[data objectForKey:@"ListName"];
-        [self.navigationController pushViewController:firVC animated:YES];
+
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
+     
     }];
 }
 - (void)setOrderRoomShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopOrderRoomShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@",data);
         orderRoomDetailViewController *firVC=[[orderRoomDetailViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
 }
 - (void)setOrderSeatShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopOrderSeatShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@",data);
         orderSeatDetailViewController *firVC=[[orderSeatDetailViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
 }
 - (void)setShopTakeOutShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopTakeOutShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         ShopTakeOutViewController *firVC=[[ShopTakeOutViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
     
 }
 - (void)setShopActivityShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopActivityShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         ZQFunctionWebController *firVC=[[ZQFunctionWebController alloc]init];
         firVC.url=[data objectForKey:@"message_url"];
         firVC.title=[data objectForKey:@"activity_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
     
 }
 - (void)setCouPonViewShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopSpikeShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         CouponDetailViewController *firVC=[[CouponDetailViewController alloc]init];
         couponInfo *info=[[couponInfo alloc]initWithDictionary:data];
         firVC.info=info;
         firVC.message_url=info.message_url;
         firVC.title=info.spike_name;
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
 
 }
 - (void)setShopDetailViewShow{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_shopDetailsShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         
         ShopDetailViewController *firVC=[[ShopDetailViewController alloc]init];
@@ -136,40 +144,44 @@
         firVC.my_lng=[data objectForKey:@"my_lng"];
         firVC.message_url=[data objectForKey:@"message_url"];
         firVC.title=[data objectForKey:@"shop_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
 
 }
 - (void)setGroupViewShow{
+     __weak typeof(self)weakSelf = self;
     
     [self.bridge registerHandler:@"hd_shopGroupShow" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"%@",data);
         ShopGroupViewController *firVC=[[ShopGroupViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
     }];
 
 }
 #pragma mark --- 2016.5 添加webBridge
 - (void)setShakeVoiceWebBridge{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_playvoice" handler:^(id data, WVJBResponseCallback responseCallback) {
         
-        [self.player play];
+        [weakSelf.player play];
         _responseCallBack=responseCallback;
     }];
 }
 - (void)setUpLoadVoiceWebBridge{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_uploadvoicestart" handler:^(id data, WVJBResponseCallback responseCallback) {
         _uuid=data[@"uuid"];
-        [self.recorder startRecording];
+        [weakSelf.recorder startRecording];
         _responseCallBack=responseCallback;
     }];
 }
 - (void)setUpLoadVoiceWebBridgeEnd{
+     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_uploadvoiceend" handler:^(id data, WVJBResponseCallback responseCallback) {
         _uuid=data[@"uuid"];
-        [self.recorder stopRecording];
+        [weakSelf.recorder stopRecording];
         _responseCallBack=responseCallback;
     }];
 }
@@ -193,12 +205,13 @@
     }];
 }
 - (void)setLogInWebBridge{
+    __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"hd_login" handler:^(id data, WVJBResponseCallback responseCallback) {
         LoginViewController *firVC = [[LoginViewController alloc] init];
         firVC.identifier = @"0";
         firVC.navigationItem.title = @"登录";
         [firVC setHiddenTabbar:YES];
-        [self.navigationController pushViewController:firVC animated:YES];
+        [weakSelf.navigationController pushViewController:firVC animated:YES];
         _responseCallBack=responseCallback;
     }];
 }
@@ -402,7 +415,6 @@
     }
     request.HTTPBody = [[NSString stringWithFormat:@"tel=%@&u_id=%@&session_key=%@",user_tel,u_id,session_key] dataUsingEncoding:NSUTF8StringEncoding];
     [_detailWeb loadRequest:request];
-    NSLog(@"%@",request);
 }
 - (void)loadURLGet{
     NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
@@ -456,7 +468,8 @@
 }
 - (WebViewJavascriptBridge *)bridge{
     if (!_bridge) {
-        _bridge=[WebViewJavascriptBridge bridgeForWebView:self.detailWeb];
+        __weak typeof (self.detailWeb)weakDetailWeb = self.detailWeb;
+        _bridge=[WebViewJavascriptBridge bridgeForWebView:weakDetailWeb];
         [_bridge setWebViewDelegate:self];
     }
     return _bridge;

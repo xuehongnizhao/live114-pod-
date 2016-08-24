@@ -19,28 +19,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CardLeap/CardLeapImplement/Home/model/HomeViewController.m"
-            timestampString = "493200316.855263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1283"
-            endingLineNumber = "1283"
-            landmarkName = "-clickButton:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CardLeap/CardLeapImplement/More/shop/controller/ShopListViewController.m"
-            timestampString = "493262651.790215"
+            timestampString = "493709696.671219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "511"
-            endingLineNumber = "511"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
             landmarkName = "-PullDownMenu:didSelectRowAtColumn:row:selectText:"
             landmarkType = "5">
          </BreakpointContent>

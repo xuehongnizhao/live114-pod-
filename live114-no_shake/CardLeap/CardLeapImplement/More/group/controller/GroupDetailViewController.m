@@ -97,7 +97,7 @@
 -(void) webViewFailLoadWithError:(NSError *)error{
     
 }
-#pragma mark-------get UI
+#pragma mark-------get UIa
 -(UIButton *)shareButton
 {
     if (!_shareButton) {

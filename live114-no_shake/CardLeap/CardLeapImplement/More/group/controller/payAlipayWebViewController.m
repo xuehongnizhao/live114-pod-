@@ -17,19 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark------set UI
 -(void)setUI
 {
-    //-----hint message------
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付完成后请点击右侧完成按钮" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
     [alert show];
     //-----ui----
@@ -84,7 +79,6 @@
 #pragma mark-------button action
 -(void)completeAction:(UIButton*)sender
 {
-    NSLog(@"完成支付了");
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -94,14 +88,6 @@
     self.navigationItem.hidesBackButton = NO;
     [self.delegate completeAction];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

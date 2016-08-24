@@ -25,15 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initData];
-    //[self getDataFromNet];
     [self setUI];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark------------getData
@@ -157,9 +150,6 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-//    while ([cell.contentView.subviews lastObject]!= nil) {
-//        [[cell.contentView.subviews lastObject]removeFromSuperview];
-//    }
     reviewInfo *info = [reviewArray objectAtIndex:indexPath.row];
     [cell configureCell:info];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -178,7 +168,6 @@
         _reviewTableview = [[UITableView alloc] initForAutoLayout];
         _reviewTableview.delegate = self;
         _reviewTableview.dataSource = self;
-        //_reviewTableview.layer.borderWidth = 1;
         [UZCommonMethod hiddleExtendCellFromTableview:_reviewTableview];
         [_reviewTableview addHeaderWithTarget:self action:@selector(headerBeginRefreshing)];
         [_reviewTableview addFooterWithTarget:self action:@selector(footerBeginRefreshing)];

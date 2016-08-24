@@ -21,15 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initData];
     [self setUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(void)initData
 {
@@ -76,8 +71,7 @@
 
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score
 {
-    user_score = [NSString stringWithFormat:@"%0.1f",score * 10 / 2.0 ];
-    NSLog(@"您给的分数为%@",user_score);
+    user_score = [NSString stringWithFormat:@"%0.1f",score * 10 / 2.0 ];     
 }
 
 #pragma mark----------get UI

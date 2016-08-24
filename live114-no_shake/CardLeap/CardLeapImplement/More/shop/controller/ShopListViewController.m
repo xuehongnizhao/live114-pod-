@@ -58,14 +58,12 @@
     [self setUI];
     
     [self initData];
-    
-}
+    [SVProgressHUD showWithStatus:@"商家正奔向你"];}
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    [self setHiddenTabbar:NO];
 }
 
 #pragma mark------get data from net
@@ -182,7 +180,7 @@
 
 -(void)getDataFromNet
 {
-    [SVProgressHUD showWithStatus:@"商家正狂奔向你"];
+
     NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
     if (city_id == nil) {
         city_id = @"0";

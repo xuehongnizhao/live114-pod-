@@ -65,7 +65,7 @@
 {
     if (!_groupCheckTableview) {
         _groupCheckTableview = [[UITableView alloc] initForAutoLayout];
-        //_groupCheckTableview.translatesAutoresizingMaskIntoConstraints = NO;
+        
         _groupCheckTableview.delegate = self;
         _groupCheckTableview.dataSource = self;
         [UZCommonMethod hiddleExtendCellFromTableview:_groupCheckTableview];
@@ -114,18 +114,9 @@
         [firVC setNavBarTitle:@"如e商家" withFont:14.0f];
         firVC.group_id = [self.messageDict objectForKey:@"group_id"];
         [self.navigationController pushViewController:firVC animated:YES];
-        //        myGroupDetailViewController *firVC = [[myGroupDetailViewController alloc] init];
-        //        [firVC setHiddenTabbar:YES];
-        //        [firVC setNavBarTitle:@"订单详情" withFont:14.0f];
-        //        //        [firVC.navigationItem setTitle:@"订单详情"];
-        //        [self.navigationController pushViewController:firVC animated:YES];
     }
     
-    
-    //    MySpikeListViewController *firVC = [[MySpikeListViewController alloc] init];
-    //    [firVC setHiddenTabbar:YES];
-    //    [firVC.navigationItem setTitle:@"我的优惠券"];
-    //    [self.navigationController pushViewController:firVC animated:YES];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -187,7 +178,7 @@
                           @"spike_end_time":[self.messageDict objectForKey:@"group_endtime"]
                           };
     [cell confirgureCell:dic section:indexPath.section row:indexPath.row];
-    //cell.showsReorderControl = YES;
+
     return cell;
 }
 
@@ -221,7 +212,7 @@
                                };
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
-                //                [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                
             }
         } andErrorBlock:^(NSError *error) {
       
@@ -233,9 +224,7 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
-    //根据`responseCode`得到发送结果,如果分享成功
+
     if(response.responseCode == UMSResponseCodeSuccess)
     {
         [SVProgressHUD showSuccessWithStatus:@"分享成功"];
