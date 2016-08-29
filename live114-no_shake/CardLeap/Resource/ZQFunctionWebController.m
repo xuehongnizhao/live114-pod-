@@ -48,7 +48,7 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUI];
+    [self setUI];   
     [self setWebBirdge];
     [self initRecorder];
     

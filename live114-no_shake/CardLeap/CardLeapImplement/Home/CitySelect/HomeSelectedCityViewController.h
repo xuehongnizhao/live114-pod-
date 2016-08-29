@@ -15,8 +15,6 @@
 
 @optional
 
-- (void)choseTheCity:(NSString*)cityName;
-
 - (void)choseTheCityModule:(CityModule*)module;
 
 - (void)homeSelectedCityViewController:(HomeSelectedCityViewController *)homeSelectedCityViewController currentCityName:(NSString *)cityName currentCityID:(NSString *)ciytID;

@@ -65,7 +65,7 @@
         [_oreder_pic autoSetDimension:ALDimensionHeight toSize:16.0f];
         [_oreder_pic autoSetDimension:ALDimensionWidth toSize:0.0f];
         [_oreder_pic autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_shop_pic withOffset:7];
-    }
+    }   
     
     _take_pic = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:_take_pic];

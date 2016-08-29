@@ -1664,6 +1664,7 @@
 				0400665A1A887F5C00F577AF /* orderRoomMapViewController.m */,
 				0493AF211A8C3B6900A973FC /* orderRoomSearchViewController.h */,
 				0493AF221A8C3B6900A973FC /* orderRoomSearchViewController.m */,
+				04BAC0F11A7222990058D10A /* more */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2947,7 +2948,6 @@
 				04DBA1C11AB165AE0074F9AB /* updateGroup */,
 				04BAC0F81A72234D0058D10A /* controller */,
 				04BAC0EF1A7222990058D10A /* cell */,
-				04BAC0F11A7222990058D10A /* more */,
 			);
 			path = group;
 			sourceTree = "<group>";
@@ -2977,7 +2977,8 @@
 				04A0C4A61A76158600EF2939 /* groupDetailInfo.h */,
 				04A0C4A71A76158600EF2939 /* groupDetailInfo.m */,
 			);
-			path = more;
+			name = more;
+			path = ../../group/more;
 			sourceTree = "<group>";
 		};
 		04BAC0F81A72234D0058D10A /* controller */ = {

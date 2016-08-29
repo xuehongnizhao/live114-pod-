@@ -31,8 +31,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define __PureLayout_MinBaseSDK_iOS_8_0                   TARGET_OS_IPHONE && __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_1
-#define __PureLayout_MinSysVer_iOS_7_0                    TARGET_OS_IPHONE && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1
+    #define __PureLayout_MinSysVer_iOS_7_0                    TARGET_OS_IPHONE && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1
 #define __PureLayout_MinSysVer_iOS_8_0                    TARGET_OS_IPHONE && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1
 
 #define __PureLayout_MinBaseSDK_OSX_10_10                 !TARGET_OS_IPHONE && __MAC_OS_X_VERSION_MAX_ALLOWED > __MAC_10_9

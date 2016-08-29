@@ -23,14 +23,6 @@
 
 @implementation ShowAllImageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -43,39 +35,7 @@
     [self.view addSubview: myScrollView];
     
     myImageUrlArr = [[NSMutableArray alloc] init];
-    //
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//35287b8b8dad25dfca18fc8acb53dbf33fef3ede_1395941778406.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334203.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334281.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334156.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//11fe460ffcb14399_1395945336218.JPG" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941257796.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//d03ca12a6525e008_1395940809640.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//35287b8b8dad25dfca18fc8acb53dbf33fef3ede_1395941778406.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334203.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334281.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941334156.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//11fe460ffcb14399_1395945336218.JPG" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//539e8e324c587ac7_1395941257796.jpg" ];
-    //
-    //    [myImageUrlArr addObject: @"http://app.ijianren.com:9898//jr//upload//post//hd//d03ca12a6525e008_1395940809640.jpg" ];
-    //
-    //    for ( int j = 0; j < 5; j++ ) {
-    //        [myImageUrlArr addObjectsFromArray: myImageUrlArr ];
-    //    }
+
     
     if (self.iamgeArray.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"该商家没有上传图片"];
@@ -124,28 +84,7 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-    
-    
-    if ( [self.view window] == nil ) {
-        self.view = nil;
-    }
-    
-}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 -(void)BtnClick:(UITapGestureRecognizer *)imageTap{
     
@@ -156,7 +95,7 @@
         
         NSString * getImageStrUrl = [NSString stringWithFormat:@"%@", [myImageUrlArr objectAtIndex:i] ];
         MJPhoto *photo = [[MJPhoto alloc] init];
-        photo.url = [NSURL URLWithString: getImageStrUrl ]; // 图片路径
+        photo.url = [NSURL URLWithString: getImageStrUrl]; // 图片路径
         
         UIImageView * imageView = (UIImageView *)[self.view viewWithTag: imageTap.view.tag ];
         photo.srcImageView = imageView;

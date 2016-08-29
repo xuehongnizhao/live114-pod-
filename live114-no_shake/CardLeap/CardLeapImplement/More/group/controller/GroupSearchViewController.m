@@ -146,13 +146,6 @@
 #pragma mark 设置返回按钮和搜索按钮
 -(void)setBackButtonAndSearchButton
 {
-    //    UIButton* leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    //    leftButton.frame=CGRectMake(0, 0, 44, 44);
-    //    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateNormal];
-    //    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateSelected];
-    //    leftButton.imageEdgeInsets=UIEdgeInsetsMake(0, -30, 0, 0);
-    //    [leftButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-    //    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
     
     UIButton* rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -164,8 +157,6 @@
     rightButton.layer.borderColor = UIColorFromRGB(0xcd4a56).CGColor;
     rightButton.layer.masksToBounds = YES;
     rightButton.layer.cornerRadius = 3.0f;
-    //[rightButton setImage:[UIImage imageNamed:@"search_search"] forState:UIControlStateNormal];
-    //[rightButton setImage:[UIImage imageNamed:@"search_search"] forState:UIControlStateSelected];
     
     [rightButton addTarget:self action:@selector(searchPost) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightButton];
@@ -245,7 +236,6 @@
                         groupInfo *info = [[groupInfo alloc] initWithDictionary:dic];
                         [array addObject:info];
                     }
-                    //NSArray* themePostArr=[index_Recommend_info objectArrayWithKeyValuesArray:[param objectForKey:@"obj"]];
                     //封装数据
                     //精选主题页面添加
                     if (isMore)
@@ -418,7 +408,6 @@
 #pragma mark --- 将商家详情替换成如e商家
         GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
         [firVC setNavBarTitle:@"如e商家" withFont:14.0f];
-        //        [firVC.navigationItem setTitle:@"商家详情"];
         groupInfo *info = [postDataSourceArray objectAtIndex:indexPath.row];
         firVC.info = info;
         firVC.group_id = info.group_id;

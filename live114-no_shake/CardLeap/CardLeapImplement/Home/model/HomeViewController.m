@@ -1420,6 +1420,7 @@ linHangyeCommendViewDelegate>
     [firVC setNavBarTitle:@"商家" withFont:14.0f];
     firVC.shop_id = module.cat_id;
     firVC.cate_name = module.cat_name;
+    firVC.rdv_tabBarController.tabBarHidden=YES;
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

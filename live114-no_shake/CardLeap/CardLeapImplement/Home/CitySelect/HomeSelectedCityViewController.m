@@ -42,14 +42,6 @@
 
     
 }
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -265,7 +257,6 @@
         
         NSArray *allShowName = [nameDic objectForKey:sectionString];
         NSString* cityName=[allShowName objectAtIndex:indexPath.row];
-        [self.delegate choseTheCity:cityName];
         
         for (CityModule* module in moduleArray)
         {
