@@ -53,15 +53,16 @@
 @implementation ShopListViewController
 
 - (void)viewDidLoad {
- 
-    
     [super viewDidLoad];
     [SVProgressHUD showWithStatus:@"商家正奔向你"];
     [self setUI];
     [self initData];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setHiddenTabbar:NO];
+}
 
 #pragma mark------get data from net
 -(void)getCateFromNet

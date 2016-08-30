@@ -109,7 +109,6 @@ linHangyeCommendViewDelegate>
 @property (strong,nonatomic)IndustryZoneView   * industryView;//行业View
 @property (nonatomic, strong) UIView * commodityDisplayView;//商品展示View
 @property (nonatomic, strong) UIView * billboardsView;
-
 @property (strong ,nonatomic) UIImageView * advertisementImgView;//
 //首页全屏广告持续时间
 @property (nonatomic, strong) NSTimer     * timer;
