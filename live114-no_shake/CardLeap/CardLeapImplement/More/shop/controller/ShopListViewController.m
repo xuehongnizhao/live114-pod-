@@ -54,17 +54,14 @@
 
 - (void)viewDidLoad {
  
-    [super viewDidLoad];
-    [self setUI];
     
+    [super viewDidLoad];
+    [SVProgressHUD showWithStatus:@"商家正奔向你"];
+    [self setUI];
     [self initData];
-    [SVProgressHUD showWithStatus:@"商家正奔向你"];}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
 }
+
+
 
 #pragma mark------get data from net
 -(void)getCateFromNet
@@ -202,7 +199,6 @@
     [Base64Tool postSomethingToServe:url andParams:_pramasDict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
-            [SVProgressHUD dismiss];
             //-----------------解析------------------
             NSDictionary *dic = (NSDictionary*)param;
             [self parseShopList:dic];
@@ -231,6 +227,9 @@
     [self.shopTableview footerEndRefreshing];
     //刷新列表
     [self.shopTableview reloadData];
+    if (_shopArray) {
+        [SVProgressHUD dismiss];
+    }
 }
 
 #pragma mark------init data

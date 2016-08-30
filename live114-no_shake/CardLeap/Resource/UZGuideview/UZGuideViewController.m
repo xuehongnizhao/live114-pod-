@@ -8,7 +8,7 @@
 
 #import "UZGuideViewController.h"
 
-@interface UZGuideViewController ()
+@interface UZGuideViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, assign) BOOL animating;
 @property (nonatomic, strong) UIScrollView *pageScroll;
@@ -20,7 +20,11 @@
 
 @synthesize animating = _animating;
 @synthesize pageScroll = _pageScroll;
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.x>3*SCREEN_WIDTH) {
+        [self hideGuide];
+    }
+}
 #pragma mark - Functions
 // 获得屏幕的CGRect
 - (CGRect)onscreenFrame
@@ -74,15 +78,15 @@
 // 隐藏引导界面
 - (void)hideGuide
 {
+    [[UIApplication sharedApplication]setStatusBarHidden:NO];
 	if (!_animating && self.view.superview != nil)
 	{
 		_animating = YES;
-		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationDuration:0.4];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDidStopSelector:@selector(guideHidden)];
-		[UZGuideViewController sharedGuide].view.frame = [self offscreenFrame];
-		[UIView commitAnimations];
+        [UIView animateWithDuration:.4 animations:^{
+            self.view.frame=CGRectMake(-SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        }completion:^(BOOL finished) {
+            [self guideHidden];
+        }];
 	}
 }
 // 隐藏引导界面动作
@@ -107,6 +111,7 @@
 // 外接调用，显示引导界面
 + (void)show
 {
+    [[UIApplication sharedApplication]setStatusBarHidden:YES];
     [[UZGuideViewController sharedGuide].pageScroll setContentOffset:CGPointMake(0.f, 0.f)];
 	[[UZGuideViewController sharedGuide] showGuide];
 }
@@ -169,6 +174,7 @@
     self.pageScroll.pagingEnabled = YES;
     self.pageScroll.contentSize = CGSizeMake(self.view.frame.size.width * imageNameArray.count,
                                              self.view.frame.size.height);
+    self.pageScroll.delegate=self;
     [self.view addSubview:self.pageScroll];
     
     NSString *imgName = nil;
@@ -189,41 +195,12 @@
         [self.pageScroll addSubview:view];
         
         if (i == imageNameArray.count - 1) {
-            UIButton *enterButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 175, 35)];
-            [enterButton setTitle:@"开始体验"
-                         forState:UIControlStateNormal];
-            [enterButton setTitleColor:[UIColor whiteColor]
-                              forState:UIControlStateNormal];
-            [enterButton setTitleColor:[UIColor whiteColor]
-                              forState:UIControlStateHighlighted];
-            [enterButton setBackgroundColor:[UIColor whiteColor]];
-            [enterButton setTitleColor:UIColorFromRGB(0xa8a8aa) forState:UIControlStateNormal];
-            enterButton.layer.masksToBounds = YES;
-            enterButton.layer.cornerRadius=4.0;
-            if (IPHONE5) {
-                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
-            }else if(IPHONE6){
-                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
-            }else if(IPHONE4){
-                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-40.f)];
-            }else {
-                [enterButton setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height-60.f)];
-            }
-            [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03.png"]
-                                   forState:UIControlStateNormal];
-            [enterButton setBackgroundImage:[UIImage imageNamed:@"topbar-button03-sel.png"]
-                                   forState:UIControlStateHighlighted];
-            [enterButton addTarget:self action:@selector(pressEnterButton:)
-                  forControlEvents:UIControlEventTouchUpInside];
-            [view addSubview:enterButton];
+            UITapGestureRecognizer *swipe=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pressEnterButton:)];
+            [view addGestureRecognizer:swipe];
+
         }
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

@@ -127,6 +127,7 @@ linHangyeCommendViewDelegate>
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:everLaunch];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [UZGuideViewController show];
+        
         self.showAdvertising = NO;
     }
     // Do any additional setup after loading the view.
@@ -140,8 +141,6 @@ linHangyeCommendViewDelegate>
     [self openLocation];
     [self getDataFromNet];//获取网络数据
 }
-
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -1415,12 +1414,12 @@ linHangyeCommendViewDelegate>
 {
     NSLog(@"点击的按钮为%@----%@",module.cat_name,module.cat_id);
     ShopListViewController *firVC = [[ShopListViewController alloc] init];
-    //    [firVC setHiddenTabbar:YES];
+   
     firVC.is_hidden = @"0";
     [firVC setNavBarTitle:@"商家" withFont:14.0f];
     firVC.shop_id = module.cat_id;
     firVC.cate_name = module.cat_name;
-    firVC.rdv_tabBarController.tabBarHidden=YES;
+    [firVC setHiddenTabbar:YES];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 

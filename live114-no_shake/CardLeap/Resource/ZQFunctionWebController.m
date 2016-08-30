@@ -77,7 +77,7 @@
         firVC.is_hidden = @"0";
         firVC.shop_id=[data objectForKey:@"ListId"];
         firVC.cate_name =[data objectForKey:@"ListName"];
-
+        [firVC setHiddenTabbar:YES];
         [weakSelf.navigationController pushViewController:firVC animated:YES];
      
     }];
