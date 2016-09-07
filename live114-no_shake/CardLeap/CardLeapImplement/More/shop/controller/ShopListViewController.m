@@ -54,7 +54,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [SVProgressHUD showWithStatus:@"商家正奔向你"];
     [self setUI];
     [self initData];
 }
@@ -67,6 +66,7 @@
 #pragma mark------get data from net
 -(void)getCateFromNet
 {
+    
     NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
     if (city_id == nil) {
         city_id = @"0";
@@ -110,6 +110,7 @@
 
 -(void)getAreaFromNet
 {
+    
     NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
     if (city_id == nil) {
         city_id = @"0";
@@ -178,6 +179,7 @@
 
 -(void)getDataFromNet
 {
+    [SVProgressHUD showWithStatus:@"商家正奔向你"];
 
     NSString *city_id = [[NSUserDefaults standardUserDefaults] objectForKey:KCityID];
     if (city_id == nil) {

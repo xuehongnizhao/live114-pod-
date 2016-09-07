@@ -1107,6 +1107,9 @@ linHangyeCommendViewDelegate>
     NSInteger count = [shopArray count];
     return count;
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+}
 #pragma mark---------刷新
 -(void)headerBeginRefreshing
 {

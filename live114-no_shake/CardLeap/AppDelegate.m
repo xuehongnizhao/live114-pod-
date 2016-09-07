@@ -571,6 +571,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 #pragma mark-------设置主页
 -(void)setIndex
 {
+    NSLog(@"%f",SCREEN_HEIGHT);
     /**
      暂时由于显示问题  不要设置动画显示
      */

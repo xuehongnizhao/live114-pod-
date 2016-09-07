@@ -20,13 +20,6 @@
 
 @implementation HomeNavigationView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self=[super initWithFrame:frame])
@@ -70,11 +63,6 @@
     [_phoneButton autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:_messageButton withOffset:-2.0f];
     //searchView
     [self addSubview:[self searchView]];
-//    [[self searchView] autoAlignAxisToSuperviewAxis:ALAxisVertical];
-//    [[self searchView] autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:-5.0f];
-//    [[self searchView] autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-5.0f];
-   
-//    [[self searchView] autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:self.frame.size.width/2.0];
     [[self searchView] autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [[self searchView] autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:-8.0f];
     [[self searchView] autoSetDimension:ALDimensionWidth toSize:108.0f];

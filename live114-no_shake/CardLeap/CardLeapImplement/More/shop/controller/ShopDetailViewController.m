@@ -109,10 +109,8 @@
             [SVProgressHUD dismiss];
             NSLog(@"%@",param);
             detailInfo = [[shopDetailInfo alloc] initWithDictionary:[param objectForKey:@"obj"]];
-            NSLog(@"%@", detailInfo.shop_name);
-             NSLog(@"%@",  detailInfo.shop_lat);
-             NSLog(@"%@", detailInfo.shop_lng);
 
+            
             [self.shopDetailTableview reloadData];
             [self setButton];
         }else{
@@ -246,9 +244,9 @@
     [UMSocialData defaultData].extConfig.qzoneData.title = @"如e生活";
     [UMSocialData defaultData].extConfig.qzoneData.url = detailInfo.share_url;
     
-    //NSString *sinaText = [NSString stringWithFormat:@"城市o2o%@",detailInfo.share_url];
+  
     [UMSocialData defaultData].extConfig.sinaData.shareText = sinaText;
-    //[UMSocialData defaultData].extConfig.sinaData.urlResource.url = detailInfo.share_url;
+
 }
 #pragma mark --- 11.28 点击分享按钮就加积分
 - (void) UserSharePoint {
