@@ -51,7 +51,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"video preview dealloc");
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

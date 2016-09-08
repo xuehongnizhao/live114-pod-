@@ -74,18 +74,6 @@
     [self.shopDetailWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.shopDetailWebURL]]];
 }
 
-#pragma mark - WebViewDelegate
-
-- (void)webViewDidStartLoad:(UIWebView *)webView{
-    NSLog(@"开始加载");
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSLog(@"加载完毕");
-}
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
-    NSLog(@"商家详情web页加载失败：%@",error);
-}
-
 #pragma mark - 懒加载 
 - (UIWebView *) shopDetailWebView
 {

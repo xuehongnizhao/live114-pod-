@@ -149,24 +149,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 0) {
         if (row == 1) {
-            NSLog(@"跳转到评价列表");
+            
             ReviewListViewController *firVC = [[ReviewListViewController alloc] init];
             firVC.shop_id = detailInfo.shop_id;
             firVC.cate_id = @"4";
             firVC.index = @"4";
             [firVC setNavBarTitle:@"评价" withFont:14.0f];
-            //            [firVC.navigationItem setTitle:@"评价"];
+            
             [self.navigationController pushViewController:firVC animated:YES];
         }
     }else if (section == 1){
         if(row == 0){
-            NSLog(@"拨打电话");
-            NSLog(@"拨打电话");
+            
+            
             NSString *telePhone = detailInfo.shop_tel;
             NSArray *array = [telePhone componentsSeparatedByString:@","];
             if ([array count]==1) {
@@ -285,9 +285,9 @@
 #pragma mark-------share action
 -(void)shareAction:(UIButton*)sender
 {
-    NSLog(@"分享");
+    
     [self UserSharePoint];
-    //NSString *url = @"www.baidu.com";
+   
     NSString *sinaText = [NSString stringWithFormat:@"如e生活 %@",detailInfo.share_url];
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:nil
@@ -330,8 +330,8 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+    
+   
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -360,7 +360,6 @@
 
 -(void)submitAtion:(UIButton*)sender
 {
-    NSLog(@"立即预定");
     if (detailInfo!= nil) {
         if (ApplicationDelegate.islogin == NO) {
             LoginViewController *firVC = [[LoginViewController alloc] init];
@@ -379,14 +378,6 @@
         }
     }
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

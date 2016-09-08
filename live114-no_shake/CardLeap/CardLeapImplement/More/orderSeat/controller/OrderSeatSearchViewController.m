@@ -126,7 +126,7 @@
 #pragma mark 下拉刷新
 -(void)headerRereshing
 {
-    NSLog(@"下拉刷新");
+    
     currentPage=@"1";
     isMore=NO;
     [self searchPost];
@@ -138,7 +138,7 @@
 #pragma mark 上拉加载更多
 -(void)footerRereshing
 {
-    NSLog(@"上拉加载更多");
+    
     int page=[currentPage intValue]+1;
     currentPage=[NSString stringWithFormat:@"%d",page];
     isMore=YES;
@@ -184,7 +184,7 @@
  */
 -(void)searchPost
 {
-    NSLog(@"搜索关键字");
+    
     if (![_searchBar.text isEqualToString:@""])
     {
         //搜索后显示搜索cell
@@ -199,12 +199,12 @@
         {
             if (![historyArray containsObject:_searchBar.text])
             {
-                NSLog(@"成功添加历史记录");
+                
                 [historyArray addObject:_searchBar.text];
             }
             else
             {
-                NSLog(@"已有该数据");
+               
             }
         }
         else
@@ -241,7 +241,6 @@
                 {
                     [SVProgressHUD dismiss];
                     //字典数组转换模型数组
-                    NSLog(@"%@",[param objectForKey:@"obj"]);
                     NSMutableArray *array = [[NSMutableArray alloc] init];
                     NSArray *tmpArr = [param objectForKey:@"obj"];
                     for (NSDictionary *dic in tmpArr) {
@@ -275,7 +274,6 @@
                 }
                 else
                 {
-                    NSLog(@"搜索帖子数据异常");
                 }
             } andErrorBlock:^(NSError *error) {
                 [SVProgressHUD showErrorWithStatus:@"暂无该类信息"];
@@ -291,7 +289,6 @@
     }
     else
     {
-        NSLog(@"输入错误");
     }
     
 }
@@ -416,7 +413,7 @@
     }
     else
     {
-        NSLog(@"跳转到商家详情");
+        
         orderSeatDetailViewController *firVC = [[orderSeatDetailViewController alloc] init];
         [firVC setNavBarTitle:@"商家详情" withFont:14.0f];
 //        [firVC.navigationItem setTitle:@"商家详情"];
@@ -496,7 +493,7 @@
 #pragma mark searchBar代理方法
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"键盘搜索");
+   
     [self searchPost];
 }
 
@@ -504,7 +501,7 @@
 {
     if ([searchText isEqualToString:@""])
     {
-        NSLog(@"heiheihei");
+        
         isShowHistory=YES;
         [postDataSourceArray removeAllObjects];
         //tableView取消刷新控件
@@ -514,14 +511,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

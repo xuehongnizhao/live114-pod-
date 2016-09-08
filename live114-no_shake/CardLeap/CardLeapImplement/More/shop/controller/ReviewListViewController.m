@@ -74,7 +74,6 @@
 #pragma mark------------初始化 数据
 -(void)initData
 {
-    NSLog(@"shop_id:%@  cate_id:%@  index:%@",self.shop_id,self.cate_id,self.index);
     page = 1;
     reviewArray = [[NSMutableArray alloc] init];
 //    type = @"0";
@@ -118,7 +117,6 @@
 #pragma mark------------cate delegate
 -(void)chooseCateID:(NSInteger)cateID
 {
-    NSLog(@"do something");
     type = [NSString stringWithFormat:@"%ld",(long)cateID];
     [reviewArray removeAllObjects];
     [self getDataFromNet];
@@ -128,7 +126,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

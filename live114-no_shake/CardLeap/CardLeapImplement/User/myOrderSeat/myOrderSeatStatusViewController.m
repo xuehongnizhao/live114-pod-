@@ -69,7 +69,7 @@
     NSInteger section = indexPath.section;
     if (section == 1) {
         if (indexPath.row == 0) {
-            NSLog(@"访问商家-----");
+            
             orderSeatDetailViewController *firVC = [[orderSeatDetailViewController alloc] init];
             [firVC setNavBarTitle:@"商家详情" withFont:14.0f];
             firVC.shop_id = self.info.shop_id;
@@ -139,7 +139,7 @@
 #pragma mark----delegate
 -(void)goReviewAction
 {
-    NSLog(@"去评价");
+    
     orderSeatReviewViewController *firVC = [[orderSeatReviewViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"评价" withFont:14.0f];
@@ -150,22 +150,14 @@
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-#pragma mark --- 2015.12.15 评价后跳转的页面可能要改,标记一下
+
 -(void)refreshAction
 {
-    NSLog(@"更新数据");
+    
     self.info.confirm_status = @"4";
     [self.myOrderSeatStatusTableview reloadData];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

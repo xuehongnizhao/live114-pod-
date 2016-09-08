@@ -74,7 +74,7 @@
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score
 {
     user_score = [NSString stringWithFormat:@"%0.1f",score * 10 / 2.0 ];
-    NSLog(@"您给的分数为%@",user_score);
+    
 }
 
 #pragma mark----------get UI

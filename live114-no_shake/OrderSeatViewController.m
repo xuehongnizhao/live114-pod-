@@ -89,7 +89,7 @@
     TenLat = (int)(yGps.latitude*10);
     TenLog = (int)(yGps.longitude*10);
     NSString *sql = [[NSString alloc]initWithFormat:@"select offLat,offLog from gpsT where lat=%d and log = %d",TenLat,TenLog];
-    NSLog(@"%@",sql);
+   
     sqlite3_stmt* stmtL = [m_sqlite NSRunSql:sql];
     int offLat=0;
     int offLog=0;
@@ -108,12 +108,11 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
     mylocation = [self zzTransGPS:mylocation];
     baidu_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -138,7 +137,6 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
     //获取列表
     [self getCateFromNet];
 }
@@ -199,14 +197,13 @@
 #pragma mark---------refresh action
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [locationManager startUpdatingLocation]; // 开始定位
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"下一页");
     page++;
     [self getDataListFromNet];
 }
@@ -358,9 +355,6 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    //    NSLog(@"%d -- %d-----and text:%@", column, row ,text);
-    //    NSString *str = [_listIdDict objectForKey:text];
-    NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
             cate = text;
@@ -438,7 +432,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     orderSeatInfo *info = [orderSeatArray objectAtIndex:indexPath.row];
     orderSeatDetailViewController *firVC = [[orderSeatDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -485,7 +479,6 @@
 #pragma mark-------click action
 -(void)mapAction:(UIButton*)sender
 {
-    NSLog(@"进入地图");
     
     OrderSeatMapViewController *firVC = [[OrderSeatMapViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -498,7 +491,6 @@
 
 -(void)searchAction:(UIButton*)sender
 {
-    NSLog(@"进入搜索界面");
     OrderSeatSearchViewController *firVC = [[OrderSeatSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     firVC.u_lat = baidu_lat;
@@ -506,14 +498,6 @@
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

@@ -415,9 +415,7 @@ static NSString *pageCount = @"10";
 //我们可以写一个MKMapView的委托方法打印出zoom level
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     if ([self.shops count]>0) {
-//        NSLog(@"zoom level %d", [self getZoomLevel:mapView]);
-//        NSLog(@"the late and the lng is %f and %f",mapView.centerCoordinate.latitude,mapView.centerCoordinate.longitude);
-//        NSLog(@"the distance is %f",[Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]);
+
         if ([Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]>1000) {
             baidu_lat = mapView.centerCoordinate.latitude;
             baidu_lng = mapView.centerCoordinate.longitude;
@@ -753,14 +751,6 @@ static NSString *pageCount = @"10";
 }
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

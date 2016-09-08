@@ -13,7 +13,7 @@
 
 +(NSString *) md5: (NSString *) inPutText 
 {
-    NSLog(@"inputText:%@",inPutText);
+    
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (int)strlen(cStr), result);
@@ -26,9 +26,9 @@
 }
 +(NSString*)md5Again:(NSString*) str
 {
-   // NSLog(@"str:%@",str);
+   
     NSString* sstr=[str substringToIndex:10];
-   // NSLog(@"---sstr:%@  andlength:%d",sstr,sstr.length);
+   
     const char* cStr=[sstr UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(cStr, (int)strlen(cStr), result);

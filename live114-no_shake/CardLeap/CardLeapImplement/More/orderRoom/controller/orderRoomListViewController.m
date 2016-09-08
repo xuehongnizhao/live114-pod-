@@ -105,12 +105,12 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+    
     mylocation = [self zzTransGPS:mylocation];
     baidu_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -135,7 +135,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
+    
     //获取列表
     [self getAreaFromNet];
 }
@@ -272,7 +272,7 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    NSLog(@"点击了%@",text);
+    
     switch (column) {
         case 0:
             area = text;
@@ -415,14 +415,14 @@
 #pragma mark---------refresh action
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [locationManager startUpdatingLocation]; // 开始定位
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"下一页");
+    
     page++;
     [self getDataFromNet];
 }
@@ -431,7 +431,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"进入商家详情");
+    
     orderRoomInfo *info = [orderRoomArray objectAtIndex:indexPath.row];
     orderRoomDetailViewController *firVC = [[orderRoomDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -478,19 +478,19 @@
 #pragma mark-------click action
 -(void)mapAction:(UIButton*)sender
 {
-    NSLog(@"跳转到地图");
+    
     orderRoomMapViewController *firVC = [[orderRoomMapViewController alloc] init];
     firVC.category  = cate;
     firVC.identifer = area;
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"地图搜索" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"地图搜索"];
+
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
 -(void)searchAction:(UIButton*)sender
 {
-    NSLog(@"跳转到搜索界面");
+    
     orderRoomSearchViewController *firVC = [[orderRoomSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     firVC.u_lng = baidu_lng;

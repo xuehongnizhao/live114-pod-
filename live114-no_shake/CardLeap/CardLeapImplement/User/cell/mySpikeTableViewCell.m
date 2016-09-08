@@ -138,7 +138,7 @@
 #pragma mark------------choose action
 -(void)chooseAction:(UIButton*)sender
 {
-    NSLog(@"选择删除按钮");
+    
     [self.delegate deleteMySpikeDelegate:sender.tag];
 }
 

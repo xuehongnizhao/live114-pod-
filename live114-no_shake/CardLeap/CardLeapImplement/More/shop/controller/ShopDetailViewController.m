@@ -107,7 +107,7 @@
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             [SVProgressHUD dismiss];
-            NSLog(@"%@",param);
+            
             detailInfo = [[shopDetailInfo alloc] initWithDictionary:[param objectForKey:@"obj"]];
 
             
@@ -133,7 +133,7 @@
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             [SVProgressHUD dismiss];
-            NSLog(@"%@",param);
+            
             panorama=[[param objectForKey:@"obj"]objectForKey:@"360QJ"];
             SJHDP=[[param objectForKey:@"obj"]objectForKey:@"SJHDP"];
             SJSC=[[param objectForKey:@"obj"]objectForKey:@"SJSC"];
@@ -141,7 +141,6 @@
             SJZS=[[param objectForKey:@"obj"]objectForKey:@"SJZS"];
             adInfoList=@[SJHDP,SJSC,SJHD,SJZS];
             [self.shopDetailTableview reloadData];
-            NSLog(@"%@",adInfoList);
         }else{
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
         }
@@ -225,7 +224,6 @@
 #pragma mark-----------button actino
 -(void)shareActino :(UIButton*)sender
 {
-    NSLog(@"点击分享");
     [self UserSharePoint];
     NSString *sinaText = [NSString stringWithFormat:@"如e生活%@",detailInfo.share_url];
     [UMSocialSnsService presentSnsIconSheetView:self
@@ -366,7 +364,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击各种乱跳转");
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     NSArray *arr = [detailInfo.shop_action componentsSeparatedByString:@","];
@@ -381,7 +378,7 @@
             break;
         case 1:
             if (row == 0) {
-                NSLog(@"拨打电话");
+                
                 NSString *telePhone = detailInfo.shop_tel;
                 NSArray *array = [telePhone componentsSeparatedByString:@","];
                 if ([array count]==1) {
@@ -413,7 +410,7 @@
                 }
             }else if(row==2){
                 // 商家详情
-                NSLog(@"跳转到商家详情");
+                
                 if (self.info.message_url != nil) {
                     ShopDetailWebViewController *firVC = [[ShopDetailWebViewController alloc] init];
                     firVC.shopDetailWebURL = self.info.message_url;
@@ -435,7 +432,7 @@
                 panoramaVC.url=panorama;
                 [self.navigationController pushViewController:panoramaVC animated:YES];
             }else{
-                NSLog(@"跳转到评价列表");
+                
                 ReviewListViewController *firVC = [[ReviewListViewController alloc] init];
                 firVC.shop_id = detailInfo.shop_id;
                 [firVC setNavBarTitle:@"评价" withFont:14.0f];

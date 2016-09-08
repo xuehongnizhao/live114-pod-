@@ -80,7 +80,7 @@
             NSArray *tmpArray = param[@"obj"];
             for (NSDictionary *dic in tmpArray) {
                 myCollectionInfo *info = [[myCollectionInfo alloc] initWithDictionary:dic];
-                NSLog(@"info %@",info.shop_id);
+                
                 [myCollectionArray addObject:info];
             }
             [self.myCollectionTableview reloadData];
@@ -124,7 +124,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----%ld",(long)indexPath.section);
+    
     myCollectionInfo *info = [myCollectionArray objectAtIndex:indexPath.section];
     ShopDetailViewController *firVC = [[ShopDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -177,10 +177,10 @@
         [[cell.contentView.subviews lastObject]removeFromSuperview];
     }
     myCollectionInfo *info = [myCollectionArray objectAtIndex:indexPath.section];
-    //NSLog(@"info %@ ------%d",info.shop_id,indexPath.section);
+    
     [cell confirgureCell:info];
     cell.showsReorderControl = YES;
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -200,7 +200,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView setEditing:NO animated:YES];
-    NSLog(@"去删除");
+    
     myCollectionInfo *info = [myCollectionArray objectAtIndex:indexPath.row];
     [self deleteAction:info];
 }
@@ -247,7 +247,7 @@
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             [SVProgressHUD dismiss];
-            NSLog(@"删除成功");
+            
         }else{
             [SVProgressHUD showErrorWithStatus:param[@"message"]];
         }
@@ -262,26 +262,18 @@
 #pragma mark-------refresh action
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载更多");
+    
     page ++;
     [self getDataFromNet];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

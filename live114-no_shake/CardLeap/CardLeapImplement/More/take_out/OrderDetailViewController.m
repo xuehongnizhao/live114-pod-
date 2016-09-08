@@ -196,69 +196,14 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL *url = [request URL];
-    NSLog(@"scheme:%@",url.scheme);
+    
     if([url.scheme isEqualToString:@"review"]){
         // 弹出评价页面
         [self goToReview];
     }
     return YES;
-#pragma mark --- 11.26日 取消大多数的交互操作，只留一个“评价”按钮的web交互
-    //    NSString *requestString = [[request URL] absoluteString];
-    //    NSArray *components = [requestString componentsSeparatedByString:@":"];
-    //
-    //    NSLog(@"components==%@",components);
-    //
-    //    if ([components count] > 1 && [components[0] isEqualToString:@"testapp"])
-    //    {
-    //        if ([components[1] isEqualToString:@"order_id"]){
-    //            timely = @"0";
-    //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"是否及时送达" delegate:self cancelButtonTitle:@"及时" otherButtonTitles:@"不及时", nil];
-    //            alert.tag = 2;
-    //            [alert show];
-    //            confirmId = components[2];
-    //            confirmStatus = components[3];
-    //        }else if ([components[1] isEqualToString:@"delete_order_id"]){
-    //            NSString *order_id = components[2];
-    //            NSString *status = components[3];
-    //            delete_order_id = order_id;
-    //            if ([status integerValue]==0) {
-    //               [self deleteOrder:order_id];
-    //            }else{
-    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"商家已经确认,取消订单可能需要等待审核" delegate:self cancelButtonTitle:@"确认取消" otherButtonTitles:@"不了", nil];
-    //                alert.tag = 1;
-    //                [alert show];
-    //            }
-    //        }else if ([components[1] isEqualToString:@"phone"]){
-    //            NSString *phone_num = components[2];
-    //            NSArray *phoneArray = [phone_num componentsSeparatedByString:@","];
-    //            if ([phoneArray count]>1) {
-    //
-    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:phoneArray[0],phoneArray[1], nil];
-    //                alert.tag = 3;
-    //                phoneNumberArray = [[NSMutableArray alloc] initWithArray:phoneArray];
-    //                [alert show];
-    //
-    //            }else{
-    //                [self call_phone:[phoneArray objectAtIndex:0]];
-    //            }
-    //
-    //        }else if ([components[1] isEqualToString:@"review"]){
-    //            [self goToReview];
-    //        }
-    //    }
-    //    return YES;
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSLog(@"加载完成");
-    //    [self getDataFromNet];
-}
-
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    NSLog(@"开始加载");
-}
 
 #pragma mark-----------alertview delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -286,7 +231,7 @@
 #pragma mark-----------button action
 -(void)shareAction:(UIButton*)sender
 {
-    NSLog(@"分享订单");
+    
     if (share_url != nil) {
         NSString *url = share_url;
         NSString *sinaText = [NSString stringWithFormat:@"如e生活 %@",url];
@@ -297,27 +242,21 @@
                                     shareToSnsNames:@[UMShareToWechatSession,UMShareToSms]
                                            delegate:self];
         
-        //    [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = @"城市o2o";
-        //    [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
-        //
+
+        
         [UMSocialData defaultData].extConfig.wechatSessionData.title = @"如e生活";
         [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
     }
-    //
-    //    [UMSocialData defaultData].extConfig.qzoneData.title = @"城市o2o";
-    //    [UMSocialData defaultData].extConfig.qzoneData.url = url;
-    //
-    //    [UMSocialData defaultData].extConfig.sinaData.shareText = sinaText;
 }
 
 -(void)didFinishGetUMSocialDataResponse:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享成功");
+    
 }
 
 -(void)backAction:(UIButton*)sender
 {
-    NSLog(@"返回主界面");
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -391,14 +330,6 @@
     [self updateOrderState];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

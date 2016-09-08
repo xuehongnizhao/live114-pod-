@@ -227,20 +227,12 @@
 #pragma mark-----跳转积分兑换记录界面
 -(void)JumpAction:(UIButton*)sender
 {
-    NSLog(@"jump action");
+    
     ExchangeRecordViewController *firVC = [[ExchangeRecordViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"兑换记录" withFont:14.0f];
     [self.navigationController pushViewController:firVC animated:YES];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -91,13 +91,11 @@
 
 -(void)backAction:(UIButton*)sender
 {
-    NSLog(@"自定义返回-----暂定返回主界面--需要修改");
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)checkAtion:(UIButton*)sender
 {
-    NSLog(@"查看进度");
     [self.view showRealTimeBlurWithBlurStyle:XHBlurStyleBlackTranslucent];
     checkStatusView *picker = [[checkStatusView alloc] initForAutoLayout];
     picker.delegate = self;
@@ -127,8 +125,6 @@
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             [SVProgressHUD dismiss];
-            NSLog(@"取消成功");
-            NSLog(@"返回到商家详情");
             NSArray *subViews = self.navigationController.viewControllers;
             for (BaseViewController *obj in subViews) {
                 if ([obj isKindOfClass:[orderSeatDetailViewController class]]) {
@@ -146,7 +142,6 @@
 
 -(void)orderSuccessAction
 {
-    NSLog(@"跳转页面");
     mySeatSuccessViewController *firVC = [[mySeatSuccessViewController alloc] init];
     [firVC.navigationItem setHidesBackButton:YES];
     [firVC setHiddenTabbar:YES];

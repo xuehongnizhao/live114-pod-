@@ -167,7 +167,6 @@
   }
 -(void)SingleTap :(UITapGestureRecognizer*)gesture
 {
-    NSLog(@"点击去相册列表");
     [self.delegate clickAction];
 }
 #pragma mark-----------设置星星显示

@@ -421,13 +421,6 @@
 		333BDACF1A1DCBBA009BAB8E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333BDACE1A1DCBBA009BAB8E /* AssetsLibrary.framework */; };
 		333BDAD11A1DCBC0009BAB8E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333BDAD01A1DCBC0009BAB8E /* AddressBook.framework */; };
 		333BDAD31A1DCBC6009BAB8E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333BDAD21A1DCBC6009BAB8E /* MessageUI.framework */; };
-		333BDB181A1DDE2E009BAB8E /* SICellSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB071A1DDE2E009BAB8E /* SICellSelection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		333BDB191A1DDE2E009BAB8E /* SIMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB091A1DDE2E009BAB8E /* SIMenuButton.m */; };
-		333BDB1A1A1DDE2E009BAB8E /* SIMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB0B1A1DDE2E009BAB8E /* SIMenuCell.m */; };
-		333BDB1B1A1DDE2E009BAB8E /* SIMenuConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB0D1A1DDE2E009BAB8E /* SIMenuConfiguration.m */; };
-		333BDB1C1A1DDE2E009BAB8E /* SIMenuTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB0F1A1DDE2E009BAB8E /* SIMenuTable.m */; };
-		333BDB1D1A1DDE2E009BAB8E /* SINavigationMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB111A1DDE2E009BAB8E /* SINavigationMenuView.m */; };
-		333BDB1E1A1DDE2E009BAB8E /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BDB131A1DDE2E009BAB8E /* UIColor+Extension.m */; };
 		33C1B35F1ADCADFA00A717FE /* CityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C1B3561ADCADF900A717FE /* CityModule.m */; };
 		33C1B3601ADCADFA00A717FE /* HomeSelectedCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C1B3581ADCADF900A717FE /* HomeSelectedCityHeaderView.m */; };
 		33C1B3611ADCADFA00A717FE /* HomeSelectedCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C1B35A1ADCADF900A717FE /* HomeSelectedCityViewController.m */; };
@@ -1406,24 +1399,6 @@
 		333BDAD01A1DCBC0009BAB8E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		333BDAD21A1DCBC6009BAB8E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		333BDAFF1A1DD07A009BAB8E /* cityo2o.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cityo2o.pch; path = CardLeap/cityo2o.pch; sourceTree = "<group>"; };
-		333BDB021A1DDE2E009BAB8E /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
-		333BDB031A1DDE2E009BAB8E /* arrow_down1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down1.png; sourceTree = "<group>"; };
-		333BDB041A1DDE2E009BAB8E /* arrow_down1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down1@2x.png"; sourceTree = "<group>"; };
-		333BDB051A1DDE2E009BAB8E /* arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down@2x.png"; sourceTree = "<group>"; };
-		333BDB061A1DDE2E009BAB8E /* SICellSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICellSelection.h; sourceTree = "<group>"; };
-		333BDB071A1DDE2E009BAB8E /* SICellSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SICellSelection.m; sourceTree = "<group>"; };
-		333BDB081A1DDE2E009BAB8E /* SIMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuButton.h; sourceTree = "<group>"; };
-		333BDB091A1DDE2E009BAB8E /* SIMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuButton.m; sourceTree = "<group>"; };
-		333BDB0A1A1DDE2E009BAB8E /* SIMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuCell.h; sourceTree = "<group>"; };
-		333BDB0B1A1DDE2E009BAB8E /* SIMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuCell.m; sourceTree = "<group>"; };
-		333BDB0C1A1DDE2E009BAB8E /* SIMenuConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuConfiguration.h; sourceTree = "<group>"; };
-		333BDB0D1A1DDE2E009BAB8E /* SIMenuConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuConfiguration.m; sourceTree = "<group>"; };
-		333BDB0E1A1DDE2E009BAB8E /* SIMenuTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMenuTable.h; sourceTree = "<group>"; };
-		333BDB0F1A1DDE2E009BAB8E /* SIMenuTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMenuTable.m; sourceTree = "<group>"; };
-		333BDB101A1DDE2E009BAB8E /* SINavigationMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SINavigationMenuView.h; sourceTree = "<group>"; };
-		333BDB111A1DDE2E009BAB8E /* SINavigationMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SINavigationMenuView.m; sourceTree = "<group>"; };
-		333BDB121A1DDE2E009BAB8E /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		333BDB131A1DDE2E009BAB8E /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		33C1B3551ADCADF900A717FE /* CityModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModule.h; sourceTree = "<group>"; };
 		33C1B3561ADCADF900A717FE /* CityModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModule.m; sourceTree = "<group>"; };
 		33C1B3571ADCADF900A717FE /* HomeSelectedCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSelectedCityHeaderView.h; sourceTree = "<group>"; };
@@ -3565,42 +3540,8 @@
 				047E391E1A36D2970001DD16 /* MJRefresh */,
 				33DB1C701A1F13FD002E463E /* DatabaseManager */,
 				33DB1C6C1A1F0828002E463E /* DSNavigationBar */,
-				333BDB001A1DDE2E009BAB8E /* NavigationMenuView */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		333BDB001A1DDE2E009BAB8E /* NavigationMenuView */ = {
-			isa = PBXGroup;
-			children = (
-				333BDB011A1DDE2E009BAB8E /* images */,
-				333BDB061A1DDE2E009BAB8E /* SICellSelection.h */,
-				333BDB071A1DDE2E009BAB8E /* SICellSelection.m */,
-				333BDB081A1DDE2E009BAB8E /* SIMenuButton.h */,
-				333BDB091A1DDE2E009BAB8E /* SIMenuButton.m */,
-				333BDB0A1A1DDE2E009BAB8E /* SIMenuCell.h */,
-				333BDB0B1A1DDE2E009BAB8E /* SIMenuCell.m */,
-				333BDB0C1A1DDE2E009BAB8E /* SIMenuConfiguration.h */,
-				333BDB0D1A1DDE2E009BAB8E /* SIMenuConfiguration.m */,
-				333BDB0E1A1DDE2E009BAB8E /* SIMenuTable.h */,
-				333BDB0F1A1DDE2E009BAB8E /* SIMenuTable.m */,
-				333BDB101A1DDE2E009BAB8E /* SINavigationMenuView.h */,
-				333BDB111A1DDE2E009BAB8E /* SINavigationMenuView.m */,
-				333BDB121A1DDE2E009BAB8E /* UIColor+Extension.h */,
-				333BDB131A1DDE2E009BAB8E /* UIColor+Extension.m */,
-			);
-			path = NavigationMenuView;
-			sourceTree = "<group>";
-		};
-		333BDB011A1DDE2E009BAB8E /* images */ = {
-			isa = PBXGroup;
-			children = (
-				333BDB021A1DDE2E009BAB8E /* arrow_down.png */,
-				333BDB031A1DDE2E009BAB8E /* arrow_down1.png */,
-				333BDB041A1DDE2E009BAB8E /* arrow_down1@2x.png */,
-				333BDB051A1DDE2E009BAB8E /* arrow_down@2x.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		33C1B3541ADCADF900A717FE /* CitySelect */ = {
@@ -4116,7 +4057,6 @@
 				04480A6F1D1CB7A6004018CF /* SJCollectionView.m in Sources */,
 				04480B011D1CBB31004018CF /* SDWebImageManager.m in Sources */,
 				043468CE1A5FA7D800609AB1 /* ActivityListViewController.m in Sources */,
-				333BDB1C1A1DDE2E009BAB8E /* SIMenuTable.m in Sources */,
 				0460FF871A47E97200A35EBA /* shopListTableViewCell.m in Sources */,
 				044E43131A5A38BA00258B9F /* RemarkViewController.m in Sources */,
 				04FD172D1D1CCD7A000EB184 /* XMNPhotoPreviewCell.m in Sources */,
@@ -4131,7 +4071,6 @@
 				33DB1C261A1ECAF6002E463E /* JSONOfNetWork.m in Sources */,
 				048903DC1A7A0C6F0023C168 /* GroupCheckCodeTableViewCell.m in Sources */,
 				042895391A3E6EBD00CC2407 /* amrFileCodec.mm in Sources */,
-				333BDB191A1DDE2E009BAB8E /* SIMenuButton.m in Sources */,
 				04701DC71A5120580036E481 /* shopTakeCateInfo.m in Sources */,
 				33C1B3621ADCADFA00A717FE /* MyChineseBookAddress.m in Sources */,
 				04F101C71A848DEB009D084C /* DataVerifier.m in Sources */,
@@ -4171,14 +4110,12 @@
 				04480AFC1D1CBB31004018CF /* SDImageCache.m in Sources */,
 				0400665B1A887F5C00F577AF /* orderRoomMapViewController.m in Sources */,
 				04F1029A1A84B05A009D084C /* rscode.c in Sources */,
-				333BDB1B1A1DDE2E009BAB8E /* SIMenuConfiguration.m in Sources */,
 				0452C1B31A591199004F7F04 /* AddAddressViewController.m in Sources */,
 				04BBDD3A1A678B7C00901E0B /* orderRoomWaitViewController.m in Sources */,
 				46AA97AE1A78717B0023F0ED /* EvenMoreFeedbackViewController.m in Sources */,
 				04FD17221D1CCD7A000EB184 /* XMNAlbumModel.m in Sources */,
 				042EC7EC1AC93B720019F5B0 /* modifyMyPasswordViewController.m in Sources */,
 				04480A701D1CB7A6004018CF /* SJSCTableViewCell.m in Sources */,
-				333BDB1D1A1DDE2E009BAB8E /* SINavigationMenuView.m in Sources */,
 				0428952D1A3E6EBD00CC2407 /* MLAmrPlayer.m in Sources */,
 				04D02A451A5BAD1100A6188D /* TQStarRatingView.m in Sources */,
 				040529BA1D51B99100A2FEAC /* SkyServerButtonView.m in Sources */,
@@ -4187,7 +4124,6 @@
 				042895151A3E6EBD00CC2407 /* AFHTTPRequestOperationManager.m in Sources */,
 				04A0C4A81A76158600EF2939 /* groupDetailInfo.m in Sources */,
 				04EFF3BC1ADD071E00493C29 /* pintGIftDetailViewController.m in Sources */,
-				333BDB1E1A1DDE2E009BAB8E /* UIColor+Extension.m in Sources */,
 				33DB1C741A1F158B002E463E /* Group.m in Sources */,
 				0432A3C81B611F26007405E4 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				04F3CD361A6F8BD400D0B63E /* myCollectionInfo.m in Sources */,
@@ -4269,7 +4205,6 @@
 				04480AB81D1CBAA1004018CF /* NSDictionary+RequestEncoding.m in Sources */,
 				047E0CAD1A37DEA000304FF1 /* MJPhoto.m in Sources */,
 				047E39331A36D2980001DD16 /* MJRefreshHeaderView.m in Sources */,
-				333BDB181A1DDE2E009BAB8E /* SICellSelection.m in Sources */,
 				04EED8F81A6E715700E548BC /* myOrderRoomCenterInfo.m in Sources */,
 				042895261A3E6EBD00CC2407 /* MLAudioPlayer.m in Sources */,
 				04AEF3851A4BAABF0020B7E2 /* UIView+Subviews.m in Sources */,
@@ -4306,7 +4241,6 @@
 				048903D61A79D1420023C168 /* myGroupTableViewCell.m in Sources */,
 				33DB1C241A1ECAF6002E463E /* Base64Tool.m in Sources */,
 				04394B7D1A5E110C00CF0B31 /* CouponDetailViewController.m in Sources */,
-				333BDB1A1A1DDE2E009BAB8E /* SIMenuCell.m in Sources */,
 				04AEF3841A4BAABF0020B7E2 /* DLStarView.m in Sources */,
 				04480B071D1CBB31004018CF /* UIImageView+WebCache.m in Sources */,
 				047E0CB31A37DEA000304FF1 /* MJPhotoView.m in Sources */,

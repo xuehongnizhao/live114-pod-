@@ -31,8 +31,7 @@
     }else{
         annotation.titleStr = str;
     }
-//    NSLog(@"annotation.titleStr is %@", annotation.titleStr);
-//    NSLog(@"annotation.subTitle is %@", annotation.subTitle);
+
     return annotation;
 }
 
@@ -48,7 +47,7 @@
     coordinate.latitude = [[self.shop objectForKey:@"latitude"] doubleValue];
     
     coordinate.longitude = [[self.shop objectForKey:@"longitude"] doubleValue];
-//    NSLog(@"lat=%f,lon= %f",coordinate.latitude,coordinate.longitude);
+
     return coordinate;
 }
 

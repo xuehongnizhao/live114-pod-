@@ -230,12 +230,9 @@ static NSString *pageCount = @"10";
     [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
     self.shopNameLabel.text = info.shop_name;
     self.distanceLabel.text = [NSString stringWithFormat:@"%@",info.distace];
-    NSLog(@"%@m",self.distanceLabel.text);
-    NSLog(@"%@",self.shopNameLabel.text);
-    //NSInteger score = [[self getScore:dic] integerValue] / 2;
+
     [self setStar:info.score ];
-    //    CGRect frame = CGRectMake(0, 0, self.myLevel.frame.size.width, self.myLevel.frame.size.height);
-    //    [self setupStartsWithFrame:frame rating:score fractionalOrNot:YES andEnabled:NO];
+
 }
 //隐藏商家信息pane
 - (void)hiddenShopPane:(NSInteger)shopID
@@ -260,17 +257,7 @@ static NSString *pageCount = @"10";
     MKCoordinateRegion region = MKCoordinateRegionMake(self.myLocation.coordinate,
                                                        MKCoordinateSpanMake(zoomLevel, zoomLevel));
     
-    //    //坐标的转换
-    //    double latitude = self.myLocation.coordinate.latitude ;
-    //    double longtitude = self.myLocation.coordinate.longitude;
-    //    double baiDuLat , baiDuLng;
-    //    double x = longtitude, y = latitude;
-    //    double z = sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi);
-    //    double theta = atan2(y, x) + 0.000003 * cos(x * x_pi);
-    //    baiDuLng = z * cos(theta) + 0.0065;
-    //    baiDuLat = z * sin(theta) + 0.006;
-    //CLLocationCoordinate2D *tempLocation ;
-    //    NSLog(@"我的经纬度是 ---------%f-----------%f",latitude,longtitude);
+
     region.center = self.myLocation.location.coordinate;
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:NO];
     [self removeTheCoverView];
@@ -306,7 +293,7 @@ static NSString *pageCount = @"10";
         [annotations addObject:annotation];
     }
     self.annotations = annotations;
-    NSLog(@"the anotations is %@",self.annotations);
+    
     
     return annotations;
 }
@@ -442,9 +429,7 @@ static NSString *pageCount = @"10";
 //我们可以写一个MKMapView的委托方法打印出zoom level
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     if ([self.shops count]>0) {
-        NSLog(@"zoom level %d", [self getZoomLevel:mapView]);
-        NSLog(@"the late and the lng is %f and %f",mapView.centerCoordinate.latitude,mapView.centerCoordinate.longitude);
-        NSLog(@"the distance is %f",[Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]);
+
         if ([Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]>1000) {
             baidu_lat = mapView.centerCoordinate.latitude;
             baidu_lng = mapView.centerCoordinate.longitude;
@@ -464,12 +449,7 @@ static NSString *pageCount = @"10";
 -(void)getShopList:(float)lat lng:(float)lng
 {
     NSString *tmp_url  = connect_url(@"shop_list");
-    //    NSDictionary *dict = @{
-    //                           @"app_key":tmp_url,
-    //                           @"lat":[NSString stringWithFormat:@"%f",lat],
-    //                           @"lng":[NSString stringWithFormat:@"%f",lng],
-    //                           @"zoom":[NSString stringWithFormat:@"%d",[self getZoomLevel:_mapView]]
-    //                           };
+
     [Base64Tool postSomethingToServe:tmp_url andParams:_shopListDic isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             [SVProgressHUD dismiss];

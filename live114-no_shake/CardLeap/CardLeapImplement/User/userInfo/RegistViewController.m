@@ -157,7 +157,6 @@
 #pragma mark-------获取验证码
 -(void)getVerfiryCode :(UIButton*)sender
 {
-    NSLog(@"获取验证码");
     if ([self checkTel:self.userName.text]==YES)
     {
         __block int timeout=59;
@@ -178,7 +177,6 @@
                 NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //设置界面的按钮显示 根据自己需求设置
-                    //NSLog(@"____%@",strTime);
                     sender.userInteractionEnabled = NO;
                     [sender setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
                 });
@@ -195,7 +193,6 @@
         [Base64Tool postSomethingToServe:GET_SECURITY_CODE andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
                 NSDictionary* dic=(NSDictionary*)param;
-                NSLog(@"get message:%@",[dic  objectForKey:@"message"]);
                 _checkCode = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
             }else{
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
@@ -233,7 +230,6 @@
 #pragma mark-------registAction
 -(void)registAction:(UIButton*)sender
 {
-    NSLog(@"注册");
     if ([self checkLawful] == YES) {
         NSDictionary *dic = @{
                               @"app_key":REGIST_USER,

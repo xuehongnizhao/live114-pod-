@@ -179,7 +179,7 @@
 #pragma mark--------button action
 -(void)reviewAction:(UIButton*)sender
 {
-    NSLog(@"去评价");
+    
     [self.delegate goToReviewDelegate:sender.tag];
 }
 

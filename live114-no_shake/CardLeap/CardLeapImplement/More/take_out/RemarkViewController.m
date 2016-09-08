@@ -144,7 +144,6 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"小助手" message:@"输入信息过长，无法保存" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
             [alert show];
         }else{
-            NSLog(@"返回");
             [self.delegate finishActionDelegate:_remark_T.text];
             [self.navigationController popViewControllerAnimated:NO];
         }
@@ -189,14 +188,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

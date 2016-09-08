@@ -209,7 +209,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击无效的事件");
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
@@ -223,12 +222,10 @@
         [self.navigationController pushViewController:firVC animated:YES];
     }else if (section == 1){
         if (row==0) {
-            NSLog(@"弹出时间选择器");
             [self chooseTime];
         }else if (row == 1){
             
         }else if (row == 2){
-            NSLog(@"跳转备注---");
             [self go2Remark];
         }
     }else if (section == 2){
@@ -409,10 +406,8 @@
 -(void)submitAction:(UIButton*)sender
 {
     if (_webButton.selected == YES) {
-        NSLog(@"支付宝支付");
         [self payWebAlpay];
     }else{
-        NSLog(@"餐到付款");
         [self payCash];
     }
 }
@@ -422,7 +417,6 @@
  */
 -(void)payCash
 {
-    NSLog(@"提示：确认提交吗？");
     if (address == nil || [address isEqualToString:@""] || phone == nil || [phone isEqualToString:@""]) {
         [SVProgressHUD showErrorWithStatus:@"请选择送餐地址和电话"];
         return;
@@ -466,7 +460,6 @@
  */
 -(void)payWebAlpay
 {
-    NSLog(@"提示：确认提交吗？");
     NSString *url = connect_url(@"add_order");
     if (address == nil || [address isEqualToString:@""] || phone == nil || [phone isEqualToString:@""]) {
         [SVProgressHUD showErrorWithStatus:@"请选择送餐地址和电话"];
@@ -560,7 +553,6 @@
     
     //将商品信息拼接成字符串
     NSString *orderSpec = [order description];
-    NSLog(@"orderSpec = %@",orderSpec);
     
     //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner(privateKey);
@@ -573,7 +565,6 @@
                        orderSpec, signedString, @"RSA"];
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
             BOOL is_success = NO;
             NSString *resultSting = resultDic[@"result"] ;
             NSArray *resultStringArray =[resultSting componentsSeparatedByString:NSLocalizedString(@"&", nil)];
@@ -588,7 +579,6 @@
                     if ([st isEqualToString:@"success"])
                     {
                         is_success = YES;
-                        NSLog(@"%@",[strArray objectAtIndex:1]);
                         break;
                     }
                 }
@@ -685,11 +675,9 @@
 {
     // 记录时间
     NSDate *time = [self.datePicker date];
-    //NSLog(@"");
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
     NSString *timeStr = [formatter stringFromDate:time];
-    NSLog(@"选择的时间是%@",timeStr);
     sendTime = timeStr;
     [self.LinSubmitTableview reloadData];
     if (self.datePicker) {
@@ -731,7 +719,6 @@
 //选择支付方式
 -(void)selectMyWay:(UIButton*)sender
 {
-    NSLog(@"选择支付方式");
     if (sender.tag == 102) {
         _webButton.selected = NO;
         _cashButton.selected = YES;
@@ -741,14 +728,6 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

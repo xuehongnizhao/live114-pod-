@@ -582,13 +582,13 @@
 #pragma mark------button action
 -(void)payAction:(UIButton*)sender
 {
-    NSLog(@"去付款");
+    
     [self.delegate orderActionDelegate:0];
 }
 
 -(void)payBackAction:(UIButton*)sender
 {
-    NSLog(@"申请退款");
+    
     [self.delegate orderActionDelegate:1];
 }
 

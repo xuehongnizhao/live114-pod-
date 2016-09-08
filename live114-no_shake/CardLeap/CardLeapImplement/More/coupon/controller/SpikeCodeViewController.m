@@ -56,7 +56,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     CouponDetailViewController *firVC = [[CouponDetailViewController alloc] init];
     [firVC setNavBarTitle:self.info.spike_name withFont:14.0f];
     firVC.message_url = self.info.message_url;

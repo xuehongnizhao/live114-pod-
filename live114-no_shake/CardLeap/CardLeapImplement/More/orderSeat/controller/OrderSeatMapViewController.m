@@ -293,7 +293,7 @@ static NSString *pageCount = @"10";
         [annotations addObject:annotation];
     }
     self.annotations = annotations;
-    NSLog(@"the anotations is %@",self.annotations);
+    
     
     return annotations;
 }

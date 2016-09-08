@@ -56,9 +56,9 @@
 #pragma mark------------cate delegate
 -(void)chooseCateID:(NSInteger)cateID
 {
-    NSLog(@"do something");
+    
     NSString *type = [NSString stringWithFormat:@"%ld",(long)cateID];
-    NSLog(@"选择了分类%@",type);
+    
     cate_id = type;
     page = 1;
     [self getDataFromNet];
@@ -151,14 +151,14 @@
 #pragma mark------------next page and refresh
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载更多");
+    
     page++;
     [self getDataFromNet];
 }
@@ -196,7 +196,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"查看凭证");
+    
   
     mySpikeInfo *info = [mySpikeArray objectAtIndex:indexPath.row];
     //未使用的跳转查看二维码 使用过的跳转商家详情
@@ -260,12 +260,12 @@
 #pragma mark------------delete action
 -(void)deleteAction:(UIButton*)sender
 {
-#pragma mark --- 2015.12.29 当没有优惠券时，点击删除按钮，提示“没有优惠券”。"确认删除订单"文字改成"确认删除优惠券"。
+
     if (mySpikeArray.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"没有优惠券"];
         return;
     }
-    NSLog(@"删除我的优惠券");
+    
     //
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确认删除优惠券" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alert show];
@@ -274,7 +274,6 @@
 #pragma mark----------cell delegate
 -(void)deleteMySpikeDelegate:(NSInteger)index
 {
-    NSLog(@"%ld",(long)index);
     mySpikeInfo *info = [mySpikeArray objectAtIndex:index];
     if ([info.is_delete integerValue]==0) {
         info.is_delete = @"1";

@@ -71,9 +71,8 @@
 #pragma mark-----share action
 -(void)shareAction:(UIButton*)btn
 {
-    NSLog(@"分享什么东西");
     [self UserSharePoint];
-    //NSString *url = @"www.baidu.com";
+   
     NSString *sinaText = [NSString stringWithFormat:@"如e生活%@",self.info.share_url];
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:nil
@@ -116,8 +115,8 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+    
+   
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {

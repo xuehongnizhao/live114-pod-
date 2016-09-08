@@ -37,7 +37,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-        NSLog(@"photopicker cell");
+        
         UIImageView *imageView = [[UIImageView alloc] init];
         [self.contentView addSubview:self.imageView = imageView];
     }
@@ -65,7 +65,7 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        NSLog(@"XMNPhotoPickerReusableView");
+        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"photo_state_normal"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"photo_state_selected"] forState:UIControlStateSelected];
@@ -120,9 +120,7 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"XMNPhotoPicker dealloc");
-}
+
 
 #pragma mark - Methods
 

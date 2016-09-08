@@ -39,7 +39,7 @@
 #pragma mark-----------收到通知
 - (void)UnLexiangHint:(NSNotification*)notification
 {
-    NSLog(@"NOTIFICATION_ROOT_NEW_MESSAGE");
+    
     [self addCircleHint];
     isReply = YES;
     count = [NSString stringWithFormat:@"%@",notification.object];
@@ -47,14 +47,14 @@
 
 - (void)UnHomeHint:(NSNotification*)notification
 {
-    NSLog(@"NOTIFICATION_CIRCLE_NEW_MESSAGE");
+    
     [self addHomeHint];
 }
 
 #pragma mark---------设置返回按钮
 - (void)settingBackButtonImage:(NSString *)imagename andSelectedImage:(NSString *)selImagename
 {
-    //[UZCommonMethod settingBackButtonImage:imagename andSelectedImage:selImagename];
+    
     UIImage* backImage = [[UIImage imageNamed:imagename]
                           resizableImageWithCapInsets:UIEdgeInsetsMake(0, 40,0,0)];
     UIImage* backImageSel = [[UIImage imageNamed:selImagename]

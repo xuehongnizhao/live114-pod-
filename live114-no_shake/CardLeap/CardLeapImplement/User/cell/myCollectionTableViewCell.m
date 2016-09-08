@@ -55,7 +55,7 @@
     //商家type
     _oreder_pic = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:_oreder_pic];
-    NSLog(@"商家都做什么%@",info.shop_action);
+    
     NSRange rang = [info.shop_action rangeOfString:@"seat"];
     NSRange range = [info.shop_action rangeOfString:@"hotel"];
     int length = (int)rang.length;

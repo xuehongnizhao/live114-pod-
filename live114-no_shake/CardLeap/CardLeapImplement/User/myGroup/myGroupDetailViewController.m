@@ -107,7 +107,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     
     NSInteger section = indexPath.section;
     
@@ -119,7 +119,7 @@
 //        [firVC.navigationItem setTitle:self.info.group_name];
         [self.navigationController pushViewController:firVC animated:YES];
     }else if (section == 1) {
-        NSLog(@"跳转到评价列表 或者 去评价 或者 不跳转");
+        
         if ([self.info.status integerValue]==2) {
             //该去评价了
             GroupReviewViewController *firVC = [[GroupReviewViewController alloc] init];
@@ -141,33 +141,6 @@
             [self.navigationController pushViewController:firVC animated:YES];
         }
     }
-    //        if(row == 0){
-    //            NSLog(@"拨打电话");
-    //            NSLog(@"拨打电话");
-    //            NSString *telePhone = detailInfo.shop_tel;
-    //            NSArray *array = [telePhone componentsSeparatedByString:@","];
-    //            if ([array count]==1) {
-    //                NSString *num = [array objectAtIndex:0];
-    //                [UZCommonMethod callPhone:num superView:self.view];
-    //            }else{
-    //                NSString *tel_one = [array objectAtIndex:0];
-    //                NSString *tel_two = [array objectAtIndex:1];
-    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"联系商家" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:tel_one,tel_two,nil];
-    //                alert.tag = 2;
-    //                [alert show];
-    //            }
-    //        }else{
-    //
-    //        }
-    //    }else{
-    //        roomInfo *goods_info = [detailInfo.goods_list objectAtIndex:row-1];
-    //        orderRoomSubmitViewController *firVC = [[orderRoomSubmitViewController alloc] init];
-    //        [firVC setHiddenTabbar:YES];
-    //        [firVC.navigationItem setTitle:@"提交订单"];
-    //        firVC.info = detailInfo;
-    //        firVC.goods_info = goods_info;
-    //        [self.navigationController pushViewController:firVC animated:YES];
-    //    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -417,24 +390,16 @@
 
 -(void)refreshAction
 {
-    NSLog(@"评价回来刷新");
+    
     self.info.status = @"3";
     [_myGroupDetailTableview reloadData];
 }
 
 -(void)completeAction
 {
-    NSLog(@"支付完成跳转回");
+    
     
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

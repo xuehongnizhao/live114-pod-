@@ -54,9 +54,7 @@
     [self handleAuthorized];
 }
 
-- (void)dealloc {
-    NSLog(@"photo picker dealloc");
-}
+
 
 #pragma mark - XMNPhotoPickerController Methods
 

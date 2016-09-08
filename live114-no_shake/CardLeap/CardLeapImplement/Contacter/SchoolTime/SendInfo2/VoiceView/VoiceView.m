@@ -98,7 +98,6 @@
 {
     AmrRecordWriter *amrWriter = [[AmrRecordWriter alloc]init];
     amrWriter.filePath = [VoiceRecorderBase getPathByFileName:@"record.amr"];
-    NSLog(@"filePaht:%@",amrWriter.filePath);
     amrWriter.maxSecondCount = 60;
     amrWriter.maxFileSize = 1024*256;
     self.amrWriter = amrWriter;
@@ -140,13 +139,11 @@
             [self.delegate sendDataWithFilePath:self.amrWriter.filePath];
         }
         
-        NSLog(@"停止录音代码块");
         weakSelf.meterObserver.audioQueue = nil;
     };
     recorder.receiveErrorBlock = ^(NSError *error){
-        //[weakSelf.recordButton setTitle:@"Record" forState:UIControlStateNormal];
+        
         weakSelf.meterObserver.audioQueue = nil;
-        NSLog(@"错误代码块");
         [[[UIAlertView alloc]initWithTitle:@"错误" message:error.userInfo[NSLocalizedDescriptionKey] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil]show];
     };
     
@@ -168,7 +165,6 @@
     };
     player.receiveStoppedBlock = ^{
         [self.deleteButton setEnabled:YES];
-        NSLog(@"停止播放");
         [weakSelf.recordButton setImage:[UIImage imageNamed:@"issue_play_no"] forState:UIControlStateNormal];
         //[weakSelf.playButton setTitle:@"Play" forState:UIControlStateNormal];
     };

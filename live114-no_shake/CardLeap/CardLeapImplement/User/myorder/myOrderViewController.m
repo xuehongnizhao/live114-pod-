@@ -107,9 +107,9 @@
 #pragma mark------------cate delegate
 -(void)chooseCateID:(NSInteger)cateID
 {
-    NSLog(@"do something");
+    
     NSString *type = [NSString stringWithFormat:@"%ld",(long)cateID];
-    NSLog(@"选择了分类%@",type);
+    
     cate_id = type;
     page = 1;
     [self getDataFromNet];
@@ -177,9 +177,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"进入订单详情");
+    
     myOrderCenterInfo *info = [myOrderArray objectAtIndex:indexPath.row];
-//    if ([info.is_pay integerValue]!=0) {
+
         OrderDetailViewController *firVC = [[OrderDetailViewController alloc] init];
         [firVC setHiddenTabbar:YES];
         [firVC setNavBarTitle:@"订单详情" withFont:14.0f];
@@ -187,7 +187,7 @@
         firVC.identifier = @"1";
         firVC.takeout_url = info.takeout_url;
         [self.navigationController pushViewController:firVC animated:YES];
-//    }
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -226,14 +226,14 @@
 #pragma mark-----refresh action
 -(void)headerBeginRefreshing
 {
-    NSLog(@"刷新");
+    
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"加载更多");
+    
     page ++;
     [self getDataFromNet];
 }
@@ -250,7 +250,7 @@
 
 -(void)customPayActionDelegate:(NSInteger)index
 {
-    NSLog(@"去支付");
+    
     myOrderCenterInfo *info = [myOrderArray objectAtIndex:index];
     [self jumpAlpay:info.order_id totalPrice:info.total_price];
 }
@@ -313,7 +313,7 @@
     
     //将商品信息拼接成字符串
     NSString *orderSpec = [order description];
-    NSLog(@"orderSpec = %@",orderSpec);
+    
     
     //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner(privateKey);
@@ -326,7 +326,7 @@
                        orderSpec, signedString, @"RSA"];
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
+            
             BOOL is_success = NO;
             NSString *resultSting = resultDic[@"result"] ;
             NSArray *resultStringArray =[resultSting componentsSeparatedByString:NSLocalizedString(@"&", nil)];
@@ -341,7 +341,6 @@
                     if ([st isEqualToString:@"success"])
                     {
                         is_success = YES;
-                        NSLog(@"%@",[strArray objectAtIndex:1]);
                         break;
                     }
                 }
@@ -362,14 +361,6 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

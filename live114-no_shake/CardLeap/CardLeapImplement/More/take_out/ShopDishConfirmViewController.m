@@ -129,7 +129,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     
 }
 
@@ -209,7 +209,6 @@
 #pragma mark-------submit action
 -(void)submitAtion :(UIButton*)sender
 {
-    NSLog(@"跳转到");
     if (ApplicationDelegate.islogin == NO) {
         LoginViewController *firVC = [[LoginViewController alloc] init];
         [firVC setHiddenTabbar:YES];

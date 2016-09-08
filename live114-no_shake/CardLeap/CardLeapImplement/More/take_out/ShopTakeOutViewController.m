@@ -452,7 +452,6 @@
 #pragma mark-----click action
 -(void)leftAction :(UIButton*)sender
 {
-    NSLog(@"跳商家详情");
     if (myInfo != nil) {
         ShopTakeOutDetailViewController *firVC = [[ShopTakeOutDetailViewController alloc] init];
         [firVC setNavBarTitle:@"如e商家" withFont:14.0f];
@@ -465,7 +464,6 @@
 
 -(void)submitAction :(UIButton*)sender
 {
-    NSLog(@"跳转到下一个页面了");
     if(total_num == 0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"生活助手" message:@"对不起，您还没点餐" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [alert show];
@@ -527,7 +525,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == _cateTableview) {
-        NSLog(@"点击分类");
         if (myInfo.cate.count>0) {
             dishCateInfo *myDishCate = [myInfo.cate objectAtIndex:indexPath.row];
             cate_id = myDishCate.cate_id;
@@ -659,7 +656,7 @@
     if (dishArray.count>0) {
         NSIndexPath *indexPath = [_dishTableview indexPathForCell:cell];
         takeoutDishInfo *info_lin = [dishArray objectAtIndex:indexPath.row];
-        NSLog(@"info-----price--------%ld",(long)info_lin.count);
+        
         total_num --;
         total_price -= [info_lin.take_price floatValue];
         _priceLable.text = [NSString stringWithFormat:@"%d份  ￥%0.2f",total_num,total_price];
@@ -689,7 +686,7 @@
         //--------------------------
         NSIndexPath *indexPath = [_dishTableview indexPathForCell:cell];
         takeoutDishInfo *info_lin = [dishArray objectAtIndex:indexPath.row];
-        NSLog(@"info-----price--------%ld",(long)info_lin.count);
+        
         total_num ++;
         total_price += [info_lin.take_price floatValue];
         //加入购物车动画效果
@@ -731,14 +728,12 @@
 
 -(void)addShopFinished:(CALayer*)transitionLayer{
     transitionLayer.hidden = YES;
-    NSLog(@"加入购物车之后做点什么");
     _priceLable.text = [NSString stringWithFormat:@"%d份  ￥%0.2f",total_num,total_price];
 }
 
 -(void)didselectImage:(NSInteger)indexpath
 {
     takeoutDishInfo *info = [dishArray objectAtIndex:indexpath];
-    //NSLog(@"info----%ld",(long)info.count);
     DishDetailView* ddv=[[DishDetailView alloc]initForAutoLayout];
     ddv.delegate=self;
     ddv.url = info.review_url;

@@ -72,7 +72,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     if (indexPath.section == 0) {
         myGroupDetailViewController *firVC = [[myGroupDetailViewController alloc] init];
         [firVC setHiddenTabbar:YES];
@@ -147,7 +147,7 @@
 #pragma mark-----button action
 -(void)shareAction:(UIButton*)sender
 {
-    NSLog(@"分享出去");
+    
     [self UserSharePoint];
     NSString *url = @"www.baidu.com";
     NSString *sinaText = [NSString stringWithFormat:@"如e生活 %@",url];
@@ -191,8 +191,8 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+    
+   
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -219,14 +219,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

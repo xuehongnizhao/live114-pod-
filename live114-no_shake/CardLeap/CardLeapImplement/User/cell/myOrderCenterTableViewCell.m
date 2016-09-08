@@ -195,13 +195,13 @@
 #pragma mark--------button action
 -(void)reviewAction:(UIButton*)sender
 {
-    NSLog(@"去评价");
+    
     [self.delegate reviewDelegateAction:sender.tag];
 }
 
 -(void)myPayAction:(UIButton*)sender
 {
-    NSLog(@"去支付");
+    
     [self.delegate customPayActionDelegate:sender.tag];
 }
 

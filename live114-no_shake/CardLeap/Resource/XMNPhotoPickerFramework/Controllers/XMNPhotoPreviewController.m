@@ -63,9 +63,7 @@ static NSString * const kXMNPhotoPreviewIdentifier = @"XMNPhotoPreviewCell";
     return UIStatusBarStyleLightContent;
 }
 
-- (void)dealloc {
-    NSLog(@"preview dealloc");
-}
+
 
 #pragma mark - Methods
 

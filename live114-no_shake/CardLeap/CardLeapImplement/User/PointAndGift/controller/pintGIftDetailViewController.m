@@ -142,7 +142,6 @@
 
 -(void)ExchangeAction:(UIButton*)sender
 {
-    NSLog(@"兑换");
     ExchangeGiftViewController *firVC = [[ExchangeGiftViewController alloc] init];
     [firVC setNavBarTitle:@"确认兑换" withFont:14.0f];
     [firVC setHiddenTabbar:YES];

@@ -78,7 +78,6 @@
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score
 {
     user_score = [NSString stringWithFormat:@"%0.1f",score * 10 / 2.0 ];
-    NSLog(@"您给的分数为%@",user_score);
 }
 
 #pragma mark----------get UI
@@ -150,14 +149,6 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

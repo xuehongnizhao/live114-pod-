@@ -249,7 +249,7 @@
 -(void)saveImage :(UILongPressGestureRecognizer*)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"保存图片-----action sheet");
+        
         UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                       initWithTitle:nil
                                       delegate:self

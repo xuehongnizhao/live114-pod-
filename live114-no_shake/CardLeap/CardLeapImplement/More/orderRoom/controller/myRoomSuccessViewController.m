@@ -136,7 +136,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     if (indexPath.row == 0) {
         orderRoomDetailViewController *firVC = [[orderRoomDetailViewController alloc] init];
         [firVC setHiddenTabbar:YES];
@@ -182,7 +182,7 @@
     if ([self.identifier isEqualToString:@"1"]) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-        NSLog(@"返回到商家");
+        
         NSArray *subViews = self.navigationController.viewControllers;
         for (BaseViewController *obj in subViews) {
             if ([obj isKindOfClass:[orderRoomDetailViewController class]]) {
@@ -196,9 +196,6 @@
 -(void)shareAction:(UIButton*)sender
 {
     [self UserSharePoint];
-    /**
-     我在XXX酒店（酒店名）为你预定了xx（房间类型）客房。时间是xx月xx日至xx月xx日（预定时间）。联系人：xxx 电话：xxxxxxxxxxxxxx请记得到店确认。
-     */
     NSString *share_text = [NSString stringWithFormat:@"我在%@酒店为你预定了%@间客房。时间是%@至%@。联系人:%@ 电话：%@,请记得到店确认",messageInfo.shop_name,messageInfo.hotel_num,messageInfo.begin_time,messageInfo.end_time,messageInfo.use_name,messageInfo.hotel_tel];
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:nil
@@ -234,8 +231,8 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+    
+   
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -262,14 +259,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

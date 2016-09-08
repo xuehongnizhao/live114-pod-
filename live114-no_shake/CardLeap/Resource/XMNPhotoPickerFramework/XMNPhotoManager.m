@@ -100,7 +100,6 @@
     }else {
         [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
             if (group == nil) {
-                NSLog(@"group nil will do it");
                 completionBlock ? completionBlock(albumArr) : nil;
             }
             if ([group numberOfAssets] < 1) return;
@@ -325,7 +324,6 @@
             PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
             imageRequestOptions.synchronous = YES;
             [self.cachingImageManager requestImageDataForAsset:asset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                NSLog(@"11");
                 completionBlock ? completionBlock(                [info[@"PHImageFileURLKey"] lastPathComponent]) : nil;
             }];
         }

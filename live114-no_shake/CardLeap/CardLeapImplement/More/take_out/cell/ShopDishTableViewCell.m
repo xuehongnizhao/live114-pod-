@@ -124,7 +124,6 @@
 
 -(void)myDidselectImage:(UITapGestureRecognizer*)sender
 {
-    NSLog(@"%ld",(long)myRow);
     
     [self.delegate didselectImage:myRow];
 }
@@ -174,7 +173,6 @@
     _subButton.hidden = NO;
     _cashLable.hidden = NO;
     _myInfo.count ++;
-    NSLog(@"%f",[_myInfo.take_pic floatValue]);
     _cashLable.text = [NSString stringWithFormat:@"%0.2f",_myInfo.count * [_myInfo.take_price floatValue]];
     [self.delegate addAction:_myInfo dishCell:self btn:sender];
 }

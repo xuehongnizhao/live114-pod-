@@ -234,12 +234,9 @@ static NSString *pageCount = @"10";
     [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
     self.shopNameLabel.text = info.shop_name;
     self.distanceLabel.text = [NSString stringWithFormat:@"%@",info.distance];
-    NSLog(@"%@m",self.distanceLabel.text);
-    NSLog(@"%@",self.shopNameLabel.text);
-    //NSInteger score = [[self getScore:dic] integerValue] / 2;
+
     [self setStar:info.score ];
-    //    CGRect frame = CGRectMake(0, 0, self.myLevel.frame.size.width, self.myLevel.frame.size.height);
-    //    [self setupStartsWithFrame:frame rating:score fractionalOrNot:YES andEnabled:NO];
+
 }
 //隐藏商家信息pane
 - (void)hiddenShopPane:(NSInteger)shopID
@@ -299,7 +296,7 @@ static NSString *pageCount = @"10";
         [annotations addObject:annotation];
     }
     self.annotations = annotations;
-    NSLog(@"the anotations is %@",self.annotations);
+    
     
     return annotations;
 }
@@ -754,14 +751,6 @@ static NSString *pageCount = @"10";
 
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

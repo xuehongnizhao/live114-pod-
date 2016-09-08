@@ -115,9 +115,9 @@
 #pragma mark------------cate delegate
 -(void)chooseCateID:(NSInteger)cateID
 {
-    NSLog(@"do something");
+    
     NSString *type = [NSString stringWithFormat:@"%ld",(long)cateID];
-    NSLog(@"选择了分类%@",type);
+    
     cate_id = type;
     page = 1;
     [self getDataFromNet];
@@ -133,7 +133,7 @@
                            @"u_id":[UserModel shareInstance].u_id,
                            @"page":[NSString stringWithFormat:@"%d",page]
                            };
-    NSLog(@"订座dict:%@",dict);
+    
     [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200) {
             if (page == 1) {
@@ -159,7 +159,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"进入订单详情");
+    
     myOrderSeatCenterInfo *info = [myOrderSeatArray objectAtIndex:indexPath.row];
     myOrderSeatStatusViewController *firVC = [[myOrderSeatStatusViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -205,14 +205,14 @@
 #pragma mark-----refresh action
 -(void)headerBeginRefreshing
 {
-    NSLog(@"刷新");
+    
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"加载更多");
+    
     page ++;
     [self getDataFromNet];
 }
@@ -224,10 +224,10 @@
     orderSeatReviewViewController *firVC = [[orderSeatReviewViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"评价" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"评价"];
+
     firVC.shop_id = info.shop_id;
     firVC.seat_id = info.seat_id;
-    NSLog(@"去评价%ld。seat_id：%@   shop_id:%@",(long)tag,info.seat_id,info.shop_id);
+    
     firVC.delegate = self;
     [self.navigationController pushViewController:firVC animated:YES];
 }
@@ -238,14 +238,6 @@
     page = 1;
     [self getDataFromNet];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

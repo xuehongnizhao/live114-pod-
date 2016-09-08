@@ -150,38 +150,4 @@ static char encodingTable[64] = {
 }
 
 
-
-//- (NSString*) urlEncodedString
-//{
-//	char *hex = "0123456789ABCDEF";
-//	unsigned char* data = (unsigned char*)[self bytes];
-//	int len = [self length];
-//	//NSLog(@"len = %d", len);
-//	NSMutableString* s = [NSMutableString string];
-//	for(int i = 0;i<len;i++){
-//		unsigned char c = data[i];
-//		if( ('a' <= c && c <= 'z')
-//		   || ('A' <= c && c <= 'Z')
-//		   || ('0' <= c && c <= '9') ){
-//			NSString* ts = [[NSString alloc] initWithCString:(char *)&c length:1];
-//			
-//			[s appendString:ts];
-//			[ts release];
-//		} else {
-//			[s appendString:@"%"];
-//			char ts1 = hex[c >> 4];
-//		//	NSLog(@"ts = %c", ts1);
-//			NSString* ts = [[NSString alloc] initWithCString:&ts1 length:1];
-//			[s appendString:ts];
-//			[ts release];
-//			char ts2 = hex[c & 15];
-//			ts = [[NSString alloc] initWithCString:&ts2 length:1];
-//			[s appendString:ts];
-//			[ts release];
-//			
-//		}
-//	}
-//	return s;
-//}
-
 @end

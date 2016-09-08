@@ -270,7 +270,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 2) {
@@ -477,8 +477,7 @@
 #pragma mark-------share action
 -(void)submitAtion:(UIButton*)sender
 {
-    NSLog(@"立即预定");
-    //[submit_conde isEqualToString:self.connect_code_T.text]  验证码
+    
     NSString *url = connect_url(@"seat_insert");
     connect_name = self.connect_name_T.text;
     connect_tel = self.connect_phone_T.text;
@@ -525,7 +524,6 @@
 #pragma mark-------获取验证码
 -(void)getVerfiryCode :(UIButton*)sender
 {
-    NSLog(@"获取验证码");
     if ([self checkTel:self.connect_phone_T.text]==YES)
     {
         __block int timeout=59;
@@ -546,7 +544,7 @@
                 NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //设置界面的按钮显示 根据自己需求设置
-                    //NSLog(@"____%@",strTime);
+                    
                     [sender setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
                     sender.userInteractionEnabled = NO;
                 });
@@ -561,7 +559,6 @@
                              };
         [Base64Tool postSomethingToServe:GET_SECURITY_CODE andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             NSDictionary* dic=(NSDictionary*)param;
-            NSLog(@"get message:%@",[dic  objectForKey:@"message"]);
             submit_conde = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
             sender.userInteractionEnabled = NO;
         } andErrorBlock:^(NSError *error) {
@@ -630,14 +627,6 @@
     myTime = [NSString stringWithFormat:@"%@年%@ %@",year_s,myTime,time];
     [self.orderSubmitTableview reloadData];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

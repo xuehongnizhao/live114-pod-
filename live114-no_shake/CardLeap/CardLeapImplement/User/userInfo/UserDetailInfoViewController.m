@@ -167,7 +167,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -294,7 +294,7 @@
 #pragma mark--------button action
 -(void)editMyInfoAction:(UIButton*)sender
 {
-    NSLog(@"去修改信息");
+    
     EditUserInfoViewController *firVC = [[EditUserInfoViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"修改信息" withFont:14.0f];

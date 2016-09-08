@@ -110,12 +110,12 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+
     mylocation = [self zzTransGPS:mylocation];
     baidu_late = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -140,7 +140,6 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
     //获取列表
     [self getCateFromNet];
 }
@@ -293,9 +292,6 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    //    NSLog(@"%d -- %d-----and text:%@", column, row ,text);
-    //    NSString *str = [_listIdDict objectForKey:text];
-    NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
             cate_id = text;
@@ -426,34 +422,24 @@
 #pragma mark------------button action
 -(void)mapAction :(UIButton*)sender
 {
-    NSLog(@"跳转到地图");
+   
     ShopTakeOutMapViewController *firVC = [[ShopTakeOutMapViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"地图" withFont:14.0f];
     firVC.category      = cate_id;
     firVC.identifer     = area_id;
-//    [firVC.navigationItem setTitle:@"搜索附近外卖"];
+
     [self.navigationController pushViewController:firVC animated:YES];
-//    UIStoryboard *mapStoryBoard = [UIStoryboard storyboardWithName:@"MapStoryboard" bundle:nil];
-//    ORAShopMapsViewController *firVC = [mapStoryBoard instantiateViewControllerWithIdentifier:@"mapView"];
-//    [firVC setHiddenTabbar:YES];
-//    [firVC.navigationItem setTitle:@"商家分布地图"];
-//    [self.navigationController pushViewController:firVC animated:YES];
+
 }
 
 -(void)searchAction :(UIButton*)sender
 {
-    NSLog(@"跳转到搜索");
     ShopTakeOutSearchViewController *firVC = [[ShopTakeOutSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     firVC.u_lng = baidu_lng;
     firVC.u_lat = baidu_late;
     [self.navigationController pushViewController:firVC animated:YES];
-//    SearchViewController *firVC = [[SearchViewController alloc] init];
-//    firVC.u_lat = baidu_late;
-//    firVC.u_lng = baidu_lng;
-//    [firVC setHiddenTabbar:YES];
-//    [self.navigationController pushViewController:firVC animated:YES];
 }
 
 
@@ -486,7 +472,7 @@
 #pragma mark---------上拉 下拉
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     [SVProgressHUD showWithStatus:@"正在加载"];
     page = 1;
     [locationManager startUpdatingLocation]; // 开始定位
@@ -494,7 +480,6 @@
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载");
     [SVProgressHUD showWithStatus:@"正在加载"];
     page++;
     [self getDataFromNet];
@@ -516,12 +501,11 @@
 #pragma mark---------跳转location 界面
 -(void)jump2locatinoView
 {
-    NSLog(@"跳转到定位界面");
     LocationListViewController *firVC = [[LocationListViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     firVC.delegate = self;
     [firVC setNavBarTitle:@"定位您当前位置" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"定位您当前的位置"];
+
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
@@ -543,7 +527,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     shopTakeoutInfo *info = [shopArray objectAtIndex:indexPath.row];
     if ([info.is_ship isEqualToString:@"2"]) {
         ShopTakeOutViewController *firVC = [[ShopTakeOutViewController alloc] init];
@@ -552,7 +536,6 @@
 //        [firVC.navigationItem setTitle:info.shop_name];
         firVC.info = info;
         firVC.shop_id = info.shop_id;
-        NSLog(@"%@",info.shop_id);
         [self.navigationController pushViewController:firVC animated:YES];
     }else{
         
@@ -592,14 +575,6 @@
     return [shopArray count];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

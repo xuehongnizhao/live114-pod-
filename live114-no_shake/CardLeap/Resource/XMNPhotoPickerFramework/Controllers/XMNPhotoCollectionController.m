@@ -86,9 +86,7 @@ static NSString * const kXMNAssetCellIdentifier = @"XMNAssetCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    NSLog(@"photo collection dealloc ");
-}
+
 
 #pragma mark - Methods
 
@@ -148,7 +146,6 @@ static NSString * const kXMNAssetCellIdentifier = @"XMNAssetCell";
         if (!asset.selected) {
             XMNPhotoPickerController *photoPickerC = (XMNPhotoPickerController *)self.navigationController;
             if (asset.type == XMNAssetTypeVideo && self.selectedAssets.count > 0) {
-                NSLog(@"同时选择视频和图片,视频将作为图片发送");
                 [self showAlertWithMessage:@"同时选择视频和图片,视频将作为图片发送"];
                 return YES;
             }else if (self.selectedAssets.count >= photoPickerC.maxCount) {

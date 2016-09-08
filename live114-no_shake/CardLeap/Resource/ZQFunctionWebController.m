@@ -67,7 +67,7 @@
     }];
     
     [self.bridge registerHandler:@"hd_shopOrderRoomShow" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"%@",data);
+        
         orderRoomDetailViewController *firVC=[[orderRoomDetailViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
@@ -75,7 +75,7 @@
     }];
 
     [self.bridge registerHandler:@"hd_shopOrderSeatShow" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"%@",data);
+        
         orderSeatDetailViewController *firVC=[[orderSeatDetailViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
@@ -117,7 +117,7 @@
     }];
     
     [self.bridge registerHandler:@"hd_shopGroupShow" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"%@",data);
+        
         ShopGroupViewController *firVC=[[ShopGroupViewController alloc]init];
         firVC.shop_id=[data objectForKey:@"shop_id"];
         firVC.title=[data objectForKey:@"shop_name"];
@@ -220,7 +220,6 @@
 {
     AmrRecordWriter *amrWriter = [[AmrRecordWriter alloc]init];
     amrWriter.filePath = [VoiceRecorderBase getPathByFileName:@"record.amr"];
-    NSLog(@"filePaht:%@",amrWriter.filePath);
     amrWriter.maxSecondCount = 12.0;
     amrWriter.maxFileSize = 1024*100;
     self.amrWriter = amrWriter;
@@ -239,12 +238,10 @@
     recorder.receiveStoppedBlock = ^{
       //发送录音
         [weakSelf sendDataWithFilePath:weakSelf.amrWriter.filePath];
-        NSLog(@"停止录音代码块");
         weakSelf.meterObserver.audioQueue = nil;
     };
     recorder.receiveErrorBlock = ^(NSError *error){
         weakSelf.meterObserver.audioQueue = nil;
-        NSLog(@"错误代码块");
         [[[UIAlertView alloc]initWithTitle:@"错误" message:error.userInfo[NSLocalizedDescriptionKey] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道了", nil]show];
     };
     

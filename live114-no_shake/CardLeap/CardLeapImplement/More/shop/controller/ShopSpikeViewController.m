@@ -95,7 +95,6 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击进入详情");
     couponInfo *info = [couponArray objectAtIndex:indexPath.row];
     CouponDetailViewController *firVC = [[CouponDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];

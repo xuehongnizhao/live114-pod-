@@ -190,19 +190,18 @@
 #pragma mark------button action
 -(void)payAction:(UIButton*)sender
 {
-    NSLog(@"去支付");
+    
     [self.delegate myOperation:0 row:sender.tag];
 }
 
 -(void)payBackAction:(UIButton*)sender
 {
-    NSLog(@"申请退款");
     //[self.delegate myOperation:1];
 }
 
 -(void)reviewAction:(UIButton*)sender
 {
-    NSLog(@"去评价");
+    
     [self.delegate myOperation:2 row:sender.tag];
 }
 

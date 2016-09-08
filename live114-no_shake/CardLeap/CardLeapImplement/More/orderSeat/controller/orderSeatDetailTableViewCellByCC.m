@@ -58,7 +58,6 @@
             {
                 //添加图片数组
                 UIImageView *imageView = [[UIImageView alloc] init];
-                NSLog(@"%@",[imageArray objectAtIndex:i]);
                 [imageView sd_setImageWithURL:[NSURL URLWithString:[imageArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"user"]];
                 [Images addObject:imageView];
                 //添加Label数组
@@ -182,7 +181,6 @@
             {
                 //添加图片数组
                 UIImageView *imageView = [[UIImageView alloc] init];
-                NSLog(@"%@",[imageArray objectAtIndex:i]);
                 [imageView sd_setImageWithURL:[NSURL URLWithString:[imageArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"user"]];
                 [Images addObject:imageView];
                 //添加Label数组
@@ -358,7 +356,7 @@
 #pragma mark-------adBannerViewDelegate
 -(void)adBannerView:(AdBannerView *)adBannerView itemIndex:(int)index
 {
-    NSLog(@"被点击的图片是第%d长",index);
+    
     
 }
 

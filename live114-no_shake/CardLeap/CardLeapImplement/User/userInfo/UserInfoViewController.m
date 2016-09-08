@@ -193,7 +193,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (ApplicationDelegate.islogin == YES) {
-        NSLog(@"点击跳转很多地方");
+        
         
         if (indexPath.row == 0 && indexPath.section == 0) {
             //个人信息
@@ -211,7 +211,7 @@
             [self actionJump:action];
         }
     }else{
-        NSLog(@"滚去登录吧");
+        
         LoginViewController *firVC = [[LoginViewController alloc] init];
         firVC.navigationItem.title = @"登录";
         firVC.identifier = @"0";
@@ -273,7 +273,6 @@
         [self.navigationController pushViewController:evenMore animated:YES];
     }else if ([text isEqualToString:@"gift"]){
         //礼品中心
-        NSLog(@"跳转礼品中心");
         myPointGiftViewController *firVC = [[myPointGiftViewController alloc] init];
         [firVC setNavBarTitle:@"礼品中心" withFont:14.0f];
         [firVC setHiddenTabbar:YES];
@@ -428,7 +427,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认注销吗" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         [alert show];
     }else{
-        NSLog(@"去登录接口");
         LoginViewController *firVC = [[LoginViewController alloc] init];
         firVC.navigationItem.title = @"登录";
         firVC.identifier = @"0";
@@ -441,7 +439,6 @@
     if (buttonIndex == 0) {
         ApplicationDelegate.islogin = NO;
         [self.userInfoTableview reloadData];
-        NSLog(@"注销了,要重新登录");
         [self setAlian:@"0"];
         self.logoutButton = nil;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:self.logoutButton];
@@ -452,7 +449,6 @@
 #pragma mark------跳转积分详细列表
 -(void)getPointList
 {
-    NSLog(@"获取积分来源明细");
     myPointDetailViewController *firVC = [[myPointDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"积分记录" withFont:14.0];

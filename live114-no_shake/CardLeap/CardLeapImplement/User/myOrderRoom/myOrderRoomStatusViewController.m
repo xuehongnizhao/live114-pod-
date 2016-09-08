@@ -60,11 +60,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     NSInteger section = indexPath.section;
     if (section == 1) {
         if (indexPath.row == 0) {
-            NSLog(@"访问商家-----");
+            
             orderRoomDetailViewController *firVC = [[orderRoomDetailViewController alloc] init];
             [firVC setNavBarTitle:@"如e商家" withFont:14.0f];
             firVC.shop_id = self.info.shop_id;
@@ -130,14 +130,14 @@
 
 -(void)orderRoomRefreshAction
 {
-    NSLog(@"刷新");
+    
     self.info.seat_status = @"4";
     [self.myOrderRoomTableview reloadData];
 }
 
 -(void)go2RoomReviewAction
 {
-    NSLog(@"去评价");
+    
     orderRoomReviewViewController *firVC = [[orderRoomReviewViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"评价" withFont:14.0f];

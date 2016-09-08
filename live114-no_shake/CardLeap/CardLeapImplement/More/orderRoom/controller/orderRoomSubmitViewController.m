@@ -188,7 +188,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     NSInteger section = indexPath.section;
     //NSInteger row = indexPath.row;
     if(section == 1)
@@ -203,9 +203,7 @@
 #pragma  mark --- 2016.4 添加weakself
         __weak typeof(self) weakself = self;
         chvc.calendarblock = ^(NSString *model){
-            NSLog(@"\n---------------------------");
-            NSLog(@"日期区间是%@",model);
-            //[btn setTitle:model forState:UIControlStateNormal];
+            
             NSArray *arr = [model componentsSeparatedByString:@":"];
             beginDate = [arr objectAtIndex:0];
             endDate = [arr objectAtIndex:1];
@@ -258,7 +256,7 @@
     
     frame.size.height = webView.scrollView.contentSize.height;
     
-    NSLog(@"frame = %@", [NSValue valueWithCGRect:frame]);
+    
     webView.frame = frame;
     return webView.frame.size.height;
 }
@@ -475,10 +473,10 @@
         LoginViewController *firVC = [[LoginViewController alloc] init];
         [firVC setHiddenTabbar:YES];
         [firVC setNavBarTitle:@"登录" withFont:14.0f];
-        //        [firVC.navigationItem setTitle:@"登录"];
+        
         [self.navigationController pushViewController:firVC animated:YES];
     }else{
-        NSLog(@"提交订单  检测数值");
+        
         if (![beginDate isEqualToString:@""]) {
             if (self.connect_name_T.text.length == 0 || self.connect_tel_T.text.length == 0) {
                 [SVProgressHUD showErrorWithStatus:@"请填写个人资料"];
@@ -526,7 +524,7 @@
 
 -(void)subAction:(UIButton*)sender
 {
-    NSLog(@"减一个");
+    
     if (count>1) {
         count--;
         [self.orderRoomSubmitTableview reloadData];
@@ -535,7 +533,7 @@
 
 -(void)addAction:(UIButton*)sender
 {
-    NSLog(@"加一个");
+    
     count++;
     [self.orderRoomSubmitTableview reloadData];
 }

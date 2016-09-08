@@ -93,7 +93,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     groupInfo *info = [groupArray objectAtIndex:indexPath.row];
     GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
