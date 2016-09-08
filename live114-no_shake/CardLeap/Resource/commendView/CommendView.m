@@ -90,7 +90,6 @@
         //计算每一个表情按钮的坐标和在哪一屏
         CGFloat x = (((i - 1) % FACE_COUNT_PAGE) % FACE_COUNT_CLU) *
         (myWidth + blank) + 15 + ((i - 1) / FACE_COUNT_PAGE * width);
-        //NSLog(@"facbutton.x=%f",x);
         CGFloat y = (((i - 1) % FACE_COUNT_PAGE) / FACE_COUNT_CLU) * (myHeight + 4)+10;
 
         ButtonView* bc=[[ButtonView alloc]initWithFrame:CGRectMake(x, y, myWidth, myHeight)];

@@ -346,7 +346,6 @@ int DecodeAMRFileToWAVEFile(const char* pchAMRFileName, const char* pchWAVEFilen
 		nFrameCount++;
 		fwrite(pcmFrame, sizeof(short), PCM_FRAME_SIZE, fpwave);
 	}
-	NSLog(@"frame = %d", nFrameCount);
 	Decoder_Interface_exit(destate);
 	
 	fclose(fpwave);

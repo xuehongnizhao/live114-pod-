@@ -91,7 +91,6 @@
 #pragma mark----------click action
 -(void)selectAction:(UIButton*)sender
 {
-    NSLog(@"点击了对号按钮");
     [self.delegate selectActionDelegate:sender];
 }
 @end

@@ -326,7 +326,7 @@
 
 -(void)submitAction:(UIButton*)sender
 {
-    NSLog(@"确认提交");
+    
     if (self.user_name_T.text.length>0 && self.user_phone_T.text.length>0) {
         float total = [self.info.mall_integral integerValue]*count;
         if (total<=[[UserModel shareInstance].pay_point integerValue]) {

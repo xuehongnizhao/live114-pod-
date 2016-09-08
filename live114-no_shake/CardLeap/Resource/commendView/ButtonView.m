@@ -45,9 +45,7 @@
 #pragma mark setImageAndLabel
 -(void)setButtonImageurl:(NSString *)url andTitle:(NSString *)title
 {
-    //[[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:url] delegate:self];
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:url] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        NSLog(@"正在下载");
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         [_imageButton setImage:image forState:UIControlStateNormal];
     }];
@@ -56,7 +54,6 @@
 }
 -(void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
 {
-    //[_imageButton setImage:image forState:UIControlStateNormal];
 }
 
 #pragma mark setupViewsAndAutolayout
@@ -86,7 +83,6 @@
     if (!_imageButton)
     {
         _imageButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        //_imageButton.backgroundColor=[UIColor orangeColor];
     }
     return _imageButton;
 }
@@ -102,12 +98,6 @@
     }
     return _buttonLabel;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

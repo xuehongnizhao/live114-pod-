@@ -169,7 +169,7 @@
 #pragma mark-------获取验证码
 -(void)getVerfiryCode :(UIButton*)sender
 {
-    NSLog(@"获取验证码");
+    
     if ([self checkTel:self.user_phone_T.text]==YES)
     {
         __block int timeout=59;
@@ -190,7 +190,7 @@
                 NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //设置界面的按钮显示 根据自己需求设置
-                    //NSLog(@"____%@",strTime);
+                    
                     sender.userInteractionEnabled = NO;
                     [sender setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
                 });
@@ -207,7 +207,7 @@
         [Base64Tool postSomethingToServe:GET_SECURITY_CODE andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             NSDictionary* dic=(NSDictionary*)param;
             if ([param[@"code"] integerValue]==200) {
-                NSLog(@"get message:%@",[dic  objectForKey:@"message"]);
+                
                 _checkCode = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
             }else{
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
@@ -237,13 +237,13 @@
 
 -(void)nextStepAction:(UIButton*)sender
 {
-    NSLog(@"下一步");
+    
     if ([_checkCode isEqualToString:self.certifyCode.text]) {
-        NSLog(@"验证成功，进入下一个界面");
+        
         modifyPasswordViewController *firVC = [[modifyPasswordViewController alloc] init];
         [firVC setHiddenTabbar:YES];
         [firVC setNavBarTitle:@"修改密码" withFont:14.0f];
-//        [firVC.navigationItem setTitle:@"修改密码"];
+
         firVC.user_tel = self.user_phone_T.text;
         [self.navigationController pushViewController:firVC animated:YES];
     }else{

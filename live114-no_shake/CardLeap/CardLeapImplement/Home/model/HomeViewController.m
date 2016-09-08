@@ -256,11 +256,11 @@ linHangyeCommendViewDelegate>
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
-    NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
-    NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+//    NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
+//    NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
+//    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
     mylocation = [self zzTransGPS:mylocation];
     baidu_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -280,7 +280,7 @@ linHangyeCommendViewDelegate>
 // 定位失败时调用
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
-    NSLog(@"定位失败");
+    
 }
 
 #pragma mark------初始化数据
@@ -327,7 +327,7 @@ linHangyeCommendViewDelegate>
     [Base64Tool postSomethingToServe:connect_url(index_cate) andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200)
         {
-            NSLog(@"paramsdfas:%@",param[@"obj"]);
+            
             NSArray* moduleArray=[linServicemodel objectArrayWithKeyValuesArray:param[@"obj"]];
             
             if (moduleArray.count!=0)
@@ -388,7 +388,7 @@ linHangyeCommendViewDelegate>
     [Base64Tool postSomethingToServe:connect_url(@"goods_list") andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200)
         {
-            NSLog(@"paramsdfas:%@",param[@"obj"]);
+            
             NSArray* moduleArray=[ccDisplayModel objectArrayWithKeyValuesArray:param[@"obj"]];
             if (moduleArray.count!=0)
             {
@@ -412,7 +412,7 @@ linHangyeCommendViewDelegate>
     [Base64Tool postSomethingToServe:connect_url(@"more_url") andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         if ([param[@"code"] integerValue]==200)
         {
-            NSLog(@"paramsdfas:%@",param[@"obj"]);
+            
             NSDictionary *urlDict = param[@"obj"];
             [self addMoreButton:urlDict[@"message_url"]];
         }
@@ -423,7 +423,6 @@ linHangyeCommendViewDelegate>
 
 -(void) addMoreButton:(NSString *)url
 {
-    NSLog(@"url :%@",url);
     moreDisplayUrl = url;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100, 0, 100, 30)];
     button.titleLabel.font  =   [UIFont systemFontOfSize:14];
@@ -439,7 +438,7 @@ linHangyeCommendViewDelegate>
 }
 
 -(void) moreDisplay{
-    NSLog(@"点击了查看更多");
+    
     ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
     firVC.url   = moreDisplayUrl;
     firVC.title = @"精品推荐";
@@ -494,7 +493,7 @@ linHangyeCommendViewDelegate>
         {
             billboardsArray = [NSMutableArray array];
             descBillboardsArray = [NSMutableArray array];
-            NSLog(@"paramsdfas:%@",param[@"obj"]);
+            
             for (NSDictionary *dict in param[@"obj"]) {
                 [billboardsArray addObject:dict[@"a_pic"]];
                 [descBillboardsArray addObject:dict[@"a_url"]];
@@ -627,7 +626,7 @@ linHangyeCommendViewDelegate>
                           };
     [Base64Tool postSomethingToServe:index_data andParams:dic isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
         indexDic = [[NSMutableDictionary alloc] initWithDictionary:(NSDictionary*)param];
-        NSLog(@"获取的数据为:%@",indexDic);
+        
         //如果距离上次更新时间超过4小时 更新ud的数据
         //解析数据 做显示
         if ([self isRefresh:0]) {
@@ -655,7 +654,7 @@ linHangyeCommendViewDelegate>
                           @"city_id":city_id
                           };
     [Base64Tool postSomethingToServe:shop_list andParams:dic isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
-        // NSLog(@"%@",param);
+        
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:(NSDictionary*)param] ;
@@ -996,15 +995,15 @@ linHangyeCommendViewDelegate>
     switch ([r currentReachabilityStatus]) {
         case NotReachable:
             // 没有网络连接
-            NSLog(@"无网络");
+            
             break;
         case ReachableViaWWAN:
-            // 使用3G网络
-            NSLog(@"移动网络");
+            // 使用移动网络
+            
             break;
         case ReachableViaWiFi:
             // 使用WiFi网络
-            NSLog(@"wifi");
+            
             break;
     }
 }
@@ -1084,7 +1083,7 @@ linHangyeCommendViewDelegate>
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-      NSLog(@"点击了商家");
+    
     shopInfo *info = [shopArray objectAtIndex:indexPath.row];
     ShopDetailViewController *firVC = [[ShopDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -1209,7 +1208,7 @@ linHangyeCommendViewDelegate>
         [[_cateView.subviews lastObject] removeFromSuperview];
     }
     //计算count
-    NSLog(@"[array count]=%lu",(unsigned long)[array count]);
+    
     NSInteger count = [array count]/2;
     if ([array count]%2!=0) {
         count += 1;
@@ -1280,7 +1279,7 @@ linHangyeCommendViewDelegate>
 #pragma mark-------分类按钮点击事件
 -(void)clickButton :(UIButton*)sender
 {
-    //  NSLog(@"点击了第%ld个btn",(long)sender.tag);
+    
     cateModel *model = [cateArray objectAtIndex:sender.tag-1];
     if ([model.cate_type isEqualToString:@"takeout"]) {
         ShopTakeoutListViewController *firVC = [[ShopTakeoutListViewController alloc] init];
@@ -1362,7 +1361,7 @@ linHangyeCommendViewDelegate>
         firVC.shop_id = info.goods_id;
         [self.navigationController pushViewController:firVC animated:YES];
     }else{
-        NSLog(@"跳转到web详情页面");
+        
         ZQFunctionWebController *firVC = [[ZQFunctionWebController alloc] init];
         [firVC setHiddenTabbar:YES];
         
@@ -1414,7 +1413,7 @@ linHangyeCommendViewDelegate>
 //社区服务点击
 -(void)clikButtonToPushViewController:(littleCateModel *)module
 {
-    NSLog(@"点击的按钮为%@----%@",module.cat_name,module.cat_id);
+    
     ShopListViewController *firVC = [[ShopListViewController alloc] init];
    
     firVC.is_hidden = @"0";
@@ -1428,7 +1427,7 @@ linHangyeCommendViewDelegate>
 -(void)goSeachShop:(NSInteger)index
 {
     if (index == 0) {
-        NSLog(@"实现代理跳转到搜索页面的方法");
+        
         SearchViewController *firVC = [[SearchViewController alloc] init];
         firVC.u_lat = baidu_lat;
         firVC.u_lng = baidu_lng;
@@ -1437,7 +1436,7 @@ linHangyeCommendViewDelegate>
     }else if(index == 1){
 
     }else if(index == 2){
-        NSLog(@"主页在这里跳转多城市");
+        
         HomeSelectedCityViewController* hscvc=[[HomeSelectedCityViewController alloc]init];
         hscvc.delegate=self;
         [self.navigationController pushViewController:hscvc animated:YES];

@@ -82,7 +82,7 @@
             _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_managedObjectModel];
             if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
             {
-                NSLog(@"PersistentStore Error: %@, %@", error, [error userInfo]);
+                
                 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
                 abort();
             }

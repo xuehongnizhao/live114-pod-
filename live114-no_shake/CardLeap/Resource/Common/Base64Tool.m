@@ -23,7 +23,6 @@
         NSString *app_key = [NSString stringWithFormat:@"http://%@%@",baseUrl,[dictionary objectForKey:@"app_key"]];
         mDict=[[NSMutableDictionary alloc]initWithDictionary:dict];
         [mDict removeObjectForKey:@"app_key"];
-        NSLog(@"mDict:%@",mDict);
         [mDict setObject:app_key forKey:@"app_key"];
     }
   __block  NSDictionary* result=nil;
@@ -40,13 +39,11 @@
                  NSDictionary* dic=nil;
                  if (base64==YES)
                  {
-                     NSLog(@"%@",param);
+
                      dic=[NSJSONSerialization JSONObjectWithData:[Base64 decodeData:param] options:NSJSONReadingMutableContainers error:nil];
                  }else{
                      dic=[NSJSONSerialization JSONObjectWithData:param options:NSJSONReadingMutableContainers error:nil];
                  }
-                 NSLog(@"dict:%@",dic);
-                 NSLog(@" message:%@",[dic objectForKey:@"message"]);
                  result=dic;
              }
              completionBlock(result);
@@ -76,8 +73,6 @@
         {
             dic=[NSJSONSerialization JSONObjectWithData:param options:NSJSONReadingMutableContainers error:nil];
         }
-        NSLog(@"dict:%@",dic);
-        NSLog(@" message:%@",[dic objectForKey:@"message"]);
         
         result=dic;
         completionBlock(result);
@@ -111,8 +106,6 @@
             {
                 dic=[NSJSONSerialization JSONObjectWithData:param options:NSJSONReadingMutableContainers error:nil];
             }
-            NSLog(@"dict:%@",dic);
-            NSLog(@" message:%@",[dic objectForKey:@"message"]);
             
             result=dic;
             completionBlock(result);
@@ -136,19 +129,15 @@
 {
     //app_key加密
     NSString* app_key=[MyMD5 md5:[NSString stringWithFormat:@"http://%@/%@",baseUrl,[params objectForKey:@"app_key"]]];
-    NSLog(@"before app_key:%@",app_key);
-    NSLog(@"%@%@",baseUrl,[params objectForKey:@"app_key"]);
-    NSLog(@"app_key:%@",app_key);
+
     NSMutableDictionary* mDict=[[NSMutableDictionary alloc]initWithDictionary:params];
     [mDict removeObjectForKey:@"app_key"];
-    NSLog(@"mDict:%@",mDict);
     [mDict setObject:app_key forKey:@"app_key"];
     NSMutableArray* allValues=[[NSMutableArray alloc]init];
     for (id obj in [mDict allValues])
     {
         if ([obj isKindOfClass:[NSDictionary class]])
         {
-            NSLog(@"已找到字典");
             NSMutableArray* muArr=[[NSMutableArray alloc]init];
             for (NSString* s in [obj allValues])
             {
@@ -160,12 +149,11 @@
             for (NSString* s in [obj allKeys])
             {
                 NSString* string=[Base64 stringByEncodingData:[s dataUsingEncoding:NSUTF8StringEncoding]];
-                NSLog(@"str:%@",string);
+
                 [keyArr addObject:string];
             }
         
             NSDictionary* dict=[[NSDictionary alloc]initWithObjects:muArr forKeys:keyArr];
-            NSLog(@"base64后字典为:%@",dict);
             [allValues addObject:dict];
         }
         else
@@ -175,7 +163,6 @@
         }
     }
     NSDictionary* dict=[[NSDictionary alloc]initWithObjects:allValues forKeys:[mDict allKeys]];
-    NSLog(@"base64加密后的字典%@",dict);
     return dict;
 }
 

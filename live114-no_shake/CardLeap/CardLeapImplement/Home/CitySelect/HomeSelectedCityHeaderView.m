@@ -106,7 +106,7 @@
     TenLat = (int)(yGps.latitude*10);
     TenLog = (int)(yGps.longitude*10);
     NSString *sql = [[NSString alloc]initWithFormat:@"select offLat,offLog from gpsT where lat=%d and log = %d",TenLat,TenLog];
-    //NSLog(sql);
+    
     sqlite3_stmt* stmtL = [m_sqlite NSRunSql:sql];
     int offLat=0;
     int offLog=0;
@@ -125,7 +125,7 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     [SVProgressHUD dismiss];
     if (is_location) {
         [locationManager stopUpdatingLocation]; // 关闭定位
@@ -133,23 +133,21 @@
         CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
         NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
         NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-        NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+        
         //获取列表
         CLLocation *location = [[CLLocation alloc] initWithLatitude:mylocation.latitude longitude:mylocation.longitude];
         CLGeocoder *geocoder=[[CLGeocoder alloc]init];
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemark,NSError *error)
          {
              CLPlacemark *mark=[placemark objectAtIndex:0];
-             //         NSString *title = [NSString stringWithFormat:@"%@",mark.name];//获取subtitle的信息;
-             //         NSString *subTitle = [NSString stringWithFormat:@"%@%@%@",mark.subLocality,mark.thoroughfare,mark.subThoroughfare];
-             //
+
              locationCity=mark.locality;
              
              //停止转动并且将城市名称显示到按钮上
              [self.indicatorView stopAnimating];
              [self.homeSelectedCityDescView setTitle:mark.locality forState:UIControlStateNormal];
              [self.homeSelectedCityDescView setUserInteractionEnabled:YES];
-             NSLog(@"城市名称:%@",mark.locality);
+             
              [SVProgressHUD dismiss];
              /*!
               *  @author Sky
@@ -170,7 +168,6 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
     [SVProgressHUD dismiss];
     //获取列表
     //停止转动并且将城市名称显示到按钮上

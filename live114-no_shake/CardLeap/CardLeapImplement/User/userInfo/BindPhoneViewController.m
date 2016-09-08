@@ -185,7 +185,7 @@
 #pragma mark---------绑定手机
 -(void)bindAction :(UIButton*)sender
 {
-    NSLog(@"注册");
+    
     if ([self checkLawful] == YES) {
         NSDictionary *dic = @{
                               @"app_key":REGIST_USER,
@@ -212,7 +212,7 @@
 #pragma mark---------登录了
 -(void)login
 {
-    NSLog(@"绑定成功，去登录");
+    
     NSString *baidu_id = @" ";
     NSDictionary *dic = @{
                           @"app_key":USER_LOGIN,
@@ -262,7 +262,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"AUTULOGIN"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //跳转个人信息界面
-    NSLog(@"登录成功了，该去做点别的了");
+    
     
     NSString *baidu_id = userDefault(@"baidu_id");
     baidu_id = [NSString stringWithFormat:@"%@%@",baidu_id,[UserModel shareInstance].u_id];
@@ -289,7 +289,7 @@
 #pragma mark---------获取验证码
 -(void)getVerfiryCode :(UIButton*)sender
 {
-    NSLog(@"获取验证码");
+    
     if ([self checkTel:self.userName.text]==YES)
     {
         __block int timeout=59;
@@ -310,7 +310,6 @@
                 NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //设置界面的按钮显示 根据自己需求设置
-                    //NSLog(@"____%@",strTime);
                     [sender setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
                 });
                 timeout--;
@@ -324,7 +323,6 @@
                              };
         [Base64Tool postSomethingToServe:GET_SECURITY_CODE andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             NSDictionary* dic=(NSDictionary*)param;
-            NSLog(@"get message:%@",[dic  objectForKey:@"message"]);
             _checkCode = [NSString stringWithFormat:@"%@",[dic objectForKey:@"obj"]];
         } andErrorBlock:^(NSError *error) {
             
@@ -363,37 +361,8 @@
         [alert show];
         return NO;
     }
-    //    //1[0-9]{10}
-    //
-    //    //^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$
-    //    //    NSString *regex = @"[0-9]{11}";
-    //    NSString *regex = @"^((13[0-9])|(147)|(17[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$";
-    //    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    //    BOOL isMatch = [pred evaluateWithObject:str];
-    //    if (!isMatch)
-    //    {
-    //        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入正确的手机号码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    //        [alert show];
-    //        return NO;
-    //    }
-    //    if([passWord.text isEqualToString:@""])
-    //    {
-    //        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码不能为空" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-    //
-    //        [alert show];
-    //        return NO;
-    //    }
-    return YES;
+       return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -135,7 +135,6 @@
 #pragma mark--------click action
 -(void)submitAction:(UIButton*)sender
 {
-    NSLog(@"添加收获地址");
     if ([self checkValue]) {
         NSString *address = _address_T.text;
         NSString *phone = _phone_T.text;

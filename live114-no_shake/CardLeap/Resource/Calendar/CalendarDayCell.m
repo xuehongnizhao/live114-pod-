@@ -39,7 +39,6 @@
     [self addSubview:day_title];
     
     //选中时显示的图片
-    NSLog(@"%f",self.bounds.size.width);
     imgview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 15, 35, 35)];
     [imgview setCenter:CGPointMake(day_lab.center.x, day_lab.center.y)];
     imgview.image = [UIImage imageNamed:@"chack.png"];

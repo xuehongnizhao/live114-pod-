@@ -162,12 +162,12 @@
 #pragma mark---------------click action
 -(void)downloadAction:(UIButton*)sender
 {
-    NSLog(@"下载优惠券");
+    
     if (ApplicationDelegate.islogin == NO) {
         LoginViewController *firVC = [[LoginViewController alloc] init];
         [firVC setHiddenTabbar:YES];
         [firVC setNavBarTitle:@"登录" withFont:14.0f];
-//        [firVC.navigationItem setTitle:@"登录"];
+
         [self.navigationController pushViewController:firVC animated:YES];
     }else{
         NSString *url = connect_url(@"seckill");
@@ -204,9 +204,7 @@
 
 -(void)shareActino:(UIButton*)sender
 {
-    NSLog(@"点击分享");
     [self UserSharePoint];
-    //NSString *url = @"www.baidu.com";
     NSString *sinaText;
     sinaText = [NSString stringWithFormat:@"如e生活 %@",self.share_url];
 
@@ -251,8 +249,7 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -285,23 +282,5 @@
     return YES;
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-    NSLog(@"开始加载");
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSLog(@"加载完成，开始追入数据");
-}
-
-/*
-#pragma mark - Navigation
-// In a  -based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

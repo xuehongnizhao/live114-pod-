@@ -111,22 +111,22 @@
     NSString *string = [NSString string];
     
     if (self.evenMoreJomp.isAboutApp) {
-//        NSLog(@"关于我们");
+
         string = [self joinUrlString:connect_url(@"yz_about")];
     }
     
     if (self.evenMoreJomp.isPrivacy) {
-//        NSLog(@"隐私权限");
+
         string = [self joinUrlString:connect_url(@"privacy")];
     }
     
     if (self.evenMoreJomp.isHelp) {
-//        NSLog(@"使用帮助");
+
         string = [self joinUrlString:connect_url(@"help")];
     }
     
     if (self.evenMoreJomp.isCode) {
-//        NSLog(@"二维码");
+
         string = [self joinUrlString:connect_url(@"code_img")];
     }
     

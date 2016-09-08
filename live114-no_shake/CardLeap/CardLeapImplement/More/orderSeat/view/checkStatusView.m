@@ -187,7 +187,6 @@
 -(void)cancelAction:(UIButton*)sender
 {
     [timer invalidate];
-    NSLog(@"取消订单");
     [self.delegate deleteOrderSeat];
 }
 

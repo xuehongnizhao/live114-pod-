@@ -185,7 +185,7 @@
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
     if (section == 0) {
-        NSLog(@"修改头像");
+    
         UIActionSheet *myActionSheet = [[UIActionSheet alloc]initWithTitle:nil
                                                                     delegate:self
                                                            cancelButtonTitle:@"取消"
@@ -195,7 +195,7 @@
         [myActionSheet showInView:self.view];
     }else if (section == 1){
         if (row == 1) {
-            NSLog(@"选择性别");
+        
             UIActionSheet *myActionSheet = [[UIActionSheet alloc]initWithTitle:nil
                                                                       delegate:self
                                                              cancelButtonTitle:@"取消"
@@ -341,9 +341,9 @@
 #pragma mark--------button action
 -(void)confirmEditAction:(UIButton*)sender
 {
-    NSLog(@"确认修改信息");
+    
     if (user_image_local == nil) {
-        NSLog(@"未修改头像");
+        
         [self postMessage];
     }else{
         //上传 头像
@@ -394,7 +394,7 @@
                                };
         [Base64Tool postSomethingToServe:user_url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
-                NSLog(@"修改成功");
+                
                 [SVProgressHUD dismiss];
                 [UserModel shareInstance].user_nickname = user_name;
                 [UserModel shareInstance].sex = sex;
@@ -481,12 +481,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"info==%@",info);
-    //UIImagePickerControllerEditedImage
-    //UIImagePickerControllerOriginalImage
-    //UIImagePickerControllerCropRect
-    //UIImagePickerControllerMediaType
-    //UIImagePickerControllerReferenceURL
+
     
     UIImage *image= [info objectForKey:@"UIImagePickerControllerEditedImage"];
     user_image_local = image;
@@ -494,14 +489,6 @@
     [self.userInfoDetailTableview reloadData];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -303,7 +303,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"AUTOLOGIN"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //跳转个人信息界面
-    NSLog(@"登录成功了，该去做点别的了");
+    
     NSString *baidu_id = userDefault(@"baidu_id");
     
     baidu_id = [NSString stringWithFormat:@"%@%@",baidu_id,[UserModel shareInstance].u_id];
@@ -314,7 +314,7 @@
 #pragma mark-------三方登录按钮delegate
 -(void)clickAction:(NSInteger)tag
 {
-    NSLog(@"%ld",(long)tag);
+    
     NSString *platformName;
     if (tag == 1) {
         //qq
@@ -322,11 +322,10 @@
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
         UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platformName];
         snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-            NSLog(@"login response is %@",response);
+        
             //          获取微博用户名、uid、token等
             if (response.responseCode == UMSResponseCodeSuccess) {
                 UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:platformName];
-                NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
                 [self thirdLogin:snsAccount.usid type:@"1"];
             }
         });
@@ -336,11 +335,9 @@
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
         UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platformName];
         snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-            NSLog(@"login response is %@",response);
             //          获取微博用户名、uid、token等
             if (response.responseCode == UMSResponseCodeSuccess) {
                 UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:platformName];
-                NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
                 [self thirdLogin:snsAccount.usid type:@"3"];
             }
         });
@@ -350,11 +347,11 @@
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
         UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platformName];
         snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-            NSLog(@"login response is %@",response);
+            
             //          获取微博用户名、uid、token等
             if (response.responseCode == UMSResponseCodeSuccess) {
                 UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:platformName];
-                NSLog(@"username is %@, uid is %@, token is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken);
+
                 [self thirdLogin:snsAccount.usid type:@"2"];
             }
         });
@@ -418,18 +415,12 @@
     
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSLog(@"maybe do something...");
-}
 
 -(void)forgetAction:(UIButton*)sender
 {
-    NSLog(@"忘记密码");
     ForgetPasswordViewController *firVC = [[ForgetPasswordViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"忘记密码" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"忘记密码"];
     [self.navigationController  pushViewController:firVC animated:YES];
 }
 

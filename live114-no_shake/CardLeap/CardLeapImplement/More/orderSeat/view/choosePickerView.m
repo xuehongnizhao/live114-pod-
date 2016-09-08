@@ -107,14 +107,13 @@ numberOfRowsInComponent:(NSInteger)component {
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
-        NSLog(@"%@",[self.dateArray objectAtIndex:row]);
+        
         date = [self.dateArray objectAtIndex:row];
         year = [self.yearArray objectAtIndex:row];
     }else if(component == 1){
-        NSLog(@"%@",[self.timeArray objectAtIndex:row]);
+        
         time = [self.timeArray objectAtIndex:row];
     }else{
-        NSLog(@"%@",[self.countArray objectAtIndex:row]);
         people = [self.countArray objectAtIndex:row];
     }
 }
@@ -208,14 +207,12 @@ numberOfRowsInComponent:(NSInteger)component {
 
 -(void)confirmAction:(UIButton*)sender
 {
-    NSLog(@"confirm");
     [self removeFromSuperview];
     [self.delegate confirmDelegate:date time:time count:people year:year];
 }
 
 -(void)cancelAction:(UIButton*)sender
 {
-    NSLog(@"cancel");
     [self removeFromSuperview];
     [self.delegate cancelActionDelegate];
 }

@@ -91,12 +91,12 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+
     mylocation = [self zzTransGPS:mylocation];
     baidu_late = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -161,7 +161,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
+    
     //获取列表
 }
 
@@ -242,7 +242,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击返回");
+    
     locatinoInfo *info = [locationArray objectAtIndex:indexPath.row];
     [self.delegate locationCurrentPostion:info];
     [self.navigationController popViewControllerAnimated:YES];

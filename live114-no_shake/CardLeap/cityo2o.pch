@@ -19,7 +19,6 @@
     #import "SVProgressHUD.h"
     #import "UIImageView+WebCache.h"
     #import "AppDelegate.h"
-    #import "JsonModel.h"
     #import "Debug.h"
     #import "UserModel.h"
     #import "BaseViewController.h"

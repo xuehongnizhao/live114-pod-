@@ -42,12 +42,17 @@
 //加载本地的html
 -(void) initWebViewContent
 {
-    NSLog(@"%@",self.url);
+    
     self.shopWebView.delegate=self;
     [self.shopWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
 }
 
-
+/**
+ *  @author zq, 16-09-08 14:09:59
+ *
+ *  找到url中的组成成分
+ *
+ */
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {

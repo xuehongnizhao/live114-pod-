@@ -130,7 +130,7 @@
 #pragma mark----------click action
 -(void)backToShop:(UIButton*)sender
 {
-    NSLog(@"返回到商家");
+    
     NSArray *subViews = self.navigationController.viewControllers;
     for (BaseViewController *obj in subViews) {
         if ([obj isKindOfClass:[GroupDetailViewController class]]) {
@@ -142,11 +142,7 @@
 
 -(void)checkOrder:(UIButton*)sender
 {
-//    NSLog(@"查看订单详情");
-//    LoginViewController *firVC = [[LoginViewController alloc] init];
-//    [firVC setHiddenTabbar:YES];
-//    [firVC.navigationItem setTitle:@"设置"];
-//    [self.navigationController pushViewController:firVC animated:YES];
+
   
     GroupCheckCodeViewController *firVC = [[GroupCheckCodeViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -156,13 +152,6 @@
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

@@ -86,7 +86,6 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击进入详情");
     couponInfo *info = [postDataSourceArray objectAtIndex:indexPath.row];
     CouponDetailViewController *firVC = [[CouponDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -191,7 +190,6 @@
 #pragma mark 下拉刷新
 -(void)headerRereshing
 {
-    NSLog(@"下拉刷新");
     currentPage=@"1";
     isMore=NO;
     [self searchPost];
@@ -203,7 +201,6 @@
 #pragma mark 上拉加载更多
 -(void)footerRereshing
 {
-    NSLog(@"上拉加载更多");
     int page=[currentPage intValue]+1;
     currentPage=[NSString stringWithFormat:@"%d",page];
     isMore=YES;
@@ -214,14 +211,6 @@
 #pragma mark 设置返回按钮和搜索按钮
 -(void)setBackButtonAndSearchButton
 {
-    //    UIButton* leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    //    leftButton.frame=CGRectMake(0, 0, 44, 44);
-    //    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateNormal];
-    //    [leftButton setImage:[UIImage imageNamed:@"news_back_no"] forState:UIControlStateSelected];
-    //    leftButton.imageEdgeInsets=UIEdgeInsetsMake(0, -30, 0, 0);
-    //    [leftButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-    //    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:leftButton];
-    
     
     UIButton* rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame=CGRectMake(0, 0, 44*LinPercent, 30);
@@ -232,8 +221,6 @@
     rightButton.layer.borderColor = UIColorFromRGB(0xcd4a56).CGColor;
     rightButton.layer.masksToBounds = YES;
     rightButton.layer.cornerRadius = 3.0f;
-    //[rightButton setImage:[UIImage imageNamed:@"search_search"] forState:UIControlStateNormal];
-    //[rightButton setImage:[UIImage imageNamed:@"search_search"] forState:UIControlStateSelected];
     
     [rightButton addTarget:self action:@selector(searchPost) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightButton];
@@ -249,7 +236,6 @@
  */
 -(void)searchPost
 {
-    NSLog(@"搜索关键字");
     if (![_searchBar.text isEqualToString:@""])
     {
         //搜索后显示搜索cell
@@ -264,12 +250,10 @@
         {
             if (![historyArray containsObject:_searchBar.text])
             {
-                NSLog(@"成功添加历史记录");
                 [historyArray addObject:_searchBar.text];
             }
             else
             {
-                NSLog(@"已有该数据");
             }
         }
         else
@@ -307,7 +291,6 @@
                 {
                     [SVProgressHUD dismiss];
                     //字典数组转换模型数组
-                    NSLog(@"%@",[param objectForKey:@"obj"]);
                     NSMutableArray *array = [[NSMutableArray alloc] init];
                     NSArray *tmpArr = [param objectForKey:@"obj"];
                     for (NSDictionary *dic in tmpArr) {
@@ -345,7 +328,7 @@
                 }
                 else
                 {
-                    NSLog(@"搜索帖子数据异常");
+
                 }
             } andErrorBlock:^(NSError *error) {
                 [SVProgressHUD showErrorWithStatus:@"暂无该类信息"];
@@ -361,7 +344,6 @@
     }
     else
     {
-        NSLog(@"输入错误");
     }
     
 }
@@ -382,8 +364,6 @@
 #pragma mark tableViewDelegateAndDataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (isShowHistory)
-//    {
         if (indexPath.row<historyArray.count)
         {
             static NSString *CellIdentifier = @"history";
@@ -420,24 +400,6 @@
             cell.textLabel.textColor=[UIColor colorWithRed:114/255.0 green:114/255.0 blue:114/255.0 alpha:1];
             return cell;
         }
-        
-//    
-//    else
-//    {
-//        static NSString *simpleTableIdentifier=@"search_seat_cell";
-//        orderSeatTableViewCell *cell=(orderSeatTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//        if(cell==nil)
-//        {
-//            cell = [[orderSeatTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: simpleTableIdentifier];
-//        }
-//        while ([cell.contentView.subviews lastObject]!= nil) {
-//            [[cell.contentView.subviews lastObject]removeFromSuperview];
-//        }
-//        orderSeatInfo *info = [postDataSourceArray objectAtIndex:indexPath.row];
-//        //[cell configureCell:info];
-//        [cell confirgure:info];
-//        return cell;
-//    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -557,7 +519,6 @@
 #pragma mark searchBar代理方法
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"键盘搜索");
     [self searchPost];
 }
 
@@ -565,7 +526,6 @@
 {
     if ([searchText isEqualToString:@""])
     {
-        NSLog(@"heiheihei");
         isShowHistory=YES;
         
         [self.couponCollectionview removeFromSuperview];
@@ -583,14 +543,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

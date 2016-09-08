@@ -142,7 +142,7 @@
 #pragma mark------modify action
 -(void)modifyAction:(UIButton*)sender
 {
-    NSLog(@"确认修改");
+
     if ([self.user_phone_T.text isEqualToString:self.certifyCode.text]) {
         NSString *url = connect_url(@"yz_edit_pass");
         NSDictionary *dict = @{

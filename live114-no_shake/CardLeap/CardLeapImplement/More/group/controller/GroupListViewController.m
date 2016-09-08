@@ -89,7 +89,7 @@
     TenLat = (int)(yGps.latitude*10);
     TenLog = (int)(yGps.longitude*10);
     NSString *sql = [[NSString alloc]initWithFormat:@"select offLat,offLog from gpsT where lat=%d and log = %d",TenLat,TenLog];
-    NSLog(@"%@",sql);
+    
     sqlite3_stmt* stmtL = [m_sqlite NSRunSql:sql];
     int offLat=0;
     int offLog=0;
@@ -108,12 +108,12 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
+    
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
+    
     mylocation = [self zzTransGPS:mylocation];
     baidu_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -138,7 +138,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
+    
     //获取列表
     [self getCateFromNet];
 }
@@ -308,9 +308,7 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-    //    NSLog(@"%d -- %d-----and text:%@", column, row ,text);
-    //    NSString *str = [_listIdDict objectForKey:text];
-    NSLog(@"点击了%@",text);
+
     switch (column) {
         case 0:
             cate_id = text;
@@ -441,7 +439,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     groupInfo *info = [groupArray objectAtIndex:indexPath.row];
     GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -490,7 +488,7 @@
 #pragma mark--------action
 -(void)mapAction:(UIButton*)sender
 {
-    NSLog(@"go to map");
+    
     GroupMapViewController *firVC = [[GroupMapViewController alloc] init];
     firVC.category  = cate_id;
     firVC.identifer = area_id;
@@ -501,7 +499,7 @@
 
 -(void)searchAction:(UIButton*)sender
 {
-    NSLog(@"go to search");
+    
     GroupSearchViewController *firVC = [[GroupSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     [firVC setNavBarTitle:@"搜索团购" withFont:14.0f];
@@ -514,14 +512,14 @@
 #pragma mark-------refresh
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载");
+    
     page++;
     [self getDataFromNet];
 }

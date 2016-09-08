@@ -99,7 +99,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     
 }
 
@@ -230,7 +230,7 @@
     
     //将商品信息拼接成字符串
     NSString *orderSpec = [order description];
-    NSLog(@"orderSpec = %@",orderSpec);
+    
     
     //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner(privateKey);
@@ -243,7 +243,7 @@
                        orderSpec, signedString, @"RSA"];
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
+            
             BOOL is_success = NO;
             NSString *resultSting = resultDic[@"result"] ;
             NSArray *resultStringArray =[resultSting componentsSeparatedByString:NSLocalizedString(@"&", nil)];
@@ -258,7 +258,7 @@
                     if ([st isEqualToString:@"success"])
                     {
                         is_success = YES;
-                        NSLog(@"%@",[strArray objectAtIndex:1]);
+                        
                         break;
                     }
                 }
@@ -295,47 +295,8 @@
 #pragma mark------complete actino delegate
 -(void)completeAction
 {
-//    NSLog(@"点击完成，返回验证");
-//    //[NSThread sleepForTimeInterval:2.5];
-//    [SVProgressHUD showWithStatus:@"正在验证,请稍等" maskType:SVProgressHUDMaskTypeNone];
-//    NSString *url = connect_url(@"group_check");
-//    NSDictionary *dict = @{
-//                           @"app_key":url,
-//                           @"order_id":self.order_id
-//                           };
-//    [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
-//        if ([param[@"code"] integerValue]==200) {
-//            [SVProgressHUD dismiss];
-//            if ([[param[@"obj"] objectForKey:@"is_pay"] integerValue]==0) {
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您尚未支付该订单" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-//                [alert show];
-//            }else{
-//                GroupPaySuccessViewController *firVC = [[GroupPaySuccessViewController alloc] init];
-//                [firVC setHiddenTabbar:YES];
-//                [firVC setNavBarTitle:@"支付成功" withFont:14.0f];
-////                [firVC.navigationItem setTitle:@"支付成功"];
-//                firVC.passArray = self.passArray;
-//                firVC.order_id = order_id;
-//                firVC.messageDict = self.dict;
-//                //firVC.info = self.info;
-//                [self.navigationController pushViewController:firVC animated:YES];
-//            }
-//        }else{
-//            [SVProgressHUD showErrorWithStatus:param[@"message"]];
-//        }
-//    } andErrorBlock:^(NSError *error) {
-//  
-//    }];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

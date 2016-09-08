@@ -11,7 +11,6 @@
 #import "DSNavigationBar.h"
 //tabBar
 #import "TabBarViewController.h"
-#import "JsonModel.h"
 //极光推送
 #import "APService.h"
 //友盟社会化组件
@@ -106,13 +105,11 @@
 {
     if ([url.host isEqualToString:@"safepay"]) {
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
         }];
     }
     
     if ([url.host isEqualToString:@"platformapi"]){//支付宝钱包快登授权返回 authCode
         [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
         }];
     }
     return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
@@ -161,7 +158,6 @@ forRemoteNotification:(NSDictionary *)userInfo
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [APService handleRemoteNotification:userInfo];
-    NSLog(@"收到通知:%@", [self logDic:userInfo]);
 }
 
 #pragma mark------收到通知回调
@@ -170,7 +166,6 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:
 (void (^)(UIBackgroundFetchResult))completionHandler {
     [APService handleRemoteNotification:userInfo];
-    NSLog(@"收到通知:%@", [self logDic:userInfo]);
     if (application.applicationState == UIApplicationStateActive) {
         NSString *string = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
@@ -373,12 +368,10 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 
 #pragma mark------获取设备id
 - (void)networkDidLogin:(NSNotification *)notification {
-    NSLog(@"已登录");
     if ([APService registrationID]) {
         self.deviceID = [APService registrationID];
         [[NSUserDefaults standardUserDefaults] setObject:self.deviceID forKey:@"baidu_id"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        NSLog(@"get RegistrationID");
         [self AutoLogin];
     }else{
         [self AutoLogin];
@@ -408,7 +401,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                                @"u_id":        u_id
                                };
     [Base64Tool postSomethingToServe:base_set andParams:paramDic isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
-        NSLog(@"%@",param);
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             if ([JSONOfNetWork createPlist:param]){
@@ -466,7 +458,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
         NSString *code = [NSString stringWithFormat:@"%@",[param objectForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             [SVProgressHUD dismiss];
-            NSLog(@"%@",param);
             [[NSUserDefaults standardUserDefaults]setObject:param[@"obj"] forKey:URLFilter];
         }else{
             [SVProgressHUD showErrorWithStatus:[param objectForKey:@"message"]];
@@ -534,7 +525,7 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"AUTULOGIN"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //跳转个人信息界面
-    NSLog(@"登录成功了，该去做点别的了");
+
     NSString *baidu_id = userDefault(@"baidu_id");
     baidu_id = [NSString stringWithFormat:@"%@%@",baidu_id,[UserModel shareInstance].u_id];
     [self setAlian:baidu_id];
@@ -571,7 +562,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
 #pragma mark-------设置主页
 -(void)setIndex
 {
-    NSLog(@"%f",SCREEN_HEIGHT);
     /**
      暂时由于显示问题  不要设置动画显示
      */
@@ -645,7 +635,6 @@ void UncaughtExceptionHandler(NSException *exception) {
                                @"error":message
                                };
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
-            NSLog(@"返回");
         } andErrorBlock:^(NSError *error) {
       
         }];

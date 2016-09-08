@@ -24,9 +24,7 @@
         NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:sqlFile];
         NSError *error;
         [fileManager copyItemAtPath:databasePathFromApp toPath:databasePath error:&error];
-//        if (error != nil) {
-//            NSLog(@"[Database:Error] %@", error);
-//        }
+
     }
     
     if(sqlite3_open([databasePath cStringUsingEncoding:NSASCIIStringEncoding], &database)==SQLITE_OK)

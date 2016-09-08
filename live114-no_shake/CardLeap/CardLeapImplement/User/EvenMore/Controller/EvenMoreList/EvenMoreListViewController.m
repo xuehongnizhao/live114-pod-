@@ -285,13 +285,11 @@
     if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {
-            NSLog(@"意见反馈");
             EvenMoreFeedbackViewController *feedback = [[EvenMoreFeedbackViewController alloc] init];
             [self.navigationController pushViewController:feedback animated:YES];
         }
         
         if (indexPath.row == 1) {
-            NSLog(@"给我打分");
             [self toScore];
         }
     }
@@ -299,7 +297,6 @@
     if (indexPath.section == 2) {
         
         if (indexPath.row == 0) {
-            NSLog(@"使用帮助");
             evenMoreJump.isHelp     = YES;
             morWebView.evenMoreJomp = evenMoreJump;
             [morWebView setNavBarTitle:@"使用帮助" withFont:14.0f];
@@ -307,7 +304,6 @@
         }
         
         if (indexPath.row == 1) {
-            NSLog(@"二维码分享");
             evenMoreJump.isCode = YES;
             morWebView.evenMoreJomp = evenMoreJump;
             [morWebView setNavBarTitle:@"我的二维码" withFont:14.0f];
@@ -318,7 +314,7 @@
     if (indexPath.section == 3) {
         
         if (indexPath.row == 0) {
-            NSLog(@"清理缓存");
+
             [self clearCache];
         }
         

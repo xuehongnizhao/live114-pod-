@@ -167,15 +167,7 @@
 #pragma mark-----chooseAction
 -(void)choosePayAction:(UIButton*)sender
 {
-    NSLog(@"选择支付方式");
-//    [self.alipayClientButton setImage:[UIImage imageNamed:@"adreess_no"] forState:UIControlStateNormal];
-//    [self.alipayWebButton setImage:[UIImage imageNamed:@"adreess_no"] forState:UIControlStateNormal];
-//    
-//    if (sender.tag == 1) {
-//        [_alipayWebButton setImage:[UIImage imageNamed:@"adreess_sel"] forState:UIControlStateNormal];
-//    }else if (sender.tag == 2){
-//        [_alipayClientButton setImage:[UIImage imageNamed:@"adreess_sel"] forState:UIControlStateNormal];
-//    }
+
     [self.delegate choosePayAction:sender.tag];
 }
 

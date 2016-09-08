@@ -56,7 +56,7 @@
             {
                 //添加图片数组
                 UIImageView *imageView = [[UIImageView alloc] init];
-                NSLog(@"%@",[imageArray objectAtIndex:i]);
+                
                 [imageView sd_setImageWithURL:[NSURL URLWithString:[imageArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"user"]];
                 [Images addObject:imageView];
                 //添加Label数组
@@ -249,7 +249,7 @@
             {
                 //添加图片数组
                 UIImageView *imageView = [[UIImageView alloc] init];
-                NSLog(@"%@",[imageArray objectAtIndex:i]);
+                
                 [imageView sd_setImageWithURL:[NSURL URLWithString:[imageArray objectAtIndex:i]] placeholderImage:[UIImage imageNamed:@"user"]];
                 [Images addObject:imageView];
                 //添加Label数组
@@ -431,7 +431,7 @@
         if ([self.webViewHeightDelegate respondsToSelector:@selector(webViewDidLoad:)]) {
             CGFloat webHeight;
             webHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
-            NSLog(@"加载完成，获取高度%f",webHeight);
+            
             [self.webViewHeightDelegate webViewDidLoad:webHeight];
         } else {
             
@@ -654,19 +654,19 @@
 #pragma mark-------adBannerViewDelegate
 -(void)adBannerView:(AdBannerView *)adBannerView itemIndex:(int)index
 {
-    NSLog(@"被点击的图片是第%d长",index);
+    
     
 }
 
 -(void)confirmAction:(UIButton*)sender
 {
-    NSLog(@"抢购去");
+    
     [self.delegate go2PurchaseDelegate];
 }
 
 -(void)callPhoneAction:(UIButton*)sender
 {
-    NSLog(@"拨打电话，号码--在哪找");
+    
     [self.delegate callPhone];
 }
 

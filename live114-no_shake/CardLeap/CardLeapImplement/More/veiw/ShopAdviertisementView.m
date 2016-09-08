@@ -36,7 +36,6 @@
     if (_SJSC) {
         _shangCheng=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"shop_list"]];
         _shangCheng.frame=CGRectMake(30, _SJHDView.frame.origin.y+_SJHDView.frame.size.height, SCREEN_WIDTH-10, 40*(_SJSC.count?1:0));
-        NSLog(@"%@",NSStringFromCGRect(_shangCheng.frame) );
         _shangCheng.contentMode=UIViewContentModeScaleAspectFit;
         if (_shangCheng.frame.size.height!=0) {
             [self addSubview:_shangCheng];

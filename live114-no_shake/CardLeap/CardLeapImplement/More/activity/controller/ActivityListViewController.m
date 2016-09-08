@@ -173,8 +173,6 @@
 #pragma mark - MXPullDownMenuDelegate 实现代理.
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
-
-    NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
             cate = text;
@@ -259,13 +257,11 @@
 
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
     page = 1;
     [self getDataFromNet];
 }
 
 -(void)footerBeginRefreshing{
-    NSLog(@"上拉加载更多");
     page ++;
     [self getDataFromNet];
 }

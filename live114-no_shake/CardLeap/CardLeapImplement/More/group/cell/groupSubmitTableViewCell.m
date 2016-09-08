@@ -159,13 +159,13 @@
 #pragma mark------add and sub action
 -(void)addAction:(UIButton*)sender
 {
-    NSLog(@"加方法");
+    
     [self.delegate buttonActionAddSub:1];
 }
 
 -(void)subAction:(UIButton*)sender
 {
-    NSLog(@"减方法");
+    
     [self.delegate buttonActionAddSub:0];
 }
 

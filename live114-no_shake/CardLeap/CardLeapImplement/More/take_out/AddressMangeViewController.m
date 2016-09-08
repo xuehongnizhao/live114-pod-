@@ -46,8 +46,8 @@
 #pragma mark--------tableview delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //设置点击失效
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
     
 }
 
@@ -121,7 +121,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView setEditing:NO animated:YES];
-    NSLog(@"去删除");
     userAddressInfo *info = [self.addressArray objectAtIndex:indexPath.section];
     [self deleteAddress:info];
 }
@@ -179,7 +178,6 @@
 
 -(void)addAction:(UIButton*)sender
 {
-    NSLog(@"跳转添加地址");
     AddAddressViewController *firVC = [[AddAddressViewController alloc] init];
     firVC.delegate = self;
     [firVC setHiddenTabbar:YES];
@@ -190,7 +188,6 @@
 #pragma mark---------cell delegate
 -(void)selectActionDelegate:(UIButton *)sender
 {
-    NSLog(@"点击了按钮%ld",(long)sender.tag);
     NSInteger tag = sender.tag;
     userAddressInfo *info = [self.addressArray objectAtIndex:tag];
     if ([info.is_default isEqualToString:@"0"]) {
@@ -245,7 +242,6 @@
                                };
         [Base64Tool postSomethingToServe:url andParams:dict isBase64:[IS_USE_BASE64 boolValue] CompletionBlock:^(id param) {
             if ([param[@"code"] integerValue]==200) {
-                NSLog(@"删除成功");
             }else{
                 [SVProgressHUD showErrorWithStatus:param[@"message"]];
             }
@@ -260,7 +256,6 @@
 #pragma mark---------add address delegate
 -(void)addAddressDelegate
 {
-    NSLog(@"跳回来了吗");
     [self getDataFormNet];
 }
 

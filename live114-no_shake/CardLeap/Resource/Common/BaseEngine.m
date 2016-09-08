@@ -77,19 +77,17 @@
         id feedBackStatu = nil;
         if (responseState == responseJsonState)
         {
-            NSLog(@"json");
+            
             feedBackStatu = [completedOperation responseJSON];
         }
         if (responseState == responseStringState) {
-            NSLog(@"codeData:%@",[completedOperation responseString]);
+            
             feedBackStatu =[completedOperation responseData] ;
         }
         completionBlock(feedBackStatu);
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
-        NSLog(@"解析错误:%@",error);
+        
         errorBlock(error);
-        //当网络返回异常的时候 重新访问
-        //[self postSomethingTo:apiPath withParams:params withCompletionBlock:completionBlock andErrorBlock:errorBlock option:responseState];
     }];
     
     [self enqueueOperation:op];

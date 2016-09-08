@@ -201,7 +201,7 @@
             }
         }
         selectRowAtTableview = tempArr;
-        NSLog(@"%@",selectRowAtTableview);
+        
         NSArray *array = _array[_currentSelectedMenudIndex];
         cateInfo *info = array[indexPath.row];
         
@@ -567,7 +567,7 @@
         NSArray *array = [_array objectAtIndex:_currentSelectedMenudIndex];
         cateInfo *info = [array objectAtIndex:row];
         
-        NSLog(@"%@",info.cate_name);
+        
         title.string = info.cate_name;
     }else{
         /*

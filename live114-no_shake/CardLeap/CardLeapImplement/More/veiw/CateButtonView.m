@@ -19,13 +19,6 @@
 
 @implementation CateButtonView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 -(CateButtonView*)initWithFrame:(CGRect)frame titleArray:(NSArray*)titleArray tagArray:(NSArray*)tagArray index:(NSInteger)index;
 {
     if (self) {
@@ -47,10 +40,6 @@
 {
     CGRect rect = [[UIScreen mainScreen] bounds];
     CGFloat width = (rect.size.width-10) / [_titleArray count];
-//    UIImageView *imageNormal = [[UIImageView alloc] init];
-//    [imageNormal setBackgroundColor:[UIColor whiteColor]];
-//    UIImageView *hightlighterImage = [[UIImageView alloc] init];
-//    [hightlighterImage setBackgroundColor:[UIColor redColor]];
     for (int i=0 ;i<[_titleArray count];i++) {
         NSString *title = [_titleArray objectAtIndex:i];
         NSInteger buttonTag = [[_tagArray objectAtIndex:i] integerValue];
@@ -89,7 +78,6 @@
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     NSInteger tag = sender.tag;
-    NSLog(@"点击了分类id %ld",(long)tag);
     [self.delegate chooseCateID:tag];
 }
 @end

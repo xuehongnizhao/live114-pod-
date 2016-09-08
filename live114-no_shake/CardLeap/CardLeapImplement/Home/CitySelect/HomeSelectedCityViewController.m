@@ -128,7 +128,7 @@
 -(void)getCity
 {
     
-//    NSLog(@"user_city:%@",USER_CITY);
+
     NSString *url = connect_url(@"shop_city");
     NSDictionary* dict=@{
                          @"app_key":url,

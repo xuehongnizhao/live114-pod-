@@ -108,7 +108,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"干嘛的-----");
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
         GroupDetailViewController *firVC = [[GroupDetailViewController alloc] init];
         [firVC setNavBarTitle:@"如e商家" withFont:14.0f];
@@ -186,7 +186,7 @@
 #pragma mark-----button action
 -(void)shareAction:(UIButton*)sender
 {
-    NSLog(@"分享出去");
+    
     [self UserSharePoint];
     NSString *share_text = [NSString stringWithFormat:@"我在如e生活为你团购了%@",[self.messageDict objectForKey:@"group_name"]];
     NSString *spike_code ;
@@ -252,7 +252,7 @@
 
 -(void)backAction:(UIButton*)sender
 {
-    NSLog(@"判断如何返回");
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

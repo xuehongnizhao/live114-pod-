@@ -167,7 +167,6 @@
             
         }
         
-        
         //设置delegate
         self.delegate = delegate;
         
@@ -180,10 +179,8 @@
 -(void)longPressToDo :(UILongPressGestureRecognizer*)gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"停止滚动");
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchImageItems) object:nil];
     }else{
-        NSLog(@"继续滚动");
         [self performSelector:@selector(switchImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
     }
 }

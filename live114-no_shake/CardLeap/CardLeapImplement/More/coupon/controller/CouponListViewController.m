@@ -100,12 +100,10 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"定位成功");
     [locationManager stopUpdatingLocation]; // 关闭定位
     CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
     NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
-    NSLog(@"未经过转换的经纬度是%@---%@",u_lat,u_lng);
     mylocation = [self zzTransGPS:mylocation];
     baidu_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
     baidu_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
@@ -130,7 +128,6 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     [locationManager stopUpdatingLocation]; // 关闭定位
-    NSLog(@"定位失败");
     //获取列表
     [self getCateFromNet];
 }
@@ -267,7 +264,6 @@
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row selectText:(NSString *)text
 {
 
-    NSLog(@"点击了%@",text);
     switch (column) {
         case 0:
             cate = text;
@@ -339,14 +335,14 @@
 #pragma mark-----------next page and regresh
 -(void)headerBeginRefreshing
 {
-    NSLog(@"下拉刷新");
+    
     page = 1;
     [locationManager startUpdatingLocation];
 }
 
 -(void)footerBeginRefreshing
 {
-    NSLog(@"上拉加载更多");
+    
     page++;
     [self getDataListFromNet];
 }
@@ -360,7 +356,6 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    NSLog(@"点击进入详情");
     couponInfo *info = [couponArray objectAtIndex:indexPath.row];
     CouponDetailViewController *firVC = [[CouponDetailViewController alloc] init];
     [firVC setHiddenTabbar:YES];
@@ -458,24 +453,14 @@
 #pragma mark------------search action
 -(void)searchAction:(UIButton*)sender
 {
-    NSLog(@"跳转到搜索界面");
     CouPonSearchViewController *firVC = [[CouPonSearchViewController alloc] init];
     [firVC setHiddenTabbar:YES];
     firVC.u_lat = baidu_lat;
     firVC.u_lng = baidu_lng;
     [firVC setNavBarTitle:@"搜索团购" withFont:14.0f];
-//    [firVC.navigationItem setTitle:@"搜索团购"];
     [self.navigationController pushViewController:firVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

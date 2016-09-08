@@ -164,26 +164,26 @@
 -(void)goToMyMessage:(UIButton*)btn
 {
 
-    NSLog(@"跳转我的消息页面");
+    
     [self.delegate goSeachShop:0];
 }
 
 -(void)searchShop :(UITapGestureRecognizer*)gesture
 {
-    NSLog(@"跳转搜索页面");
+    
     [self.delegate goSeachShop:0];
 }
 
 -(void)goCityList:(UIButton*)sender
 {
     sender.userInteractionEnabled = NO;
-    NSLog(@"跳转到多城市列表");
+    
     [self.delegate goSeachShop:2];
 }
 
 -(void)callPhone:(UIButton*)sender
 {
-    NSLog(@"拨打电话");
+    
     [self.delegate goSeachShop:3];
 }
 

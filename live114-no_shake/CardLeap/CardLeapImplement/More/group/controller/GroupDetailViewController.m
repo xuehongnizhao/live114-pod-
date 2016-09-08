@@ -394,8 +394,7 @@
 #pragma mark--------分享回掉方法（弃用）
 -(void)didFinishGetUMSocialDataInViewController1:(UMSocialResponseEntity *)response
 {
-    NSLog(@"分享完成，去执行接口增加积分");
-    NSLog(@"进入代理方法");
+
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -438,7 +437,7 @@
 
 -(void)callPhone
 {
-    NSLog(@"拨打电话");
+    
     if (detailInfo !=nil) {
        //[UZCommonMethod callPhone:detailInfo.shop_tel superView:self.view];
         NSArray *array = [detailInfo.shop_tel componentsSeparatedByString:@" "];

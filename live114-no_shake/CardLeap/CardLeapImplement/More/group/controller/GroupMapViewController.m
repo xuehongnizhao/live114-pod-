@@ -226,14 +226,11 @@ static NSString *pageCount = @"10";
     
     self.shopPanel.tag = shopID;
     groupInfo *info = self.shops[shopID];
-    //self.thumbView.layer.borderColor = [Color(184, 184, 184, 1.0) CGColor];
     self.thumbView.layer.borderWidth = 0.3;
     NSString *imageURLStr = info.pic;
     [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:imageURLStr] placeholderImage:nil];
     self.shopNameLabel.text = info.shop_name;
     self.distanceLabel.text = [NSString stringWithFormat:@"%@",info.distance];
-    NSLog(@"%@m",self.distanceLabel.text);
-    NSLog(@"%@",self.shopNameLabel.text);
     [self setStar:info.score ];
 }
 //隐藏商家信息pane
@@ -293,7 +290,6 @@ static NSString *pageCount = @"10";
         [annotations addObject:annotation];
     }
     self.annotations = annotations;
-    NSLog(@"the anotations is %@",self.annotations);
     
     return annotations;
 }
@@ -419,9 +415,9 @@ static NSString *pageCount = @"10";
 //我们可以写一个MKMapView的委托方法打印出zoom level
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     if ([self.shops count]>0) {
-        NSLog(@"zoom level %d", [self getZoomLevel:mapView]);
-        NSLog(@"the late and the lng is %f and %f",mapView.centerCoordinate.latitude,mapView.centerCoordinate.longitude);
-        NSLog(@"the distance is %f",[Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]);
+//        NSLog(@"zoom level %d", [self getZoomLevel:mapView]);
+//        NSLog(@"the late and the lng is %f and %f",mapView.centerCoordinate.latitude,mapView.centerCoordinate.longitude);
+//        NSLog(@"the distance is %f",[Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]);
         if ([Base64Tool LantitudeLongitudeDist:baidu_lng other_Lat:baidu_lat self_Lon:mapView.centerCoordinate.longitude self_Lat:mapView.centerCoordinate.latitude]>1000) {
             baidu_lat = mapView.centerCoordinate.latitude;
             baidu_lng = mapView.centerCoordinate.longitude;
