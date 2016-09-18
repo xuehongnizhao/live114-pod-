@@ -22,9 +22,6 @@
 @synthesize vip_pic = _vip_pic;
 @synthesize rezheng_pic = _rezheng_pic;
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -18,7 +18,7 @@
 #import "DishDetailView.h"
 #import "XHRealTimeBlur.h"
 
-@interface ShopTakeOutViewController ()<UITableViewDataSource,UITableViewDelegate,ActionDelegate,DishDetailViewDelegate>
+@interface ShopTakeOutViewController ()<UITableViewDataSource,UITableViewDelegate,CAAnimationDelegate,ActionDelegate,DishDetailViewDelegate>
 {
     NSMutableArray *cateArrary ;
     NSMutableArray *dishArray ;

@@ -19,10 +19,7 @@
 @synthesize oreder_pic = _oreder_pic;
 @synthesize spike_pic = _spike_pic;
 @synthesize activity_pic = _activity_pic;
-- (void)awakeFromNib {
-    // Initialization code
-    
-}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -110,7 +110,6 @@
             
             detailInfo = [[shopDetailInfo alloc] initWithDictionary:[param objectForKey:@"obj"]];
 
-            
             [self.shopDetailTableview reloadData];
             [self setButton];
         }else{

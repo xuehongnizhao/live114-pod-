@@ -131,8 +131,8 @@
         [locationManager stopUpdatingLocation]; // 关闭定位
         [NSThread sleepForTimeInterval:1];
         CLLocationCoordinate2D mylocation = newLocation.coordinate;//手机GPS
-        NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
-        NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
+//      NSString *u_lat = [[NSString alloc]initWithFormat:@"%lf",mylocation.latitude];
+//      NSString *u_lng = [[NSString alloc]initWithFormat:@"%lf",mylocation.longitude];
         
         //获取列表
         CLLocation *location = [[CLLocation alloc] initWithLatitude:mylocation.latitude longitude:mylocation.longitude];

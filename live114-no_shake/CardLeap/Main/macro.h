@@ -56,9 +56,6 @@ self.edgesForExtendedLayout = UIRectEdgeNone;   \
 
 #define LoadWebImage(imageview,url,defaultImage) [] 
 
-/*
- *  从RGB获得颜色 0xffffff
- */
 #define UIColorFromRGB(rgbValue)                            \
 [UIColor                                                    \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0   \

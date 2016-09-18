@@ -65,4 +65,5 @@
 // 获取NSUserDefault中的数据
 #define GetUserDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
 
+
 #endif
