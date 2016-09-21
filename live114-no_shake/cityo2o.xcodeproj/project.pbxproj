@@ -202,7 +202,6 @@
 		046DA0371B4D5FA300627708 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DA0301B4D5FA300627708 /* MapViewController.m */; };
 		046DA0381B4D5FA300627708 /* ShopToAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DA0321B4D5FA300627708 /* ShopToAnnotation.m */; };
 		046E99E91D4743F8006306C6 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C87E5F1BD9CC8800E6B75E /* UMSocialSDKResourcesNew.bundle */; };
-		046FFDE11D88D32E00DF0428 /* ChooseNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FFDE01D88D32E00DF0428 /* ChooseNumberVC.m */; };
 		04701DC71A5120580036E481 /* shopTakeCateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04701DC61A5120580036E481 /* shopTakeCateInfo.m */; };
 		04701DCA1A5123550036E481 /* takeoutDishInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04701DC91A5123550036E481 /* takeoutDishInfo.m */; };
 		04701DCD1A5126390036E481 /* ShopDishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04701DCC1A5126390036E481 /* ShopDishTableViewCell.m */; };
@@ -895,8 +894,6 @@
 		046DA0301B4D5FA300627708 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		046DA0311B4D5FA300627708 /* shopToAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopToAnnotation.h; sourceTree = "<group>"; };
 		046DA0321B4D5FA300627708 /* ShopToAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopToAnnotation.m; sourceTree = "<group>"; };
-		046FFDDF1D88D32E00DF0428 /* ChooseNumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseNumberVC.h; sourceTree = "<group>"; };
-		046FFDE01D88D32E00DF0428 /* ChooseNumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseNumberVC.m; sourceTree = "<group>"; };
 		04701DC51A5120580036E481 /* shopTakeCateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopTakeCateInfo.h; sourceTree = "<group>"; };
 		04701DC61A5120580036E481 /* shopTakeCateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopTakeCateInfo.m; sourceTree = "<group>"; };
 		04701DC81A5123550036E481 /* takeoutDishInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takeoutDishInfo.h; sourceTree = "<group>"; };
@@ -2482,15 +2479,6 @@
 			path = ../NewMap/map;
 			sourceTree = "<group>";
 		};
-		046FFDDE1D88D32E00DF0428 /* chooseNumber */ = {
-			isa = PBXGroup;
-			children = (
-				046FFDDF1D88D32E00DF0428 /* ChooseNumberVC.h */,
-				046FFDE01D88D32E00DF0428 /* ChooseNumberVC.m */,
-			);
-			path = chooseNumber;
-			sourceTree = "<group>";
-		};
 		0474CCD11A43F38100230A5E /* ColorButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -3467,7 +3455,6 @@
 		333BDA521A1DCA1D009BAB8E /* More */ = {
 			isa = PBXGroup;
 			children = (
-				046FFDDE1D88D32E00DF0428 /* chooseNumber */,
 				042893B21A3E6EBD00CC2407 /* VoiceView */,
 				04EA1C611A81EFE600957DA9 /* shop */,
 				04BAC0EE1A7222990058D10A /* group */,
@@ -4211,7 +4198,6 @@
 				04394B831A5E353E00CF0B31 /* SpikeCodeTableViewCell.m in Sources */,
 				04B621541A9F0F6700490ED3 /* CouPonSearchViewController.m in Sources */,
 				04F3CD1E1A6F45F000D0B63E /* orderSeatReviewViewController.m in Sources */,
-				046FFDE11D88D32E00DF0428 /* ChooseNumberVC.m in Sources */,
 				042895C31A3E90E200CC2407 /* LoginMethodButtonView.m in Sources */,
 				047E39301A36D2980001DD16 /* MJRefreshBaseView.m in Sources */,
 				041641E91A66117C006C19B7 /* orderRoomDetailViewController.m in Sources */,

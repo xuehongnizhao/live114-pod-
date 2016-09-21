@@ -26,7 +26,7 @@
 #import "orderRoomDetailViewController.h"
 #import "ShopListViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "ChooseNumberVC.h"
+
 #define NaviItemTag 2016
 @interface ZQFunctionWebController()<UIWebViewDelegate,UMSocialUIDelegate>
 {
@@ -58,13 +58,11 @@
 - (void)setWebBirdge{
     __weak typeof(self)weakSelf = self;
     [self.bridge registerHandler:@"tableList" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        ShopListViewController *firVC = [[ShopListViewController alloc] init];
-//        firVC.is_hidden = @"0";
-//        firVC.shop_id=[data objectForKey:@"ListId"];
-//        firVC.cate_name =[data objectForKey:@"ListName"];
-//        [firVC setHiddenTabbar:YES];
-        ChooseNumberVC *firVC=[[ChooseNumberVC alloc]init];
-        [weakSelf.navigationController pushViewController:firVC animated:YES];
+        ShopListViewController *firVC = [[ShopListViewController alloc] init];
+        firVC.is_hidden = @"0";
+        firVC.shop_id=[data objectForKey:@"ListId"];
+        firVC.cate_name =[data objectForKey:@"ListName"];
+        [firVC setHiddenTabbar:YES];
         
     }];
     

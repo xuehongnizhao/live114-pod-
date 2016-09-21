@@ -27,14 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initData];
     [self setUI];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark-----init data
@@ -99,14 +93,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = 40.0;
-    return height;
+    
+    return 40;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,21 +121,14 @@
     [cell confirgureCell:indexPath.row param:self.dict index:chooseIndex
      ];
     cell.delegate = self;
-//    NSDictionary *dic = @{
-//                          @"count":[NSString stringWithFormat:@"%d",count],
-//                          @"singel_price":self.submitInfo.now_price,
-//                          @"group_name":self.submitInfo.group_name
-//                          };
-//    [cell configureCell:dic row:indexPath.row];
-//    cell.delegate = self;
-    //[cell setAc -- cessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 #pragma mark-----pay action
@@ -172,6 +157,8 @@
         } andErrorBlock:^(NSError *error) {
       
         }];
+    }else if (chooseIndex==1){
+        NSLog(@"微信支付");
     }
 }
 
@@ -218,7 +205,6 @@
     order.productDescription = [self.dict objectForKey:@"group_brief"]; //商品描述
     order.amount = totalPrice; //商品价格
     order.notifyURL =  @"http://manager.114lives.com/alipay/phoneAlipay/notify_url"; //回调URL
-    
     order.service = @"mobile.securitypay.pay";
     order.paymentType = @"1";
     order.inputCharset = @"utf-8";
@@ -276,7 +262,6 @@
                 firVC.passArray = array;
                 firVC.order_id = order_ids;
                 firVC.messageDict  = self.dict;
-                //firVC.info = self.info;
                 [self.navigationController pushViewController:firVC animated:YES];
             }
         }];

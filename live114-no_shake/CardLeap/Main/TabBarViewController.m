@@ -205,7 +205,6 @@
     [[self circleImage] removeFromSuperview];
     NSUserDefaults *loginDefault = [NSUserDefaults standardUserDefaults];
     [loginDefault setObject:@"NO" forKey:@"is_CircleHint"];
-    [loginDefault synchronize];
 }
 
 #pragma mark--------提示图标

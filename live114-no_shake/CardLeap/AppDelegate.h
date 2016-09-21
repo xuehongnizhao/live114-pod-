@@ -11,15 +11,15 @@
 #import "BaseEngine.h"
 #define UmengAppkey @"55ec0f2fe0f55a3af4000622"
 //获取相应的url
-#define connect_url(key) [[[[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"api"]objectForKey:key] substringFromIndex:28]
-//#define connect_url(key) [[[[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"api"]objectForKey:key] substringFromIndex:29]
+//#define connect_url(key) [[[[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"api"]objectForKey:key] substringFromIndex:28]
+#define connect_url(key) [[[[[JSONOfNetWork getDictionaryFromPlist] objectForKey:@"obj"]objectForKey:@"api"]objectForKey:key] substringFromIndex:29]
 //获取NSUserDefault中的数据
 #define userDefault(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
 
     
 #pragma mark --- 2016.1.5 修改服务器地址为本地
-#define baseUrl @"manager.114lives.com"
-//#define baseUrl @"192.168.1.141/life114"
+//#define baseUrl @"manager.114lives.com"
+#define baseUrl @"192.168.1.141/life114"
 
 
 #define base_set @"base_set/ac_base"

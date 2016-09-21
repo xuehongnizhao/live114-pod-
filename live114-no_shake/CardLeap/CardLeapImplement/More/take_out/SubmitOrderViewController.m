@@ -619,31 +619,22 @@
         [self.view showRealTimeBlurWithBlurStyle:XHBlurStyleBlackTranslucent];
         _datePicker = [[UIDatePicker alloc] initForAutoLayout];
         [self.view addSubview:_datePicker];
-        //---auto layout------
         [_datePicker autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30.0f];
         [_datePicker autoPinEdgeToSuperviewEdge:ALEdgeTop  withInset:100.0f];
         [_datePicker autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:30.0f];
         [_datePicker autoSetDimension:ALDimensionHeight toSize:150.0f];
-        
         NSDate *today =[[NSDate alloc]init];
         _datePicker.minimumDate = today;
         _datePicker.backgroundColor = [UIColor whiteColor];
-        //datePicker.datePickerMode = UIDatePickerModeDate;
-        // UIDatePickerModeCountDownTimer
         _datePicker.datePickerMode=UIDatePickerModeTime;
-        //UIDatePickerModeCountDownTimer 24小时制
         _datePicker.minuteInterval = 10;
-        //[datePicker setMinimumDate:[NSDate date]];
-        
         _pickerToolbar = [[UIView alloc] initForAutoLayout];
         [self.view addSubview:_pickerToolbar];
         [_pickerToolbar autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:30.0f];
         [_pickerToolbar autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:30.0f];
         [_pickerToolbar autoSetDimension:ALDimensionHeight toSize:36.0f];
         [_pickerToolbar autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:_datePicker withOffset:0.0f];
-        
         _pickerToolbar.backgroundColor = Color(67, 67, 67, 0.8);
-        
         UIToolbar *keyToolbar = [[UIToolbar alloc] initForAutoLayout];
         [_pickerToolbar addSubview:keyToolbar];
         [keyToolbar autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0.0f];
@@ -695,7 +686,6 @@
 {
     RemarkViewController *firVC = [[RemarkViewController alloc] init];
     [firVC setNavBarTitle:@"备注信息" withFont:14.0f];
-    //    [firVC.navigationItem setTitle:@"备注信息"];
     [firVC setHiddenTabbar:YES];
     if (hintText == nil || [hintText isEqualToString:@""] == YES ||[hintText isEqualToString:@"输入备注信息"] == YES) {
         
